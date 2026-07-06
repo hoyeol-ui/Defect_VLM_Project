@@ -61,6 +61,7 @@ Important:
 """
 
 import re
+import os
 import json
 import yaml
 import shutil
@@ -104,10 +105,31 @@ YOLO_DATASETS_ROOT = PROJECT_ROOT / "datasets" / "al_yolo_ablation_v3_minimal"
 # -------------------------------------------------------------------------
 # 핵심 설정
 # -------------------------------------------------------------------------
-DRY_RUN_ONLY = False
+def parse_bool_env(name: str, default: bool) -> bool:
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
+def parse_int_list_env(name: str, default: list[int]) -> list[int]:
+    value = os.environ.get(name)
+    if not value:
+        return default
+    return [int(v.strip()) for v in value.split(",") if v.strip()]
+
+
+def parse_strategy_env(default: list[str]) -> list[str]:
+    value = os.environ.get("AL_STRATEGIES")
+    if not value:
+        return default
+    return [v.strip() for v in value.split(",") if v.strip()]
+
+
+DRY_RUN_ONLY = parse_bool_env("AL_DRY_RUN_ONLY", False)
 STRICT_LABEL_CHECK = True
 
-SEEDS = [42, 43, 44]
+SEEDS = parse_int_list_env("AL_SEEDS", [42, 43, 44])
 
 VAL_RATIO = 0.20
 
@@ -115,7 +137,7 @@ INITIAL_SEED_SIZE = 30
 AL_ROUNDS = 3
 QUERY_SIZE = 10
 
-EPOCHS_PER_ROUND = 30
+EPOCHS_PER_ROUND = int(os.environ.get("AL_EPOCHS_PER_ROUND", "30"))
 
 IMGSZ = 640
 BATCH_SIZE = 4
@@ -124,13 +146,21 @@ WORKERS = 0
 YOLO_MODEL_NAME = "yolov8n.pt"
 
 # 교수님 피드백 대응용 최소 전략 세트
-STRATEGIES_TO_RUN = [
+DEFAULT_STRATEGIES_TO_RUN = [
     "Random",
     "ConsistencyOnly",
     "GroundednessOnlySoft",
     "CombinedSoftPenalty",
     "LowPrioritySoft",
 ]
+
+STRATEGIES_TO_RUN = parse_strategy_env(DEFAULT_STRATEGIES_TO_RUN)
+
+PRIORITY_CSV_OVERRIDE = os.environ.get("AL_PRIORITY_CSV")
+
+WEIGHTED_ALPHA = float(os.environ.get("AL_WEIGHTED_ALPHA", "1.0"))
+WEIGHTED_BETA = float(os.environ.get("AL_WEIGHTED_BETA", "0.5"))
+WEIGHTED_GAMMA = float(os.environ.get("AL_WEIGHTED_GAMMA", "0.2"))
 
 
 # =============================================================================
@@ -266,7 +296,12 @@ def safe_numeric(df: pd.DataFrame, col: str, default: float = 0.0):
 # [3] Load priority score dataframe
 # =============================================================================
 def load_priority_scores():
-    priority_csv = find_latest_file("pseudo_boxes_*/priority_scores_pseudo.csv")
+    if PRIORITY_CSV_OVERRIDE:
+        priority_csv = Path(PRIORITY_CSV_OVERRIDE).expanduser().resolve()
+        if not priority_csv.exists():
+            raise FileNotFoundError(f"AL_PRIORITY_CSV does not exist: {priority_csv}")
+    else:
+        priority_csv = find_latest_file("pseudo_boxes_*/priority_scores_pseudo.csv")
     df = pd.read_csv(priority_csv)
     df = prepare_priority_dataframe(df)
     return priority_csv, df
@@ -344,6 +379,33 @@ def prepare_priority_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df["score_groundedness_only_soft"] = (
         1.0 - df["groundedness_effective_soft"]
     ) + df["missing_box_penalty"]
+
+    df["score_combined_no_penalty"] = (
+        safe_numeric(df, "uncertainty_consistency", default=0.0)
+        + safe_numeric(df, "uncertainty_groundedness_soft", default=0.5)
+    )
+
+    df["score_combined_no_groundedness"] = safe_numeric(
+        df,
+        "uncertainty_consistency",
+        default=0.0,
+    )
+
+    df["score_combined_weighted"] = (
+        WEIGHTED_ALPHA * safe_numeric(df, "uncertainty_consistency", default=0.0)
+        + WEIGHTED_BETA * safe_numeric(df, "uncertainty_groundedness_soft", default=0.5)
+        + WEIGHTED_GAMMA * (
+            df["groundedness_reason"].astype(str).eq("no_pseudo_box").astype(float)
+        )
+    )
+
+    df["score_combined_rank_calibrated"] = (
+        safe_numeric(df, "uncertainty_consistency", default=0.0).rank(method="average", pct=True)
+        + safe_numeric(df, "uncertainty_groundedness_soft", default=0.5).rank(method="average", pct=True)
+        + WEIGHTED_GAMMA * (
+            df["groundedness_reason"].astype(str).eq("no_pseudo_box").astype(float)
+        )
+    )
 
     # class hint 생성
     df["class_hint"] = df.apply(infer_class_hint, axis=1)
@@ -668,6 +730,69 @@ def build_yolo_dataset(
 # =============================================================================
 # [5] Selection strategies
 # =============================================================================
+def class_balanced_select(
+    current_pool: pd.DataFrame,
+    sample_size: int,
+    score_col: str | None,
+    ascending: bool,
+    seed: int,
+    round_idx: int,
+) -> pd.DataFrame:
+    if len(current_pool) == 0:
+        return current_pool.copy()
+
+    sample_size = min(sample_size, len(current_pool))
+    groups = list(current_pool.groupby("class_hint", dropna=False))
+    if not groups:
+        return current_pool.head(sample_size).copy()
+
+    base_quota = sample_size // len(groups)
+    remainder = sample_size % len(groups)
+    class_sizes = sorted(
+        [(class_name, len(sub)) for class_name, sub in groups],
+        key=lambda x: x[1],
+        reverse=True,
+    )
+    extra_classes = {class_name for class_name, _ in class_sizes[:remainder]}
+
+    selected_parts = []
+    selected_indices = set()
+    for class_name, sub in groups:
+        quota = base_quota + (1 if class_name in extra_classes else 0)
+        quota = min(quota, len(sub))
+        if quota <= 0:
+            continue
+        if score_col is None:
+            picked = sub.sample(n=quota, random_state=seed + round_idx * 101)
+        else:
+            picked = sub.sort_values(score_col, ascending=ascending).head(quota)
+        selected_parts.append(picked)
+        selected_indices.update(picked.index.tolist())
+
+    selected = pd.concat(selected_parts) if selected_parts else current_pool.iloc[0:0].copy()
+
+    if len(selected) < sample_size:
+        remaining = current_pool.drop(index=list(selected_indices), errors="ignore")
+        need = min(sample_size - len(selected), len(remaining))
+        if need > 0:
+            if score_col is None:
+                fill = remaining.sample(n=need, random_state=seed + round_idx * 131)
+            else:
+                fill = remaining.sort_values(score_col, ascending=ascending).head(need)
+            selected = pd.concat([selected, fill])
+
+    return selected.head(sample_size)
+
+
+def sort_select(current_pool: pd.DataFrame, sample_size: int, score_col: str, ascending: bool) -> pd.DataFrame:
+    if score_col not in current_pool.columns:
+        raise ValueError(
+            f"Score column not found for selection: {score_col}\n"
+            f"Available columns: {list(current_pool.columns)}"
+        )
+    return current_pool.sort_values(score_col, ascending=ascending).head(sample_size)
+
+
 def select_samples(
     strategy: str,
     current_pool: pd.DataFrame,
@@ -686,29 +811,59 @@ def select_samples(
             random_state=seed + round_idx * 101,
         )
 
-    if strategy == "ConsistencyOnly":
-        return current_pool.sort_values(
-            "score_consistency_only",
+    if strategy == "RandomClassBalanced":
+        return class_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col=None,
             ascending=False,
-        ).head(sample_size)
+            seed=seed,
+            round_idx=round_idx,
+        )
+
+    if strategy == "ConsistencyOnly":
+        return sort_select(current_pool, sample_size, "score_consistency_only", ascending=False)
 
     if strategy == "GroundednessOnlySoft":
-        return current_pool.sort_values(
-            "score_groundedness_only_soft",
-            ascending=False,
-        ).head(sample_size)
+        return sort_select(current_pool, sample_size, "score_groundedness_only_soft", ascending=False)
 
     if strategy == "CombinedSoftPenalty":
-        return current_pool.sort_values(
-            "score_combined_soft_penalty",
-            ascending=False,
-        ).head(sample_size)
+        return sort_select(current_pool, sample_size, "score_combined_soft_penalty", ascending=False)
 
     if strategy == "LowPrioritySoft":
-        return current_pool.sort_values(
-            "score_combined_soft_penalty",
+        return sort_select(current_pool, sample_size, "score_combined_soft_penalty", ascending=True)
+
+    if strategy == "CombinedNoPenalty":
+        return sort_select(current_pool, sample_size, "score_combined_no_penalty", ascending=False)
+
+    if strategy == "CombinedNoGroundedness":
+        return sort_select(current_pool, sample_size, "score_combined_no_groundedness", ascending=False)
+
+    if strategy == "CombinedWeighted":
+        return sort_select(current_pool, sample_size, "score_combined_weighted", ascending=False)
+
+    if strategy == "CombinedRankCalibrated":
+        return sort_select(current_pool, sample_size, "score_combined_rank_calibrated", ascending=False)
+
+    if strategy == "CombinedSoftPenaltyClassBalanced":
+        return class_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col="score_combined_soft_penalty",
+            ascending=False,
+            seed=seed,
+            round_idx=round_idx,
+        )
+
+    if strategy == "LowPrioritySoftClassBalanced":
+        return class_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col="score_combined_soft_penalty",
             ascending=True,
-        ).head(sample_size)
+            seed=seed,
+            round_idx=round_idx,
+        )
 
     raise ValueError(f"Unknown strategy: {strategy}")
 
@@ -1366,6 +1521,10 @@ def main():
         "DEVICE": get_device(),
         "DRY_RUN_ONLY": DRY_RUN_ONLY,
         "STRICT_LABEL_CHECK": STRICT_LABEL_CHECK,
+        "PRIORITY_CSV_OVERRIDE": PRIORITY_CSV_OVERRIDE,
+        "WEIGHTED_ALPHA": WEIGHTED_ALPHA,
+        "WEIGHTED_BETA": WEIGHTED_BETA,
+        "WEIGHTED_GAMMA": WEIGHTED_GAMMA,
     }
 
     with open(run_output_dir / "config.json", "w", encoding="utf-8") as f:
