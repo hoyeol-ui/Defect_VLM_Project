@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>VLM-based GT-free Active Learning Workflow</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 30px;
+            background-color: #f8fafc;
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            color: #1e293b;
+        }
+
+        .canvas {
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        /* Title Area */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        /* Main Flowchart Container */
+        .flow-container {
+            display: flex;
+            gap: 20px;
+            align-items: stretch;
+            margin-bottom: 30px;
+        }
+
+        /* Sections */
+        .section {
+            background: #ffffff;
+            border: 2px dashed #e2e8f0;
+            border-radius: 10px;
+            padding: 25px 15px 15px 15px;
+            position: relative;
+        }
+        
+        .section-title {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #1e40af;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Column Widths */
+        .col-source { width: 14%; border: none; padding-top: 35px; }
+        .col-scoring { width: 42%; border-color: #bfdbfe; }
+        .col-selection { width: 22%; border-color: #bfdbfe; }
+        .col-validation { width: 22%; border-color: #bfdbfe; }
+
+        /* Block Boxes */
+        .box {
+            border: 1px solid #94a3b8;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            font-size: 13px;
+            position: relative;
+        }
+        .box h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #1e40af;
+            line-height: 1.3;
+        }
+        .box-title-num {
+            color: #1e40af;
+            font-weight: 800;
+            margin-right: 5px;
+        }
+
+        /* Code/File Tags */
+        .code-tag {
+            display: block;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 4px 8px;
+            font-family: monospace;
+            font-size: 10.5px;
+            color: #64748b;
+            border-radius: 4px;
+            margin-top: 8px;
+            word-break: break-all;
+        }
+
+        /* Lists & Formulas */
+        ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .formula {
+            background: #f8fafc;
+            border-left: 3px solid #3b82f6;
+            padding: 8px 12px;
+            margin: 8px 0;
+            font-family: 'Cambria', serif;
+            font-size: 13px;
+        }
+
+        /* Callouts / Warnings */
+        .callout {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .callout.no-gt { background: #f1f5f9; border: 1px dashed #94a3b8; }
+        .callout.warning-yellow { background: #fef9c3; border: 1px solid #fde047; color: #854d0e; }
+        .callout.warning-red { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+
+        /* Cross-dependency link (2A -> 3B) */
+        .dependency-link {
+            background: #f0fdfa;
+            border: 1px dashed #14b8a6;
+            color: #0f766e;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* Arrows */
+        .arrow-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .arrow-down {
+            text-align: center;
+            color: #94a3b8;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .arrow-merge {
+            text-align: center;
+            color: #3b82f6;
+            font-weight: 700;
+            font-size: 13px;
+            margin: 10px 0;
+            background: #eff6ff;
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px dashed #bfdbfe;
+        }
+
+        /* Grid for parallel branches */
+        .parallel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .branch-header {
+            font-size: 12px;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 4px;
+            text-align: left;
+        }
+        th { background: #f8fafc; }
+
+        /* Bottom Diagnosis Section */
+        .diagnosis-section {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            margin-top: 30px;
+        }
+        .diagnosis-section .section-title {
+            background: #0f172a;
+        }
+        .diag-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .diag-box {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            text-align: center;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        /* Conclusion Bar */
+        .conclusion-bar {
+            margin-top: 20px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .conclusion-bar h3 {
+            margin: 0 0 5px 0;
+            color: #1e40af;
+            font-size: 16px;
+        }
+        .conclusion-bar p {
+            margin: 0;
+            font-size: 13px;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+        .conclusion-note {
+            color: #b91c1c;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="canvas">
+    
+    <div class="header">
+        <h1>VLM-based GT-free Active Learning for Industrial Defect Detection</h1>
+        <p>Parallel GT-free acquisition scoring for annotation-efficient detector training</p>
+    </div>
+
+    <div class="flow-container">
+        
+        <div class="section col-source" style="border: none;">
+            <div class="box" style="border-color: #3b82f6; border-width: 2px;">
+                <h3><span class="box-title-num">1.</span> Unlabeled industrial defect images</h3>
+                <p style="text-align: center; font-size: 24px; margin: 10px 0;">🖼️</p>
+                <p style="text-align: center; color: #64748b; font-size: 11px;">GC10-DET / NEU-DET<br>benchmark pool</p>
+            </div>
+            
+            <div class="callout no-gt">
+                🚫 <strong>Acquisition is GT-free</strong><br>
+                <span style="font-size: 11px; font-weight: normal;">No GT labels / boxes used</span>
+            </div>
+        </div>
+
+        <div class="arrow-right">▶</div>
+
+        <div class="section col-scoring">
+            <div class="section-title">A. GT-free scoring (Parallel Branches & Merge)</div>
+            
+            <div class="parallel-grid">
+                <div class="branch-header">Semantic Branch</div>
+                <div class="branch-header">Visual Grounding Branch</div>
+
+                <div class="box">
+                    <h3><span class="box-title-num">2A.</span> VLM multi-prompt description</h3>
+                    <ul>
+                        <li>Image-level defect description</li>
+                        <li>Location & scale/appearance prompt</li>
+                        <li>Multiple responses per image</li>
+                    </ul>
+                    <div class="code-tag">generate_response()</div>
+                </div>
+
+                <div class="box">
+                    <h3><span class="box-title-num">2B.</span> OWL-ViT pseudo visual evidence</h3>
+                    <ul>
+                        <li>Open-vocabulary pseudo boxes</li>
+                        <li>Spatial zone & Scale category</li>
+                    </ul>
+                    <div class="callout warning-yellow" style="margin-top:8px; padding:4px;">
+                        Weak visual evidence (Not GT)
+                    </div>
+                    <div class="code-tag">predict_pseudo_boxes()</div>
+                </div>
+
+                <div class="arrow-down">▼</div>
+                <div class="arrow-down">▼</div>
+
+                <div class="box">
+                    <h3><span class="box-title-num">3A.</span> SBERT semantic consistency</h3>
+                    <div class="formula">
+                        C(x) = mean<sub>i&lt;j</sub> cos(e<sub>i</sub>, e<sub>j</sub>)<br>
+                        U<sub>C</sub>(x) = 1 - C(x)
+                    </div>
+                    <div class="code-tag">compute_sbert_consistency()</div>
+                </div>
+
+                <div class="box" style="border-color: #14b8a6; border-width: 2px;">
+                    <h3><span class="box-title-num">3B.</span> Pseudo groundedness</h3>
+                    <div class="dependency-link">
+                        ⤡ Uses VLM terms from [2A] + boxes from [2B]
+                    </div>
+                    <p style="margin:0 0 5px 0; font-size: 11px; color: #475569;">Compare VLM location/scale terms with pseudo box zone/scale</p>
+                    <div class="formula" style="font-size: 12px;">
+                        G(x) = mean matching score<br>
+                        U<sub>G</sub>(x) = 1 - G(x)
+                    </div>
+                    <div class="code-tag">compute_groundedness_for_item()</div>
+                </div>
+            </div>
+
+            <div class="arrow-merge">
+                ↘ Merge (Combine U<sub>C</sub> from 3A and U<sub>G</sub> from 3B) ↙
+            </div>
+
+            <div class="box" style="margin-bottom: 0;">
+                <h3><span class="box-title-num">4.</span> GT-free acquisition score</h3>
+                <div class="formula" style="font-size: 12px; margin-top: 0;"><strong>Original:</strong> S<sub>combined</sub> = U<sub>C</sub> + U<sub>G</sub> + λ · 1(no_pseudo_box)</div>
+                <div class="formula" style="font-size: 12px; margin-top: 5px;"><strong>Diagnostic fix:</strong> S<sub>suppress</sub> = U<sub>C</sub> + U<sub>G</sub> - γ · 1(no_pseudo_box)</div>
+                
+                <div class="callout warning-red" style="margin-top: 10px;">
+                    ⚠️ <strong>Direction issue:</strong> +lambda can boost no_pseudo_box under descending selection
+                </div>
+                <div class="code-tag">make_priority_scores.py</div>
+            </div>
+        </div>
+
+        <div class="arrow-right">▶</div>
+
+        <div class="section col-selection">
+            <div class="section-title">B. Active learning selection</div>
+            
+            <div class="box">
+                <h3><span class="box-title-num">5.</span> Sample selection</h3>
+                <table>
+                    <thead>
+                        <tr><th>strategy</th><th>rule</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Random</td><td>random sampling</td></tr>
+                        <tr><td>ConsistencyOnly</td><td>select high U<sub>C</sub></td></tr>
+                        <tr><td>GroundednessOnlySoft</td><td>select high U<sub>G</sub></td></tr>
+                        <tr><td>CombinedSoftPenalty</td><td>select high S<sub>combined</sub></td></tr>
+                        <tr><td>LowPrioritySoft</td><td>select low S<sub>combined</sub></td></tr>
+                        <tr style="background-color:#eff6ff;"><td>CombinedSuppressNoPseudo</td><td>select high S<sub>suppress</sub></td></tr>
+                    </tbody>
+                </table>
+                <div class="code-tag">select_samples()</div>
+            </div>
+
+            <div class="arrow-down">▼</div>
+            
+            <div style="text-align: center; color: #3b82f6; font-size: 11px; font-weight: bold; margin-bottom: 5px;">
+                Annotation Simulation / Human Labeling
+            </div>
+
+            <div class="box" style="border-width: 2px; border-color: #3b82f6; margin-bottom: 0;">
+                <h3 style="text-align: center;"><span class="box-title-num">6.</span> Selected samples are labeled</h3>
+                <p style="text-align: center; font-size: 24px; margin: 5px 0;">✍️</p>
+                <p style="text-align: center; font-size: 12px; font-weight: bold; color: #1e40af; margin-bottom: 5px;">GT is NOT used before selection</p>
+                <p style="text-align: center; font-size: 11px; color: #64748b; line-height: 1.3;">Benchmark GT XML simulates human annotation after selection</p>
+            </div>
+        </div>
+
+        <div class="arrow-right">▶</div>
+
+        <div class="section col-validation">
+            <div class="section-title">C. Detector-level validation</div>
+            
+            <div class="box">
+                <h3 style="text-align: center;"><span class="box-title-num">7.</span> YOLOv8 detector validation</h3>
+                <p style="text-align: center; font-size: 24px; margin: 10px 0;">⚙️</p>
+                <ul>
+                    <li>Build train/val dataset</li>
+                    <li>Train YOLO on selected labeled subset</li>
+                    <li>Evaluate on fixed validation split</li>
+                </ul>
+                <div class="code-tag">train_and_eval_yolo()</div>
+            </div>
+
+            <div class="arrow-down">▼</div>
+
+            <div class="box" style="margin-bottom: 0;">
+                <h3><span class="box-title-num">8.</span> Evaluation metrics</h3>
+                <ul>
+                    <li>mAP@50 & mAP@50-95</li>
+                    <li>AULC over labeled budget</li>
+                </ul>
+                <div class="formula" style="font-size: 12px;">
+                    AULC = ∑ 0.5 · (m<sub>t</sub> + m<sub>t+1</sub>) · (b<sub>t+1</sub> - b<sub>t</sub>)
+                </div>
+                <div class="code-tag">compute_aulc()</div>
+            </div>
+        </div>
+
+    </div> <div class="diagnosis-section">
+        <div class="section-title">D. Post-hoc diagnosis</div>
+        <h3 style="margin: 0; font-size: 15px; color: #0f172a;"><span class="box-title-num">9.</span> Direction and failure analysis</h3>
+        <p style="margin: 5px 0 0 0; font-size: 12px; color: #64748b;">(Feedback loop to acquisition scoring module)</p>
+        
+        <div class="diag-grid">
+            <div class="diag-box">
+                📊 Class & Reason Dist.<br>
+                <div class="code-tag">analyze_selection_direction_issue.py</div>
+                <div class="code-tag">analyze_selection_enrichment.py</div>
+            </div>
+            <div class="diag-box">
+                🔍 Overlap & Quantiles<br>
+                <div class="code-tag">analyze_selection_direction_issue.py</div>
+            </div>
+            <div class="diag-box">
+                🏷️ no_pseudo_box GT Audit<br>
+                <div class="code-tag">audit_no_pseudo_box_gt_presence.py</div>
+            </div>
+            <div class="diag-box">
+                📈 Round Pool State<br>
+                <div class="code-tag">analyze_round_pool_state.py</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="conclusion-bar">
+        <div style="font-size: 32px;">🚀</div>
+        <div>
+            <h3>Current conclusion: Promising but not closed</h3>
+            <p>Score direction and pseudo groundedness calibration remain open issues (e.g., LowPrioritySoft performance anomaly).<br>
+            <span class="conclusion-note">* Note: <code>no_pseudo_box</code> can indicate OVD failure candidates with GT defects, not necessarily background.</span></p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
