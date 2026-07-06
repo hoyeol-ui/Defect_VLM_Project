@@ -1,5 +1,6 @@
 import json
 import statistics
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Any, Optional
@@ -12,6 +13,14 @@ from qwen_vl_utils import process_vision_info
 
 # 위 유틸리티 스크립트에서 파서 기능 로드
 from utils_bbox_parser import parse_voc_xml, get_xml_path_from_image
+
+# =============================================================================
+# Legacy compatibility note
+# =============================================================================
+# This script is a prompt-family pilot validation script.
+# It may use benchmark GT XML for validation/audit.
+# It is not the GT-free acquisition selection step.
+# GT is not used in downstream acquisition score calculation.
 
 # =============================================================================
 # [1] 가속 기기 및 경로 설정
@@ -27,22 +36,54 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 # =============================================================================
 # [2] Detection-Oriented 프롬프트 세트 정의
 # =============================================================================
-PROMPT_FAMILY = {
-    "location": (
-        "Identify the main defect in this image. Describe its location using standard spatial terms "
-        "(e.g., top-left, top-center, top-right, center-left, center, center-right, bottom-left, bottom-center, bottom-right). "
-        "Your response must include a phrase like: 'The defect is located in the [spatial term] region.'"
-    ),
-    "scale": (
-        "Analyze the size of the defect relative to the entire image area. "
-        "Categorize its scale as either 'micro' (tiny point), 'small' (localized region), or 'large' (covering significant portion). "
-        "Your response must include a phrase like: 'The scale of the defect is [scale category].'"
-    ),
-    "appearance": (
-        "As an industrial quality inspector, examine this image. "
-        "Describe the shape, texture, and visual boundary of the defect in detail. Keep it brief."
+try:
+    SCORE_GENERATION_DIR = PROJECT_ROOT / "scripts" / "01_score_generation"
+    if str(SCORE_GENERATION_DIR) not in sys.path:
+        sys.path.insert(0, str(SCORE_GENERATION_DIR))
+    from prompt_families import (  # type: ignore
+        EXPERT_DEFECT_PROMPT_FAMILY,
+        compute_prompt_family_hash,
+        get_prompt_family_metadata,
     )
-}
+
+    PROMPT_FAMILY_RECORD = EXPERT_DEFECT_PROMPT_FAMILY
+    PROMPT_FAMILY = PROMPT_FAMILY_RECORD["prompts"]
+    PROMPT_FAMILY_METADATA = get_prompt_family_metadata(PROMPT_FAMILY_RECORD)
+except Exception:
+    # Fallback preserves legacy behavior if the new prompt-family module is not
+    # on the Python path.
+    PROMPT_FAMILY = {
+        "location": (
+            "Identify the main defect in this image. Describe its location using standard spatial terms "
+            "(e.g., top-left, top-center, top-right, center-left, center, center-right, bottom-left, bottom-center, bottom-right). "
+            "Your response must include a phrase like: 'The defect is located in the [spatial term] region.'"
+        ),
+        "scale": (
+            "Analyze the size of the defect relative to the entire image area. "
+            "Categorize its scale as either 'micro' (tiny point), 'small' (localized region), or 'large' (covering significant portion). "
+            "Your response must include a phrase like: 'The scale of the defect is [scale category].'"
+        ),
+        "appearance": (
+            "As an industrial quality inspector, examine this image. "
+            "Describe the shape, texture, and visual boundary of the defect in detail. Keep it brief."
+        )
+    }
+    PROMPT_FAMILY_RECORD = {
+        "name": "expert_defect",
+        "version": "v1",
+        "id": "expert_defect_v1",
+        "prompt_keys": list(PROMPT_FAMILY.keys()),
+        "prompts": PROMPT_FAMILY,
+        "is_gt_free": True,
+    }
+    PROMPT_FAMILY_METADATA = {
+        "prompt_family_id": "expert_defect_v1",
+        "prompt_family_name": "expert_defect",
+        "prompt_family_version": "v1",
+        "prompt_family_hash": "fallback",
+        "prompt_keys": "|".join(PROMPT_FAMILY.keys()),
+        "prompt_family_is_gt_free": True,
+    }
 
 
 def load_models():
@@ -183,8 +224,23 @@ def main():
             print(f"  ❌ 에러: {e}")
 
     output_file = OUTPUT_DIR / "pilot_grounded_consistency_results.json"
+    output_payload = {
+        "metadata": {
+            **PROMPT_FAMILY_METADATA,
+            "model_id": MODEL_ID,
+            "sbert_id": SBERT_ID,
+            "generated_at": datetime.now().isoformat(timespec="seconds"),
+            "script_role": "prompt_family_pilot_validation_with_gt",
+            "gt_usage_note": (
+                "Benchmark GT XML may be used here only for prompt-family "
+                "validation/audit. It is not used for downstream active "
+                "learning acquisition score calculation."
+            ),
+        },
+        "results": results,
+    }
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=4)
+        json.dump(output_payload, f, ensure_ascii=False, indent=4)
     print(f"\n[완료] 100장 스케일업 보고서 저장 완료: {output_file}")
 
 

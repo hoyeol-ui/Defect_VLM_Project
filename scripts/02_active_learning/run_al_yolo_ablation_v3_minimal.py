@@ -91,6 +91,25 @@ except Exception as e:
         "pip install ultralytics"
     ) from e
 
+try:
+    from strategy_metadata import (
+        STRATEGY_METADATA,
+        add_strategy_metadata_columns,
+        get_strategy_metadata,
+    )
+except Exception:
+    STRATEGY_METADATA = {}
+
+    def get_strategy_metadata(strategy: str) -> dict:
+        return {
+            "display_name": strategy,
+            "family": "Uncategorized",
+            "role": "No strategy metadata registered",
+        }
+
+    def add_strategy_metadata_columns(df: pd.DataFrame, strategy_col: str = "strategy") -> pd.DataFrame:
+        return df
+
 
 # =============================================================================
 # [0] Project settings
@@ -1233,7 +1252,7 @@ def make_seed_strategy_summary(results_df: pd.DataFrame) -> pd.DataFrame:
             "aulc_map5095": compute_aulc(sub["labeled_budget"], sub["map5095"]),
         })
 
-    return pd.DataFrame(rows)
+    return add_strategy_metadata_columns(pd.DataFrame(rows))
 
 
 def make_aggregate_strategy_summary(seed_summary_df: pd.DataFrame) -> pd.DataFrame:
@@ -1249,8 +1268,12 @@ def make_aggregate_strategy_summary(seed_summary_df: pd.DataFrame) -> pd.DataFra
     rows = []
 
     for strategy, sub in seed_summary_df.groupby("strategy"):
+        meta = get_strategy_metadata(strategy)
         row = {
             "strategy": strategy,
+            "strategy_display_name": meta["display_name"],
+            "strategy_family": meta["family"],
+            "strategy_role": meta["role"],
             "num_seeds": sub["seed"].nunique(),
         }
 
@@ -1298,11 +1321,13 @@ def write_summary_md(
     lines.append("")
 
     lines.append("## 4. 전략 의미\n")
-    lines.append("- Random: 무작위 baseline")
-    lines.append("- ConsistencyOnly: VLM 설명 일관성만 사용")
-    lines.append("- GroundednessOnlySoft: pseudo groundedness와 missing evidence penalty만 사용")
-    lines.append("- CombinedSoftPenalty: consistency + soft groundedness + missing evidence penalty")
-    lines.append("- LowPrioritySoft: CombinedSoftPenalty 점수가 낮은 샘플부터 선택하는 negative control")
+    for strategy in config.get("STRATEGIES_TO_RUN", "").split(", "):
+        if not strategy:
+            continue
+        meta = get_strategy_metadata(strategy)
+        lines.append(
+            f"- `{strategy}`: {meta['display_name']} | {meta['family']} | {meta['role']}"
+        )
     lines.append("")
 
     if len(seed_summary_df) > 0:
@@ -1315,7 +1340,38 @@ def write_summary_md(
         lines.append(aggregate_df.to_markdown(index=False))
         lines.append("")
 
-    lines.append("## 7. 해석 가이드\n")
+    lines.append("## 7. Consistency-centered interpretation\n")
+    lines.append("### Core hypothesis\n")
+    lines.append(
+        "- `ConsistencyOnly` tests whether expert-designed VLM prompt-family "
+        "inconsistency is useful as a GT-free acquisition signal."
+    )
+    lines.append(
+        "- This is the main research hypothesis, not merely a baseline."
+    )
+    lines.append("")
+    lines.append("### Auxiliary extension\n")
+    lines.append(
+        "- `GroundednessOnlySoft`, `CombinedSoftPenalty`, and "
+        "`CombinedSuppressNoPseudo` test whether weak pseudo visual evidence "
+        "improves or destabilizes the core consistency signal."
+    )
+    lines.append(
+        "- OWL-ViT pseudo boxes are weak visual evidence, not ground-truth boxes."
+    )
+    lines.append("")
+    lines.append("### Failure analysis\n")
+    lines.append("- `LowPrioritySoft` is a reverse-direction diagnostic control.")
+    lines.append(
+        "- `no_pseudo_box` analysis checks whether the auxiliary visual signal "
+        "introduces direction/calibration artifacts."
+    )
+    lines.append(
+        "- Current conclusion should be framed as promising but not closed."
+    )
+    lines.append("")
+
+    lines.append("## 8. 해석 가이드\n")
     lines.append(
         "- CombinedSoftPenalty가 Random보다 final mAP와 AULC에서 높으면, "
         "제안 점수가 detector 학습 효율에 기여할 가능성이 있다."

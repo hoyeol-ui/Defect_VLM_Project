@@ -1,12 +1,28 @@
-# VLM-based GT-free Active Learning for Industrial Defect Detection
+# Expert Prompt Consistency-driven GT-free Active Learning for Industrial Defect Detection
 
-This repository studies **GT-free active learning for industrial defect detection**.
+This repository studies **GT-free active learning for industrial defect detection** driven by an **expert-designed VLM prompt family**.
 The central question is:
 
-> Can VLM-generated explanations and weak open-vocabulary visual evidence help decide which unlabeled defect images should be annotated first, before any ground-truth labels or boxes are used?
+> Can inconsistency among VLM explanations generated from an expert-designed industrial-defect prompt family identify informative unlabeled images for annotation before any ground-truth labels or boxes are used?
 
 The project does **not** use ground-truth annotations during acquisition scoring.
 Ground-truth XML annotations from benchmark datasets are used only **after sample selection** to simulate human annotation and to validate the selected samples through YOLOv8 detector training.
+
+Core novelty:
+
+- expert-designed prompt family for industrial defect description,
+- semantic consistency uncertainty from multi-prompt VLM responses,
+- GT-free active learning acquisition.
+
+Auxiliary extension:
+
+- pseudo groundedness from OWL-ViT weak visual evidence.
+
+Failure analysis:
+
+- `no_pseudo_box` direction/calibration issue,
+- `LowPrioritySoft` reverse-direction control,
+- `CombinedSuppressNoPseudo` calibration.
 
 ## Overview
 
@@ -42,15 +58,21 @@ Important distinction:
 
 ### 2. VLM Multi-prompt Description
 
-For each image, a VLM generates multiple descriptions using prompts about image-level defect appearance, location, scale, and visual attributes.
+For each image, a VLM generates multiple descriptions using an expert-inspired prompt family for industrial defect inspection. The current version is `expert_defect_v1`, with location, scale, and appearance prompts.
 
 Main code lineage:
 
+- `scripts/01_score_generation/prompt_families.py`
+- `EXPERT_DEFECT_PROMPT_FAMILY`
+- `get_prompt_family()`
+- `compute_prompt_family_hash()`
 - `scripts/old/260511_VLM_ActiveLearning_FullExperiment.py`
 - `generate_response()`
 - `run_prompt_group_experiment()`
+- `scripts/grounded_prompt_experiment.py`
 
 Although this code currently lives under `scripts/old/`, it is the source of the VLM multi-prompt consistency experiments used by the current pipeline.
+The compatibility script `scripts/grounded_prompt_experiment.py` is treated as prompt-family pilot validation; it may use benchmark GT for audit, but GT is not used in downstream active learning acquisition.
 
 ### 3. Semantic Consistency
 
@@ -149,19 +171,20 @@ This is one of the main score-direction issues diagnosed in the current experime
 
 The current active learning experiments compare the following strategies:
 
-| Strategy | Score used | Selection rule | Purpose |
-|---|---|---|---|
-| `Random` | none | random sampling | baseline |
-| `ConsistencyOnly` | `U_C` | select high score | semantic uncertainty only |
-| `GroundednessOnlySoft` | `U_G` with soft missing handling | select high score | pseudo-groundedness uncertainty only |
-| `CombinedSoftPenalty` | `S_combined` | select high score | original combined strategy |
-| `LowPrioritySoft` | `S_combined` | select low score | direction-control strategy |
-| `CombinedSuppressNoPseudo` | `S_suppress` | select high score | diagnostic no-pseudo suppression |
-| `CombinedSuppressNoPseudoClassBalanced` | `S_suppress` with class-balanced selection | select high score within class quota | diagnostic class-balance variant |
+| Strategy ID | Research display name | Score used | Selection rule | Purpose |
+|---|---|---|---|---|
+| `Random` | Random | none | random sampling | baseline |
+| `ConsistencyOnly` | ExpertPromptConsistency | `U_C` | select high score | core hypothesis: expert prompt-family consistency |
+| `GroundednessOnlySoft` | PseudoGroundingOnly | `U_G` with soft missing handling | select high score | auxiliary-only ablation |
+| `CombinedSoftPenalty` | Consistency + AuxGrounding | `S_combined` | select high score | naive auxiliary extension |
+| `LowPrioritySoft` | ReverseDirectionControl | `S_combined` | select low score | direction-control strategy |
+| `CombinedSuppressNoPseudo` | Calibrated Consistency + AuxGrounding | `S_suppress` | select high score | no-pseudo calibration diagnostic |
+| `CombinedSuppressNoPseudoClassBalanced` | Class-balanced Calibrated AuxGrounding | `S_suppress` with class-balanced selection | select high score within class quota | diagnostic class-balance variant |
 
 Main code:
 
 - `scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py`
+- `scripts/02_active_learning/strategy_metadata.py`
 - `select_samples()`
 - `sort_select()`
 - `class_balanced_select()`
@@ -203,6 +226,7 @@ The current work includes post-hoc analysis scripts to diagnose whether the acqu
 | Selection enrichment | `scripts/03_analysis/analyze_selection_enrichment.py` | compare selected samples against the full priority pool |
 | No-pseudo GT audit | `scripts/03_analysis/audit_no_pseudo_box_gt_presence.py` | check whether `no_pseudo_box` selected samples contain GT defects |
 | Round pool state | `scripts/03_analysis/analyze_round_pool_state.py` | track selected vs remaining pool behavior by round |
+| Consistency hypothesis | `scripts/03_analysis/analyze_consistency_hypothesis.py` | reframe results around the core prompt-family consistency hypothesis |
 | Recovered result summaries | `scripts/03_analysis/recover_v3_minimal_results.py` | recover and summarize runs if training completed but final aggregation failed |
 
 Important diagnostic findings so far:
@@ -218,22 +242,28 @@ Important diagnostic findings so far:
 ```text
 scripts/
   01_score_generation/
+    prompt_families.py
     run_ovd_pseudo_boxes.py
     compute_pseudo_groundedness.py
     make_priority_scores.py
     make_priority_scores_sensitivity.py
 
   02_active_learning/
+    strategy_metadata.py
     run_al_yolo_ablation_v3_minimal.py
     run_al_yolo_ablation_v4_direction_fix.py
     run_yolo_full_supervised_baseline.py
 
   03_analysis/
+    analyze_consistency_hypothesis.py
     analyze_selection_direction_issue.py
     analyze_selection_enrichment.py
     analyze_round_pool_state.py
     audit_no_pseudo_box_gt_presence.py
     recover_v3_minimal_results.py
+
+  00_prompt_validation/
+    validate_expert_prompt_family_with_gt.py
 
   old/
     260511_VLM_ActiveLearning_FullExperiment.py
@@ -279,10 +309,18 @@ Run direction-issue analysis:
   --priority-dir outputs/pseudo_boxes_20260622_191121
 ```
 
+Run consistency-hypothesis analysis:
+
+```bash
+.venv/bin/python scripts/03_analysis/analyze_consistency_hypothesis.py \
+  --run-dir runs/active_learning_ablation_v3_minimal/<RUN_DIR>
+```
+
 ## Current Status
 
 Implemented:
 
+- expert prompt family versioning for VLM industrial defect descriptions
 - VLM explanation consistency scoring
 - OWL-ViT pseudo-box generation
 - pseudo groundedness computation
@@ -306,3 +344,7 @@ Open research issues:
 This repository should be read as an experimental research framework, not as a closed final method. The current evidence supports the following careful claim:
 
 > VLM consistency and pseudo-groundedness provide useful GT-free acquisition signals, but the acquisition direction and weak visual evidence calibration require further validation before claiming robust superiority.
+
+More precisely, the core hypothesis is:
+
+> Expert-designed VLM prompt-family inconsistency can serve as a GT-free active learning acquisition signal. Pseudo groundedness is weak auxiliary visual evidence, not the core method or ground-truth localization.
