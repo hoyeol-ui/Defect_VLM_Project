@@ -161,6 +161,7 @@ PRIORITY_CSV_OVERRIDE = os.environ.get("AL_PRIORITY_CSV")
 WEIGHTED_ALPHA = float(os.environ.get("AL_WEIGHTED_ALPHA", "1.0"))
 WEIGHTED_BETA = float(os.environ.get("AL_WEIGHTED_BETA", "0.5"))
 WEIGHTED_GAMMA = float(os.environ.get("AL_WEIGHTED_GAMMA", "0.2"))
+SUPPRESS_NO_PSEUDO_GAMMA = float(os.environ.get("AL_SUPPRESS_NO_PSEUDO_GAMMA", "0.2"))
 
 
 # =============================================================================
@@ -403,20 +404,25 @@ def prepare_priority_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         default=0.0,
     )
 
+    no_pseudo_indicator = (
+        df["groundedness_reason"].astype(str).eq("no_pseudo_box").astype(float)
+    )
+
+    df["score_combined_suppress_no_pseudo"] = (
+        df["score_combined_no_penalty"]
+        - SUPPRESS_NO_PSEUDO_GAMMA * no_pseudo_indicator
+    )
+
     df["score_combined_weighted"] = (
         WEIGHTED_ALPHA * safe_numeric(df, "uncertainty_consistency", default=0.0)
         + WEIGHTED_BETA * safe_numeric(df, "uncertainty_groundedness_soft", default=0.5)
-        + WEIGHTED_GAMMA * (
-            df["groundedness_reason"].astype(str).eq("no_pseudo_box").astype(float)
-        )
+        + WEIGHTED_GAMMA * no_pseudo_indicator
     )
 
     df["score_combined_rank_calibrated"] = (
         safe_numeric(df, "uncertainty_consistency", default=0.0).rank(method="average", pct=True)
         + safe_numeric(df, "uncertainty_groundedness_soft", default=0.5).rank(method="average", pct=True)
-        + WEIGHTED_GAMMA * (
-            df["groundedness_reason"].astype(str).eq("no_pseudo_box").astype(float)
-        )
+        + WEIGHTED_GAMMA * no_pseudo_indicator
     )
 
     # class hint 생성
@@ -870,11 +876,24 @@ def select_samples(
     if strategy == "CombinedRankCalibrated":
         return sort_select(current_pool, sample_size, "score_combined_rank_calibrated", ascending=False)
 
+    if strategy == "CombinedSuppressNoPseudo":
+        return sort_select(current_pool, sample_size, "score_combined_suppress_no_pseudo", ascending=False)
+
     if strategy == "CombinedSoftPenaltyClassBalanced":
         return class_balanced_select(
             current_pool=current_pool,
             sample_size=sample_size,
             score_col="score_combined_soft_penalty",
+            ascending=False,
+            seed=seed,
+            round_idx=round_idx,
+        )
+
+    if strategy == "CombinedSuppressNoPseudoClassBalanced":
+        return class_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col="score_combined_suppress_no_pseudo",
             ascending=False,
             seed=seed,
             round_idx=round_idx,
@@ -1558,6 +1577,7 @@ def main():
         "WEIGHTED_ALPHA": WEIGHTED_ALPHA,
         "WEIGHTED_BETA": WEIGHTED_BETA,
         "WEIGHTED_GAMMA": WEIGHTED_GAMMA,
+        "SUPPRESS_NO_PSEUDO_GAMMA": SUPPRESS_NO_PSEUDO_GAMMA,
     }
 
     with open(run_output_dir / "config.json", "w", encoding="utf-8") as f:
