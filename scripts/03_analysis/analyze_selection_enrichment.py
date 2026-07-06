@@ -83,7 +83,10 @@ def normalize(df):
 
 def make_distribution(df, group_col: str, base_cols: list[str], count_name="count"):
     grouped = df.groupby(base_cols + [group_col], dropna=False).size().reset_index(name=count_name)
-    denom = grouped.groupby(base_cols)[count_name].transform("sum")
+    if base_cols:
+        denom = grouped.groupby(base_cols)[count_name].transform("sum")
+    else:
+        denom = grouped[count_name].sum()
     grouped["ratio"] = np.where(denom > 0, grouped[count_name] / denom, 0.0)
     return grouped
 

@@ -234,7 +234,27 @@ def main():
 
     keys = choose_merge_keys(selected, priority)
     cols = list(dict.fromkeys(keys + ["image_path", "groundedness_reason", "pseudo_box_found", "pseudo_box_count"]))
-    merged = selected.merge(priority[[c for c in cols if c in priority.columns]].drop_duplicates(keys), on=keys, how="left")
+    merged = selected.merge(
+        priority[[c for c in cols if c in priority.columns]].drop_duplicates(keys),
+        on=keys,
+        how="left",
+        suffixes=("", "_priority"),
+    )
+    for col in ["image_path", "groundedness_reason", "pseudo_box_found", "pseudo_box_count"]:
+        priority_col = f"{col}_priority"
+        if priority_col in merged.columns:
+            if col in merged.columns:
+                merged[col] = merged[col].where(merged[col].notna(), merged[priority_col])
+            else:
+                merged[col] = merged[priority_col]
+            merged = merged.drop(columns=[priority_col])
+    if "groundedness_reason" not in merged.columns:
+        raise ValueError(
+            "Merged dataframe has no groundedness_reason column.\n"
+            f"Selected columns: {list(selected.columns)}\n"
+            f"Priority columns: {list(priority.columns)}\n"
+            f"Merged columns: {list(merged.columns)}"
+        )
     acquired = merged[pd.to_numeric(merged["round"], errors="coerce").fillna(0) > 0].copy()
     no_pseudo = acquired[acquired["groundedness_reason"].astype(str) == NO_PSEUDO_REASON].copy()
 
