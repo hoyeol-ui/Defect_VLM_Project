@@ -307,6 +307,18 @@ def load_priority_scores():
     return priority_csv, df
 
 
+def stable_sample_order(df: pd.DataFrame) -> pd.DataFrame:
+    """Keep split/random sampling independent of priority CSV row order."""
+    sort_cols = [
+        c
+        for c in ["dataset_type", "image_name", "image_path"]
+        if c in df.columns
+    ]
+    if not sort_cols:
+        return df.copy()
+    return df.sort_values(sort_cols, kind="mergesort").copy()
+
+
 def prepare_priority_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
@@ -410,8 +422,10 @@ def prepare_priority_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     # class hint 생성
     df["class_hint"] = df.apply(infer_class_hint, axis=1)
 
-    # 중복 제거
-    df = df.drop_duplicates(subset=["image_name", "dataset_type"]).reset_index(drop=True)
+    # 중복 제거 후 stable order 고정:
+    # penalty sensitivity CSV가 score 기준으로 재정렬되어도 val/seed/random split이 바뀌지 않게 한다.
+    df = df.drop_duplicates(subset=["image_name", "dataset_type"])
+    df = stable_sample_order(df).reset_index(drop=True)
 
     return df
 
@@ -741,6 +755,7 @@ def class_balanced_select(
     if len(current_pool) == 0:
         return current_pool.copy()
 
+    current_pool = stable_sample_order(current_pool)
     sample_size = min(sample_size, len(current_pool))
     groups = list(current_pool.groupby("class_hint", dropna=False))
     if not groups:
@@ -763,9 +778,9 @@ def class_balanced_select(
         if quota <= 0:
             continue
         if score_col is None:
-            picked = sub.sample(n=quota, random_state=seed + round_idx * 101)
+            picked = stable_sample_order(sub).sample(n=quota, random_state=seed + round_idx * 101)
         else:
-            picked = sub.sort_values(score_col, ascending=ascending).head(quota)
+            picked = sort_select(sub, quota, score_col, ascending=ascending)
         selected_parts.append(picked)
         selected_indices.update(picked.index.tolist())
 
@@ -776,9 +791,9 @@ def class_balanced_select(
         need = min(sample_size - len(selected), len(remaining))
         if need > 0:
             if score_col is None:
-                fill = remaining.sample(n=need, random_state=seed + round_idx * 131)
+                fill = stable_sample_order(remaining).sample(n=need, random_state=seed + round_idx * 131)
             else:
-                fill = remaining.sort_values(score_col, ascending=ascending).head(need)
+                fill = sort_select(remaining, need, score_col, ascending=ascending)
             selected = pd.concat([selected, fill])
 
     return selected.head(sample_size)
@@ -790,7 +805,16 @@ def sort_select(current_pool: pd.DataFrame, sample_size: int, score_col: str, as
             f"Score column not found for selection: {score_col}\n"
             f"Available columns: {list(current_pool.columns)}"
         )
-    return current_pool.sort_values(score_col, ascending=ascending).head(sample_size)
+    stable_cols = [
+        c
+        for c in ["dataset_type", "image_name", "image_path"]
+        if c in current_pool.columns and c != score_col
+    ]
+    return current_pool.sort_values(
+        [score_col] + stable_cols,
+        ascending=[ascending] + [True] * len(stable_cols),
+        kind="mergesort",
+    ).head(sample_size)
 
 
 def select_samples(
@@ -804,6 +828,7 @@ def select_samples(
         return current_pool.copy()
 
     sample_size = min(sample_size, len(current_pool))
+    current_pool = stable_sample_order(current_pool)
 
     if strategy == "Random":
         return current_pool.sample(
@@ -980,9 +1005,11 @@ def train_and_eval_yolo(
 # =============================================================================
 def make_fixed_val_split(df: pd.DataFrame, seed: int):
     val_parts = []
+    df = stable_sample_order(df)
 
     for dataset_type, sub in df.groupby("dataset_type"):
         n = max(1, int(len(sub) * VAL_RATIO))
+        sub = stable_sample_order(sub)
         val_parts.append(sub.sample(n=min(n, len(sub)), random_state=seed + 17))
 
     val_df = pd.concat(val_parts).drop_duplicates()
@@ -1321,7 +1348,7 @@ def run_one_seed(
     df_val.to_csv(seed_run_dir / "fixed_validation_split.csv", index=False, encoding="utf-8-sig")
     df_pool_initial.to_csv(seed_run_dir / "initial_pool_split.csv", index=False, encoding="utf-8-sig")
 
-    initial_seed_df = df_pool_initial.sample(
+    initial_seed_df = stable_sample_order(df_pool_initial).sample(
         n=min(INITIAL_SEED_SIZE, len(df_pool_initial)),
         random_state=seed + 999,
     )
