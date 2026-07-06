@@ -56,19 +56,19 @@ Although this code currently lives under `scripts/old/`, it is the source of the
 
 The generated VLM responses are embedded using SBERT. Pairwise cosine similarities between response embeddings are averaged to estimate semantic consistency.
 
-\[
-C(x) = \frac{2}{K(K-1)} \sum_{i<j} \cos(e_i, e_j)
-\]
+```text
+C(x) = [2 / (K * (K - 1))] * sum_{i<j} cos(e_i, e_j)
+```
 
-\[
+```text
 U_C(x) = 1 - C(x)
-\]
+```
 
 Interpretation:
 
-- high \(C(x)\): VLM descriptions are semantically stable,
-- low \(C(x)\): VLM descriptions are inconsistent,
-- high \(U_C(x)\): high semantic uncertainty and potentially informative acquisition candidate.
+- high `C(x)`: VLM descriptions are semantically stable,
+- low `C(x)`: VLM descriptions are inconsistent,
+- high `U_C(x)`: high semantic uncertainty and potentially informative acquisition candidate.
 
 Main code:
 
@@ -90,15 +90,15 @@ Main code:
 
 Pseudo groundedness compares VLM-extracted location/scale terms with OWL-ViT pseudo-box spatial zones and scale categories.
 
-\[
-G(x) = \frac{1}{|\mathcal{D}|} \sum_{d \in \mathcal{D}} s_d
-\]
+```text
+G(x) = [1 / |D|] * sum_{d in D} s_d
+```
 
-\[
+```text
 U_G(x) = 1 - G(x)
-\]
+```
 
-Here, \(\mathcal{D}\) denotes comparable dimensions such as location and scale, and \(s_d\) denotes the matching score for each dimension.
+Here, `D` denotes comparable dimensions such as location and scale, and `s_d` denotes the matching score for each dimension.
 
 Main code:
 
@@ -120,17 +120,15 @@ Important note: `no_pseudo_box` does not necessarily mean background or non-defe
 
 The original combined score uses semantic uncertainty and pseudo-groundedness uncertainty:
 
-\[
-S_{\text{combined}}(x) =
-U_C(x) + U_G(x) + \lambda \cdot \mathbb{1}[\text{no\_pseudo\_box}]
-\]
+```text
+S_combined(x) = U_C(x) + U_G(x) + lambda * I(no_pseudo_box)
+```
 
 The current diagnostic variant suppresses excessive `no_pseudo_box` priority:
 
-\[
-S_{\text{suppress}}(x) =
-U_C(x) + U_G(x) - \gamma \cdot \mathbb{1}[\text{no\_pseudo\_box}]
-\]
+```text
+S_suppress(x) = U_C(x) + U_G(x) - gamma * I(no_pseudo_box)
+```
 
 Main code:
 
@@ -143,7 +141,7 @@ Main code:
 
 Key implementation finding:
 
-> Because high-priority selection sorts scores in descending order, adding \(+\lambda\) for `no_pseudo_box` can behave as a boost rather than a penalty.
+> Because high-priority selection sorts scores in descending order, adding `+lambda` for `no_pseudo_box` can behave as a boost rather than a penalty.
 
 This is one of the main score-direction issues diagnosed in the current experiments.
 
@@ -154,12 +152,12 @@ The current active learning experiments compare the following strategies:
 | Strategy | Score used | Selection rule | Purpose |
 |---|---|---|---|
 | `Random` | none | random sampling | baseline |
-| `ConsistencyOnly` | \(U_C\) | select high score | semantic uncertainty only |
-| `GroundednessOnlySoft` | \(U_G\) with soft missing handling | select high score | pseudo-groundedness uncertainty only |
-| `CombinedSoftPenalty` | \(S_{\text{combined}}\) | select high score | original combined strategy |
-| `LowPrioritySoft` | \(S_{\text{combined}}\) | select low score | direction-control strategy |
-| `CombinedSuppressNoPseudo` | \(S_{\text{suppress}}\) | select high score | diagnostic no-pseudo suppression |
-| `CombinedSuppressNoPseudoClassBalanced` | \(S_{\text{suppress}}\) with class-balanced selection | select high score within class quota | diagnostic class-balance variant |
+| `ConsistencyOnly` | `U_C` | select high score | semantic uncertainty only |
+| `GroundednessOnlySoft` | `U_G` with soft missing handling | select high score | pseudo-groundedness uncertainty only |
+| `CombinedSoftPenalty` | `S_combined` | select high score | original combined strategy |
+| `LowPrioritySoft` | `S_combined` | select low score | direction-control strategy |
+| `CombinedSuppressNoPseudo` | `S_suppress` | select high score | diagnostic no-pseudo suppression |
+| `CombinedSuppressNoPseudoClassBalanced` | `S_suppress` with class-balanced selection | select high score within class quota | diagnostic class-balance variant |
 
 Main code:
 
@@ -185,12 +183,9 @@ Evaluation metrics:
 - `mAP@50-95`
 - AULC over labeled budget
 
-\[
-AULC =
-\sum_{t=1}^{T-1}
-\frac{m_t + m_{t+1}}{2}
-(b_{t+1} - b_t)
-\]
+```text
+AULC = sum_{t=1}^{T-1} 0.5 * (m_t + m_{t+1}) * (b_{t+1} - b_t)
+```
 
 Main summary code:
 
