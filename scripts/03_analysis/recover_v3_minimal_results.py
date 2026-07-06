@@ -50,6 +50,7 @@ Important:
 ===============================================================================
 """
 
+import argparse
 import json
 from pathlib import Path
 from datetime import datetime
@@ -68,12 +69,26 @@ PROJECT_ROOT = Path("/Users/hy/PycharmProjects/PythonProject/Defect_VLM_Project"
 
 RUNS_ROOT = PROJECT_ROOT / "runs" / "active_learning_ablation_v3_minimal"
 
-# 직접 특정 폴더를 지정하고 싶으면 아래에 Path를 넣으면 됨.
-# 예:
-# TARGET_RUN_DIR = Path("/Users/hy/PycharmProjects/PythonProject/Defect_VLM_Project/runs/active_learning_ablation_v3_minimal/al_ablation_v3_minimal_20260622_222607")
-TARGET_RUN_DIR = Path(
-    "/Users/hy/PycharmProjects/PythonProject/Defect_VLM_Project/runs/active_learning_direction_check/al_ablation_v3_minimal_20260623_124817"
-)
+TARGET_RUN_DIR = None
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description=(
+            "Recover summaries and plots from an existing V3 minimal AL run "
+            "without retraining YOLO."
+        )
+    )
+    parser.add_argument(
+        "--run-dir",
+        type=str,
+        default=None,
+        help=(
+            "Run directory containing all_round_results.csv. "
+            "Default: latest under runs/active_learning_ablation_v3_minimal/."
+        ),
+    )
+    return parser.parse_args()
 
 # =============================================================================
 # [1] Matplotlib settings
@@ -122,11 +137,17 @@ def find_latest_run_dir() -> Path:
     return max(run_dirs, key=lambda p: p.stat().st_mtime)
 
 
-def resolve_target_run_dir() -> Path:
+def resolve_target_run_dir(run_dir_arg: str | None = None) -> Path:
     """
-    Use manually specified TARGET_RUN_DIR if provided,
-    otherwise use latest run directory.
+    Use CLI run dir or manually specified TARGET_RUN_DIR if provided.
+    Otherwise use latest run directory.
     """
+    if run_dir_arg:
+        target = Path(run_dir_arg).expanduser().resolve()
+        if not target.exists():
+            raise FileNotFoundError(f"--run-dir does not exist: {target}")
+        return target
+
     if TARGET_RUN_DIR is not None:
         target = Path(TARGET_RUN_DIR)
         if not target.exists():
@@ -891,7 +912,8 @@ def write_summary_md(
 def main():
     set_korean_font()
 
-    run_dir = resolve_target_run_dir()
+    args = parse_args()
+    run_dir = resolve_target_run_dir(args.run_dir)
 
     print("=" * 100)
     print("[RECOVER V3 MINIMAL RESULTS]")

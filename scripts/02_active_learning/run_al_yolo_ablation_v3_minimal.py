@@ -995,7 +995,7 @@ def compute_aulc(x, y):
     x = np.array(x, dtype=float)
     y = np.array(y, dtype=float)
 
-    mask = ~np.isnan(y)
+    mask = ~(np.isnan(x) | np.isnan(y))
 
     x = x[mask]
     y = y[mask]
@@ -1007,7 +1007,13 @@ def compute_aulc(x, y):
     x = x[order]
     y = y[order]
 
-    return float(np.trapz(y, x))
+    area = 0.0
+    for i in range(1, len(x)):
+        width = x[i] - x[i - 1]
+        height = (y[i] + y[i - 1]) / 2.0
+        area += width * height
+
+    return float(area)
 
 
 def add_selection_metadata(
