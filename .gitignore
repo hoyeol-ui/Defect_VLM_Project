@@ -1,0 +1,57 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# data and datasets
+data/
+datasets/
+raw_data/
+processed_data/
+
+# model weights
+models/
+weights/
+checkpoints/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.safetensors
+
+# YOLO / training outputs
+runs/
+outputs/
+wandb/
+
+# logs
+logs/
+*.log
+
+# large compressed files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# secrets / env
+.env
+.env.*
