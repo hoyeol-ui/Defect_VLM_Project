@@ -338,6 +338,37 @@ AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
 .venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
 ```
 
+### Windows CUDA Desktop Run
+
+For a Windows desktop with an NVIDIA GPU, use the Windows/CUDA entrypoint. It preserves the same active-learning logic as the macOS script, but reads `AL_PROJECT_ROOT`, forces CUDA by default, and exposes batch/workers through environment variables.
+
+Recommended PowerShell dry-run first:
+
+```powershell
+.\scripts\02_active_learning\run_windows_cuda_consistency_experiment.ps1 -DryRun
+```
+
+Then run YOLO training:
+
+```powershell
+.\scripts\02_active_learning\run_windows_cuda_consistency_experiment.ps1
+```
+
+For an RTX 3070 8GB GPU, start conservatively with `-BatchSize 8`. If CUDA out-of-memory occurs, rerun with `-BatchSize 4`.
+
+Equivalent explicit PowerShell command:
+
+```powershell
+$env:AL_PROJECT_ROOT="C:\path\to\Defect_VLM_Project"
+$env:AL_PRIORITY_CSV="outputs\priority_sensitivity_20260706_152020\penalty_0\priority_scores_pseudo.csv"
+$env:AL_YOLO_DEVICE="0"
+$env:AL_BATCH_SIZE="8"
+$env:AL_WORKERS="4"
+$env:AL_STRATEGIES="Random,RandomClassDatasetBalanced,ConsistencyOnly,ConsistencyOnlyClassDatasetBalanced"
+$env:AL_SEEDS="42,43,44,45,46,47,48,49"
+.\.venv\Scripts\python.exe scripts\02_active_learning\run_al_yolo_ablation_v3_windows_cuda.py
+```
+
 Run direction-issue analysis:
 
 ```bash
