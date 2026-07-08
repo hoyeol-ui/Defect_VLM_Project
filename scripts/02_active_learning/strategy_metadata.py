@@ -22,6 +22,21 @@ STRATEGY_METADATA: dict[str, dict[str, str]] = {
         "family": "Core hypothesis",
         "role": "Tests VLM prompt-family inconsistency as a GT-free acquisition signal",
     },
+    "ConsistencyOnlyClassBalanced": {
+        "display_name": "Class-balanced ExpertPromptConsistency",
+        "family": "Core hypothesis",
+        "role": "Tests consistency uncertainty while controlling class_hint composition",
+    },
+    "ConsistencyOnlyDatasetBalanced": {
+        "display_name": "Dataset-balanced ExpertPromptConsistency",
+        "family": "Core hypothesis",
+        "role": "Tests consistency uncertainty while controlling dataset_type composition",
+    },
+    "ConsistencyOnlyClassDatasetBalanced": {
+        "display_name": "Class/Dataset-balanced ExpertPromptConsistency",
+        "family": "Core hypothesis",
+        "role": "Tests consistency uncertainty while controlling both class_hint and dataset_type composition",
+    },
     "GroundednessOnlySoft": {
         "display_name": "PseudoGroundingOnly",
         "family": "Auxiliary signal",
@@ -46,6 +61,11 @@ STRATEGY_METADATA: dict[str, dict[str, str]] = {
         "display_name": "Class-balanced Random",
         "family": "Baseline",
         "role": "Class-balanced random sampling baseline",
+    },
+    "RandomClassDatasetBalanced": {
+        "display_name": "Class/Dataset-balanced Random",
+        "family": "Baseline",
+        "role": "Random baseline with class_hint and dataset_type composition controlled",
     },
     "CombinedNoPenalty": {
         "display_name": "Consistency + AuxGrounding NoPenalty",

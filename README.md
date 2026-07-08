@@ -174,7 +174,12 @@ The current active learning experiments compare the following strategies:
 | Strategy ID | Research display name | Score used | Selection rule | Purpose |
 |---|---|---|---|---|
 | `Random` | Random | none | random sampling | baseline |
+| `RandomClassBalanced` | Class-balanced Random | none | random sampling within class_hint quota | diversity-controlled baseline |
+| `RandomClassDatasetBalanced` | Class/Dataset-balanced Random | none | random sampling within dataset_type and class_hint quota | stronger diversity-controlled baseline |
 | `ConsistencyOnly` | ExpertPromptConsistency | `U_C` | select high score | core hypothesis: expert prompt-family consistency |
+| `ConsistencyOnlyClassBalanced` | Class-balanced ExpertPromptConsistency | `U_C` | select high score within class_hint quota | tests whether consistency helps after class diversity is controlled |
+| `ConsistencyOnlyDatasetBalanced` | Dataset-balanced ExpertPromptConsistency | `U_C` | select high score within dataset_type quota | tests whether consistency helps after dataset composition is controlled |
+| `ConsistencyOnlyClassDatasetBalanced` | Class/Dataset-balanced ExpertPromptConsistency | `U_C` | select high score within dataset_type and class_hint quota | tests consistency under Random-like diversity control |
 | `GroundednessOnlySoft` | PseudoGroundingOnly | `U_G` with soft missing handling | select high score | auxiliary-only ablation |
 | `CombinedSoftPenalty` | Consistency + AuxGrounding | `S_combined` | select high score | naive auxiliary extension |
 | `LowPrioritySoft` | ReverseDirectionControl | `S_combined` | select low score | direction-control strategy |
@@ -319,6 +324,16 @@ Run detector-level validation:
 AL_PRIORITY_CSV=outputs/priority_sensitivity_20260706_152020/penalty_0/priority_scores_pseudo.csv \
 AL_STRATEGIES=Random,CombinedSoftPenalty,CombinedSuppressNoPseudo \
 AL_SEEDS=42,43,44 \
+AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
+.venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
+```
+
+Run the next consistency-centered diversity-control experiment:
+
+```bash
+AL_PRIORITY_CSV=outputs/priority_sensitivity_20260706_152020/penalty_0/priority_scores_pseudo.csv \
+AL_STRATEGIES=Random,RandomClassBalanced,RandomClassDatasetBalanced,ConsistencyOnly,ConsistencyOnlyClassBalanced,ConsistencyOnlyClassDatasetBalanced \
+AL_SEEDS=42,43,44,45,46,47,48,49 \
 AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
 .venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
 ```

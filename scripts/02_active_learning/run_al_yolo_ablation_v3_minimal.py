@@ -777,28 +777,56 @@ def class_balanced_select(
     seed: int,
     round_idx: int,
 ) -> pd.DataFrame:
+    return group_balanced_select(
+        current_pool=current_pool,
+        sample_size=sample_size,
+        score_col=score_col,
+        ascending=ascending,
+        seed=seed,
+        round_idx=round_idx,
+        group_cols=["class_hint"],
+    )
+
+
+def group_balanced_select(
+    current_pool: pd.DataFrame,
+    sample_size: int,
+    score_col: str | None,
+    ascending: bool,
+    seed: int,
+    round_idx: int,
+    group_cols: list[str],
+) -> pd.DataFrame:
     if len(current_pool) == 0:
         return current_pool.copy()
 
     current_pool = stable_sample_order(current_pool)
     sample_size = min(sample_size, len(current_pool))
-    groups = list(current_pool.groupby("class_hint", dropna=False))
+
+    available_group_cols = [c for c in group_cols if c in current_pool.columns]
+    if not available_group_cols:
+        if score_col is None:
+            return current_pool.sample(n=sample_size, random_state=seed + round_idx * 101)
+        return sort_select(current_pool, sample_size, score_col, ascending=ascending)
+
+    group_key = available_group_cols[0] if len(available_group_cols) == 1 else available_group_cols
+    groups = list(current_pool.groupby(group_key, dropna=False, sort=True))
     if not groups:
         return current_pool.head(sample_size).copy()
 
     base_quota = sample_size // len(groups)
     remainder = sample_size % len(groups)
-    class_sizes = sorted(
-        [(class_name, len(sub)) for class_name, sub in groups],
+    group_sizes = sorted(
+        [(group_name, len(sub)) for group_name, sub in groups],
         key=lambda x: x[1],
         reverse=True,
     )
-    extra_classes = {class_name for class_name, _ in class_sizes[:remainder]}
+    extra_groups = {group_name for group_name, _ in group_sizes[:remainder]}
 
     selected_parts = []
     selected_indices = set()
-    for class_name, sub in groups:
-        quota = base_quota + (1 if class_name in extra_classes else 0)
+    for group_name, sub in groups:
+        quota = base_quota + (1 if group_name in extra_groups else 0)
         quota = min(quota, len(sub))
         if quota <= 0:
             continue
@@ -817,6 +845,68 @@ def class_balanced_select(
         if need > 0:
             if score_col is None:
                 fill = stable_sample_order(remaining).sample(n=need, random_state=seed + round_idx * 131)
+            else:
+                fill = sort_select(remaining, need, score_col, ascending=ascending)
+            selected = pd.concat([selected, fill])
+
+    return selected.head(sample_size)
+
+
+def dataset_then_class_balanced_select(
+    current_pool: pd.DataFrame,
+    sample_size: int,
+    score_col: str | None,
+    ascending: bool,
+    seed: int,
+    round_idx: int,
+) -> pd.DataFrame:
+    """Balance dataset_type first, then class_hint inside each dataset slice."""
+    if len(current_pool) == 0:
+        return current_pool.copy()
+    if "dataset_type" not in current_pool.columns:
+        return class_balanced_select(current_pool, sample_size, score_col, ascending, seed, round_idx)
+
+    current_pool = stable_sample_order(current_pool)
+    sample_size = min(sample_size, len(current_pool))
+    dataset_groups = list(current_pool.groupby("dataset_type", dropna=False, sort=True))
+    if not dataset_groups:
+        return current_pool.head(sample_size).copy()
+
+    base_quota = sample_size // len(dataset_groups)
+    remainder = sample_size % len(dataset_groups)
+    dataset_sizes = sorted(
+        [(dataset_name, len(sub)) for dataset_name, sub in dataset_groups],
+        key=lambda x: x[1],
+        reverse=True,
+    )
+    extra_datasets = {dataset_name for dataset_name, _ in dataset_sizes[:remainder]}
+
+    selected_parts = []
+    selected_indices = set()
+    for dataset_name, sub in dataset_groups:
+        quota = base_quota + (1 if dataset_name in extra_datasets else 0)
+        quota = min(quota, len(sub))
+        if quota <= 0:
+            continue
+        picked = class_balanced_select(
+            current_pool=sub,
+            sample_size=quota,
+            score_col=score_col,
+            ascending=ascending,
+            seed=seed,
+            round_idx=round_idx,
+        )
+        selected_parts.append(picked)
+        selected_indices.update(picked.index.tolist())
+
+    selected = pd.concat(selected_parts) if selected_parts else current_pool.iloc[0:0].copy()
+
+    if len(selected) < sample_size:
+        remaining = current_pool.drop(index=list(selected_indices), errors="ignore")
+        need = min(sample_size - len(selected), len(remaining))
+        if need > 0:
+            if score_col is None:
+                fill = stable_sample_order(remaining).sample(n=need, random_state=seed + round_idx * 137)
             else:
                 fill = sort_select(remaining, need, score_col, ascending=ascending)
             selected = pd.concat([selected, fill])
@@ -871,8 +961,49 @@ def select_samples(
             round_idx=round_idx,
         )
 
+    if strategy == "RandomClassDatasetBalanced":
+        return dataset_then_class_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col=None,
+            ascending=False,
+            seed=seed,
+            round_idx=round_idx,
+        )
+
     if strategy == "ConsistencyOnly":
         return sort_select(current_pool, sample_size, "score_consistency_only", ascending=False)
+
+    if strategy == "ConsistencyOnlyClassBalanced":
+        return class_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col="score_consistency_only",
+            ascending=False,
+            seed=seed,
+            round_idx=round_idx,
+        )
+
+    if strategy == "ConsistencyOnlyDatasetBalanced":
+        return group_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col="score_consistency_only",
+            ascending=False,
+            seed=seed,
+            round_idx=round_idx,
+            group_cols=["dataset_type"],
+        )
+
+    if strategy == "ConsistencyOnlyClassDatasetBalanced":
+        return dataset_then_class_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col="score_consistency_only",
+            ascending=False,
+            seed=seed,
+            round_idx=round_idx,
+        )
 
     if strategy == "GroundednessOnlySoft":
         return sort_select(current_pool, sample_size, "score_groundedness_only_soft", ascending=False)
