@@ -41,6 +41,13 @@ runs/
 outputs/
 wandb/
 
+# Keep raw experiment folders ignored, but allow curated paper/lab-meeting
+# artifacts to be copied into docs/results and tracked on GitHub.
+!docs/
+!docs/assets/
+!docs/results/
+!docs/results/**
+
 # logs
 logs/
 *.log

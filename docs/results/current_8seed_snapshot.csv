@@ -1,0 +1,7 @@
+result_set,strategy,research_role,final_map50_mean,final_map5095_mean,aulc_map50_mean,aulc_map5095_mean,interpretation
+20260706_auxiliary_calibration_8seed,Random,detector-level reference baseline,0.34778675,0.1719845,6.263945,2.856936875,Random remains the strongest final detector reference in this comparison.
+20260706_auxiliary_calibration_8seed,CombinedSoftPenalty,naive consistency plus auxiliary groundedness,0.295469,0.139463,5.6180075,2.626504375,Naive auxiliary groundedness does not clearly beat Random.
+20260706_auxiliary_calibration_8seed,CombinedSuppressNoPseudo,calibrated no-pseudo diagnostic variant,0.263958875,0.131395,5.855289375,2.849574375,Suppressing no_pseudo_box improves AULC relative to naive combined scoring but not final mAP.
+20260707_consistency_core_8seed,ConsistencyOnly,core expert-prompt consistency hypothesis,0.294051,0.148212,5.901291,2.822293,Semantic consistency is much stronger than pseudo-groundedness alone.
+20260707_consistency_core_8seed,GroundednessOnlySoft,auxiliary pseudo-groundedness-only ablation,0.154636,0.076361,5.339761,2.414531,Pseudo groundedness alone is weak and should remain an auxiliary signal.
+20260707_consistency_core_8seed,LowPrioritySoft,reverse-direction control,0.31487025,0.143890375,7.3391,3.3249175,Strong reverse-direction behavior shows that score calibration remains unresolved.

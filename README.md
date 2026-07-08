@@ -237,6 +237,28 @@ Important diagnostic findings so far:
 - The sign and calibration of `no_pseudo_box` handling materially affect selected sample composition.
 - `CombinedSuppressNoPseudo` reduces `no_pseudo_box` selection compared with `CombinedSoftPenalty`, but later rounds can still become dominated by `no_pseudo_box` due to remaining-pool composition.
 
+## Current 8-seed Result Snapshot
+
+The following table summarizes the latest lightweight result sets used for lab-meeting discussion.
+Raw training folders remain ignored; curated result summaries can be stored under `docs/results/`.
+
+| Result set | Strategy | Research role | Final mAP@50 | Final mAP@50-95 | AULC@50 | AULC@50-95 |
+|---|---|---|---:|---:|---:|---:|
+| 20260706 auxiliary calibration | `Random` | detector-level reference baseline | 0.348 | 0.172 | 6.264 | 2.857 |
+| 20260706 auxiliary calibration | `CombinedSoftPenalty` | naive consistency + auxiliary groundedness | 0.295 | 0.139 | 5.618 | 2.627 |
+| 20260706 auxiliary calibration | `CombinedSuppressNoPseudo` | calibrated no-pseudo diagnostic variant | 0.264 | 0.131 | 5.855 | 2.850 |
+| 20260707 consistency core | `ConsistencyOnly` | core expert-prompt consistency hypothesis | 0.294 | 0.148 | 5.901 | 2.822 |
+| 20260707 consistency core | `GroundednessOnlySoft` | auxiliary pseudo-groundedness-only ablation | 0.155 | 0.076 | 5.340 | 2.415 |
+| 20260707 consistency core | `LowPrioritySoft` | reverse-direction control | 0.315 | 0.144 | 7.339 | 3.325 |
+
+Current interpretation:
+
+- `Random` remains a strong detector-level reference and should not be presented as defeated.
+- `ConsistencyOnly` is much stronger than `GroundednessOnlySoft`, supporting the claim that expert prompt-family consistency is the more meaningful core signal.
+- `CombinedSoftPenalty` and `CombinedSuppressNoPseudo` do not clearly improve over `ConsistencyOnly`, so pseudo groundedness should be framed as weak auxiliary evidence rather than the main contribution.
+- `LowPrioritySoft` still performs strongly in AULC, which means score direction and calibration remain open.
+- The defensible conclusion is: promising but not closed.
+
 ## Main Repository Structure
 
 ```text
