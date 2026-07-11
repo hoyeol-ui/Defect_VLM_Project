@@ -1,12 +1,14 @@
 """
 ===============================================================================
-[File] run_al_yolo_ablation_v3_windows_cuda.py
+[File] run_al_yolo_ablation_v6_deficit_diversity.py
 
 [Purpose]
-Windows/CUDA entrypoint for the YOLOv8 Active Learning ablation.
+Windows/CUDA entrypoint for the YOLOv8 Active Learning V6 audit ablation.
 
-This file keeps the same research logic as run_al_yolo_ablation_v3_minimal.py,
-but avoids macOS-specific path/device assumptions for a Windows desktop GPU.
+This file branches V5 fixed-evaluation logic and adds:
+1. deficit-based balanced selection;
+2. GT-free consistency + lightweight diversity selection;
+3. pool/eval coverage diagnostics.
 
 Recommended PowerShell run:
     $env:AL_PROJECT_ROOT="C:\path\to\Defect_VLM_Project"
@@ -49,7 +51,7 @@ Input:
     outputs/pseudo_boxes_*/priority_scores_pseudo.csv
 
 Output:
-    runs/active_learning_ablation_v3_minimal/al_ablation_v3_minimal_YYYYMMDD_HHMMSS/
+    runs/active_learning_ablation_v6_deficit_diversity/al_ablation_v6_deficit_diversity_YYYYMMDD_HHMMSS/
         config.json
         all_round_results.csv
         all_selected_samples_by_round.csv
@@ -85,6 +87,7 @@ from pathlib import Path
 from datetime import datetime
 from collections import Counter
 import sys
+import hashlib
 
 import numpy as np
 import pandas as pd
@@ -148,8 +151,8 @@ PROJECT_ROOT = resolve_project_root()
 OUTPUT_BASE_DIR = PROJECT_ROOT / "outputs"
 DATA_ROOT = PROJECT_ROOT / "data"
 
-RUNS_ROOT = PROJECT_ROOT / "runs" / "active_learning_ablation_v3_minimal"
-YOLO_DATASETS_ROOT = PROJECT_ROOT / "datasets" / "al_yolo_ablation_v3_minimal"
+RUNS_ROOT = PROJECT_ROOT / "runs" / "active_learning_ablation_v6_deficit_diversity"
+YOLO_DATASETS_ROOT = PROJECT_ROOT / "datasets" / "al_yolo_ablation_v6_deficit_diversity"
 
 # -------------------------------------------------------------------------
 # 핵심 설정
@@ -215,6 +218,8 @@ else:
 DEFAULT_STRATEGIES_TO_RUN = [
     "GTFreeRandom",
     "GTFreeConsistency",
+    "GTFreeDatasetBalancedConsistency",
+    "GTFreeConsistencyPseudoFeatureDiversity",
     "OracleClassDatasetBalancedRandom",
     "OracleClassDatasetBalancedConsistency",
 ]
@@ -227,6 +232,9 @@ WEIGHTED_ALPHA = float(os.environ.get("AL_WEIGHTED_ALPHA", "1.0"))
 WEIGHTED_BETA = float(os.environ.get("AL_WEIGHTED_BETA", "0.5"))
 WEIGHTED_GAMMA = float(os.environ.get("AL_WEIGHTED_GAMMA", "0.2"))
 SUPPRESS_NO_PSEUDO_GAMMA = float(os.environ.get("AL_SUPPRESS_NO_PSEUDO_GAMMA", "0.2"))
+V6_DIVERSITY_CANDIDATE_FRAC = float(os.environ.get("AL_V6_DIVERSITY_CANDIDATE_FRAC", "0.40"))
+V6_DIVERSITY_LAMBDA = float(os.environ.get("AL_V6_DIVERSITY_LAMBDA", "0.65"))
+V6_DIVERSITY_MIN_CANDIDATE_MULTIPLIER = int(os.environ.get("AL_V6_DIVERSITY_MIN_CANDIDATE_MULTIPLIER", "4"))
 
 
 # =============================================================================
@@ -441,6 +449,18 @@ def prepare_priority_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     for col in numeric_cols:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    if "score_consistency_only" in df.columns:
+        actual = pd.to_numeric(df["score_consistency_only"], errors="coerce")
+        if not np.isfinite(actual.to_numpy(dtype=float)).all():
+            raise ValueError("score_consistency_only contains NaN or inf.")
+        if "consistency_score" in df.columns:
+            expected = 1.0 - pd.to_numeric(df["consistency_score"], errors="coerce")
+            max_error = np.nanmax(np.abs((expected - actual).to_numpy(dtype=float)))
+            if np.isfinite(max_error) and max_error > 1e-5:
+                raise ValueError(
+                    f"Consistency score direction mismatch: max_error={max_error}"
+                )
 
     df["dataset_type"] = df["dataset_type"].fillna("unknown")
     df["groundedness_reason"] = df["groundedness_reason"].fillna("unknown")
@@ -1021,6 +1041,7 @@ def class_balanced_select(
     ascending: bool,
     seed: int,
     round_idx: int,
+    labeled_df: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     return group_balanced_select(
         current_pool=current_pool,
@@ -1030,6 +1051,7 @@ def class_balanced_select(
         seed=seed,
         round_idx=round_idx,
         group_cols=["class_hint"],
+        labeled_df=labeled_df,
     )
 
 
@@ -1041,7 +1063,15 @@ def group_balanced_select(
     seed: int,
     round_idx: int,
     group_cols: list[str],
+    labeled_df: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
+    """Select with cumulative deficit-based group balancing.
+
+    The V5 quota rule split the *current query* across groups. When query_size is
+    smaller than the number of groups, that can repeatedly favor large groups.
+    V6 instead looks at already-labeled counts and picks from the group with the
+    largest deficit relative to the next balanced target.
+    """
     if len(current_pool) == 0:
         return current_pool.copy()
 
@@ -1055,45 +1085,57 @@ def group_balanced_select(
         return sort_select(current_pool, sample_size, score_col, ascending=ascending)
 
     group_key = available_group_cols[0] if len(available_group_cols) == 1 else available_group_cols
-    groups = list(current_pool.groupby(group_key, dropna=False, sort=True))
-    if not groups:
+    grouped = {
+        group_name: stable_sample_order(sub).copy()
+        for group_name, sub in current_pool.groupby(group_key, dropna=False, sort=True)
+    }
+    if not grouped:
         return current_pool.head(sample_size).copy()
 
-    base_quota = sample_size // len(groups)
-    remainder = sample_size % len(groups)
-    group_sizes = sorted(
-        [(group_name, len(sub)) for group_name, sub in groups],
-        key=lambda x: x[1],
-        reverse=True,
-    )
-    extra_groups = {group_name for group_name, _ in group_sizes[:remainder]}
+    if labeled_df is not None and len(labeled_df) > 0 and all(c in labeled_df.columns for c in available_group_cols):
+        labeled_counts = labeled_df.groupby(group_key, dropna=False).size().to_dict()
+    else:
+        labeled_counts = {}
 
-    selected_parts = []
-    selected_indices = set()
-    for group_name, sub in groups:
-        quota = base_quota + (1 if group_name in extra_groups else 0)
-        quota = min(quota, len(sub))
-        if quota <= 0:
-            continue
+    picked_counts = {group_name: 0 for group_name in grouped}
+    selected_rows = []
+    rng = np.random.default_rng(seed + round_idx * 104729 + len(available_group_cols) * 997)
+
+    def deterministic_group_tiebreak(group_name) -> int:
+        key = f"{seed}|{round_idx}|{available_group_cols}|{repr(group_name)}".encode("utf-8")
+        return int(hashlib.sha256(key).hexdigest()[:12], 16)
+
+    while len(selected_rows) < sample_size and any(len(sub) > 0 for sub in grouped.values()):
+        active_groups = [g for g, sub in grouped.items() if len(sub) > 0]
+        target_after_query = (
+            sum(int(labeled_counts.get(g, 0)) for g in active_groups)
+            + sum(picked_counts.get(g, 0) for g in active_groups)
+            + (sample_size - len(selected_rows))
+        ) / max(1, len(active_groups))
+
+        def group_rank(group_name):
+            already = int(labeled_counts.get(group_name, 0)) + picked_counts.get(group_name, 0)
+            deficit = target_after_query - already
+            return (
+                -deficit,
+                already,
+                deterministic_group_tiebreak(group_name),
+            )
+
+        chosen_group = sorted(active_groups, key=group_rank)[0]
+        sub = grouped[chosen_group]
         if score_col is None:
-            picked = stable_sample_order(sub).sample(n=quota, random_state=seed + round_idx * 101)
+            picked_idx = rng.choice(sub.index.to_numpy())
+            picked = sub.loc[[picked_idx]]
         else:
-            picked = sort_select(sub, quota, score_col, ascending=ascending)
-        selected_parts.append(picked)
-        selected_indices.update(picked.index.tolist())
+            picked = sort_select(sub, 1, score_col, ascending=ascending)
+            picked_idx = picked.index[0]
 
-    selected = pd.concat(selected_parts) if selected_parts else current_pool.iloc[0:0].copy()
+        selected_rows.append(picked)
+        picked_counts[chosen_group] += 1
+        grouped[chosen_group] = sub.drop(index=[picked_idx])
 
-    if len(selected) < sample_size:
-        remaining = current_pool.drop(index=list(selected_indices), errors="ignore")
-        need = min(sample_size - len(selected), len(remaining))
-        if need > 0:
-            if score_col is None:
-                fill = stable_sample_order(remaining).sample(n=need, random_state=seed + round_idx * 131)
-            else:
-                fill = sort_select(remaining, need, score_col, ascending=ascending)
-            selected = pd.concat([selected, fill])
-
+    selected = pd.concat(selected_rows) if selected_rows else current_pool.iloc[0:0].copy()
     return selected.head(sample_size)
 
 
@@ -1104,59 +1146,62 @@ def dataset_then_class_balanced_select(
     ascending: bool,
     seed: int,
     round_idx: int,
+    labeled_df: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
-    """Balance dataset_type first, then class_hint inside each dataset slice."""
+    """Deficit-balance dataset_type first, then class_hint inside each dataset slice."""
     if len(current_pool) == 0:
         return current_pool.copy()
     if "dataset_type" not in current_pool.columns:
-        return class_balanced_select(current_pool, sample_size, score_col, ascending, seed, round_idx)
+        return class_balanced_select(current_pool, sample_size, score_col, ascending, seed, round_idx, labeled_df)
 
     current_pool = stable_sample_order(current_pool)
     sample_size = min(sample_size, len(current_pool))
-    dataset_groups = list(current_pool.groupby("dataset_type", dropna=False, sort=True))
-    if not dataset_groups:
-        return current_pool.head(sample_size).copy()
-
-    base_quota = sample_size // len(dataset_groups)
-    remainder = sample_size % len(dataset_groups)
-    dataset_sizes = sorted(
-        [(dataset_name, len(sub)) for dataset_name, sub in dataset_groups],
-        key=lambda x: x[1],
-        reverse=True,
-    )
-    extra_datasets = {dataset_name for dataset_name, _ in dataset_sizes[:remainder]}
+    dataset_pick_order = group_balanced_select(
+        current_pool=current_pool,
+        sample_size=sample_size,
+        score_col=None,
+        ascending=False,
+        seed=seed,
+        round_idx=round_idx,
+        group_cols=["dataset_type"],
+        labeled_df=labeled_df,
+    )["dataset_type"].tolist()
 
     selected_parts = []
     selected_indices = set()
-    for dataset_name, sub in dataset_groups:
-        quota = base_quota + (1 if dataset_name in extra_datasets else 0)
-        quota = min(quota, len(sub))
-        if quota <= 0:
+    for dataset_name, quota in Counter(dataset_pick_order).items():
+        sub = current_pool[current_pool["dataset_type"] == dataset_name].drop(
+            index=list(selected_indices),
+            errors="ignore",
+        )
+        if len(sub) == 0:
             continue
+        labeled_sub = None
+        if labeled_df is not None and "dataset_type" in labeled_df.columns:
+            labeled_sub = labeled_df[labeled_df["dataset_type"] == dataset_name]
         picked = class_balanced_select(
             current_pool=sub,
-            sample_size=quota,
+            sample_size=min(quota, len(sub)),
             score_col=score_col,
             ascending=ascending,
             seed=seed,
             round_idx=round_idx,
+            labeled_df=labeled_sub,
         )
         selected_parts.append(picked)
         selected_indices.update(picked.index.tolist())
 
     selected = pd.concat(selected_parts) if selected_parts else current_pool.iloc[0:0].copy()
-
     if len(selected) < sample_size:
         remaining = current_pool.drop(index=list(selected_indices), errors="ignore")
         need = min(sample_size - len(selected), len(remaining))
         if need > 0:
-            if score_col is None:
-                fill = stable_sample_order(remaining).sample(n=need, random_state=seed + round_idx * 137)
-            else:
-                fill = sort_select(remaining, need, score_col, ascending=ascending)
+            fill = sort_select(remaining, need, score_col, ascending=ascending) if score_col else stable_sample_order(remaining).sample(
+                n=need,
+                random_state=seed + round_idx * 137,
+            )
             selected = pd.concat([selected, fill])
-
-    return selected.head(sample_size)
+    return stable_sample_order(selected).head(sample_size)
 
 
 def sort_select(current_pool: pd.DataFrame, sample_size: int, score_col: str, ascending: bool) -> pd.DataFrame:
@@ -1177,12 +1222,147 @@ def sort_select(current_pool: pd.DataFrame, sample_size: int, score_col: str, as
     ).head(sample_size)
 
 
+def normalize_series(values: pd.Series, default: float = 0.0) -> pd.Series:
+    values = pd.to_numeric(values, errors="coerce").fillna(default)
+    span = values.max() - values.min()
+    if not np.isfinite(span) or span <= 1e-12:
+        return pd.Series([0.0] * len(values), index=values.index)
+    return (values - values.min()) / span
+
+
+def build_gtfree_diversity_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Build lightweight GT-free diversity features.
+
+    This intentionally avoids class_hint. It uses only fields available before
+    annotation: dataset identity, pseudo-box status/count/geometry, and
+    pseudo-grounding reason.
+    """
+    features = pd.DataFrame(index=df.index)
+    for col in ["dataset_type", "groundedness_reason", "pseudo_box_found"]:
+        if col in df.columns:
+            dummies = pd.get_dummies(df[col].astype(str), prefix=col, dtype=float)
+            features = pd.concat([features, dummies], axis=1)
+
+    numeric_cols = [
+        "pseudo_box_count",
+        "best_box_score",
+        "best_box_quality",
+        "best_box_area_ratio",
+        "best_box_aspect_ratio",
+        "groundedness_effective_soft",
+        "missing_box_penalty",
+    ]
+    for col in numeric_cols:
+        if col in df.columns:
+            features[col] = normalize_series(df[col])
+
+    if features.shape[1] == 0:
+        features["bias"] = 0.0
+    return features.astype(float)
+
+
+def min_euclidean_distance(row: pd.Series, selected_features: pd.DataFrame) -> float:
+    if selected_features.empty:
+        return 1.0
+    diff = selected_features.to_numpy(dtype=float) - row.to_numpy(dtype=float)
+    distances = np.sqrt(np.sum(diff * diff, axis=1))
+    return float(np.min(distances)) if len(distances) else 1.0
+
+
+def gtfree_consistency_pseudo_feature_diversity_select(
+    current_pool: pd.DataFrame,
+    labeled_df: pd.DataFrame | None,
+    sample_size: int,
+    score_col: str,
+    seed: int,
+    round_idx: int,
+) -> pd.DataFrame:
+    """Two-stage GT-free selection: high VLM inconsistency + pseudo-feature diversity.
+
+    This is deliberately named pseudo-feature diversity, not visual diversity.
+    It uses GT-free pseudo-grounding metadata and keeps the selected batch far
+    from both the existing labeled set and already-picked samples in this round.
+    """
+    if len(current_pool) == 0:
+        return current_pool.copy()
+    sample_size = min(sample_size, len(current_pool))
+
+    candidate_count = max(
+        sample_size,
+        min(
+            len(current_pool),
+            max(
+                int(np.ceil(len(current_pool) * V6_DIVERSITY_CANDIDATE_FRAC)),
+                sample_size * V6_DIVERSITY_MIN_CANDIDATE_MULTIPLIER,
+            ),
+        ),
+    )
+    candidates = sort_select(
+        current_pool,
+        sample_size=candidate_count,
+        score_col=score_col,
+        ascending=False,
+    ).copy()
+
+    if labeled_df is not None and len(labeled_df) > 0:
+        feature_source = pd.concat([candidates, labeled_df], axis=0, sort=False)
+    else:
+        feature_source = candidates
+
+    all_features = build_gtfree_diversity_features(feature_source)
+    features = all_features.loc[candidates.index]
+    reference_indices = [
+        idx
+        for idx in (labeled_df.index.tolist() if labeled_df is not None else [])
+        if idx in all_features.index
+    ]
+    score_norm = normalize_series(candidates[score_col], default=0.0)
+    selected_indices: list[int] = []
+
+    # Deterministic but round-varying tie breaker.
+    jitter_rng = np.random.default_rng(seed + round_idx * 7919)
+    jitter = pd.Series(
+        jitter_rng.uniform(0, 1e-9, size=len(candidates)),
+        index=candidates.index,
+    )
+
+    while len(selected_indices) < sample_size and len(selected_indices) < len(candidates):
+        remaining_idx = [idx for idx in candidates.index if idx not in selected_indices]
+        selected_reference_indices = reference_indices + selected_indices
+        selected_features = (
+            all_features.loc[selected_reference_indices]
+            if selected_reference_indices
+            else all_features.iloc[0:0]
+        )
+
+        raw_diversity = pd.Series(
+            {
+                idx: min_euclidean_distance(features.loc[idx], selected_features)
+                for idx in remaining_idx
+            },
+            dtype=float,
+        )
+        diversity_norm = normalize_series(raw_diversity, default=0.0)
+
+        utility = {}
+        for idx in remaining_idx:
+            utility[idx] = (
+                V6_DIVERSITY_LAMBDA * float(score_norm.loc[idx])
+                + (1.0 - V6_DIVERSITY_LAMBDA) * float(diversity_norm.loc[idx])
+                + float(jitter.loc[idx])
+            )
+        selected_indices.append(max(utility, key=utility.get))
+
+    return candidates.loc[selected_indices].copy()
+
+
 def select_samples(
     strategy: str,
     current_pool: pd.DataFrame,
     sample_size: int,
     round_idx: int,
     seed: int,
+    labeled_df: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     if len(current_pool) == 0:
         return current_pool.copy()
@@ -1204,6 +1384,7 @@ def select_samples(
             ascending=False,
             seed=seed,
             round_idx=round_idx,
+            labeled_df=labeled_df,
         )
 
     if strategy in {"RandomClassDatasetBalanced", "OracleClassDatasetBalancedRandom"}:
@@ -1214,10 +1395,33 @@ def select_samples(
             ascending=False,
             seed=seed,
             round_idx=round_idx,
+            labeled_df=labeled_df,
         )
 
     if strategy in {"ConsistencyOnly", "GTFreeConsistency"}:
         return sort_select(current_pool, sample_size, "score_consistency_only", ascending=False)
+
+    if strategy == "GTFreeDatasetBalancedConsistency":
+        return group_balanced_select(
+            current_pool=current_pool,
+            sample_size=sample_size,
+            score_col="score_consistency_only",
+            ascending=False,
+            seed=seed,
+            round_idx=round_idx,
+            group_cols=["dataset_type"],
+            labeled_df=labeled_df,
+        )
+
+    if strategy in {"GTFreeConsistencyPseudoFeatureDiversity", "GTFreeConsistencyDiversity"}:
+        return gtfree_consistency_pseudo_feature_diversity_select(
+            current_pool=current_pool,
+            labeled_df=labeled_df,
+            sample_size=sample_size,
+            score_col="score_consistency_only",
+            seed=seed,
+            round_idx=round_idx,
+        )
 
     if strategy == "ConsistencyOnlyClassBalanced":
         return class_balanced_select(
@@ -1227,6 +1431,7 @@ def select_samples(
             ascending=False,
             seed=seed,
             round_idx=round_idx,
+            labeled_df=labeled_df,
         )
 
     if strategy == "ConsistencyOnlyDatasetBalanced":
@@ -1238,6 +1443,7 @@ def select_samples(
             seed=seed,
             round_idx=round_idx,
             group_cols=["dataset_type"],
+            labeled_df=labeled_df,
         )
 
     if strategy in {
@@ -1251,6 +1457,7 @@ def select_samples(
             ascending=False,
             seed=seed,
             round_idx=round_idx,
+            labeled_df=labeled_df,
         )
 
     if strategy == "GroundednessOnlySoft":
@@ -1285,6 +1492,7 @@ def select_samples(
             ascending=False,
             seed=seed,
             round_idx=round_idx,
+            labeled_df=labeled_df,
         )
 
     if strategy == "CombinedSuppressNoPseudoClassBalanced":
@@ -1295,6 +1503,7 @@ def select_samples(
             ascending=False,
             seed=seed,
             round_idx=round_idx,
+            labeled_df=labeled_df,
         )
 
     if strategy == "LowPrioritySoftClassBalanced":
@@ -1305,6 +1514,7 @@ def select_samples(
             ascending=True,
             seed=seed,
             round_idx=round_idx,
+            labeled_df=labeled_df,
         )
 
     raise ValueError(f"Unknown strategy: {strategy}")
@@ -1655,7 +1865,27 @@ def exact_paired_sign_flip_pvalue(differences: np.ndarray) -> float:
 
 def make_paired_comparison_summary(seed_summary_df: pd.DataFrame) -> pd.DataFrame:
     comparisons = [
-        ("GTFreeConsistency", "GTFreeRandom", "GT-free"),
+        ("GTFreeConsistency", "GTFreeRandom", "Core signal"),
+        (
+            "GTFreeDatasetBalancedConsistency",
+            "GTFreeRandom",
+            "Dataset-control effect",
+        ),
+        (
+            "GTFreeDatasetBalancedConsistency",
+            "GTFreeConsistency",
+            "Dataset balancing gain",
+        ),
+        (
+            "GTFreeConsistencyPseudoFeatureDiversity",
+            "GTFreeConsistency",
+            "Pseudo-feature diversity incremental gain",
+        ),
+        (
+            "GTFreeConsistencyPseudoFeatureDiversity",
+            "GTFreeRandom",
+            "Proposed diagnostic vs random",
+        ),
         (
             "OracleClassDatasetBalancedConsistency",
             "OracleClassDatasetBalancedRandom",
@@ -1675,6 +1905,7 @@ def make_paired_comparison_summary(seed_summary_df: pd.DataFrame) -> pd.DataFram
         common = left.index.intersection(right.index)
         for metric in metrics:
             differences = (left.loc[common, metric] - right.loc[common, metric]).to_numpy(dtype=float)
+            finite_differences = differences[np.isfinite(differences)]
             rows.append(
                 {
                     "comparison_type": comparison_type,
@@ -1682,25 +1913,25 @@ def make_paired_comparison_summary(seed_summary_df: pd.DataFrame) -> pd.DataFram
                     "baseline": baseline,
                     "metric": metric,
                     "num_pairs": len(differences),
-                    "mean_paired_difference": np.nanmean(differences),
-                    "median_paired_difference": np.nanmedian(differences),
-                    "wins": int(np.sum(differences > 0)),
-                    "ties": int(np.sum(differences == 0)),
-                    "losses": int(np.sum(differences < 0)),
+                    "mean_paired_difference": np.mean(finite_differences) if len(finite_differences) else np.nan,
+                    "median_paired_difference": np.median(finite_differences) if len(finite_differences) else np.nan,
+                    "wins": int(np.sum(finite_differences > 0)),
+                    "ties": int(np.sum(finite_differences == 0)),
+                    "losses": int(np.sum(finite_differences < 0)),
                     "exact_sign_flip_pvalue": exact_paired_sign_flip_pvalue(differences),
                 }
             )
     return pd.DataFrame(rows)
 
 
-def write_v5_summary_md(
+def write_v6_summary_md(
     save_dir: Path,
     config: dict,
     aggregate_summary_df: pd.DataFrame,
     paired_summary_df: pd.DataFrame,
 ):
     lines = [
-        "# Active Learning V5 Summary",
+        "# Active Learning V6 Deficit/Diversity Summary",
         "",
         "## Experimental design",
         "",
@@ -1725,7 +1956,7 @@ def write_v5_summary_md(
         "",
         "Positive paired differences favor the consistency strategy. Exact sign-flip p-values are two-sided.",
     ]
-    (save_dir / "al_ablation_v5_summary.md").write_text("\n".join(lines), encoding="utf-8")
+    (save_dir / "al_ablation_v6_summary.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 def make_aggregate_strategy_summary(seed_summary_df: pd.DataFrame) -> pd.DataFrame:
@@ -1777,7 +2008,7 @@ def write_summary_md(
 ):
     lines = []
 
-    lines.append("# YOLO Active Learning Ablation V3 Minimal Summary\n")
+    lines.append("# YOLO Active Learning Ablation V6 Deficit/Pseudo-Feature Diversity Summary\n")
 
     lines.append("## 1. 목적\n")
     lines.append(
@@ -1985,6 +2216,7 @@ def run_one_seed(
                     sample_size=QUERY_SIZE,
                     round_idx=round_idx,
                     seed=seed,
+                    labeled_df=labeled_df,
                 )
 
                 summarize_selected_batch(selected, seed, strategy, round_idx)
@@ -2087,14 +2319,14 @@ def main():
     fixed_eval_df = build_fixed_external_eval_df(df_all)
     pool_eval_coverage_df = make_pool_eval_coverage_df(df_all, fixed_eval_df)
 
-    run_output_dir = RUNS_ROOT / f"al_ablation_v5_fixed_eval_{timestamp}"
-    dataset_output_root = YOLO_DATASETS_ROOT / f"al_ablation_v5_fixed_eval_{timestamp}"
+    run_output_dir = RUNS_ROOT / f"al_ablation_v6_deficit_diversity_{timestamp}"
+    dataset_output_root = YOLO_DATASETS_ROOT / f"al_ablation_v6_deficit_diversity_{timestamp}"
 
     run_output_dir.mkdir(parents=True, exist_ok=True)
     dataset_output_root.mkdir(parents=True, exist_ok=True)
 
     config = {
-        "VERSION": "v5_fixed_external_eval",
+        "VERSION": "v6_deficit_diversity",
         "PROJECT_ROOT": str(PROJECT_ROOT),
         "YOLO_MODEL_NAME": YOLO_MODEL_NAME,
         "STRATEGIES_TO_RUN": ", ".join(STRATEGIES_TO_RUN),
@@ -2127,6 +2359,9 @@ def main():
         "WEIGHTED_BETA": WEIGHTED_BETA,
         "WEIGHTED_GAMMA": WEIGHTED_GAMMA,
         "SUPPRESS_NO_PSEUDO_GAMMA": SUPPRESS_NO_PSEUDO_GAMMA,
+        "V6_DIVERSITY_CANDIDATE_FRAC": V6_DIVERSITY_CANDIDATE_FRAC,
+        "V6_DIVERSITY_LAMBDA": V6_DIVERSITY_LAMBDA,
+        "V6_DIVERSITY_MIN_CANDIDATE_MULTIPLIER": V6_DIVERSITY_MIN_CANDIDATE_MULTIPLIER,
     }
 
     with open(run_output_dir / "config.json", "w", encoding="utf-8") as f:
@@ -2148,7 +2383,7 @@ def main():
     )
 
     print("=" * 100)
-    print("[YOLO ACTIVE LEARNING ABLATION V3 MINIMAL]")
+    print("[YOLO ACTIVE LEARNING ABLATION V6 DEFICIT/PSEUDO-FEATURE DIVERSITY]")
     print(f"Priority CSV: {priority_csv}")
     print(f"Run output : {run_output_dir}")
     print(f"Dataset dir: {dataset_output_root}")
@@ -2257,7 +2492,7 @@ def main():
     # -------------------------------------------------------------------------
     # Markdown summary
     # -------------------------------------------------------------------------
-    write_v5_summary_md(
+    write_v6_summary_md(
         save_dir=run_output_dir,
         config=config,
         aggregate_summary_df=aggregate_df,
@@ -2265,7 +2500,7 @@ def main():
     )
 
     print("\n" + "=" * 100)
-    print("[완료] YOLO Active Learning Ablation V3 Minimal 종료")
+    print("[완료] YOLO Active Learning Ablation V6 Deficit/Pseudo-Feature Diversity 종료")
     print(f"Output dir: {run_output_dir}")
     print("=" * 100)
 

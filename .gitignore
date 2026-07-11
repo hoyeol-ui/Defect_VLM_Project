@@ -62,3 +62,7 @@ logs/
 # secrets / env
 .env
 .env.*
+
+# local runtime / external source
+.python311/
+Ultralytics/
