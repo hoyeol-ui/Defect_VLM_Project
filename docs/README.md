@@ -10,6 +10,15 @@
 
 ## 최신 핵심 문서
 
+- [MacBook handoff guide](./macbook_handoff_guide_20260712.md)
+  - 맥북에서 GitHub repo를 받아 문서작업을 이어가는 방법, Notion 업데이트 순서, raw run/checkpoint 부재 시 주의사항을 정리.
+
+- [Research context handoff](./research_context_handoff_20260712.md)
+  - Codex 대화 맥락이 사라져도 V3~V10b 실험 흐름, 주요 결론, 최신 seed43~46 해석을 복원할 수 있는 핸드오프 문서.
+
+- [Continuation playbook](./continuation_playbook_20260712.md)
+  - 맥북 문서작업, GitHub 반영, Windows GPU 머신 재실험 명령을 한 곳에 모은 실전 플레이북.
+
 - [V8 NEU-only 5-seed 결과 로그](./v8_neu_only_5seed_result_log_20260712.md)
   - NEU-only 프로토콜에서 Random, DINO Visual, Consistency를 비교한 최신 정리.
   - 중요한 판정: DINO Visual은 Consistency보다 낫지만, Random 대비 독립 전략으로 성공했다고 보기 어렵다.
