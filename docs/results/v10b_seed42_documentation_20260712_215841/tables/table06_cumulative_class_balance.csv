@@ -1,0 +1,5 @@
+﻿strategy,counts_json,total,shannon_entropy,normalized_entropy,max_count,min_count,max_min_ratio
+DetectorInstanceRichDINOBalanced,"{""crazing"": 32, ""inclusion"": 45, ""patches"": 55, ""pitted_surface"": 31, ""rolled-in_scale"": 36, ""scratches"": 25}",224,2.535471154213961,0.9808541336698742,55,25,2.2
+DetectorUncertaintyDINOInstanceReducedV10b,"{""crazing"": 30, ""inclusion"": 34, ""patches"": 48, ""pitted_surface"": 30, ""rolled-in_scale"": 34, ""scratches"": 30}",206,2.56200622211329,0.9911192991768888,48,30,1.6
+GTFreeRandom,"{""crazing"": 19, ""inclusion"": 37, ""patches"": 51, ""pitted_surface"": 22, ""rolled-in_scale"": 47, ""scratches"": 15}",191,2.4437606589402368,0.9453756711203638,51,15,3.4
+__SHARED_ROUND0__,"{""crazing"": 13, ""inclusion"": 26, ""patches"": 45, ""pitted_surface"": 16, ""rolled-in_scale"": 30, ""scratches"": 9}",139,2.3909800567265704,0.9249573469864772,45,9,5.0

@@ -40,12 +40,11 @@ from analyze_instance_richness_v7 import parse_image_instances, strategy_stats  
 from audit_detection_pipeline_v7 import (  # noqa: E402
     build_image_index,
     build_xml_index,
-    compute_file_sha256,
     load_priority_scores,
     parse_bool_env,
     parse_int_list_env,
-    resolve_image_path_fast,
 )
+from canonical_sampling_v7 import canonicalize_pool_for_sampling, sample_initial_labeled_set  # noqa: E402
 from run_al_yolo_ablation_v7_visual_instance import (  # noqa: E402
     PROHIBITED_GTFREE_COLUMNS,
     assert_gtfree_view,
@@ -62,8 +61,11 @@ except Exception as exc:  # pragma: no cover
 
 
 PROJECT_ROOT = v6.PROJECT_ROOT
-RUNS_ROOT = PROJECT_ROOT / "runs" / "active_learning_ablation_v7_full_curve"
-DATASETS_ROOT = PROJECT_ROOT / "datasets" / "active_learning_ablation_v7_full_curve"
+RUNS_ROOT = PROJECT_ROOT / "runs" / os.environ.get("AL_FULL_CURVE_RUNS_SUBDIR", "active_learning_ablation_v7_full_curve")
+DATASETS_ROOT = PROJECT_ROOT / "datasets" / os.environ.get("AL_FULL_CURVE_DATASETS_SUBDIR", "active_learning_ablation_v7_full_curve")
+RUN_NAME_PREFIX = os.environ.get("AL_FULL_CURVE_RUN_PREFIX", "v7_full_curve")
+EXPERIMENT_LABEL = os.environ.get("AL_EXPERIMENT_LABEL", "V7 DINO full learning curve")
+SUMMARY_FILENAME = os.environ.get("AL_SUMMARY_FILENAME", "v7_full_curve_summary.md")
 
 RANDOM_STRATEGY = "GTFreeRandom"
 DBC_STRATEGY = "GTFreeDatasetBalancedConsistency"
@@ -110,6 +112,23 @@ def parse_csv_env(name: str, default: list[str]) -> list[str]:
     return [v.strip() for v in value.split(",") if v.strip()]
 
 
+def dataset_filter_values(name: str) -> list[str]:
+    return parse_csv_env(name, [])
+
+
+def apply_dataset_filter(df: pd.DataFrame, env_name: str) -> tuple[pd.DataFrame, list[str]]:
+    allowed = dataset_filter_values(env_name)
+    if not allowed:
+        return df, []
+    if "dataset_type" not in df.columns:
+        raise ValueError(f"{env_name} was set, but dataframe has no dataset_type column.")
+    before = len(df)
+    out = df[df["dataset_type"].astype(str).isin(allowed)].copy().reset_index(drop=True)
+    if out.empty:
+        raise ValueError(f"{env_name}={allowed} removed all rows from dataframe with {before} rows.")
+    return out, allowed
+
+
 def file_sha256(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -154,7 +173,8 @@ def load_development_eval() -> tuple[Path, Path, pd.DataFrame]:
     dev_path = protocol_dir / "development_eval_v7.csv"
     if not dev_path.exists():
         raise FileNotFoundError(f"Missing development eval manifest: {dev_path}")
-    return protocol_dir, dev_path, pd.read_csv(dev_path)
+    dev_df, _ = apply_dataset_filter(pd.read_csv(dev_path), "AL_DEV_EVAL_DATASET_FILTER")
+    return protocol_dir, dev_path, dev_df
 
 
 def make_sample_id(dataset_type: str, image_name: str, resolved_path: str, sha256: str) -> str:
@@ -163,39 +183,15 @@ def make_sample_id(dataset_type: str, image_name: str, resolved_path: str, sha25
 
 
 def add_sample_identity(df: pd.DataFrame, image_index: dict[tuple[str, str], list[Path]]) -> pd.DataFrame:
-    out = df.copy()
-    resolved_paths = []
-    sha_values = []
-    sample_ids = []
-    missing = []
-    for i, row in out.iterrows():
-        path = resolve_image_path_fast(row, image_index)
-        if path is None:
-            missing.append((i, row.get("dataset_type"), row.get("image_name")))
-            resolved_paths.append(None)
-            sha_values.append(None)
-            sample_ids.append(None)
-            continue
-        sha = compute_file_sha256(path)
-        resolved = str(path.resolve())
-        resolved_paths.append(resolved)
-        sha_values.append(sha)
-        sample_ids.append(make_sample_id(str(row["dataset_type"]), str(row["image_name"]), resolved, str(sha)))
-    if missing:
-        raise FileNotFoundError(f"Could not resolve {len(missing)} image paths, first rows: {missing[:5]}")
-    out["resolved_image_path"] = resolved_paths
-    out["image_sha256"] = sha_values
-    out["sample_id"] = sample_ids
-    if out["sample_id"].duplicated().any():
-        dup = out[out["sample_id"].duplicated(keep=False)][["dataset_type", "image_name", "sample_id"]]
-        raise ValueError(f"Duplicate sample_id rows found:\n{dup.head(20)}")
-    return out.sort_values("sample_id", kind="mergesort").reset_index(drop=True)
+    return canonicalize_pool_for_sampling(df, image_index, set_sample_id=True)
 
 
 def load_priority_pool_with_identity() -> tuple[Path, pd.DataFrame, dict[tuple[str, str], list[Path]]]:
     priority_csv, df = load_priority_scores()
     image_index = build_image_index()
-    return priority_csv, add_sample_identity(df, image_index), image_index
+    pool = add_sample_identity(df, image_index)
+    pool, _ = apply_dataset_filter(pool, "AL_POOL_DATASET_FILTER")
+    return priority_csv, pool, image_index
 
 
 def load_dino_embeddings(full_pool: pd.DataFrame) -> tuple[Path, pd.DataFrame, np.ndarray, dict[str, np.ndarray], dict[str, Any]]:
@@ -215,9 +211,9 @@ def load_dino_embeddings(full_pool: pd.DataFrame) -> tuple[Path, pd.DataFrame, n
         raise ValueError(f"Expected DINOv2-small 384-d embeddings, got {config.get('embedding_dim')}")
     manifest = pd.read_csv(manifest_path)
     embeddings = np.load(embeddings_path)
-    if len(manifest) != len(full_pool) or embeddings.shape[0] != len(manifest):
+    if embeddings.shape[0] != len(manifest):
         raise ValueError(
-            f"DINO cache sample count mismatch: manifest={len(manifest)}, embeddings={embeddings.shape[0]}, pool={len(full_pool)}"
+            f"DINO cache sample count mismatch: manifest={len(manifest)}, embeddings={embeddings.shape[0]}"
         )
 
     pool_keys = set(zip(full_pool["dataset_type"].astype(str), full_pool["image_name"].astype(str), full_pool["image_sha256"].astype(str)))
@@ -233,6 +229,8 @@ def load_dino_embeddings(full_pool: pd.DataFrame) -> tuple[Path, pd.DataFrame, n
     lookup: dict[str, np.ndarray] = {}
     for _, row in manifest.iterrows():
         key = (str(row["dataset_type"]), str(row["image_name"]), str(row["sha256"]))
+        if key not in sample_id_by_key:
+            continue
         sample_id = sample_id_by_key[key]
         lookup[sample_id] = embeddings[int(row["embedding_index"])]
     return embedding_dir, manifest, embeddings, lookup, config
@@ -367,7 +365,11 @@ def build_selection_plan(
     selected_logs = []
     cumulative_logs = []
     for seed in seeds:
-        initial = full_pool.sample(n=min(initial_size, len(full_pool)), random_state=seed + 999).copy()
+        initial = sample_initial_labeled_set(
+            full_pool,
+            initial_seed_size=initial_size,
+            acquisition_seed=seed,
+        ).copy()
         for strategy in strategies:
             current_pool = full_pool[~full_pool["sample_id"].isin(initial["sample_id"])].copy()
             labeled = initial.copy()
@@ -906,7 +908,7 @@ def write_summary(
         visual_aulc = float(visual.iloc[0].get("normalized_aulc_map5095_mean", np.nan))
         lock_lines.append(f"- Visual-only normalized AULC mAP50-95 mean: {visual_aulc:.6f}")
     lines = [
-        "# V7 DINO Full Learning Curve",
+        f"# {EXPERIMENT_LABEL}",
         "",
         "Development full-curve result only. Final test was not used.",
         "",
@@ -939,7 +941,7 @@ def write_summary(
         "",
         "Do not run final_test_v7 from this runner. Lock decision should be made from development full-curve criteria first.",
     ]
-    (save_dir / "v7_full_curve_summary.md").write_text("\n".join(lines), encoding="utf-8")
+    (save_dir / SUMMARY_FILENAME).write_text("\n".join(lines), encoding="utf-8")
 
 
 def resolve_save_dir() -> tuple[Path, Path, bool]:
@@ -957,7 +959,7 @@ def resolve_save_dir() -> tuple[Path, Path, bool]:
         current_dry_run = parse_bool_env("AL_DRY_RUN_ONLY", True)
         current_selection_only = parse_bool_env("AL_SELECTION_ONLY", False)
         runs = sorted(
-            [p for p in RUNS_ROOT.glob("v7_full_curve_*") if p.is_dir()],
+            [p for p in RUNS_ROOT.glob(f"{RUN_NAME_PREFIX}_*") if p.is_dir()],
             key=lambda p: p.stat().st_mtime,
             reverse=True,
         ) if RUNS_ROOT.exists() else []
@@ -989,8 +991,8 @@ def resolve_save_dir() -> tuple[Path, Path, bool]:
             except Exception:
                 continue
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    save_dir = RUNS_ROOT / f"v7_full_curve_{timestamp}"
-    dataset_root = DATASETS_ROOT / f"v7_full_curve_{timestamp}"
+    save_dir = RUNS_ROOT / f"{RUN_NAME_PREFIX}_{timestamp}"
+    dataset_root = DATASETS_ROOT / f"{RUN_NAME_PREFIX}_{timestamp}"
     save_dir.mkdir(parents=True, exist_ok=True)
     dataset_root.mkdir(parents=True, exist_ok=True)
     return save_dir, dataset_root, False
@@ -1024,6 +1026,7 @@ def main() -> None:
 
     config = {
         "experiment_id": save_dir.name,
+        "experiment_label": EXPERIMENT_LABEL,
         "PROJECT_ROOT": str(PROJECT_ROOT),
         "save_dir": str(save_dir),
         "dataset_root": str(dataset_root),
@@ -1033,6 +1036,11 @@ def main() -> None:
         "eval_protocol_dir": str(protocol_dir),
         "development_eval_path": str(dev_eval_path),
         "development_eval_sha256": file_sha256(dev_eval_path),
+        "development_eval_dataset_filter": dataset_filter_values("AL_DEV_EVAL_DATASET_FILTER"),
+        "development_eval_size_after_filter": len(dev_eval_df),
+        "pool_dataset_filter": dataset_filter_values("AL_POOL_DATASET_FILTER"),
+        "pool_size_after_filter": len(full_pool),
+        "pool_dataset_distribution_after_filter": full_pool["dataset_type"].astype(str).value_counts().to_dict(),
         "final_test_used": False,
         "embedding_dir": str(embedding_dir),
         "DINO_manifest_sha256": file_sha256(embedding_dir / "embedding_manifest.csv"),
@@ -1044,6 +1052,9 @@ def main() -> None:
         "rounds": rounds,
         "query_size": query_size,
         "budgets": budgets,
+        "canonical_sampling": True,
+        "canonical_sampling_key": "canonical_sample_id = resolved_image_path::image_sha256",
+        "initial_sampling_random_state_rule": "acquisition_seed + 999",
         "model": os.environ.get("AL_YOLO_MODEL_NAME", "yolov8n.pt"),
         "epochs": int(os.environ.get("AL_EPOCHS_PER_ROUND", "100")),
         "patience": int(os.environ.get("AL_YOLO_PATIENCE", os.environ.get("AL_EPOCHS_PER_ROUND", "100"))),
@@ -1063,8 +1074,10 @@ def main() -> None:
     expected_trainings = len(seeds) * (1 + len(strategies) * rounds)
     gate_sec_per_train = 237.0
     print("=" * 100)
-    print("[V7] DINO full learning curve")
+    print(f"[{EXPERIMENT_LABEL}]")
     print(f"Output dir       : {save_dir}")
+    print(f"Pool filter      : {dataset_filter_values('AL_POOL_DATASET_FILTER') or 'none'} ({len(full_pool)} images)")
+    print(f"Dev eval filter  : {dataset_filter_values('AL_DEV_EVAL_DATASET_FILTER') or 'none'} ({len(dev_eval_df)} images)")
     print(f"Dry run          : {dry_run}")
     print(f"Selection only   : {selection_only}")
     print(f"Final test       : LOCKED / NOT USED")
@@ -1243,7 +1256,7 @@ def main() -> None:
     run_analysis_if_available(save_dir)
 
     print("=" * 100)
-    print("[DONE] V7 DINO full learning-curve runner finished")
+    print(f"[DONE] {EXPERIMENT_LABEL} runner finished")
     print(f"Output dir: {save_dir}")
     print(f"Final test used: {config['final_test_used']}")
     print("=" * 100)

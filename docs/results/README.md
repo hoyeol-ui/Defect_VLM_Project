@@ -8,6 +8,39 @@ files. For lab meetings and README evidence, copy only selected CSV/PNG/MD files
 
 ## Recommended Result Sets
 
+### `../analysis/latest_20260712/`
+
+Source runs:
+
+```text
+runs/active_learning_ablation_v7_full_curve/v7_full_curve_20260712_053052/
+runs/active_learning_ablation_v8_neu_only/v8_neu_only_20260712_105644/
+```
+
+Main comparison:
+
+- `Random`
+- `DINO Visual`
+- `Consistency`
+
+Interpretation:
+
+- V7 mixed protocol was confounded by extreme GC10 pool skew and mixed-domain evaluation composition.
+- V8 NEU-only substantially improved absolute YOLO performance for every strategy.
+- `DINO Visual` was stronger than `Consistency`, especially for label-efficiency on mAP@50.
+- `Random` remained the strongest or tied strongest baseline on final performance and mAP@50-95.
+- Therefore, these results should be reported as failure analysis and pivot evidence, not as proof that visual diversity is a standalone winning acquisition strategy.
+
+Curated files:
+
+```text
+docs/analysis/latest_20260712/README.md
+docs/analysis/latest_20260712/*.png
+docs/analysis/latest_20260712/*.csv
+docs/v8_neu_only_5seed_result_log_20260712.md
+docs/final_detector_aware_pivot_protocol_20260712.md
+```
+
 ### `20260706_auxiliary_calibration_8seed/`
 
 Source run:

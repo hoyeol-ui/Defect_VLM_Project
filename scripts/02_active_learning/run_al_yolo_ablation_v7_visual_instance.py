@@ -29,6 +29,7 @@ if str(SCRIPT_DIR) not in sys.path:
 import run_al_yolo_ablation_v6_deficit_diversity as v6  # noqa: E402
 from analyze_instance_richness_v7 import parse_image_instances, strategy_stats  # noqa: E402
 from audit_detection_pipeline_v7 import build_image_index, build_xml_index, load_priority_scores  # noqa: E402
+from canonical_sampling_v7 import canonicalize_pool_for_sampling, sample_initial_labeled_set  # noqa: E402
 from experiment_registry_v7 import append_registry_row  # noqa: E402
 
 
@@ -594,8 +595,9 @@ def main() -> None:
     save_dir = RUNS_ROOT / f"v7_visual_instance_screening_{timestamp}"
     save_dir.mkdir(parents=True, exist_ok=True)
 
-    _, df_all = load_priority_scores()
-    full_pool = v6.stable_sample_order(df_all).reset_index(drop=True)
+    priority_csv, df_all = load_priority_scores()
+    image_index = build_image_index()
+    full_pool = canonicalize_pool_for_sampling(df_all, image_index, set_sample_id=True)
 
     seeds = parse_int_list_env("AL_SEEDS", [42])
     initial_size = int(os.environ.get("AL_INITIAL_SEED_SIZE", "15"))
@@ -626,6 +628,10 @@ def main() -> None:
         "initial_seed_size": initial_size,
         "rounds": rounds,
         "query_size": query_size,
+        "priority_csv": str(priority_csv),
+        "canonical_sampling": True,
+        "canonical_sampling_key": "canonical_sample_id = resolved_image_path::image_sha256",
+        "initial_sampling_random_state_rule": "acquisition_seed + 999",
         "hybrid_candidate": hybrid_id,
         "hybrid_weights": hybrid_weights,
         "embedding_config": embedding_config,
@@ -635,9 +641,15 @@ def main() -> None:
 
     selected_logs = []
     for seed in seeds:
-        initial = full_pool.sample(n=min(initial_size, len(full_pool)), random_state=seed + 999)
+        initial = sample_initial_labeled_set(
+            full_pool,
+            initial_seed_size=initial_size,
+            acquisition_seed=seed,
+        )
         for strategy in strategies:
-            current_pool = full_pool.drop(index=initial.index).copy()
+            current_pool = full_pool[
+                ~full_pool["canonical_sample_id"].astype(str).isin(initial["canonical_sample_id"].astype(str))
+            ].copy()
             labeled = initial.copy()
             selected_logs.append(add_selection_metadata(initial, seed, strategy, 0, "shared_initial_seed_random"))
             for round_idx in range(1, rounds + 1):
@@ -651,14 +663,23 @@ def main() -> None:
                     embedding_lookup,
                     hybrid_weights,
                 )
-                picked_keys = set(zip(picked_view["dataset_type"].astype(str), picked_view["image_name"].astype(str)))
-                picked_full = current_pool[
-                    [key in picked_keys for key in zip(current_pool["dataset_type"].astype(str), current_pool["image_name"].astype(str))]
-                ].copy()
+                if "canonical_sample_id" in picked_view.columns:
+                    picked_ids = set(picked_view["canonical_sample_id"].astype(str))
+                    picked_full = current_pool[current_pool["canonical_sample_id"].astype(str).isin(picked_ids)].copy()
+                else:
+                    picked_keys = set(zip(picked_view["dataset_type"].astype(str), picked_view["image_name"].astype(str)))
+                    picked_full = current_pool[
+                        [
+                            key in picked_keys
+                            for key in zip(current_pool["dataset_type"].astype(str), current_pool["image_name"].astype(str))
+                        ]
+                    ].copy()
                 picked_full = picked_full.head(len(picked_view))
                 selected_logs.append(add_selection_metadata(picked_full, seed, strategy, round_idx, strategy))
                 labeled = pd.concat([labeled, picked_full])
-                current_pool = current_pool.drop(index=picked_full.index)
+                current_pool = current_pool[
+                    ~current_pool["canonical_sample_id"].astype(str).isin(picked_full["canonical_sample_id"].astype(str))
+                ].copy()
 
     selected_df = pd.concat(selected_logs, ignore_index=True) if selected_logs else pd.DataFrame()
     redundancy_df = compute_visual_redundancy(selected_df, embedding_lookup)

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V10b Active Learning Architecture Evolution</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+:root{
+  --navy:#0f172a; --blue:#1d4ed8; --teal:#0f766e; --purple:#6d28d9;
+  --green:#166534; --amber:#92400e; --red:#991b1b; --slate:#475569;
+  --line:#cbd5e1; --bg:#f8fafc; --panel:#ffffff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Inter,"Noto Sans KR",sans-serif;color:var(--navy)}
+.page{max-width:1720px;margin:0 auto;padding:28px}
+.hero{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin-bottom:18px;box-shadow:0 8px 22px rgba(15,23,42,.06)}
+.hero-top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+.hero h1{margin:0;font-size:32px;letter-spacing:-.8px}
+.hero p{margin:8px 0 0;color:var(--slate);font-size:15px;line-height:1.5}
+.badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.badge{border-radius:999px;border:1px solid;padding:7px 10px;font-size:11px;font-weight:800;white-space:nowrap}
+.blue{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}.green{background:#f0fdf4;color:#166534;border-color:#bbf7d0}.red{background:#fef2f2;color:#991b1b;border-color:#fecaca}.amber{background:#fffbeb;color:#92400e;border-color:#fde68a}
+.layout{display:grid;grid-template-columns:1.05fr 1.4fr;gap:18px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
+.panel h2{margin:0 0 14px;font-size:18px}
+.timeline{display:flex;flex-direction:column;gap:10px}
+.step{border:1px solid var(--line);border-left:6px solid #94a3b8;border-radius:12px;padding:12px;background:#fff}
+.step h3{margin:0 0 6px;font-size:14px}.step p{margin:0;color:#334155;font-size:12px;line-height:1.45}
+.step.fail{border-left-color:#ef4444;background:#fff7f7}.step.learn{border-left-color:#f59e0b;background:#fffbeb}.step.current{border-left-color:#14b8a6;background:#f0fdfa}.step.next{border-left-color:#1d4ed8;background:#eff6ff}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch}
+.node{border:1.5px solid var(--line);border-radius:14px;padding:12px;background:#fff;min-height:128px;position:relative}
+.node h3{font-size:13px;margin:0 0 8px;color:#0f172a}
+.node p,.node li{font-size:11.4px;line-height:1.42;color:#334155}
+.node ul{padding-left:16px;margin:0}
+.node.source{border-color:#94a3b8}.node.signal{border-color:#14b8a6}.node.select{border-color:#a78bfa}.node.train{border-color:#f59e0b}.node.eval{border-color:#38bdf8}
+.arrow{display:flex;justify-content:center;align-items:center;color:#64748b;font-size:20px;font-weight:900}
+.wide{grid-column:1/-1}
+.score{font-family:Cambria,serif;background:#f8fafc;border-left:4px solid #3b82f6;padding:9px 11px;margin:8px 0;font-size:13px}
+.matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff}
+.card h3{margin:0 0 8px;font-size:13px}.card p,.card li{font-size:11.5px;line-height:1.45;color:#334155}.card ul{margin:0;padding-left:16px}
+table{width:100%;border-collapse:collapse;font-size:11.5px}
+th,td{border:1px solid var(--line);padding:6px;text-align:left}th{background:#f1f5f9}
+.good{color:#166534;font-weight:800}.bad{color:#991b1b;font-weight:800}.warn{color:#92400e;font-weight:800}
+.caption{font-size:10.5px;color:#64748b;text-align:right;margin-top:10px}
+.section-title{display:inline-block;border-radius:999px;padding:5px 10px;background:#0f172a;color:#fff;font-size:11px;font-weight:800;margin-bottom:10px}
+.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pill{display:inline-block;padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800;margin-bottom:6px}
+.pill.fact{background:#dbeafe;color:#1e40af}.pill.interp{background:#dcfce7;color:#166534}.pill.hypo{background:#fef3c7;color:#92400e}
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>V10b Architecture Evolution & Full Workflow</h1>
+        <p>
+          VLM-only consistency에서 시작해 DINO visual diversity, detector-aware uncertainty, instance-rich sampling,
+          그리고 frozen V10b validation으로 이어진 현재 연구 흐름을 한 장으로 정리한 최신 미리보기입니다.
+        </p>
+      </div>
+      <div class="badges">
+        <span class="badge blue">Current candidate: V10b</span>
+        <span class="badge green">Seed42 gate passed</span>
+        <span class="badge amber">Seed43-46 pending/running</span>
+        <span class="badge red">Final test locked</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <section class="panel">
+      <h2>1. Main architecture evolution</h2>
+      <div class="timeline">
+        <div class="step fail">
+          <h3>V3-V6: VLM explanation consistency 중심</h3>
+          <p>설명 일관성은 직관적으로 매력적이었지만 detector localization utility와 안정적으로 연결되지 않았다.</p>
+        </div>
+        <div class="step learn">
+          <h3>V7-V8: DINO visual diversity와 NEU-only 정리</h3>
+          <p>DINO diversity는 consistency보다 낫지만 Random을 안정적으로 이기지는 못했다. Random baseline이 강하다는 사실이 명확해졌다.</p>
+        </div>
+        <div class="step learn">
+          <h3>V9: detector-aware + instance-rich pivot</h3>
+          <p>Round0 detector로 pool을 score하고 instance-rich 샘플을 고르기 시작했다. 그러나 pseudo-instance weight 0.40은 recall 저하와 보수적 detector를 만들었다.</p>
+        </div>
+        <div class="step current">
+          <h3>V10b: uncertainty + DINO 강화, instance weight 축소</h3>
+          <p>V10b는 detector uncertainty 0.25, DINO distance 0.35, class deficit 0.15, pseudo-instance 0.25로 고정되었다.</p>
+        </div>
+        <div class="step next">
+          <h3>Next: frozen multiseed validation</h3>
+          <p>Seed43-46에서 Random vs V10b one-cycle을 비교한다. 결과를 본 뒤 weight를 다시 조정하지 않는다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>2. Current full flowchart</h2>
+      <div class="flow">
+        <div class="node source">
+          <h3>Protocol split</h3>
+          <ul>
+            <li>NEU-DET 1,800</li>
+            <li>Pool 900</li>
+            <li>Dev 300</li>
+            <li>Final 300 locked</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="node signal">
+          <h3>Shared Round0</h3>
+          <ul>
+            <li>Initial 60</li>
+            <li>YOLOv8n 100 epochs</li>
+            <li>best.pt scores pool</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="node select">
+          <h3>Frozen V10b query</h3>
+          <div class="score">S=0.25U+0.35D+0.15B+0.25I</div>
+          <p>Compare with Random query 30.</p>
+        </div>
+        <div class="node train">
+          <h3>Budget 90 training</h3>
+          <ul>
+            <li>Round0 + Random query</li>
+            <li>Round0 + V10b query</li>
+            <li>V9b excluded from validation</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="node eval">
+          <h3>Development eval only</h3>
+          <ul>
+            <li>Aggregate mAP</li>
+            <li>Per-class AP recovery</li>
+            <li>Post-hoc XML statistics</li>
+          </ul>
+        </div>
+        <div class="arrow">→</div>
+        <div class="node eval">
+          <h3>Decision gate</h3>
+          <p>Only after multiseed pass: full curve → method lock → one final-test evaluation.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel" style="margin-top:18px">
+    <h2>3. Seed42 detector gate evidence</h2>
+    <div class="matrix">
+      <div class="card">
+        <h3>Aggregate performance</h3>
+        <table>
+          <tr><th>Strategy</th><th>mAP50</th><th>mAP50-95</th><th>Recall</th></tr>
+          <tr><td>Round0</td><td>0.581204</td><td>0.306094</td><td>0.599504</td></tr>
+          <tr><td>Random</td><td>0.641054</td><td>0.329700</td><td>0.610587</td></tr>
+          <tr><td>V9b</td><td>0.623766</td><td>0.317276</td><td>0.579154</td></tr>
+          <tr><td>V10b</td><td class="good">0.647079</td><td class="good">0.340866</td><td class="good">0.621586</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Selection geometry</h3>
+        <table>
+          <tr><th>Strategy</th><th>Pairwise cosine</th><th>Distance to initial</th></tr>
+          <tr><td>V9b</td><td>0.500067</td><td>0.229034</td></tr>
+          <tr><td>V10b</td><td class="good">0.444252</td><td class="good">0.280558</td></tr>
+          <tr><td>Random</td><td>0.556216</td><td>0.162501</td></tr>
+        </table>
+        <p>V10b는 V9b보다 redundancy가 낮고 initial set에서 더 멀다.</p>
+      </div>
+      <div class="card">
+        <h3>Per-class AP50-95</h3>
+        <ul>
+          <li><b>V10b > Random</b>: crazing, patches, pitted_surface, scratches</li>
+          <li><b>V10b < Random</b>: inclusion, rolled-in_scale</li>
+          <li><b>V10b > V9b</b>: all six NEU classes</li>
+        </ul>
+        <p class="warn">Random 대비 일반 우월성은 아직 미검증이다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:18px">
+    <h2>4. Evidence separation</h2>
+    <div class="evidence-grid">
+      <div class="card">
+        <span class="pill fact">Verified facts</span>
+        <ul>
+          <li>V10b seed42 mAP50-95=0.340866</li>
+          <li>Random seed42 mAP50-95=0.329700</li>
+          <li>Final test unused</li>
+          <li>Validation-only recovery matched aggregate metrics</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill interp">Supported interpretations</span>
+        <ul>
+          <li>V10b reduced V9b instance-rich bias</li>
+          <li>Recall recovered vs V9b</li>
+          <li>V10b is worth freezing as candidate</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill hypo">Unverified hypotheses</span>
+        <ul>
+          <li>V10b is generally superior to Random</li>
+          <li>DINO diversity directly caused performance gain</li>
+          <li>Class entropy directly caused performance gain</li>
+          <li>Final-test superiority</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-top:18px">
+    <h2>5. Current operating rule</h2>
+    <table>
+      <tr><th>Decision</th><th>Status</th><th>Reason</th></tr>
+      <tr><td>Use V10b as candidate</td><td class="good">Yes</td><td>Seed42 development gate passed; V10b beat V9b across NEU6 AP50-95.</td></tr>
+      <tr><td>Change weights again</td><td class="bad">No</td><td>Weights must stay frozen for seed43-46 validation.</td></tr>
+      <tr><td>Run V9b again</td><td class="bad">No</td><td>V9b is historical comparator, not current validation target.</td></tr>
+      <tr><td>Use final test</td><td class="bad">No</td><td>Only after method lock; currently locked / unused.</td></tr>
+      <tr><td>Claim general superiority over Random</td><td class="warn">Not yet</td><td>Requires independent seeds 43-46 and later full curve/final lock.</td></tr>
+    </table>
+    <div class="caption">Updated 2026-07-12 · Based on V10 smoke, V10b probe, V10b seed42 training, and independent audit outputs.</div>
+  </section>
+</div>
+</body>
+</html>

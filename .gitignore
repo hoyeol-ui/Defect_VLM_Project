@@ -65,4 +65,5 @@ logs/
 
 # local runtime / external source
 .python311/
+.codex_doc_deps/
 Ultralytics/

@@ -1,0 +1,323 @@
+{
+  "experiment_id": "v10b_seed42_documentation_20260712_215841",
+  "created_at": "2026-07-12T21:58:41",
+  "project_root": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project",
+  "dry_run": false,
+  "source_runs": {
+    "v10_smoke": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v10_neu_large_pool\\v10_neu_large_pool_smoke_20260712_185923",
+    "v10b_selection_probe": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239",
+    "v10b_single_training": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_single_training\\v10b_single_training_20260712_195514",
+    "v10b_independent_audit": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634"
+  },
+  "final_test_file_exists": true,
+  "final_test_read": false,
+  "multiseed_running_outputs_read": false,
+  "design_preset": "standard_business_brief",
+  "header_template": "memo_masthead",
+  "doc_deps": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\.codex_doc_deps",
+  "source_files": [
+    {
+      "purpose": "V10 smoke config",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v10_neu_large_pool\\v10_neu_large_pool_smoke_20260712_185923\\config.json",
+      "exists": true,
+      "bytes": 2579,
+      "sha256": "a657cacebbe5899ba6dd84a2d902d3700710c6b19213dac0550f5d702e6ea30e",
+      "rows": NaN
+    },
+    {
+      "purpose": "V10 aggregate metrics",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v10_neu_large_pool\\v10_neu_large_pool_smoke_20260712_185923\\all_round_results.csv",
+      "exists": true,
+      "bytes": 1831,
+      "sha256": "96c32c47b0703f6bcf20a51d2b6881f13cad325d28c542b129fbf50722436593",
+      "rows": 3.0
+    },
+    {
+      "purpose": "V10 post-hoc XML statistics",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v10_neu_large_pool\\v10_neu_large_pool_smoke_20260712_185923\\actual_instance_statistics_by_round.csv",
+      "exists": true,
+      "bytes": 1372,
+      "sha256": "a0795f71e9d4621d44f995bd0f856af5e9edfadaf009dbd6850e10c2c27682e4",
+      "rows": 3.0
+    },
+    {
+      "purpose": "V10 cumulative class distribution",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v10_neu_large_pool\\v10_neu_large_pool_smoke_20260712_185923\\actual_class_distribution_by_round.csv",
+      "exists": true,
+      "bytes": 888,
+      "sha256": "72a940544b0b303b405df91a664b844778a39ad9c832b5862a67515142d62d2b",
+      "rows": 18.0
+    },
+    {
+      "purpose": "V9b detector score saturation",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v10_neu_large_pool\\v10_neu_large_pool_smoke_20260712_185923\\v9b_round1_detector_scores.csv",
+      "exists": true,
+      "bytes": 563477,
+      "sha256": "a6b8bf1428dd5c58727fd610126bfe91b3a264bf55900c09864f55de1229f4a2",
+      "rows": 840.0
+    },
+    {
+      "purpose": "development eval manifest",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v10_neu_large_pool\\v10_neu_large_pool_smoke_20260712_185923\\development_eval_v10.csv",
+      "exists": true,
+      "bytes": 171478,
+      "sha256": "bd357b96b5d20cb129cb83718f385007cd9a01df8efca58bd85c9dc2021975dd",
+      "rows": 300.0
+    },
+    {
+      "purpose": "V10 summary",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v10_neu_large_pool\\v10_neu_large_pool_smoke_20260712_185923\\v10_neu_large_pool_smoke_summary.md",
+      "exists": true,
+      "bytes": 7709,
+      "sha256": "abcfeb6d52dccd6c25c97fded2ef86bfab5184630c424669a42de91b2cba9b0f",
+      "rows": NaN
+    },
+    {
+      "purpose": "V10b probe config",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\config.json",
+      "exists": true,
+      "bytes": 2134,
+      "sha256": "a63d6a140be886b033234b8cf0e9307216077df9cffc2589dcf36c3e7e7443ce",
+      "rows": NaN
+    },
+    {
+      "purpose": "V9b selected query",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\v9b_selected_samples.csv",
+      "exists": true,
+      "bytes": 45087,
+      "sha256": "7ba53ac1652f07761111a9fb31a05c5255144a9708d1e89fdf2bf394120074d5",
+      "rows": 30.0
+    },
+    {
+      "purpose": "V10b selected query",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\v10b_selected_samples.csv",
+      "exists": true,
+      "bytes": 39527,
+      "sha256": "9d19c5ea5bb6ac76ff29ecd82a56bae5ba7c40db8e8b3049d5c24300255fb15f",
+      "rows": 30.0
+    },
+    {
+      "purpose": "selection overlap",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\v9b_v10b_selection_overlap.csv",
+      "exists": true,
+      "bytes": 138,
+      "sha256": "eb4c52a96cb8d4c2269d229d3d263c2f42c14616ec9090ada59b3a14fe1a2a4b",
+      "rows": 1.0
+    },
+    {
+      "purpose": "selection component summary",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\selection_component_summary.csv",
+      "exists": true,
+      "bytes": 1676,
+      "sha256": "f5c9bd579d687a15f7c83bf8d0a00fa83c698c551ad4f0d2ef2c0e6f85b1b741",
+      "rows": 15.0
+    },
+    {
+      "purpose": "selection geometry summary",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\selection_geometry_summary.csv",
+      "exists": true,
+      "bytes": 484,
+      "sha256": "1117ba8ae0a83fdfaa1cc58d6ad063f87e5a0e8200d2119ce800fed319f71f68",
+      "rows": 3.0
+    },
+    {
+      "purpose": "pool score saturation",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\pool_score_saturation.csv",
+      "exists": true,
+      "bytes": 241,
+      "sha256": "ac193d8c4c5f1a35dce7ade422798f30b88f900c1612c8429a31a9f4ac5e7210",
+      "rows": 2.0
+    },
+    {
+      "purpose": "query batch XML statistics",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\posthoc_actual_instance_stats.csv",
+      "exists": true,
+      "bytes": 1136,
+      "sha256": "c3f1e5edd075ef26b49d6df70191a3d50f86e2562dd3b0519c64e0686d6f958d",
+      "rows": 3.0
+    },
+    {
+      "purpose": "query batch class distribution",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\posthoc_actual_class_distribution.csv",
+      "exists": true,
+      "bytes": 413,
+      "sha256": "240ce0c25c8d310bd69deaadae4d7ad0e4ebef6cdb999aeb4192c8823a8a1dc9",
+      "rows": 18.0
+    },
+    {
+      "purpose": "probe summary",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_selection_probe\\v10b_selection_probe_20260712_194239\\v10b_selection_probe_summary.md",
+      "exists": true,
+      "bytes": 8764,
+      "sha256": "70156f3a460b42659fc51794da841ec84228e6decb6268e239fed526cbb88279",
+      "rows": NaN
+    },
+    {
+      "purpose": "V10b single training config",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_single_training\\v10b_single_training_20260712_195514\\config.json",
+      "exists": true,
+      "bytes": 1955,
+      "sha256": "77d0b77ea57e03668fcc361dd2bf923142ec566e50b60ef0561b1d7374e8c741",
+      "rows": NaN
+    },
+    {
+      "purpose": "V10b aggregate metrics",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_single_training\\v10b_single_training_20260712_195514\\all_round_results.csv",
+      "exists": true,
+      "bytes": 839,
+      "sha256": "5a522051c64951c62ca625249776073e6eae56a9c47f420cdb74f35d5336e7ca",
+      "rows": 1.0
+    },
+    {
+      "purpose": "V10b baseline comparison",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_single_training\\v10b_single_training_20260712_195514\\comparison_with_existing_v10_baselines.csv",
+      "exists": true,
+      "bytes": 382,
+      "sha256": "4fa8e42aa9094a70c3ffcf93ceeb6ceaac91b87ccce5fde2f389abe1ca7ab091",
+      "rows": 4.0
+    },
+    {
+      "purpose": "V10b post-hoc XML statistics",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_single_training\\v10b_single_training_20260712_195514\\actual_instance_statistics_by_round.csv",
+      "exists": true,
+      "bytes": 724,
+      "sha256": "d82d3737b866778729a90042975555bc5f8a6caa9c40669544e9a49f688b281c",
+      "rows": 1.0
+    },
+    {
+      "purpose": "V10b cumulative class distribution",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_single_training\\v10b_single_training_20260712_195514\\actual_class_distribution_by_round.csv",
+      "exists": true,
+      "bytes": 485,
+      "sha256": "62946e16a7395d3718eb4098d18b9231bf21a8e330ac270392dc5256b1c0caa8",
+      "rows": 6.0
+    },
+    {
+      "purpose": "V10b summary",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_single_training\\v10b_single_training_20260712_195514\\v10b_single_training_summary.md",
+      "exists": true,
+      "bytes": 11854,
+      "sha256": "77eb94f64ed9e380d8abaa4d9c70b2d6a809aea7d376f05aed56e83d80d5edcf",
+      "rows": NaN
+    },
+    {
+      "purpose": "integrity audit",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\implementation_integrity_audit.csv",
+      "exists": true,
+      "bytes": 1338,
+      "sha256": "887485d324551a8915933f83c545ad0bf13e92640b4e349a32b881f2fcb62ce0",
+      "rows": 14.0
+    },
+    {
+      "purpose": "recalculated aggregate metrics",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\recalculated_aggregate_metrics.csv",
+      "exists": true,
+      "bytes": 2922,
+      "sha256": "e109c28e48d1bcffb0e31fad50e0dfb0b76b490bcb42db4ace9633de13a5ac19",
+      "rows": 4.0
+    },
+    {
+      "purpose": "annotation efficiency",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\annotation_efficiency_recalculation.csv",
+      "exists": true,
+      "bytes": 1038,
+      "sha256": "958124bd5ad5a78fdac5c36d652034b5babfc6d492a2d24ca437e558eb97b6ae",
+      "rows": 4.0
+    },
+    {
+      "purpose": "class balance",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\cumulative_class_balance_metrics.csv",
+      "exists": true,
+      "bytes": 910,
+      "sha256": "500d3cda8a3e76f2b36f564c0ae131d3b8e54f52e77159d3c386afed37cf7adc",
+      "rows": 4.0
+    },
+    {
+      "purpose": "selection change",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\selection_change_recalculation.csv",
+      "exists": true,
+      "bytes": 3666,
+      "sha256": "b43f61a2af59899a65285ebd2686364767290de49bd9d6610edb49c2c6974d71",
+      "rows": 128.0
+    },
+    {
+      "purpose": "per-class recovery",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\recovered_per_class_metrics_v10.csv",
+      "exists": true,
+      "bytes": 2732,
+      "sha256": "0993ef7a645f89a2337dfc746e8ddb27ad7c0c9e0df228e13079de98decdec79",
+      "rows": 45.0
+    },
+    {
+      "purpose": "per-class V10b-Random",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\per_class_v10b_minus_random.csv",
+      "exists": true,
+      "bytes": 1715,
+      "sha256": "b71cff90796a855276953f9767b12fcc1ed949d89551ac4673ad33281db6ddc3",
+      "rows": 6.0
+    },
+    {
+      "purpose": "per-class V10b-V9b",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\per_class_v10b_minus_v9b.csv",
+      "exists": true,
+      "bytes": 1684,
+      "sha256": "308b836c28d92e9181cfd4afc8e7e02dd1cb42b399da27730e9a6879bf5c7b92",
+      "rows": 6.0
+    },
+    {
+      "purpose": "per-class recovery registry",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\per_class_recovery_registry.csv",
+      "exists": true,
+      "bytes": 2358,
+      "sha256": "208186780597d53b9de90af98d02471e4b208742ed40882bff4e8f68a6ce2c88",
+      "rows": 3.0
+    },
+    {
+      "purpose": "evidence classification",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\revised_evidence_classification.csv",
+      "exists": true,
+      "bytes": 687,
+      "sha256": "091fd7654fa7910339817d3c15a794d3030e41e6ddadc887bb16e828461e518e",
+      "rows": 5.0
+    },
+    {
+      "purpose": "root cause evidence",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\revised_root_cause_evidence.csv",
+      "exists": true,
+      "bytes": 1165,
+      "sha256": "bee6eff6aaed91808711a3a57000c010f7284bb090e278431237e26c1515604a",
+      "rows": 5.0
+    },
+    {
+      "purpose": "recommended next step",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\recommended_next_step.md",
+      "exists": true,
+      "bytes": 204,
+      "sha256": "fb2c9507d84f5141a20d9d51172209f791f5fead1739fffd414401e895511e72",
+      "rows": NaN
+    },
+    {
+      "purpose": "per-class summary",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\v10_per_class_recovery_summary.md",
+      "exists": true,
+      "bytes": 4492,
+      "sha256": "77391c952dabe03c86dcc89cede946d99cbb1b10329c008e431adb2e0839ccef",
+      "rows": NaN
+    },
+    {
+      "purpose": "independent audit summary",
+      "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_independent_result_audit\\v10b_independent_result_audit_20260712_202634\\v10b_independent_result_audit.md",
+      "exists": true,
+      "bytes": 1121,
+      "sha256": "c2b8d183c125a189b8d224e2f8315a241e5ec79a84f02929f528f74434bbd5ee",
+      "rows": NaN
+    }
+  ],
+  "generated_figures_count": 12,
+  "generated_tables_count": 7,
+  "markdown_path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_seed42_documentation\\v10b_seed42_documentation_20260712_215841\\V10b_Seed42_Development_Gate_Updated_Report.md",
+  "docx_path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\v10b_seed42_documentation\\v10b_seed42_documentation_20260712_215841\\V10b_Seed42_Development_Gate_Updated_Report.docx",
+  "pdf_path": null,
+  "pdf_status": "LibreOffice/soffice not found",
+  "runtime_sec": 3.1547289000009187
+}
