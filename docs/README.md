@@ -19,6 +19,9 @@
 - [Continuation playbook](./continuation_playbook_20260712.md)
   - 맥북 문서작업, GitHub 반영, Windows GPU 머신 재실험 명령을 한 곳에 모은 실전 플레이북.
 
+- [V10c recall-guard plan](./v10c_recall_guard_plan_20260713.md)
+  - V10b의 precision gain / recall loss 문제를 깨기 위한 2026-07-13 후보 전략과 실행 기준.
+
 - [V8 NEU-only 5-seed 결과 로그](./v8_neu_only_5seed_result_log_20260712.md)
   - NEU-only 프로토콜에서 Random, DINO Visual, Consistency를 비교한 최신 정리.
   - 중요한 판정: DINO Visual은 Consistency보다 낫지만, Random 대비 독립 전략으로 성공했다고 보기 어렵다.
