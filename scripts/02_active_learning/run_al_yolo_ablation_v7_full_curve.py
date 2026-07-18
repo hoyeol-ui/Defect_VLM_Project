@@ -945,6 +945,32 @@ def write_summary(
 
 
 def resolve_save_dir() -> tuple[Path, Path, bool]:
+    explicit_save = os.environ.get("AL_EXPLICIT_SAVE_DIR")
+    if explicit_save:
+        save_dir = Path(explicit_save).expanduser()
+        if not save_dir.is_absolute():
+            save_dir = PROJECT_ROOT / save_dir
+        config_path = save_dir / "config.json"
+        existed = config_path.exists()
+        if existed:
+            cfg = json.loads(config_path.read_text(encoding="utf-8"))
+            requested_dry = parse_bool_env("AL_DRY_RUN_ONLY", True)
+            requested_selection_only = parse_bool_env("AL_SELECTION_ONLY", False)
+            if bool(cfg.get("dry_run", True)) != requested_dry:
+                raise RuntimeError(
+                    f"Refusing to mix dry-run and training in {save_dir}. "
+                    "Use a different AL_EXPLICIT_SAVE_DIR."
+                )
+            if bool(cfg.get("selection_only", False)) != requested_selection_only:
+                raise RuntimeError(
+                    f"Refusing to mix selection-only and training in {save_dir}. "
+                    "Use a different AL_EXPLICIT_SAVE_DIR."
+                )
+        dataset_root = DATASETS_ROOT / save_dir.name
+        save_dir.mkdir(parents=True, exist_ok=True)
+        dataset_root.mkdir(parents=True, exist_ok=True)
+        return save_dir, dataset_root, existed
+
     resume = parse_bool_env("AL_RESUME_EXISTING_RUN", False)
     explicit = os.environ.get("AL_RESUME_RUN_DIR")
     if resume and explicit:
@@ -1016,7 +1042,13 @@ def main() -> None:
     seeds = parse_int_list_env("AL_ACQUISITION_SEEDS", [42, 43, 44, 45, 46])
     strategies = parse_csv_env("AL_STRATEGIES", FULL_CURVE_STRATEGIES)
     if strategies != FULL_CURVE_STRATEGIES:
-        raise ValueError(f"V7 full-curve method is frozen. Use strategies exactly: {FULL_CURVE_STRATEGIES}")
+        allow_subset = parse_bool_env("AL_ALLOW_FROZEN_STRATEGY_SUBSET", False)
+        valid_subset = bool(strategies) and all(strategy in FULL_CURVE_STRATEGIES for strategy in strategies)
+        if not allow_subset or not valid_subset:
+            raise ValueError(
+                f"V7 full-curve method is frozen. Use strategies exactly: {FULL_CURVE_STRATEGIES}, "
+                "or explicitly set AL_ALLOW_FROZEN_STRATEGY_SUBSET=1 for a pre-registered subset comparison."
+            )
     initial_size = int(os.environ.get("AL_INITIAL_SEED_SIZE", "15"))
     rounds = int(os.environ.get("AL_ROUNDS", "4"))
     query_size = int(os.environ.get("AL_QUERY_SIZE", "5"))

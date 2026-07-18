@@ -1,0 +1,8 @@
+﻿metric,scope,value,unit,identifiability,counting_rule,source_file
+prevented_detector_model_runs,D2R class8 representation branch,15,model_runs,IDENTIFIED,Frozen D2R gate explicitly blocked the planned 15-model detector confirmation.,runs/gc10_discovery_representation_audit/gc10_d2r_200seed_20260715/label_aware_retrieval_audit/label_aware_class8_recovery_gate.csv
+prevented_detector_model_runs,K40 YOLOv8s expansion,30,model_runs,IDENTIFIED,Frozen YOLOv8n screen explicitly blocked the planned 30-model YOLOv8s expansion.,runs/dcal_xai/v2_backbone_main/v8n_screen_decision.json
+prevented_detector_model_runs_total,documented non-overlapping branches only,45,model_runs,IDENTIFIED_LOWER_BOUND,15 D2R + 30 K40 YOLOv8s; unquantified stopped branches excluded.,B11+B14
+actual_locked_final_test_uses,all 15 audited branches,0,uses,IDENTIFIED,Observed use only; no counterfactual avoided-use count.,docs/research_evolution_and_evidence_freeze_v2_20260718.md
+counterfactual_final_test_uses_avoided,all stopped branches,NA,uses,NOT_IDENTIFIABLE,A stopped branch does not reveal whether final test would otherwise have been consumed.,docs/thesis_claim_boundary_20260718.md
+prevented_vlm_inference,stopped VLM branches,NA,calls,NOT_QUANTIFIED,No frozen counterfactual call plan with non-overlapping accounting.,docs/research_evolution_and_evidence_freeze_v2_20260718.md
+prevented_gpu_runs,all stopped branches,NA,runs,NOT_QUANTIFIED,Only explicitly planned detector model counts are reported.,docs/research_evolution_and_evidence_freeze_v2_20260718.md
