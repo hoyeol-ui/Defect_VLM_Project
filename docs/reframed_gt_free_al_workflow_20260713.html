@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reframed GT-free Active Learning Workflow after V10c/V10d</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+:root{
+  --navy:#0f172a; --blue:#1d4ed8; --teal:#0f766e; --purple:#6d28d9;
+  --amber:#b45309; --green:#166534; --red:#991b1b; --slate:#475569;
+  --line:#cbd5e1; --muted:#f1f5f9; --bg:#f8fafc; --white:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Inter,"Noto Sans KR",sans-serif;color:var(--navy)}
+.canvas{max-width:1700px;margin:0 auto;padding:28px;background:#fff;min-height:100vh}
+.header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;border-bottom:4px solid var(--navy);padding-bottom:16px;margin-bottom:18px}
+.header h1{margin:0;font-size:29px;letter-spacing:-.7px}
+.header p{margin:8px 0 0;color:var(--slate);font-size:14px;line-height:1.45}
+.badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.badge{border:1px solid;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800;white-space:nowrap}
+.badge.blue{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.badge.green{background:#f0fdf4;color:#166534;border-color:#bbf7d0}
+.badge.red{background:#fef2f2;color:#991b1b;border-color:#fecaca}
+.badge.amber{background:#fffbeb;color:#92400e;border-color:#fde68a}
+.main{display:grid;grid-template-columns:1.1fr 1.15fr 1.25fr 1.1fr;gap:14px}
+.stage{border:1.5px solid var(--line);border-radius:16px;background:#fff;padding:15px;position:relative}
+.stage h2{margin:0 0 12px;display:inline-block;color:#fff;font-size:13px;padding:6px 12px;border-radius:999px}
+.s1 h2{background:var(--navy)} .s2 h2{background:var(--blue)} .s3 h2{background:var(--purple)} .s4 h2{background:var(--green)}
+.box{border:1px solid var(--line);border-radius:12px;padding:11px;margin-bottom:10px;background:#fff}
+.box:last-child{margin-bottom:0}
+.box h3{margin:0 0 7px;font-size:13px}
+.box p,.box li{font-size:11.5px;line-height:1.48;color:#334155}
+.box ul{margin:0;padding-left:17px}
+.warn{border:2px solid #f59e0b;background:#fffbeb}.stop{border:2px solid #ef4444;background:#fef2f2}.go{border:2px solid #22c55e;background:#f0fdf4}.audit{border:2px solid #3b82f6;background:#eff6ff}
+.status{display:inline-block;font-size:10px;font-weight:800;border-radius:999px;padding:4px 7px;margin-bottom:7px}
+.status.stop{background:#fee2e2;color:#991b1b}.status.go{background:#dcfce7;color:#166534}.status.audit{background:#dbeafe;color:#1e40af}.status.warn{background:#fef3c7;color:#92400e}
+.arrow{font-weight:800;color:#94a3b8;text-align:center;margin:6px 0}
+.formula{font-family:Cambria,serif;background:#f8fafc;border-left:4px solid #3b82f6;padding:8px 10px;margin:8px 0;font-size:12.5px;color:#1e293b}
+.evidence{margin-top:16px;display:grid;grid-template-columns:1.1fr 1.2fr 1.1fr;gap:14px}
+.panel{border-radius:16px;padding:15px}
+.panel h2{font-size:15px;margin:0 0 10px}
+.result{background:#eff6ff;border:2px solid #bfdbfe}.lesson{background:#f8fafc;border:2px solid #cbd5e1}.next{background:#f0fdf4;border:2px solid #bbf7d0}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{border:1px solid #cbd5e1;padding:5px;text-align:left;vertical-align:top}th{background:#f1f5f9}
+.good{color:#166534;font-weight:800}.bad{color:#991b1b;font-weight:800}.mid{color:#92400e;font-weight:800}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.flow{margin-top:16px;border:2px solid #dbeafe;border-radius:16px;background:#f8fbff;padding:16px}
+.flow h2{margin:0 0 12px;font-size:16px;color:#1e3a8a}
+.flow-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:9px;align-items:stretch}
+.node{border:1px solid #cbd5e1;background:#fff;border-radius:12px;padding:10px;text-align:center;min-height:92px;display:flex;flex-direction:column;justify-content:center}
+.node b{font-size:12px}.node span{font-size:10.7px;color:#475569;line-height:1.35;margin-top:5px}
+.node.decision{border:2px solid #f59e0b;background:#fffbeb}.node.final{border:2px solid #22c55e;background:#f0fdf4}
+.connector{text-align:center;color:#94a3b8;font-weight:800;align-self:center}
+.foot{margin-top:12px;text-align:right;font-size:10px;color:#64748b}
+@media(max-width:1100px){.main,.evidence{grid-template-columns:1fr 1fr}.flow-grid{grid-template-columns:1fr}.connector{display:none}}
+@media(max-width:720px){.header{display:block}.badges{justify-content:flex-start;margin-top:12px}.main,.evidence,.split{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="header">
+    <div>
+      <h1>Reframed GT-free Active Learning Workflow</h1>
+      <p>V10b/V10c/V10d 이후: “Random을 이기는 selector”에서 “Random이 약해지는 조건을 감사하고 그때만 GT-free signal을 쓰는 제조 도입 워크플로우”로 전환</p>
+    </div>
+    <div class="badges">
+      <span class="badge blue">NEU-DET 1,800</span>
+      <span class="badge green">Pool 900 / Dev 300</span>
+      <span class="badge amber">Random-strong baseline</span>
+      <span class="badge red">Final test locked</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <section class="stage s1">
+      <h2>1. Manufacturing scenario</h2>
+      <div class="box audit">
+        <span class="status audit">Problem</span>
+        <h3>데이터가 적은 제조 현장</h3>
+        <ul>
+          <li>결함 이미지와 라벨이 부족함</li>
+          <li>annotation 비용이 큼</li>
+          <li>어떤 이미지를 먼저 라벨링할지 결정해야 함</li>
+          <li>설명 가능한 우선순위가 필요함</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>기존 제안</h3>
+        <p>VLM consistency, DINO diversity, detector uncertainty를 조합해 GT-free active learning selector를 만든다.</p>
+      </div>
+    </section>
+
+    <section class="stage s2">
+      <h2>2. What experiments taught us</h2>
+      <div class="box warn">
+        <span class="status warn">Observed</span>
+        <h3>Random은 약하지 않았다</h3>
+        <ul>
+          <li>balanced NEU에서는 Random도 class 6/6을 빠르게 커버</li>
+          <li>bbox count, multi-instance, entropy가 충분히 좋음</li>
+          <li>selector gain은 seed와 budget에 민감함</li>
+        </ul>
+      </div>
+      <div class="box stop">
+        <span class="status stop">Stop</span>
+        <h3>단조 proxy 가정 중단</h3>
+        <ul>
+          <li>box가 많으면 좋다 → 아님</li>
+          <li>box가 적으면 recall에 좋다 → 아님</li>
+          <li>uncertainty만 높으면 좋다 → 아님</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stage s3">
+      <h2>3. Reframed hypothesis</h2>
+      <div class="box go">
+        <span class="status go">New hypothesis</span>
+        <h3>Selector가 아니라 audit-and-triage layer</h3>
+        <p>GT-free signal은 모든 balanced dataset에서 Random을 이기는 마법의 selector가 아니라, Random이 약해지는 조건을 찾고 annotation queue를 보조하는 layer로 쓴다.</p>
+      </div>
+      <div class="box">
+        <h3>AL이 필요한 조건</h3>
+        <ul>
+          <li>rare defect / long-tail class</li>
+          <li>중복 이미지가 많은 pool</li>
+          <li>domain shift</li>
+          <li>극소 budget cold-start</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stage s4">
+      <h2>4. New workflow decision</h2>
+      <div class="box audit">
+        <span class="status audit">Gate first</span>
+        <h3>Random baseline audit</h3>
+        <p>먼저 Random curve와 데이터 감사를 수행한다. Random이 이미 강하면 active selector 대신 QA, augmentation, model scaling이 우선이다.</p>
+      </div>
+      <div class="box go">
+        <span class="status go">Use AL only if needed</span>
+        <h3>조건부 GT-free AL</h3>
+        <p>Random이 약한 조건에서만 VLM/DINO/detector signal을 labeling priority에 반영한다.</p>
+      </div>
+    </section>
+  </div>
+
+  <section class="flow">
+    <h2>One-glance workflow</h2>
+    <div class="flow-grid">
+      <div class="node"><b>Data intake</b><span>소량 이미지, taxonomy, seed label</span></div>
+      <div class="connector">→</div>
+      <div class="node"><b>Data audit</b><span>class imbalance, redundancy, bbox, annotation noise</span></div>
+      <div class="connector">→</div>
+      <div class="node decision"><b>Random-strong?</b><span>Random curve가 충분히 좋은가?</span></div>
+      <div class="connector">→</div>
+      <div class="node final"><b>Branch</b><span>강하면 baseline+QA<br>약하면 GT-free AL</span></div>
+    </div>
+  </section>
+
+  <div class="evidence">
+    <section class="panel result">
+      <h2>Evidence summary</h2>
+      <table>
+        <tr><th>Experiment</th><th>Result</th><th>Decision</th></tr>
+        <tr><td>V10b 43-46</td><td>mAP50-95 +0.000949</td><td class="mid">near tie</td></tr>
+        <tr><td>V10c24 47-50</td><td>mAP50-95 +0.001542</td><td class="mid">limited</td></tr>
+        <tr><td>PDF 21/9</td><td>recall -0.043507</td><td class="bad">stop</td></tr>
+        <tr><td>V10d</td><td>signal exists, selector gate fails</td><td class="bad">no training</td></tr>
+        <tr><td>V10c24 R2 seed51</td><td>mAP50-95 -0.004863</td><td class="bad">no expansion</td></tr>
+      </table>
+    </section>
+
+    <section class="panel lesson">
+      <h2>What remains valid</h2>
+      <table>
+        <tr><th>Signal</th><th>New role</th></tr>
+        <tr><td>VLM consistency</td><td>ambiguity / labeling-risk audit</td></tr>
+        <tr><td>DINO diversity</td><td>redundancy audit and tie-breaker</td></tr>
+        <tr><td>Detector uncertainty</td><td>blind-spot candidate, not standalone selector</td></tr>
+        <tr><td>Instance count</td><td>cost/learnability proxy, not monotonic utility</td></tr>
+      </table>
+    </section>
+
+    <section class="panel next">
+      <h2>Next research step</h2>
+      <table>
+        <tr><th>Protocol</th><th>Purpose</th></tr>
+        <tr><td>Balanced conclusion</td><td>Random-strong finding 고정</td></tr>
+        <tr><td>Random audit</td><td>왜 Random이 강한지 설명</td></tr>
+        <tr><td>Stress protocol</td><td>long-tail, redundancy, rare-defect에서 AL 재검증</td></tr>
+      </table>
+    </section>
+  </div>
+
+  <div class="foot">Updated 2026-07-13 · GT-free AL reframed after V10c/V10d evidence · Final test unused</div>
+</div>
+</body>
+</html>

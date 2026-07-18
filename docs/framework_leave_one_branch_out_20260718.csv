@@ -1,0 +1,61 @@
+﻿removed_branch_id,removed_branch,claim,remaining_support_count,stable_after_removal,note
+B01,V10c24 scale extension,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B01,V10c24 scale extension,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B01,V10c24 scale extension,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B01,V10c24 scale extension,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B02,NEU seed45 fixed-set stability,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B02,NEU seed45 fixed-set stability,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B02,NEU seed45 fixed-set stability,training_stability_not_acquisition_generalization,1,False,Claim-specific minimum support is lost.
+B02,NEU seed45 fixed-set stability,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B03,NEU independent acquisition confirmation,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B03,NEU independent acquisition confirmation,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B03,NEU independent acquisition confirmation,training_stability_not_acquisition_generalization,1,False,Claim-specific minimum support is lost.
+B03,NEU independent acquisition confirmation,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B04,VisA global DINO selection,discovery_safety_separation,2,True,Claim retains its required cross-branch support.
+B04,VisA global DINO selection,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B04,VisA global DINO selection,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B04,VisA global DINO selection,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B05,MPDD global DINO selection,discovery_safety_separation,2,True,Claim retains its required cross-branch support.
+B05,MPDD global DINO selection,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B05,MPDD global DINO selection,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B05,MPDD global DINO selection,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B06,GC10 global DINO selection,discovery_safety_separation,2,True,Claim retains its required cross-branch support.
+B06,GC10 global DINO selection,selection_learning_separation,3,True,Claim retains its required cross-branch support.
+B06,GC10 global DINO selection,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B06,GC10 global DINO selection,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B07,GC10 first detector translation,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B07,GC10 first detector translation,selection_learning_separation,3,True,Claim retains its required cross-branch support.
+B07,GC10 first detector translation,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B07,GC10 first detector translation,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B08,VLM consistency validity,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B08,VLM consistency validity,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B08,VLM consistency validity,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B08,VLM consistency validity,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B09,VLM oracle crop groundedness,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B09,VLM oracle crop groundedness,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B09,VLM oracle crop groundedness,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B09,VLM oracle crop groundedness,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B10,Paired VLM model comparison,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B10,Paired VLM model comparison,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B10,Paired VLM model comparison,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B10,Paired VLM model comparison,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B11,GC10 D2R label-aware retrieval,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B11,GC10 D2R label-aware retrieval,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B11,GC10 D2R label-aware retrieval,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B11,GC10 D2R label-aware retrieval,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B12,DCAL-XAI flip disagreement,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B12,DCAL-XAI flip disagreement,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B12,DCAL-XAI flip disagreement,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B12,DCAL-XAI flip disagreement,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B13,K40 budget140 selection holdout,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B13,K40 budget140 selection holdout,selection_learning_separation,3,True,Claim retains its required cross-branch support.
+B13,K40 budget140 selection holdout,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B13,K40 budget140 selection holdout,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B14,K40 YOLOv8n downstream,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B14,K40 YOLOv8n downstream,selection_learning_separation,3,True,Claim retains its required cross-branch support.
+B14,K40 YOLOv8n downstream,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B14,K40 YOLOv8n downstream,signal_ranking_not_operational_utility,1,True,Claim retains its required cross-branch support.
+B15,V2.3 detector uncertainty,discovery_safety_separation,3,True,Claim retains its required cross-branch support.
+B15,V2.3 detector uncertainty,selection_learning_separation,4,True,Claim retains its required cross-branch support.
+B15,V2.3 detector uncertainty,training_stability_not_acquisition_generalization,2,True,Claim retains its required cross-branch support.
+B15,V2.3 detector uncertainty,signal_ranking_not_operational_utility,0,False,Claim-specific minimum support is lost.
