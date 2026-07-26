@@ -33,7 +33,12 @@ BLIND_FIELDS = [
 ]
 
 
-def _image_rows(directory: Path, split: str, exclusions: set[str]) -> list[dict[str, Any]]:
+def _image_rows(
+    directory: Path,
+    split: str,
+    exclusions: set[str],
+    manifest_directory: Path,
+) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for image in sorted(directory.glob("*.png"), key=lambda path: path.name):
         relative = f"{split}/{image.name}"
@@ -47,9 +52,9 @@ def _image_rows(directory: Path, split: str, exclusions: set[str]) -> list[dict[
                 "sample_id": image.stem,
                 "official_split": split,
                 "role": "",
-                "image_path": image.relative_to(project_path(".")).as_posix(),
+                "image_path": (manifest_directory / image.name).as_posix(),
                 "posthoc_mask_path": (
-                    mask.relative_to(project_path(".")).as_posix() if split == "train" else ""
+                    (manifest_directory / mask.name).as_posix() if split == "train" else ""
                 ),
                 "image_bytes": image.stat().st_size,
                 "mask_bytes": mask.stat().st_size if split == "train" else "",
@@ -74,8 +79,19 @@ def prepare_manifests(config: dict[str, Any]) -> dict[str, Any]:
 
     root = project_path(data["data_root"])
     exclusions = set(data["known_archive_exclusions"])
-    train_rows = _image_rows(root / data["train_dir"], "train", exclusions)
-    final_rows = _image_rows(root / data["final_test_dir"], "test", exclusions)
+    manifest_root = Path(data["data_root"])
+    train_rows = _image_rows(
+        root / data["train_dir"],
+        "train",
+        exclusions,
+        manifest_root / data["train_dir"],
+    )
+    final_rows = _image_rows(
+        root / data["final_test_dir"],
+        "test",
+        exclusions,
+        manifest_root / data["final_test_dir"],
+    )
     if len(train_rows) != int(data["expected_train_images"]):
         raise RuntimeError(f"Expected {data['expected_train_images']} train images, got {len(train_rows)}")
     if len(final_rows) != int(data["expected_final_images"]):
