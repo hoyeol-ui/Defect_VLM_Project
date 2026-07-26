@@ -1,0 +1,178 @@
+{
+  "development_only": false,
+  "environment": {
+    "anomalib": "2.6.0",
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cuda_device_name": "NVIDIA GeForce RTX 3070",
+    "numpy": "2.4.6",
+    "opencv": "5.0.0",
+    "pandas": "3.0.3",
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "scikit_learn": "1.9.0",
+    "scipy": "1.17.1",
+    "torch": "2.12.1+cu126",
+    "torchvision": "0.27.1+cu126"
+  },
+  "files": [
+    {
+      "bytes": 332084,
+      "path": "runs/ksdd2_patchcore_prospective_v1/acquisition_manifest.csv",
+      "sha256": "5630b7dcdf0b269e6ec9719ac50e138681e1d23415f9fb549b9ec272e1833708"
+    },
+    {
+      "bytes": 491337,
+      "path": "runs/ksdd2_patchcore_prospective_v1/blind_dataset_manifest.csv",
+      "sha256": "3ba0785e3d1d4071176950b8d8e8f6577164ebfa4575628df2a136b3b8df50a0"
+    },
+    {
+      "bytes": 83048,
+      "path": "runs/ksdd2_patchcore_prospective_v1/development_manifest.csv",
+      "sha256": "32418c79093c817cb5477ea51694dbb4962c379601906439189692bc01e78b04"
+    },
+    {
+      "bytes": 78420,
+      "path": "runs/ksdd2_patchcore_prospective_v1/final_locked.csv",
+      "sha256": "0a9c647439b3ea8efaf19e06cb8e6b0ac5850f345fd2e6c5dc8ac021f894185a"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed00.csv",
+      "sha256": "662c028cb9a006e6844c135ee1dfc18aa94e78cd14ae62788fccdc148a24041c"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed01.csv",
+      "sha256": "eda5b3f9fe123c2cd6bfffb23e68c0f90889a7523b646a0245a5d63b1667705c"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed02.csv",
+      "sha256": "28988824e2cad8a83afa80066a4c44991deb6d45c3bfbb55f61a8e6e88f450c2"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed03.csv",
+      "sha256": "4fcf4271f097b61d0a2026d713083322f565169979a6d707f778aec6addfddd9"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed04.csv",
+      "sha256": "d553e1e515f520c64dcb66f569c2bc9ef8e2cf199155debe847892595917abe9"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed05.csv",
+      "sha256": "a986c9acec3828fa6b752406d82314061ddcd11c6016a9da9794e3d9d3070aa4"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed06.csv",
+      "sha256": "5e82872d226fb9a1392c5bed6729198262745c14a88d52ef0ee1ddb557fdb8b9"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed07.csv",
+      "sha256": "9e482a07be92cfcd2b883bcd7af791c2f5c6372ea43c34b8ef73587756a709dd"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed08.csv",
+      "sha256": "ad0f8d5f47d7eacac14d88a7f2b681250d58ec91a4e0e3cf7ce5b0ee7e6feeb9"
+    },
+    {
+      "bytes": 4647,
+      "path": "runs/ksdd2_patchcore_prospective_v1/initial_sets/initial_seed09.csv",
+      "sha256": "0b3b247c8131a8919ff82b757749ddbc6696e47098e1197aa8d8bad86d36893e"
+    },
+    {
+      "bytes": 6412,
+      "path": "scripts/06_ksdd2_prospective/OPERATOR_RUNBOOK_KO.md",
+      "sha256": "0844d40b11edbabbe74ba6fa63e8961982e811d11bb827ae894c8739385e6331"
+    },
+    {
+      "bytes": 2109,
+      "path": "scripts/06_ksdd2_prospective/README.md",
+      "sha256": "741fc0c9ce00fe5f0a146ba4915301fb4012d6d86f487d103e72d598a58b0ebc"
+    },
+    {
+      "bytes": 23516,
+      "path": "scripts/06_ksdd2_prospective/analysis.py",
+      "sha256": "29fcd7cc4fdf3e1dc32400bfa8d98865a5b57176e9077d3ec1add9da286e3c3b"
+    },
+    {
+      "bytes": 10295,
+      "path": "scripts/06_ksdd2_prospective/common.py",
+      "sha256": "f49b147964669ff9e333d33d8208eef677ba82b2bf11dc49f45a77047071bb0e"
+    },
+    {
+      "bytes": 4141,
+      "path": "scripts/06_ksdd2_prospective/config.yaml",
+      "sha256": "55e70a738ae2a4667ca0de84d2ac68bdd68b4323891a8d2957b9cd6ff9fa32df"
+    },
+    {
+      "bytes": 11887,
+      "path": "scripts/06_ksdd2_prospective/dataset_protocol.py",
+      "sha256": "bcbb3ac4e29f1710a802e48f1c170a9996477707ec6a4dd0272abd1c47cccef3"
+    },
+    {
+      "bytes": 10529,
+      "path": "scripts/06_ksdd2_prospective/patchcore_scoring.py",
+      "sha256": "8e58e09cf042a8190978c4155d570d9dd2067d4420e4bb9768a38b9c2b6013e1"
+    },
+    {
+      "bytes": 6308,
+      "path": "scripts/06_ksdd2_prospective/protocol.md",
+      "sha256": "df8a4f66da0031b29133e8082feef8afc9877b299dbd0741236cb9d7eedbeb7f"
+    },
+    {
+      "bytes": 19,
+      "path": "scripts/06_ksdd2_prospective/requirements.txt",
+      "sha256": "e537bc9360a980511741f09e497e8209967d1ab9ed28b1d3c33752a66f938578"
+    },
+    {
+      "bytes": 9886,
+      "path": "scripts/06_ksdd2_prospective/run.py",
+      "sha256": "e84b1ef735c5b3c6ff6cd4ba64b52fb0c6e852b387fa6baaf4a1814967440bdf"
+    },
+    {
+      "bytes": 2215,
+      "path": "scripts/06_ksdd2_prospective/smoke_patchcore.py",
+      "sha256": "ccee504e6bf5ffe4de9b92d1f6b332164b6059ad48e137a5554178404b2eb541"
+    },
+    {
+      "bytes": 4194,
+      "path": "scripts/06_ksdd2_prospective/test_core.py",
+      "sha256": "5dfa2f55a10a8b8636f8d8ec19df6a07bc19ce94afc3cdb23afc9100a9bc15a8"
+    }
+  ],
+  "frozen_at_utc": "2026-07-26T08:36:05.920001+00:00",
+  "git": {
+    "branch": "codex/ksdd2-prospective-run",
+    "commit": "f10fd92985d63408212edd24e80d741de30ba5f7",
+    "dirty": false,
+    "status_porcelain": []
+  },
+  "locks": {
+    "detector_training_performed": false,
+    "development_scores_viewed_before_freeze": false,
+    "official_test_image_content_read": false,
+    "official_test_mask_content_read": false,
+    "official_test_used": false,
+    "query_masks_viewed_before_selection_seal": false
+  },
+  "model": {
+    "algorithm": "sorted_state_dict_sha256_v1",
+    "backbone": "wide_resnet50_2",
+    "layers": [
+      "layer2",
+      "layer3"
+    ],
+    "pretrained": true,
+    "pretrained_source": "timm/wide_resnet50_2.racm_in1k",
+    "state_dict_sha256": "67569d0ff3ed2e26eb2add3e28437ebfc218713bd1052e0b91418207883d677f",
+    "tensor_count": 258
+  },
+  "official_freeze": true,
+  "protocol_id": "KSDD2_PATCHCORE_G1_G4_V1"
+}

@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "bbox_count_spearman": true,
+    "bbox_count_spearman_ci_low": true,
+    "image_auroc": true,
+    "image_auroc_ci_low": true,
+    "top_query_enrichment": true,
+    "top_query_enrichment_ci_low": true
+  },
+  "decision": "PASS",
+  "detector_training_authorized": false,
+  "gate": "G1_SIGNAL_VALIDITY",
+  "next_action": "PROCEED_TO_G2_G4_SELECTION"
+}

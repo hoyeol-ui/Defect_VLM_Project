@@ -1,0 +1,31 @@
+{
+  "authorization": "BOUNDED_SCREEN",
+  "bounded_screen_scope": "Exactly one separately frozen learner configuration. No backbone search, threshold rescue, hyperparameter tuning, or official-test use is authorized by this G1-G4 protocol alone.",
+  "checks": {
+    "g2": {
+      "positive_image_delta_ci_low": true,
+      "positive_image_delta_mean": true,
+      "positive_image_enrichment_mean": true,
+      "positive_seed_fraction": true
+    },
+    "g3": {
+      "js_divergence_vs_pool_delta_mean": true,
+      "positive_excess_max_size_bin_share": true,
+      "size_bin_coverage_delta_mean": true,
+      "small_defect_image_delta_mean": true
+    },
+    "g4": {
+      "leave_one_seed_out_min_delta": true,
+      "positive_seed_fraction": true,
+      "required_seed_count": true
+    }
+  },
+  "claim_scope": "Prospective process conformance and stage-specific evidence. This protocol does not claim universal selector superiority, production-pool generalization, annotation-time savings, or predictive policy accuracy.",
+  "detector_training_authorized": true,
+  "g1": "PASS",
+  "g2": "PASS",
+  "g3": "PASS",
+  "g4": "PASS",
+  "official_test_use_authorized": false,
+  "protocol_id": "KSDD2_PATCHCORE_G1_G4_V1"
+}
