@@ -23,17 +23,26 @@ class G5ProtocolTests(unittest.TestCase):
         self.assertEqual(learner["name"], "compact_unet_binary_segmentation")
         self.assertFalse(learner["parameter_search"])
         self.assertFalse(learner["pretrained_encoder"])
-        self.assertEqual(self.config["comparison"]["fixed_training_seed"], 260727)
+        self.assertEqual(
+            self.config["comparison"]["training_seeds"],
+            [260727, 260728, 260729],
+        )
 
-    def test_run_count_is_paired_ten_by_two(self) -> None:
+    def test_run_count_is_paired_ten_by_two_by_three(self) -> None:
         seeds = self.config["comparison"]["acquisition_seeds"]
         strategies = self.config["comparison"]["strategies"]
+        training_seeds = self.config["comparison"]["training_seeds"]
         self.assertEqual(len(seeds), 10)
         self.assertEqual(strategies, ["patchcore", "random"])
+        self.assertEqual(len(training_seeds), 3)
         self.assertEqual(
             self.config["comparison"]["total_training_runs"],
-            len(seeds) * len(strategies),
+            len(seeds) * len(strategies) * len(training_seeds),
         )
+
+    def test_native_orientation_is_preserved(self) -> None:
+        self.assertEqual(self.config["preprocessing"]["image_size"], [704, 256])
+        self.assertTrue(self.config["preprocessing"]["preserve_native_orientation"])
 
     def test_no_model_selection_or_official_test(self) -> None:
         training = self.config["training"]
@@ -69,7 +78,7 @@ class G5ProtocolTests(unittest.TestCase):
     def test_actual_upstream_inputs_validate_without_test_access(self) -> None:
         checks, ledger = validate_and_build_ledger(self.config)
         self.assertEqual(checks["upstream_authorization"], "BOUNDED_SCREEN")
-        self.assertEqual(checks["paired_training_runs"], 20)
+        self.assertEqual(checks["paired_training_runs"], 60)
         self.assertFalse(checks["official_test_access"])
         self.assertFalse(ledger["official_test_content_accessed"])
         self.assertFalse(any("final_locked" in item["path"] for item in ledger["files"]))

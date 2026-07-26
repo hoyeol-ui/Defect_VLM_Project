@@ -18,7 +18,7 @@ G5의 질문은 하나뿐이다.
 
 G5는 더 좋은 learner를 찾는 benchmark가 아니다. 설정 하나가 실패하면
 다른 backbone, loss, epoch 또는 threshold로 구조하지 않고
-`TRANSLATION_GAP_CONFIRMED_STOP`으로 종료한다.
+`TRANSLATION_NOT_OBSERVED_STOP`으로 종료한다.
 
 ## 2. Prospective 범위와 한계
 
@@ -80,7 +80,7 @@ U-Net 계열은 encoder context와 decoder localization을 skip connection으로
 - Skip connection: concatenation
 - Pretrained encoder: 없음
 - Dropout: 없음
-- Input: RGB `256×704`
+- Input: RGB `704×256` (`H×W`; native portrait orientation preserved)
 - Augmentation: horizontal flip `p=0.5`만 허용
 
 Architecture, parameter initialization, preprocessing, optimizer와 training
@@ -88,7 +88,7 @@ seed는 모든 arm/seed에서 동일하다.
 
 ## 6. 고정 학습 설정
 
-- Training seed: `260727`
+- Training seeds: `260727`, `260728`, `260729`
 - Epoch: `80`
 - Batch size: `4`
 - Optimizer: AdamW
@@ -104,9 +104,12 @@ seed는 모든 arm/seed에서 동일하다.
 - Validation during training: 없음
 - 평가 checkpoint: epoch 80 final state 하나
 
-20개 run 모두 같은 initialization seed로 시작한다. Infrastructure 오류는
-동일 설정으로 한 번만 재시도할 수 있다. 재시도에서도 실패하면 결과를
-대체하거나 설정을 낮추지 않고 `NOT_IDENTIFIABLE_STOP`으로 종료한다.
+각 acquisition seed와 strategy는 세 training seed로 반복한다. 같은
+training seed의 PatchCore/Random pair는 동일한 initialization으로 시작한다.
+총 run 수는 `2 strategies × 10 acquisition seeds × 3 training seeds = 60`이다.
+Infrastructure 오류는 동일 설정으로 한 번만 재시도할 수 있다. 재시도에서도
+실패하면 결과를 대체하거나 설정을 낮추지 않고
+`NOT_IDENTIFIABLE_STOP`으로 종료한다.
 
 ## 7. 평가
 
@@ -127,7 +130,7 @@ Development 466장을 epoch 80 이후 한 번만 평가한다.
 
 ### Secondary outcomes
 
-- 전체 pixel average precision
+- 전체 pixel average precision의 고정 4,096-bin histogram 근사
 - Max-pixel probability 기반 image AUROC
 - 정상 이미지 false-positive rate
 - Positive image에서 16-pixel 이상 component를 하나라도 찾는 recall
@@ -137,7 +140,9 @@ component가 하나라도 있을 때로 정의한다.
 
 ## 8. 통계
 
-Inferential unit은 열 개 acquisition seed다.
+Inferential unit은 열 개 acquisition seed다. 세 training seed를 독립
+표본처럼 세지 않는다. 먼저 각 acquisition-seed/strategy 안에서 세 결과를
+평균한 뒤, 열 개 paired acquisition delta에 대해서만 추론한다.
 
 - Paired bootstrap 5,000회
 - 95% confidence interval
@@ -149,7 +154,7 @@ Inferential unit은 열 개 acquisition seed다.
 
 ### Run conformance
 
-- 20/20 run 완료
+- 60/60 run 완료
 - NaN/non-finite metric 0개
 
 ### Primary learning translation
@@ -175,7 +180,7 @@ Inferential unit은 열 개 acquisition seed다.
 | 조건 | 결정 |
 |---|---|
 | 모든 translation·corroboration·safety check PASS | `LEARNING_TRANSLATION_OBSERVED` |
-| Primary/corroboration FAIL | `TRANSLATION_GAP_CONFIRMED_STOP` |
+| Primary/corroboration FAIL | `TRANSLATION_NOT_OBSERVED_STOP` |
 | Learning PASS, safety FAIL | `LEARNING_GAIN_WITH_SAFETY_FAIL_STOP` |
 | 동일 재시도 후 infrastructure failure | `NOT_IDENTIFIABLE_STOP` |
 
