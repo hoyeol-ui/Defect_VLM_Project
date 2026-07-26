@@ -1,0 +1,124 @@
+protocol:
+  id: KSDD2_PATCHCORE_G1_G4_V1
+  version: 1
+  prepared_date: "2026-07-26"
+  status: READY_TO_FREEZE
+  purpose: prospective_authorization_case
+  candidate_claim: >
+    A frozen, off-the-shelf PatchCore image anomaly score can enrich
+    defect-bearing KSDD2 images at a fixed review budget without materially
+    collapsing small-defect or defect-size composition.
+  contribution_scope: >
+    Prospective process conformance and stage-specific evidence. This protocol
+    does not claim universal selector superiority, production-pool
+    generalization, annotation-time savings, or predictive policy accuracy.
+
+dataset:
+  name: KolektorSDD2
+  official_url: https://data.vicos.si/datasets/KSDD/KolektorSDD2.zip
+  official_page: https://www.vicos.si/resources/kolektorsdd2/
+  license: CC-BY-NC-SA-4.0
+  archive_path: downloads/KolektorSDD2.zip
+  archive_sha256: edcdb486809b24f1d17b785e30c52fafc5999554dd5fe18ddf77b61ceb6f36a8
+  data_root: data/KolektorSDD2
+  train_dir: train
+  final_test_dir: test
+  expected_train_images: 2331
+  expected_final_images: 1004
+  known_archive_exclusions:
+    - "train/10301 (copy).png"
+    - "train/10301_GT (copy).png"
+
+split:
+  development_count: 466
+  development_hash_salt: ksdd2-development-v1
+  acquisition_role: train_acquisition
+  development_role: train_development
+  final_role: official_test_locked
+  final_test_content_access_before_authorization: false
+  final_test_mask_access_before_authorization: false
+
+acquisition:
+  initial_labeled_size: 100
+  query_size: 100
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  g1_reference_seed: 0
+  random_query_seed_offset: 10000
+  minimum_normal_references: 50
+  selection_tie_breaker: sample_id_ascending
+
+patchcore:
+  implementation: anomalib
+  anomalib_version: 2.6.0
+  backbone: wide_resnet50_2
+  pretrained_source: timm/wide_resnet50_2.racm_in1k
+  backbone_fingerprint_algorithm: sorted_state_dict_sha256_v1
+  expected_backbone_state_sha256: 67569d0ff3ed2e26eb2add3e28437ebfc218713bd1052e0b91418207883d677f
+  layers: [layer2, layer3]
+  pretrained: true
+  coreset_sampling_ratio: 0.10
+  num_neighbors: 9
+  image_size: [256, 256]
+  train_batch_size: 16
+  predict_batch_size: 16
+  num_workers: 0
+  score_round_decimals: 10
+  device: auto
+
+posthoc_defect_definition:
+  mask_positive_threshold: 0
+  connectivity: 8
+  small_component_relative_area_max: 0.005
+  medium_component_relative_area_max: 0.020
+  centroid_grid_rows: 3
+  centroid_grid_cols: 3
+
+statistics:
+  bootstrap_replicates: 2000
+  confidence_level: 0.95
+  bootstrap_seed: 260726
+  zero_count_ratio_correction: 0.5
+  paired_inferential_unit: acquisition_seed
+
+gates:
+  g1_signal_validity:
+    image_auroc_min: 0.65
+    image_auroc_ci_low_min: 0.55
+    bbox_count_spearman_min: 0.10
+    bbox_count_spearman_ci_low_min: 0.00
+    top_query_enrichment_min: 1.50
+    top_query_enrichment_ci_low_min: 1.20
+  g2_target_discovery:
+    positive_image_delta_mean_min_exclusive: 0.0
+    positive_image_delta_ci_low_min_exclusive: 0.0
+    positive_image_enrichment_mean_min: 1.25
+    positive_seed_fraction_min: 0.80
+  g3_composition_safety:
+    small_defect_image_delta_mean_min: 0.0
+    size_bin_coverage_delta_mean_min: -0.25
+    js_divergence_vs_pool_delta_mean_max: 0.05
+    positive_excess_max_size_bin_share_max: 0.60
+  g4_acquisition_reproducibility:
+    required_seed_count: 10
+    leave_one_seed_out_min_delta_min_exclusive: 0.0
+    positive_seed_fraction_min: 0.80
+
+authorization:
+  g1_fail_action: STOP
+  g2_fail_action: STOP
+  g2_pass_g3_fail_action: DISCOVERY_ONLY_STOP
+  g4_fail_action: STOP
+  g1_g2_g3_g4_pass_action: BOUNDED_SCREEN
+  bounded_screen_scope: >
+    Exactly one separately frozen learner configuration. No backbone search,
+    threshold rescue, hyperparameter tuning, or official-test use is
+    authorized by this G1-G4 protocol alone.
+
+outputs:
+  run_root: runs/ksdd2_patchcore_prospective_v1
+  blind_manifest: blind_dataset_manifest.csv
+  acquisition_manifest: acquisition_manifest.csv
+  development_manifest: development_manifest.csv
+  final_locked_manifest: final_locked.csv
+  freeze_manifest: freeze_manifest.json
+  authorization_decision: authorization_decision.json
