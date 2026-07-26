@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Validity-Gated Authorization 알고리즘</title>
+<style>
+  :root{
+    --navy:#17324d; --ink:#183149; --muted:#64748b; --paper:#f6f8fb; --white:#fff;
+    --blue:#2f6f98; --blue-bg:#eaf3f8; --green:#2f7b59; --green-bg:#eaf5ef;
+    --amber:#b97616; --amber-bg:#fbf2e3; --red:#b94949; --red-bg:#faecec;
+    --line:#b9c8d6; --shadow:0 8px 24px rgba(23,50,77,.09);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#dfe6ec}
+  body{font-family:"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif;color:var(--ink)}
+  .stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center}
+  .slide{position:relative;width:1920px;height:1080px;background:var(--paper);overflow:hidden}
+  header{height:126px;background:var(--navy);color:white;padding:27px 62px 22px;display:flex;justify-content:space-between}
+  h1{margin:0;font-size:45px;line-height:1.15;letter-spacing:-1.7px;font-weight:760}
+  .subtitle{margin-top:10px;font-size:21px;color:#cfdae5}
+  .header-tag{align-self:flex-start;margin-top:9px;border:1px solid rgba(255,255,255,.36);border-radius:999px;padding:8px 15px;font-size:16px;color:#dce8f2}
+  .content{padding:28px 56px 20px}
+  .rule{height:54px;background:white;border-left:7px solid var(--green);box-shadow:var(--shadow);padding:14px 22px;font-size:21px;font-weight:720}
+  .flow{position:relative;margin-top:22px;height:742px}
+  svg.connectors{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+  .node,.decision,.outcome,.side-note{position:absolute;z-index:2;background:white;box-shadow:var(--shadow)}
+  .node{left:450px;width:720px;height:92px;border:1.6px solid #89acc3;border-left:7px solid var(--blue);border-radius:14px;padding:14px 21px}
+  .node .id{font-size:14px;color:var(--blue);font-weight:850;letter-spacing:.8px}
+  .node .title{font-size:21px;font-weight:780;letter-spacing:-.4px;margin-top:3px;line-height:1.2;max-width:400px}
+  .node .desc{position:absolute;right:20px;top:27px;width:280px;font-size:14px;color:var(--muted);line-height:1.35;text-align:right}
+  .n0{top:0;border-left-color:#52697e}.n0 .id{color:#52697e}
+  .n1{top:116px}.n23{top:232px}.n4{top:348px;border-left-color:var(--green)}.n4 .id{color:var(--green)}
+  .n5{top:464px;border:2px solid var(--green);border-left:8px solid var(--green);height:108px;background:var(--green-bg)}
+  .decision{left:1215px;width:250px;height:92px;border:2px solid var(--amber);background:var(--amber-bg);clip-path:polygon(15% 0,85% 0,100% 50%,85% 100%,15% 100%,0 50%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .decision b{font-size:17px}.decision span{font-size:13px;color:#806842;margin-top:4px}
+  .d1{top:116px}.d23{top:232px}.d4{top:348px}
+  .stop{left:20px;width:340px;height:92px;border:1.7px solid var(--red);border-left:7px solid var(--red);border-radius:14px;background:var(--red-bg);padding:14px 18px}
+  .stop .label{font-size:14px;font-weight:850;color:var(--red);letter-spacing:.7px}.stop .title{font-size:21px;font-weight:780;margin-top:5px}.stop .desc{font-size:13px;color:#7e5a5a;margin-top:4px}
+  .s1{top:116px}.s23{top:232px}.s4{top:348px}
+  .gate-panel{position:absolute;right:0;top:0;width:308px;height:572px;background:white;border:1.5px solid var(--line);border-top:6px solid var(--green);border-radius:15px;box-shadow:var(--shadow);padding:18px 17px;z-index:2}
+  .gate-panel .eyebrow{font-size:14px;font-weight:850;color:var(--green);letter-spacing:.8px}
+  .gate-panel .title{font-size:19px;font-weight:800;margin-top:5px;line-height:1.35}
+  .criteria{margin-top:17px;display:grid;grid-template-columns:1fr;gap:14px;font-size:14px;color:#516475}
+  .criteria div:before{content:"✓";color:var(--green);font-weight:900;margin-right:6px}
+  .outcomes{position:absolute;left:20px;right:342px;bottom:0;height:150px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;z-index:2}
+  .outcome{position:relative;height:150px;border-radius:14px;padding:15px 17px;border:1.6px solid var(--line)}
+  .outcome.pass{border-top:6px solid var(--green);background:var(--green-bg)}
+  .outcome.safety{border-top:6px solid var(--amber);background:var(--amber-bg)}
+  .outcome.fail{border-top:6px solid var(--red);background:var(--red-bg)}
+  .outcome .state{font-size:13px;font-weight:850;letter-spacing:.7px}
+  .outcome.pass .state{color:var(--green)}.outcome.safety .state{color:var(--amber)}.outcome.fail .state{color:var(--red)}
+  .outcome .title{font-size:20px;font-weight:800;margin-top:5px;letter-spacing:-.3px}
+  .outcome .desc{font-size:13px;color:#596a79;line-height:1.35;margin-top:7px}
+  .final-lock{position:absolute;right:0;bottom:0;width:320px;height:150px;border:1.7px solid var(--amber);border-radius:14px;background:var(--amber-bg);z-index:2;padding:15px 17px}
+  .final-lock .id{font-size:13px;font-weight:850;color:var(--amber);letter-spacing:.8px}.final-lock .title{font-size:21px;font-weight:800;margin-top:6px}.final-lock .desc{font-size:13px;color:#766341;line-height:1.38;margin-top:8px}
+  .yes,.no{position:absolute;z-index:3;font-size:13px;font-weight:850}
+  .yes{color:var(--green)}.no{color:var(--red)}
+  .y1{left:1178px;top:147px}.y23{left:1178px;top:263px}.y4{left:1178px;top:379px}
+  .nolab1{left:378px;top:147px}.nolab23{left:378px;top:263px}.nolab4{left:378px;top:379px}
+  footer{position:absolute;left:56px;right:56px;bottom:18px;height:36px;border-top:1px solid #cfd8e1;padding-top:10px;display:flex;justify-content:space-between}
+  .takeaway{font-size:17px;font-weight:750}.takeaway b{color:var(--green)}.page{font-size:14px;color:var(--muted);letter-spacing:.8px}
+  @media print{html,body{background:white}.stage{transform:none!important;left:0;top:0}}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <section class="slide">
+    <header>
+      <div>
+        <h1>각 Gate는 다음 고비용 측정의 권한만 부여한다</h1>
+        <div class="subtitle">Algorithm 1 · Validity-Gated Authorization Workflow</div>
+      </div>
+      <div class="header-tag">ALGORITHM · STOP / GO</div>
+    </header>
+
+    <main class="content">
+      <div class="rule">결과를 보기 전에 규칙을 고정하고, <b>한 단계라도 FAIL / NA이면 확장 경로를 닫는다.</b></div>
+
+      <div class="flow">
+        <svg class="connectors" viewBox="0 0 1808 742" aria-hidden="true">
+          <defs>
+            <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#7f91a2"/></marker>
+            <marker id="greenArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#2f7b59"/></marker>
+            <marker id="redArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#b94949"/></marker>
+          </defs>
+          <!-- main spine -->
+          <path d="M810 92 L810 116" stroke="#7f91a2" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+          <path d="M1170 162 L1215 162" stroke="#b97616" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+          <path d="M1340 208 L1340 220 L810 220 L810 232" stroke="#2f7b59" stroke-width="4" fill="none" marker-end="url(#greenArrow)"/>
+          <path d="M1215 162 L360 162" stroke="#b94949" stroke-width="3" stroke-dasharray="9 7" fill="none" marker-end="url(#redArrow)"/>
+
+          <path d="M1170 278 L1215 278" stroke="#b97616" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+          <path d="M1340 324 L1340 336 L810 336 L810 348" stroke="#2f7b59" stroke-width="4" fill="none" marker-end="url(#greenArrow)"/>
+          <path d="M1215 278 L360 278" stroke="#b94949" stroke-width="3" stroke-dasharray="9 7" fill="none" marker-end="url(#redArrow)"/>
+
+          <path d="M1170 394 L1215 394" stroke="#b97616" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+          <path d="M1340 440 L1340 452 L810 452 L810 464" stroke="#2f7b59" stroke-width="4" fill="none" marker-end="url(#greenArrow)"/>
+          <path d="M1215 394 L360 394" stroke="#b94949" stroke-width="3" stroke-dasharray="9 7" fill="none" marker-end="url(#redArrow)"/>
+
+          <!-- G5 to outcome group -->
+          <path d="M810 572 L810 592" stroke="#7f91a2" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+        </svg>
+
+        <div class="node n0">
+          <div class="id">G0 · PROTOCOL FREEZE</div><div class="title">결과 이전에 규칙과 STOP 조건을 봉인</div>
+          <div class="desc">config · manifest · selected IDs<br>code / data provenance · SHA-256</div>
+        </div>
+
+        <div class="node n1">
+          <div class="id">G1 · SIGNAL VALIDITY</div><div class="title">후보 score가 결함 현상을 실제로 rank하는가?</div>
+          <div class="desc">AUROC · Spearman · enrichment<br>grounding / confound audit</div>
+        </div>
+        <div class="decision d1"><b>G1 PASS?</b><span>효과 + 방향 + CI</span></div>
+        <div class="stop s1"><div class="label">FAIL / NA</div><div class="title">Signal 단계에서 STOP</div><div class="desc">하류 selector·learner 주장 금지</div></div>
+
+        <div class="node n23">
+          <div class="id">G2 + G3 · DISCOVERY & SAFETY</div><div class="title">더 찾으면서 선택 구성이 붕괴하지 않는가?</div>
+          <div class="desc">yield / coverage +<br>class·source·size composition</div>
+        </div>
+        <div class="decision d23"><b>둘 다 PASS?</b><span>Discovery 단독 PASS 불충분</span></div>
+        <div class="stop s23"><div class="label">DISCOVERY / SAFETY FAIL</div><div class="title">Selection 단계에서 STOP</div><div class="desc">가능하면 discovery-only 관찰로 축소</div></div>
+
+        <div class="node n4">
+          <div class="id">G4 · ACQUISITION REPRODUCIBILITY</div><div class="title">새 initial set과 query에서도 효과가 반복되는가?</div>
+          <div class="desc">paired acquisition seeds<br>CI · positive fraction · LOO</div>
+        </div>
+        <div class="decision d4"><b>G4 PASS?</b><span>한 selected set의 승리 ≠ 재현성</span></div>
+        <div class="stop s4"><div class="label">FAIL / NA</div><div class="title">Generalization 주장 STOP</div><div class="desc">fixed-set positive만 기술적으로 보고</div></div>
+
+        <div class="node n5">
+          <div class="id">G5 · EXACTLY ONE BOUNDED LEARNER SCREEN</div><div class="title">Selection advantage가 learner utility로 번역되는가?</div>
+          <div class="desc">한 architecture · 고정 epoch / loss / threshold<br>paired arms · official test locked</div>
+        </div>
+
+        <div class="gate-panel">
+          <div class="eyebrow">CURRENT KSDD2 G5 · FROZEN GATE</div>
+          <div class="title">10 acquisition × 3 training × 2 arms = 60 jobs</div>
+          <div class="criteria">
+            <div>Mean ΔDice ≥ +0.05</div><div>CI lower &gt; 0</div>
+            <div>Positive seeds ≥ 80%</div><div>LOO minimum &gt; 0</div>
+            <div>Mean ΔPixel AP &gt; 0</div><div>PatchCore FPR ≤ 0.20</div>
+            <div>ΔFPR ≤ +0.05</div><div>통계 단위 n = 10</div>
+          </div>
+        </div>
+
+        <div class="outcomes">
+          <div class="outcome pass">
+            <div class="state">LEARNING + SAFETY PASS</div>
+            <div class="title">Translation observed</div>
+            <div class="desc">Development screen에서만 지지.<br>Final test는 별도 protocol과 승인 필요.</div>
+          </div>
+          <div class="outcome safety">
+            <div class="state">LEARNING PASS · SAFETY FAIL</div>
+            <div class="title">Trade-off → STOP</div>
+            <div class="desc">민감도 이득과 정상 오탐 부담이 공존.<br>운영 성공으로 승격하지 않는다.</div>
+          </div>
+          <div class="outcome fail">
+            <div class="state">PRIMARY / AP FAIL</div>
+            <div class="title">Translation not observed</div>
+            <div class="desc">Backbone·epoch·threshold rescue 금지.<br>이 조건의 translation gap으로 보고.</div>
+          </div>
+        </div>
+
+        <div class="final-lock">
+          <div class="id">G6 · OPERATIONAL / LOCKED FINAL</div>
+          <div class="title">실제 비용은 측정한 경우에만 주장</div>
+          <div class="desc">annotation time · review workload · GPU-hour<br>현재 미측정이면 NA · official test는 계속 LOCKED</div>
+        </div>
+
+        <span class="yes y1">PASS</span><span class="yes y23">PASS</span><span class="yes y4">PASS</span>
+        <span class="no nolab1">FAIL / NA</span><span class="no nolab23">FAIL</span><span class="no nolab4">FAIL</span>
+      </div>
+    </main>
+
+    <footer>
+      <div class="takeaway"><b>알고리즘의 출력은 “좋은 selector”가 아니라</b> STOP 또는 제한된 다음 측정 권한이다.</div>
+      <div class="page">VALIDITY-GATED AL · ALGORITHM 1</div>
+    </footer>
+  </section>
+</div>
+<script>
+  function fit(){const s=document.getElementById('stage');const k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform=`translate(-50%,-50%) scale(${k})`;}
+  addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>

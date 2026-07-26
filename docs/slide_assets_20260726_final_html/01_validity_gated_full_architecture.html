@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Validity-Gated AL 전체 아키텍처</title>
+<style>
+  :root{
+    --navy:#17324d; --navy2:#244a68; --ink:#183149; --muted:#64748b;
+    --paper:#f6f8fb; --white:#ffffff; --line:#b9c8d6;
+    --blue:#2f6f98; --blue-bg:#eaf3f8;
+    --green:#2f7b59; --green-bg:#eaf5ef;
+    --amber:#b97616; --amber-bg:#fbf2e3;
+    --red:#b94949; --red-bg:#faecec;
+    --shadow:0 10px 28px rgba(23,50,77,.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#dfe6ec}
+  body{font-family:"Segoe UI","Malgun Gothic","Apple SD Gothic Neo",sans-serif;color:var(--ink)}
+  .stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center}
+  .slide{position:relative;width:1920px;height:1080px;background:var(--paper);overflow:hidden}
+  header{height:126px;background:var(--navy);color:white;padding:27px 62px 22px;display:flex;justify-content:space-between}
+  h1{margin:0;font-size:45px;line-height:1.15;letter-spacing:-1.8px;font-weight:760}
+  .subtitle{margin-top:10px;font-size:21px;color:#cfdae5;letter-spacing:-.35px}
+  .header-tag{align-self:flex-start;margin-top:9px;border:1px solid rgba(255,255,255,.36);border-radius:999px;padding:8px 15px;font-size:16px;color:#dce8f2}
+  .content{padding:30px 58px 24px}
+  .thesis-strip{height:58px;border-left:7px solid var(--green);background:white;display:flex;align-items:center;
+    padding:0 24px;box-shadow:var(--shadow);font-size:22px;font-weight:700;letter-spacing:-.35px}
+  .thesis-strip b{color:var(--green)}
+  .architecture{position:relative;margin-top:26px;height:528px;display:grid;
+    grid-template-columns:290px 76px 924px 76px 420px;align-items:stretch}
+  .zone{border-radius:18px;background:white;border:1.5px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+  .zone-head{height:62px;padding:18px 21px 0;font-size:15px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+  .zone-title{font-size:26px;font-weight:760;letter-spacing:-.7px;margin-top:4px}
+  .inputs{border-top:6px solid var(--navy2)}
+  .inputs .zone-head{color:var(--navy2)}
+  .input-body{padding:19px 20px 15px;display:flex;flex-direction:column;gap:14px}
+  .data-block{border-left:4px solid var(--blue);padding:9px 12px;background:var(--blue-bg);border-radius:4px 10px 10px 4px}
+  .data-block.locked{border-left-color:var(--amber);background:var(--amber-bg)}
+  .data-block .k{font-size:17px;font-weight:760}
+  .data-block .v{font-size:15px;color:var(--muted);margin-top:4px;line-height:1.35}
+  .signal-list{margin-top:2px;border-top:1px solid #d9e1e8;padding-top:12px}
+  .signal-list .label{font-size:14px;font-weight:800;color:var(--muted);letter-spacing:.8px}
+  .signal{display:flex;align-items:center;gap:8px;font-size:15px;margin-top:8px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--blue)}
+  .dot.closed{background:var(--red)} .dot.active{background:var(--green)}
+  .arrow-col{display:flex;align-items:center;justify-content:center}
+  .big-arrow{width:55px;height:4px;background:#7f91a2;position:relative}
+  .big-arrow:after{content:"";position:absolute;right:-1px;top:-8px;border-left:16px solid #7f91a2;border-top:10px solid transparent;border-bottom:10px solid transparent}
+  .gates{border-top:6px solid var(--blue);height:426px;align-self:start}
+  .gates .zone-head{color:var(--blue)}
+  .gate-body{height:358px;padding:18px 20px 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .gate{position:relative;border:1.5px solid #8fb4cb;background:var(--blue-bg);border-radius:14px;padding:17px 17px 14px}
+  .gate.freeze{border-color:#71859a;background:#eef2f6}
+  .gate.repro{border-color:#5f9b7a;background:var(--green-bg)}
+  .gate .id{font-size:15px;font-weight:850;color:var(--blue);letter-spacing:.8px}
+  .gate.freeze .id{color:#52697e}.gate.repro .id{color:var(--green)}
+  .gate .name{font-size:22px;font-weight:780;margin-top:6px;letter-spacing:-.45px}
+  .gate .question{font-size:15px;color:var(--muted);line-height:1.4;margin-top:8px}
+  .gate .metric{position:absolute;left:17px;right:17px;bottom:13px;font-size:13px;font-weight:700;color:#46647d}
+  .gate:nth-child(2):after,.gate:nth-child(3):after{content:"";position:absolute;right:-16px;top:50%;width:15px;border-top:2px solid #7891a5}
+  .authorize{border-top:6px solid var(--green)}
+  .authorize .zone-head{color:var(--green)}
+  .auth-body{padding:17px 19px 18px}
+  .auth-main{border:2px solid var(--green);background:var(--green-bg);border-radius:15px;padding:17px;text-align:center}
+  .auth-main .eyebrow{font-size:14px;font-weight:850;color:var(--green);letter-spacing:1px}
+  .auth-main .name{font-size:26px;font-weight:820;margin-top:6px}
+  .auth-main .small{font-size:15px;color:#557565;margin-top:7px;line-height:1.4}
+  .learner{margin-top:14px;border-left:5px solid var(--green);padding:12px 13px;background:#f3faf6;border-radius:5px 12px 12px 5px}
+  .learner .name{font-size:19px;font-weight:760}.learner .v{font-size:14px;color:var(--muted);margin-top:5px;line-height:1.4}
+  .operational{margin-top:13px;border-left:5px solid var(--amber);padding:11px 13px;background:var(--amber-bg);border-radius:5px 12px 12px 5px}
+  .operational .name{font-size:18px;font-weight:760;color:#8c5b12}.operational .v{font-size:14px;color:#806842;margin-top:4px}
+  .stop-band{position:absolute;left:386px;bottom:0;width:924px;height:84px;border:1.7px solid var(--red);background:var(--red-bg);
+    border-radius:14px;display:flex;align-items:center;padding:0 22px;gap:20px}
+  .stop-band .stop{font-size:24px;font-weight:850;color:var(--red)}
+  .stop-band .copy{font-size:17px;line-height:1.38}
+  .stop-band .copy b{color:var(--red)}
+  .case-title{margin-top:26px;font-size:16px;font-weight:850;color:var(--muted);letter-spacing:1.1px}
+  .cases{margin-top:11px;height:184px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .case{background:white;border:1.5px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px;position:relative}
+  .case.gc{border-top:6px solid var(--blue)}.case.deep{border-top:6px solid var(--red)}.case.ksdd{border-top:6px solid var(--green)}
+  .case .dataset{font-size:15px;font-weight:850;letter-spacing:.8px}
+  .case .route{font-size:23px;font-weight:780;margin-top:7px;letter-spacing:-.5px}
+  .case .evidence{font-size:15px;color:var(--muted);line-height:1.45;margin-top:8px}
+  .badge{position:absolute;right:18px;top:17px;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:850}
+  .gc .badge{background:var(--blue-bg);color:var(--blue)}
+  .deep .badge{background:var(--red-bg);color:var(--red)}
+  .ksdd .badge{background:var(--green-bg);color:var(--green)}
+  footer{position:absolute;left:58px;right:58px;bottom:20px;height:38px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #cfd8e1;padding-top:11px}
+  .takeaway{font-size:17px;font-weight:750}.takeaway b{color:var(--green)}
+  .page{font-size:14px;color:var(--muted);letter-spacing:.8px}
+  @media print{html,body{background:white}.stage{transform:none!important;left:0;top:0}}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <section class="slide">
+    <header>
+      <div>
+        <h1>후보 신호는 세 단계의 검증을 거쳐서만 학습으로 넘어간다</h1>
+        <div class="subtitle">Validity-Gated Industrial Defect AL · 전체 연구 아키텍처</div>
+      </div>
+      <div class="header-tag">ARCHITECTURE · G0–G6</div>
+    </header>
+
+    <main class="content">
+      <div class="thesis-strip"><b>PASS = 성공 판정이 아니라 다음 측정 1회 권한</b>&nbsp;&nbsp;·&nbsp;&nbsp;FAIL / NA = STOP + 주장 범위 축소</div>
+
+      <div class="architecture">
+        <section class="zone inputs">
+          <div class="zone-head">01 · INPUTS<div class="zone-title">데이터와 후보 신호</div></div>
+          <div class="input-body">
+            <div class="data-block"><div class="k">Initial labeled set</div><div class="v">같은 초기 100장으로<br>PatchCore와 Random을 paired 비교</div></div>
+            <div class="data-block"><div class="k">Acquisition pool</div><div class="v">후보 신호로 query 100장 선택</div></div>
+            <div class="data-block"><div class="k">Development screen</div><div class="v">학습·checkpoint 선택에는 사용하지 않음</div></div>
+            <div class="data-block locked"><div class="k">Official test · LOCKED</div><div class="v">별도 승인 전 image / mask 접근 금지</div></div>
+            <div class="signal-list">
+              <div class="label">CANDIDATE SIGNALS</div>
+              <div class="signal"><span class="dot closed"></span>VLM consistency · 종료</div>
+              <div class="signal"><span class="dot"></span>DINO / detector uncertainty</div>
+              <div class="signal"><span class="dot active"></span>PatchCore · prospective</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="arrow-col"><div class="big-arrow"></div></div>
+
+        <section class="zone gates">
+          <div class="zone-head">02 · SELECTION-ONLY VALIDATION<div class="zone-title">신호 → 선택 집합의 단계별 Gate</div></div>
+          <div class="gate-body">
+            <div class="gate freeze">
+              <div class="id">G0 · FREEZE</div><div class="name">결과 이전에 규칙 봉인</div>
+              <div class="question">가설 · endpoint · threshold · STOP rule · manifest · SHA-256</div>
+              <div class="metric">사후 threshold rescue 차단</div>
+            </div>
+            <div class="gate">
+              <div class="id">G1 · SIGNAL</div><div class="name">의도한 현상을 재는가?</div>
+              <div class="question">결함 존재·심각도·grounding과 score가 실제로 연결되는지 확인</div>
+              <div class="metric">AUROC · Spearman · enrichment</div>
+            </div>
+            <div class="gate">
+              <div class="id">G2 + G3 · SELECTED SET</div><div class="name">더 찾고, 무너지지 않는가?</div>
+              <div class="question">Target discovery와 class·source·size composition safety를 동시에 평가</div>
+              <div class="metric">yield · coverage · HHI/JSD · small-defect safety</div>
+            </div>
+            <div class="gate repro">
+              <div class="id">G4 · REPRODUCIBILITY</div><div class="name">새 선택에서도 반복되는가?</div>
+              <div class="question">한 집합의 training 안정성과 새로운 acquisition-set 재현성을 분리</div>
+              <div class="metric">paired seeds · CI · leave-one-out</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="arrow-col"><div class="big-arrow"></div></div>
+
+        <section class="zone authorize">
+          <div class="zone-head">03 · AUTHORIZED ACTION<div class="zone-title">측정 권한을 제한한다</div></div>
+          <div class="auth-body">
+            <div class="auth-main">
+              <div class="eyebrow">G1–G4 ALL PASS</div>
+              <div class="name">1× BOUNDED SCREEN</div>
+              <div class="small">성공을 예측하지 않는다.<br>동결 learner 하나로 번역을 측정한다.</div>
+            </div>
+            <div class="learner">
+              <div class="name">G5 · Learning utility</div>
+              <div class="v">Task-specific endpoint<br>mAP / Dice / AP / Recall / FPR</div>
+            </div>
+            <div class="operational">
+              <div class="name">G6 · Operational validity</div>
+              <div class="v">실제 시간·review workload·비용을 측정한 경우에만 주장</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="stop-band">
+          <div class="stop">FAIL / NA → STOP</div>
+          <div class="copy"><b>확장 학습·final test 접근 금지</b><br>관찰된 단계까지만 남기고 claim을 축소한다.</div>
+        </div>
+      </div>
+
+      <div class="case-title">EMPIRICAL TRACE · 같은 아키텍처가 서로 다른 결정을 낸다</div>
+      <div class="cases">
+        <div class="case gc">
+          <span class="badge">RETROSPECTIVE</span>
+          <div class="dataset">GC10 · SELECTION → LEARNING</div>
+          <div class="route">Discovery ↑ → G5 FAIL</div>
+          <div class="evidence">Coverage와 rare discovery가 증가했지만<br>mAP·recall·rare AP로 일관되게 번역되지 않음</div>
+        </div>
+        <div class="case deep">
+          <span class="badge">PROSPECTIVE STOP</span>
+          <div class="dataset">DEEPPCB · G1 → G2</div>
+          <div class="route">G1 PASS → G2 FAIL → STOP</div>
+          <div class="evidence">Primary enrichment 1.108 &lt; 1.20<br>detector / official-test 실제 사용 0</div>
+        </div>
+        <div class="case ksdd">
+          <span class="badge">PROSPECTIVE GO</span>
+          <div class="dataset">KSDD2 · G1–G5</div>
+          <div class="route">G1–G4 PASS → G5 진행</div>
+          <div class="evidence">PatchCore−Random +88.8 defect images / 100<br>동결 U-Net 60-run bounded screen</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="takeaway"><b>핵심 기여:</b> selector를 고르는 것이 아니라, 어떤 증거가 다음 고비용 측정을 허가하는지 통제한다.</div>
+      <div class="page">VALIDITY-GATED AL · ARCHITECTURE</div>
+    </footer>
+  </section>
+</div>
+<script>
+  function fit(){const s=document.getElementById('stage');const k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform=`translate(-50%,-50%) scale(${k})`;}
+  addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>
