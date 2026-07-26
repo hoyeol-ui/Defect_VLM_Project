@@ -4,7 +4,7 @@
 
 기존 자료에는 G1–G6 설명과 두 장의 알고리즘 규칙이 있었지만, 전체를 한눈에
 연결하는 16:9 지도는 약했다. 과거 도식은 세로형으로 지나치게 길고
-DeepPCB STOP 사례에 고정되어 있어 현재 KSDD2 `GO → G5` 흐름을 함께
+DeepPCB STOP 사례에 고정되어 있어 KSDD2 `GO → G5 → STOP` 흐름을 함께
 표현하기 어려웠다.
 
 이번 버전은 역할을 두 장으로 분리했다.
@@ -36,12 +36,13 @@ Overview보다 앞.
 > 반증을 어떤 실험 구조로 정리했는지 보여드리겠습니다. 왼쪽의 데이터와
 > 후보 신호가 바로 learner로 가지 않고, G0–G4 selection-only 검증을
 > 통과한 경우에만 오른쪽의 G5 learner screen 한 번이 허가됩니다. 실제로
-> DeepPCB에서는 STOP이, KSDD2에서는 G5 진행 권한이 나왔습니다.
+> DeepPCB에서는 G2 이전에 STOP했고, KSDD2는 G5까지 진행했지만 frozen
+> minimum effect에 미달해 final test로 확장하지 않았습니다.
 
 핵심 강조:
 
 - PASS는 성공 예측이 아님
-- DeepPCB STOP과 KSDD2 GO가 같은 workflow에서 발생
+- DeepPCB의 early STOP과 KSDD2의 G5 STOP이 같은 workflow에서 발생
 - Official test는 별도 승인 전 계속 잠김
 
 ### 2. 알고리즘 순서도
@@ -58,9 +59,10 @@ Overview보다 앞.
 > 알고리즘의 입력은 candidate score이고 출력은 좋은 selector라는 판정이
 > 아닙니다. 각 Gate에서 FAIL이면 확장 경로를 닫고, G1–G4가 모두 통과한
 > 경우에만 정확히 한 번의 bounded learner screen을 허가합니다. 현재
-> KSDD2 G5도 이 규칙에 따라 60개의 training job을 수행하지만 실제 통계
-> 단위는 acquisition seed 10개입니다. G5에서도 learning과 safety를 함께
-> 통과하지 못하면 final test로 넘어가지 않습니다.
+> KSDD2 G5는 이 규칙에 따라 60개의 training job을 완료했지만 실제 통계
+> 단위는 acquisition seed 10개입니다. 양의 Dice 이득과 safety PASS가
+> 관찰됐어도 frozen minimum `+0.05`에 미달했으므로 final test로
+> 넘어가지 않았습니다.
 
 핵심 강조:
 

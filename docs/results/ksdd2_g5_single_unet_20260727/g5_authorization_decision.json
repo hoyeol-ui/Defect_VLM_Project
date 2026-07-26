@@ -1,0 +1,38 @@
+{
+  "corroboration": {
+    "pixel_ap_delta_above_zero": true
+  },
+  "decision": "TRANSLATION_NOT_OBSERVED_STOP",
+  "freeze_manifest_sha256": "f18b8d7642cd3346a36ec8b8e2de3b3129e692b37ec14222d4f922e4da43055b",
+  "hyperparameter_rescue_authorized": false,
+  "official_test_accessed": false,
+  "official_test_authorized": false,
+  "primary_checks": {
+    "ci_lower_above_zero": true,
+    "leave_one_seed_out_above_zero": true,
+    "mean_delta_at_least_0_05": false,
+    "positive_acquisition_seed_fraction": true
+  },
+  "protocol_id": "KSDD2_G5_SINGLE_UNET_V1",
+  "run_conformance": {
+    "completed_runs": 60,
+    "nonfinite_runs": 0,
+    "required_runs": 60
+  },
+  "safety_checks": {
+    "normal_fpr_delta_at_most_0_05": true,
+    "patchcore_normal_fpr_at_most_0_20": true
+  },
+  "summary": {
+    "leave_one_seed_out_min_delta": 0.031234045065246754,
+    "macro_dice_delta_ci_high": 0.05702926123834337,
+    "macro_dice_delta_ci_low": 0.019581259334323323,
+    "macro_dice_delta_mean": 0.037565105929868926,
+    "normal_fpr_delta_mean": 0.010573042776432607,
+    "patchcore_macro_dice_mean": 0.6084428968333974,
+    "patchcore_normal_fpr_mean": 0.16012913640032284,
+    "pixel_ap_delta_mean": 0.04982445019538292,
+    "positive_acquisition_seed_fraction": 0.8,
+    "random_macro_dice_mean": 0.5708777909035285
+  }
+}

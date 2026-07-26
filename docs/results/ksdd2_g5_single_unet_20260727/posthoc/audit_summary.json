@@ -1,0 +1,63 @@
+{
+  "annotation_burden": {
+    "query_component_ratio_mean": 11.866908298100249,
+    "query_defect_pixel_ratio_mean": 15.677095194327498,
+    "query_positive_image_delta_mean": 88.8
+  },
+  "discovery_delta_vs_dice_delta_spearman": {
+    "n": 10,
+    "p_value_descriptive_only": 0.25999379980543763,
+    "rho": 0.39394240167285516
+  },
+  "frozen_decision": "TRANSLATION_NOT_OBSERVED_STOP",
+  "official_test_accessed": false,
+  "query_overlap": {
+    "patchcore": {
+      "pairwise_jaccard_mean": 0.8128043814983771,
+      "pairwise_jaccard_min": 0.7391304347826086,
+      "query_union": 119,
+      "selected_in_all_ten": 51,
+      "strategy": "patchcore"
+    },
+    "random": {
+      "pairwise_jaccard_mean": 0.026381732563280573,
+      "pairwise_jaccard_min": 0.005025125628140704,
+      "query_union": 799,
+      "selected_in_all_ten": 0,
+      "strategy": "random"
+    }
+  },
+  "status": "POSTHOC_NOT_GATE_CHANGING",
+  "summary": {
+    "leave_one_seed_out_min_delta": 0.031234045065246754,
+    "macro_dice_delta_ci_high": 0.05702926123834337,
+    "macro_dice_delta_ci_low": 0.019581259334323323,
+    "macro_dice_delta_mean": 0.037565105929868926,
+    "normal_fpr_delta_mean": 0.010573042776432607,
+    "patchcore_macro_dice_mean": 0.6084428968333974,
+    "patchcore_normal_fpr_mean": 0.16012913640032284,
+    "pixel_ap_delta_mean": 0.04982445019538292,
+    "positive_acquisition_seed_fraction": 0.8,
+    "random_macro_dice_mean": 0.5708777909035285
+  },
+  "training_seed_robustness": {
+    "260727": {
+      "maximum_delta": 0.169701901595332,
+      "mean_macro_dice_delta": 0.03986172195061445,
+      "minimum_delta": -0.05374108113424236,
+      "positive_pair_fraction": 0.7
+    },
+    "260728": {
+      "maximum_delta": 0.14704780026659614,
+      "mean_macro_dice_delta": 0.035257715706486975,
+      "minimum_delta": -0.09494153043475162,
+      "positive_pair_fraction": 0.6
+    },
+    "260729": {
+      "maximum_delta": 0.11723830889919584,
+      "mean_macro_dice_delta": 0.03757588013250522,
+      "minimum_delta": -0.06847281976421049,
+      "positive_pair_fraction": 0.9
+    }
+  }
+}
