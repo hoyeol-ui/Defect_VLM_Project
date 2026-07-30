@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gc10-cost-translation-v1-candidate/annotation-quality-metrics",
+  "title": "GC10 Annotation Quality Metric Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "annotator_id",
+    "blinded_task_id",
+    "sample_id",
+    "evaluation_level",
+    "reference_box_count",
+    "human_box_count",
+    "true_positive_count",
+    "false_positive_count",
+    "false_negative_count",
+    "box_precision",
+    "box_recall",
+    "image_level_missed_defect_rate",
+    "matched_box_mean_iou",
+    "matched_box_median_iou",
+    "class_accuracy",
+    "duplicate_count",
+    "small_defect_recall",
+    "rare_class_recall",
+    "class8_recall",
+    "class9_recall",
+    "class10_recall",
+    "adjudication_correction_count",
+    "adjudication_active_time_ms",
+    "human_annotation_sha256",
+    "reference_annotation_sha256"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "gc10-cost-translation-v1-candidate"
+    },
+    "annotator_id": {
+      "type": "string"
+    },
+    "blinded_task_id": {
+      "type": "string"
+    },
+    "sample_id": {
+      "type": "string"
+    },
+    "evaluation_level": {
+      "enum": ["image", "acquisition_seed", "strategy", "overall"]
+    },
+    "reference_box_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "human_box_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "true_positive_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "false_positive_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "false_negative_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "box_precision": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "box_recall": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "image_level_missed_defect_rate": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "matched_box_mean_iou": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "matched_box_median_iou": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "class_accuracy": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "duplicate_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "small_defect_recall": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "rare_class_recall": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "class8_recall": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "class9_recall": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "class10_recall": {
+      "$ref": "#/$defs/nullable_rate"
+    },
+    "adjudication_correction_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "adjudication_active_time_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "human_annotation_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "reference_annotation_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "nullable_rate": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}
