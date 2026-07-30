@@ -1,0 +1,19 @@
+{
+  "run_dir": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\runs\\active_learning_ablation_v7_full_curve\\v7_full_curve_20260711_211848",
+  "plots": [
+    "actual_instance_count_by_round.png",
+    "budget_to_target_comparison.png",
+    "class_entropy_by_round.png",
+    "dataset_distribution_by_round.png",
+    "distance_to_labeled_by_round.png",
+    "final_budget_metric_comparison.png",
+    "learning_curve_map50.png",
+    "learning_curve_map5095.png",
+    "learning_curve_map5095_with_seed_traces.png",
+    "learning_curve_map50_with_seed_traces.png",
+    "normalized_aulc_comparison.png",
+    "paired_seed_difference_map5095.png",
+    "runtime_breakdown.png",
+    "visual_redundancy_by_round.png"
+  ]
+}

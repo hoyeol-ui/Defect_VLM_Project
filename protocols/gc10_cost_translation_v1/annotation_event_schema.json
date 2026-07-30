@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gc10-cost-translation-v1-candidate/annotation-event",
+  "title": "GC10 Cost-Translation Annotation Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "tool_version",
+    "annotator_id",
+    "session_id",
+    "blinded_task_id",
+    "sample_id",
+    "order_index",
+    "event_id",
+    "event_type",
+    "event_utc",
+    "monotonic_timestamp_ms",
+    "active_ms_since_previous",
+    "idle_flag",
+    "pause_reason",
+    "box_id",
+    "bbox_before",
+    "bbox_after",
+    "class_before",
+    "class_after",
+    "checksum"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": "gc10-cost-translation-v1-candidate"
+    },
+    "tool_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "annotator_id": {
+      "type": "string",
+      "pattern": "^ANN-[A-Z0-9_-]+$"
+    },
+    "session_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blinded_task_id": {
+      "type": ["string", "null"]
+    },
+    "sample_id": {
+      "type": ["string", "null"]
+    },
+    "order_index": {
+      "type": ["integer", "null"],
+      "minimum": 1
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_type": {
+      "enum": [
+        "SESSION_START",
+        "IMAGE_START",
+        "IMAGE_PAUSE",
+        "IMAGE_RESUME",
+        "BOX_CREATE",
+        "BOX_MOVE",
+        "BOX_RESIZE",
+        "BOX_DELETE",
+        "CLASS_ASSIGN",
+        "CLASS_CHANGE",
+        "IMAGE_SUBMIT",
+        "SESSION_END"
+      ]
+    },
+    "event_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "monotonic_timestamp_ms": {
+      "type": "number",
+      "minimum": 0
+    },
+    "active_ms_since_previous": {
+      "type": "number",
+      "minimum": 0
+    },
+    "idle_flag": {
+      "type": "boolean"
+    },
+    "pause_reason": {
+      "type": ["string", "null"]
+    },
+    "box_id": {
+      "type": ["string", "null"]
+    },
+    "bbox_before": {
+      "$ref": "#/$defs/nullable_bbox"
+    },
+    "bbox_after": {
+      "$ref": "#/$defs/nullable_bbox"
+    },
+    "class_before": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 10
+    },
+    "class_after": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 10
+    },
+    "checksum": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "nullable_bbox": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x_min", "y_min", "x_max", "y_max"],
+          "properties": {
+            "x_min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "y_min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "x_max": {
+              "type": "number",
+              "minimum": 0
+            },
+            "y_max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,76 @@
+protocol_version: gc10-cost-translation-v1-candidate
+status: UNFROZEN_RESEARCHER_REVIEW_REQUIRED
+
+study:
+  characterization: prospective cost-endpoint validation of a retrospectively identified frozen candidate
+  dataset: GC10-DET
+  split: acquisition_and_development_only
+  official_final_test_used: false
+
+phase_a:
+  acquisition_seeds: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+  strategies: [GTFreeRandom, FrozenDINOVisualDiversity]
+  query_size: 20
+  unique_image_count: 233
+  annotator_count: null
+  primary_estimand: mean_seed_paired_q20_total_active_time_dino_minus_random_ms
+  primary_ci_method: image_and_annotator_cluster_bootstrap
+  bootstrap_replicates: 50000
+  bootstrap_random_seed: 20260730
+  confidence_level: 0.95
+  sensitivity_ci_method: seed_level_paired_bootstrap
+  idle_threshold_ms: null
+  active_wall_reconciliation_tolerance_ms: null
+  burden_materiality:
+    type: null
+    value: null
+  quality_noninferiority:
+    metric: null
+    margin: null
+
+quality:
+  matching: hungarian_geometry_first
+  geometry_iou_threshold: 0.50
+  rare_class_ids: [8, 9, 10]
+  small_bbox_area_ratio_max: 0.004831
+  zero_denominator: null
+  adjudication_policy: null
+
+time_budget:
+  primary_T_source: null
+  primary_T_ms: null
+  rounding_rule: null
+  common_support_check: null
+
+phase_b:
+  authorized: false
+  acquisition_seeds: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+  strategies: [GTFreeRandom, FrozenDINOVisualDiversity]
+  training_seeds: [42, 43, 44]
+  expected_run_count: 60
+  primary_metric: development_map50_95
+  minimum_map50_95_effect: null
+  rare_macro_ap_margin: null
+  rare_recall_margin: null
+  individual_rare_class_guards:
+    class_8: null
+    class_9: null
+    class_10: null
+  overall_recall_noninferiority_margin: null
+  frequent_class_noninferiority_margin: null
+  training_seed_aggregation: mean_within_acquisition_seed_before_inference
+  inference_unit: acquisition_seed
+
+human_participation:
+  institutional_determination_id: null
+  consent_version: null
+  compensation_rule: null
+  retention_period: null
+
+freeze:
+  researcher_name: null
+  supervisor_name: null
+  decision_date_utc: null
+  git_commit: null
+  git_tag: null
+  package_sha256: null

@@ -1,0 +1,32 @@
+{
+  "protocol_version": "gc10-cost-translation-v1-candidate",
+  "source_commit": "ee331ffd9e7f93951d570ef2020735f1f66d904a",
+  "primary_acquisition_seeds": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "query_size": 20,
+  "strategies": [
+    "GTFreeRandom",
+    "FrozenDINOVisualDiversity"
+  ],
+  "phase_a_unique_images": 233,
+  "phase_a_batch_rows": 400,
+  "stage0_images": 24,
+  "stage0_random_seed": 20260730,
+  "stage0_no_box_available": false,
+  "stage0_low_burden_proxy": "single-box images",
+  "small_box_area_ratio_threshold": 0.004831,
+  "small_box_source_q25_exact": 0.0048310546875,
+  "large_box_source_q75": 0.0887596435546875,
+  "official_or_final_source_read_by_builder": false,
+  "candidate_status": "UNFROZEN_RESEARCHER_REVIEW_REQUIRED"
+}

@@ -1,0 +1,18 @@
+{
+  "freeze": "Evidence Freeze v3",
+  "decision": "A_THESIS_CORE_STRENGTHENED_BY_PROSPECTIVE_STOP",
+  "decision_scope": "thesis core strengthened by one prospective STOP authorization case; not method performance or predictive accuracy",
+  "deeppcb_branch_closed": true,
+  "score_threshold_rescue_authorized": false,
+  "external_confirmation_authorized": false,
+  "detector_screen_authorized": false,
+  "training_performed": false,
+  "detector_inference_performed": false,
+  "vlm_calls_performed": false,
+  "embedding_extraction_performed": false,
+  "official_test_used": false,
+  "final_test_used": false,
+  "documented_prevented_detector_runs_lower_bound": 45,
+  "deeppcb_prevented_run_count_added": 0,
+  "predictive_policy_claim": false
+}

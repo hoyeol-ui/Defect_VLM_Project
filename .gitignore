@@ -37,9 +37,19 @@ checkpoints/
 *.safetensors
 
 # YOLO / training outputs
-runs/
+# Raw runs remain local. Only the frozen, compact v3 evidence package is
+# versioned so that the thesis audit can be reviewed on another machine.
+runs/*
+!runs/evidence_freeze_v3_20260718/
+runs/evidence_freeze_v3_20260718/*
+!runs/evidence_freeze_v3_20260718/research_evidence_ledger.csv
+!runs/evidence_freeze_v3_20260718/source_registry.csv
+!runs/evidence_freeze_v3_20260718/freeze_config.json
 outputs/
 wandb/
+
+# Local rendering and scratch artifacts
+tmp/
 
 # Keep raw experiment folders ignored, but allow curated paper/lab-meeting
 # artifacts to be copied into docs/results and tracked on GitHub.
@@ -62,3 +72,8 @@ logs/
 # secrets / env
 .env
 .env.*
+
+# local runtime / external source
+.python311/
+.codex_doc_deps/
+Ultralytics/

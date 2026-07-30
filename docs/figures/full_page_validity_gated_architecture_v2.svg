@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#667085"/></marker><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.12"/></filter></defs>
+<rect width="1920" height="1080" fill="#F7F9FC"/>
+<rect x="0" y="0" width="1920" height="116" fill="#17324D"/>
+<text x="58" y="55" font-size="34" fill="#FFFFFF" font-weight="700" text-anchor="start"><tspan x="58" dy="0">Validity-Gated Industrial Defect AL — Evidence Freeze v3</tspan></text>
+<text x="58" y="91" font-size="18" fill="#C9D6E2" font-weight="400" text-anchor="start"><tspan x="58" dy="0">Prospective authorization evidence + retrospective translation-failure map</tspan></text>
+<text x="1862" y="60" font-size="17" fill="#C9D6E2" font-weight="400" text-anchor="end"><tspan x="1862" dy="0">2026-07-18</tspan></text>
+<rect x="58" y="145" width="330" height="142" rx="18" fill="#FCEEEE" stroke="#B84A4A" stroke-width="2" filter="url(#shadow)"/>
+<text x="80" y="177" font-size="16" fill="#B84A4A" font-weight="700" text-anchor="start"><tspan x="80" dy="0">01  INITIAL HYPOTHESIS</tspan></text>
+<text x="80" y="210" font-size="17" fill="#17324D" font-weight="500" text-anchor="start"><tspan x="80" dy="0">VLM consistency</tspan><tspan x="80" dy="24">DINO diversity</tspan><tspan x="80" dy="24">detector uncertainty</tspan><tspan x="80" dy="24">→ selector superiority</tspan></text>
+<rect x="420" y="145" width="420" height="142" rx="18" fill="#EAF1F7" stroke="#376F95" stroke-width="2" filter="url(#shadow)"/>
+<text x="442" y="177" font-size="16" fill="#376F95" font-weight="700" text-anchor="start"><tspan x="442" dy="0">02  RETROSPECTIVE CORE</tspan></text>
+<text x="442" y="210" font-size="17" fill="#17324D" font-weight="500" text-anchor="start"><tspan x="442" dy="0">Discovery ≠ safety</tspan><tspan x="442" dy="24">coverage ≠ learning utility</tspan><tspan x="442" dy="24">seed stability ≠ acquisition generalization</tspan></text>
+<rect x="872" y="145" width="470" height="142" rx="18" fill="#FBF2E5" stroke="#B77B24" stroke-width="2" filter="url(#shadow)"/>
+<text x="894" y="177" font-size="16" fill="#B77B24" font-weight="700" text-anchor="start"><tspan x="894" dy="0">03  DEEPPCB PROSPECTIVE CASE</tspan></text>
+<text x="894" y="210" font-size="17" fill="#17324D" font-weight="500" text-anchor="start"><tspan x="894" dy="0">External paired-reference data</tspan><tspan x="894" dy="24">protocol + score + selection hash frozen</tspan><tspan x="894" dy="24">primary FAIL accepted</tspan></text>
+<rect x="1374" y="145" width="488" height="142" rx="18" fill="#E9F4ED" stroke="#3F7D57" stroke-width="2" filter="url(#shadow)"/>
+<text x="1396" y="177" font-size="16" fill="#3F7D57" font-weight="700" text-anchor="start"><tspan x="1396" dy="0">04  V3 DECISION</tspan></text>
+<text x="1396" y="210" font-size="17" fill="#17324D" font-weight="500" text-anchor="start"><tspan x="1396" dy="0">THESIS CORE STRENGTHENED</tspan><tspan x="1396" dy="24">by prospective STOP evidence</tspan><tspan x="1396" dy="24">not by positive method performance</tspan></text>
+<line x1="388" y1="216" x2="412" y2="216" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="840" y1="216" x2="864" y2="216" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1342" y1="216" x2="1366" y2="216" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="58" y="333" font-size="20" fill="#376F95" font-weight="700" text-anchor="start"><tspan x="58" dy="0">VALIDITY-GATED AUTHORIZATION PIPELINE</tspan></text>
+<rect x="58" y="352" width="250" height="145" rx="15" fill="#EDF4F8" stroke="#376F95" stroke-width="2"/>
+<text x="76" y="382" font-size="17" fill="#376F95" font-weight="700" text-anchor="start"><tspan x="76" dy="0">G1</tspan></text>
+<text x="76" y="414" font-size="18" fill="#17324D" font-weight="700" text-anchor="start"><tspan x="76" dy="0">Signal validity</tspan></text>
+<text x="76" y="448" font-size="15" fill="#667085" font-weight="400" text-anchor="start"><tspan x="76" dy="0">grounding</tspan><tspan x="76" dy="21">relation/confound</tspan></text>
+<line x1="311" y1="425" x2="342" y2="425" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="350" y="352" width="250" height="145" rx="15" fill="#EDF4F8" stroke="#376F95" stroke-width="2"/>
+<text x="368" y="382" font-size="17" fill="#376F95" font-weight="700" text-anchor="start"><tspan x="368" dy="0">G2</tspan></text>
+<text x="368" y="414" font-size="18" fill="#17324D" font-weight="700" text-anchor="start"><tspan x="368" dy="0">Target discovery</tspan></text>
+<text x="368" y="448" font-size="15" fill="#667085" font-weight="400" text-anchor="start"><tspan x="368" dy="0">yield</tspan><tspan x="368" dy="21">enrichment@budget</tspan></text>
+<line x1="603" y1="425" x2="634" y2="425" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="642" y="352" width="250" height="145" rx="15" fill="#EDF4F8" stroke="#376F95" stroke-width="2"/>
+<text x="660" y="382" font-size="17" fill="#376F95" font-weight="700" text-anchor="start"><tspan x="660" dy="0">G3</tspan></text>
+<text x="660" y="414" font-size="18" fill="#17324D" font-weight="700" text-anchor="start"><tspan x="660" dy="0">Composition safety</tspan></text>
+<text x="660" y="448" font-size="15" fill="#667085" font-weight="400" text-anchor="start"><tspan x="660" dy="0">class/source</tspan><tspan x="660" dy="21">rare safety</tspan></text>
+<line x1="895" y1="425" x2="926" y2="425" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="934" y="352" width="250" height="145" rx="15" fill="#EDF4F8" stroke="#376F95" stroke-width="2"/>
+<text x="952" y="382" font-size="17" fill="#376F95" font-weight="700" text-anchor="start"><tspan x="952" dy="0">G4</tspan></text>
+<text x="952" y="414" font-size="18" fill="#17324D" font-weight="700" text-anchor="start"><tspan x="952" dy="0">Acquisition repro.</tspan></text>
+<text x="952" y="448" font-size="15" fill="#667085" font-weight="400" text-anchor="start"><tspan x="952" dy="0">new selections</tspan><tspan x="952" dy="21">fixed ≠ new</tspan></text>
+<line x1="1187" y1="425" x2="1218" y2="425" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1226" y="352" width="250" height="145" rx="15" fill="#ECF6EF" stroke="#3F7D57" stroke-width="2"/>
+<text x="1244" y="382" font-size="17" fill="#3F7D57" font-weight="700" text-anchor="start"><tspan x="1244" dy="0">G5</tspan></text>
+<text x="1244" y="414" font-size="18" fill="#17324D" font-weight="700" text-anchor="start"><tspan x="1244" dy="0">Learning utility</tspan></text>
+<text x="1244" y="448" font-size="15" fill="#667085" font-weight="400" text-anchor="start"><tspan x="1244" dy="0">mAP · recall</tspan><tspan x="1244" dy="21">rare AP</tspan></text>
+<line x1="1479" y1="425" x2="1510" y2="425" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1518" y="352" width="250" height="145" rx="15" fill="#FBF3E8" stroke="#B77B24" stroke-width="2"/>
+<text x="1536" y="382" font-size="17" fill="#B77B24" font-weight="700" text-anchor="start"><tspan x="1536" dy="0">G6</tspan></text>
+<text x="1536" y="414" font-size="18" fill="#17324D" font-weight="700" text-anchor="start"><tspan x="1536" dy="0">Operational validity</tspan></text>
+<text x="1536" y="448" font-size="15" fill="#667085" font-weight="400" text-anchor="start"><tspan x="1536" dy="0">top-budget</tspan><tspan x="1536" dy="21">human/deploy</tspan></text>
+<rect x="58" y="515" width="1810" height="56" rx="14" fill="#E9F4ED" stroke="#3F7D57" stroke-width="2"/>
+<text x="963" y="550" font-size="20" fill="#17324D" font-weight="700" text-anchor="middle"><tspan x="963" dy="0">PASS = one bounded measurement authorization, not a success prediction    |    FAIL / NA = STOP + claim contraction</tspan></text>
+<text x="58" y="620" font-size="20" fill="#B77B24" font-weight="700" text-anchor="start"><tspan x="58" dy="0">PROSPECTIVE EXTERNAL AUTHORIZATION CASE — DEEPPCB</tspan></text>
+<rect x="58" y="646" width="210" height="128" rx="14" fill="#EAF1F7" stroke="#376F95" stroke-width="2"/>
+<text x="163" y="682" font-size="17" fill="#376F95" font-weight="700" text-anchor="middle"><tspan x="163" dy="0">External + freeze</tspan></text>
+<text x="163" y="718" font-size="16" fill="#17324D" font-weight="500" text-anchor="middle"><tspan x="163" dy="0">paired reference</tspan><tspan x="163" dy="22">selection SHA-256</tspan></text>
+<line x1="270" y1="710" x2="294" y2="710" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="302" y="646" width="210" height="128" rx="14" fill="#E9F4ED" stroke="#3F7D57" stroke-width="2"/>
+<text x="407" y="682" font-size="17" fill="#3F7D57" font-weight="700" text-anchor="middle"><tspan x="407" dy="0">G1 PASS</tspan></text>
+<text x="407" y="718" font-size="16" fill="#17324D" font-weight="500" text-anchor="middle"><tspan x="407" dy="0">ρ = 0.412</tspan><tspan x="407" dy="22">6/6 positive</tspan></text>
+<line x1="514" y1="710" x2="538" y2="710" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="546" y="646" width="210" height="128" rx="14" fill="#FCEEEE" stroke="#B84A4A" stroke-width="2"/>
+<text x="651" y="682" font-size="17" fill="#B84A4A" font-weight="700" text-anchor="middle"><tspan x="651" dy="0">G2 FAIL_STOP</tspan></text>
+<text x="651" y="718" font-size="16" fill="#17324D" font-weight="500" text-anchor="middle"><tspan x="651" dy="0">1.108 &lt; 1.20</tspan><tspan x="651" dy="22">primary gate</tspan></text>
+<line x1="758" y1="710" x2="782" y2="710" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="790" y="646" width="210" height="128" rx="14" fill="#FBF2E5" stroke="#B77B24" stroke-width="2"/>
+<text x="895" y="682" font-size="17" fill="#B77B24" font-weight="700" text-anchor="middle"><tspan x="895" dy="0">Secondary</tspan></text>
+<text x="895" y="718" font-size="16" fill="#17324D" font-weight="500" text-anchor="middle"><tspan x="895" dy="0">small 1.308</tspan><tspan x="895" dy="22">exploratory</tspan></text>
+<line x1="1002" y1="710" x2="1026" y2="710" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1034" y="646" width="210" height="128" rx="14" fill="#FBF2E5" stroke="#B77B24" stroke-width="2"/>
+<text x="1139" y="682" font-size="17" fill="#B77B24" font-weight="700" text-anchor="middle"><tspan x="1139" dy="0">Phase A — A2</tspan></text>
+<text x="1139" y="718" font-size="16" fill="#17324D" font-weight="500" text-anchor="middle"><tspan x="1139" dy="0">group 45.79%</tspan><tspan x="1139" dy="22">577-1024 px²</tspan></text>
+<line x1="1246" y1="710" x2="1270" y2="710" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1278" y="646" width="210" height="128" rx="14" fill="#FCEEEE" stroke="#B84A4A" stroke-width="2"/>
+<text x="1383" y="682" font-size="17" fill="#B84A4A" font-weight="700" text-anchor="middle"><tspan x="1383" dy="0">Phase B</tspan></text>
+<text x="1383" y="718" font-size="16" fill="#17324D" font-weight="500" text-anchor="middle"><tspan x="1383" dy="0">NO CANDIDATE</tspan><tspan x="1383" dy="22">M2 recall .179</tspan></text>
+<line x1="1490" y1="710" x2="1514" y2="710" stroke="#667085" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1522" y="646" width="210" height="128" rx="14" fill="#EEF1F4" stroke="#17324D" stroke-width="2"/>
+<text x="1627" y="682" font-size="17" fill="#17324D" font-weight="700" text-anchor="middle"><tspan x="1627" dy="0">STOP</tspan></text>
+<text x="1627" y="718" font-size="16" fill="#17324D" font-weight="500" text-anchor="middle"><tspan x="1627" dy="0">detector 0</tspan><tspan x="1627" dy="22">official/final 0</tspan></text>
+<rect x="58" y="820" width="570" height="188" rx="18" fill="#E9F4ED" stroke="#3F7D57" stroke-width="2" filter="url(#shadow)"/>
+<text x="82" y="855" font-size="19" fill="#3F7D57" font-weight="700" text-anchor="start"><tspan x="82" dy="0">SUPPORTED</tspan></text>
+<text x="82" y="892" font-size="16" fill="#17324D" font-weight="500" text-anchor="start"><tspan x="82" dy="0">• Prospective protocol + selection freeze</tspan><tspan x="82" dy="25">• Primary FAIL stopped detector expansion</tspan><tspan x="82" dy="25">• Secondary signal audited separately</tspan><tspan x="82" dy="25">• Official/final actual use = 0</tspan></text>
+<rect x="662" y="820" width="570" height="188" rx="18" fill="#FBF2E5" stroke="#B77B24" stroke-width="2" filter="url(#shadow)"/>
+<text x="686" y="855" font-size="19" fill="#B77B24" font-weight="700" text-anchor="start"><tspan x="686" dy="0">EXPLORATORY</tspan></text>
+<text x="686" y="892" font-size="16" fill="#17324D" font-weight="500" text-anchor="start"><tspan x="686" dy="0">• Small-share uplift 1.1828</tspan><tspan x="686" dy="25">• Residual ↔ bbox area 577-1024 px²</tspan><tspan x="686" dy="25">• Spatial checks positive but A2</tspan><tspan x="686" dy="25">• No external utility claim</tspan></text>
+<rect x="1266" y="820" width="570" height="188" rx="18" fill="#FCEEEE" stroke="#B84A4A" stroke-width="2" filter="url(#shadow)"/>
+<text x="1290" y="855" font-size="19" fill="#B84A4A" font-weight="700" text-anchor="start"><tspan x="1290" dy="0">REJECTED / CLOSED</tspan></text>
+<text x="1290" y="892" font-size="16" fill="#17324D" font-weight="500" text-anchor="start"><tspan x="1290" dy="0">• Total bbox-richness utility</tspan><tspan x="1290" dy="25">• General small-defect triage</tspan><tspan x="1290" dy="25">• Independent residual candidate</tspan><tspan x="1290" dy="25">• DeepPCB detector improvement</tspan></text>
+<text x="960" y="1052" font-size="18" fill="#17324D" font-weight="700" text-anchor="middle"><tspan x="960" dy="0">METHOD SUCCESS: NO   |   PROSPECTIVE AUTHORIZATION CONFORMANCE: YES   |   PREDICTIVE ACCURACY: NOT IDENTIFIABLE</tspan></text>
+</svg>

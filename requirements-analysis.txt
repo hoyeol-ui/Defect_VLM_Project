@@ -1,0 +1,12 @@
+# Portable, CPU-friendly dependencies for read-only audits, plots, and Evidence Freeze v3.
+# Detector/VLM execution requires separate PyTorch, Ultralytics, Transformers,
+# sentence-transformers, and platform-specific CUDA/MPS dependencies.
+numpy>=1.26,<3
+pandas>=2.1,<3
+scipy>=1.11,<2
+scikit-learn>=1.3,<2
+matplotlib>=3.8,<4
+Pillow>=10,<13
+opencv-python>=4.8,<5
+PyYAML>=6,<7
+tqdm>=4.66,<5
