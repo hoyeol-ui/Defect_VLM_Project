@@ -1,4 +1,4 @@
-"""Synthetic tests for V7 full-curve helper functions.
+r"""Synthetic tests for V7 full-curve helper functions.
 
 Run:
     .\.python311\python.exe .\tests\test_active_learning_v7_full_curve.py
@@ -30,6 +30,7 @@ def synthetic_pool() -> pd.DataFrame:
                     "dataset_type": ds,
                     "image_name": f"{ds}_{i}.jpg",
                     "sample_id": f"{ds}_{i}",
+                    "canonical_sample_id": f"{ds}_{i}",
                     "score_consistency_only": float(i),
                     "class_hint": "leak",
                     "actual_bbox_count": 999,

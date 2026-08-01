@@ -21,10 +21,10 @@ __pycache__/
 .vscode/
 
 # data and datasets
-data/
-datasets/
-raw_data/
-processed_data/
+/data/
+/datasets/
+/raw_data/
+/processed_data/
 
 # model weights
 models/

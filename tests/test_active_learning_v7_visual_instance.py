@@ -1,4 +1,4 @@
-"""Synthetic tests for V7 visual/instance acquisition helpers.
+r"""Synthetic tests for V7 visual/instance acquisition helpers.
 
 Run:
     .\.python311\python.exe .\tests\test_active_learning_v7_visual_instance.py

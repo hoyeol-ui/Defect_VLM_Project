@@ -1,4 +1,5 @@
 import importlib.util
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -11,6 +12,7 @@ def load_module():
     spec = importlib.util.spec_from_file_location("analyze_v7_full_curve_root_causes", SCRIPT)
     mod = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
+    sys.modules[spec.name] = mod
     spec.loader.exec_module(mod)
     return mod
 
@@ -50,4 +52,3 @@ def test_bootstrap_ci_single_value_is_that_value():
 
     assert low == 0.123
     assert high == 0.123
-

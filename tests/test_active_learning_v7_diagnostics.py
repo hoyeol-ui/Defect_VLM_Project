@@ -1,4 +1,4 @@
-"""Small synthetic checks for V7 methodology-audit helpers.
+r"""Small synthetic checks for V7 methodology-audit helpers.
 
 Run:
     .\.python311\python.exe .\tests\test_active_learning_v7_diagnostics.py
