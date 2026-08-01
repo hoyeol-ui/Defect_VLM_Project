@@ -1,0 +1,188 @@
+{
+  "status": "PASS",
+  "run_id": "gc10_dev_confirm_harness_v1",
+  "dataset_name": "GC10-DET",
+  "source_files": {
+    "acquisition": {
+      "path": "runs/gc10_taxonomy_protocol/gc10_protocol_20260715/gc10_acquisition_pool_gt_audit.csv",
+      "sha256": "1fbe7728a3d5746cd76b8e764e4a11a1f14a78e4a7cde02ec781603fd42c0ed1"
+    },
+    "development": {
+      "path": "runs/gc10_taxonomy_protocol/gc10_protocol_20260715/gc10_development_eval.csv",
+      "sha256": "eff60275bd78dc43f872b0b0abcb4ab9229fcd85a4047f5e3e4f70ac4c92d711"
+    },
+    "blind_pool": {
+      "path": "runs/gc10_taxonomy_protocol/gc10_protocol_20260715/gc10_acquisition_pool_blind.csv",
+      "sha256": "6c57795fa012a377b1052aae55b15bb21ac2dd49879d732530e43a06a5a925dc"
+    },
+    "selection_records": {
+      "path": "runs/gc10_taxonomy_selection_audit/gc10_random_vs_dino_200seed_20260715/gc10_selection_records_posthoc.csv",
+      "sha256": "bd409ba85a4b3f69caa252e2e37662137860d38e139166f37f4ad864df55085a"
+    },
+    "legacy_training_manifests": {
+      "acq0_GTFreeRandom": "ff9260f0f1352425e5a60bb5eae757eb8f33b48581e090b8fee0cf333e91c70a",
+      "acq0_FrozenDINOVisualDiversity": "0bca61a89f1596dca4be53067dd0b99757b54f9995bbefbfcad6471255e69c93",
+      "acq1_GTFreeRandom": "eb36a59f69a78be17d256c4ca23195afda74889ea6da349854a1b0acf3b6d7a3",
+      "acq1_FrozenDINOVisualDiversity": "1627df39f7eb632cb275a829369b35db08021449d0c74705f5777695d8b64714",
+      "acq2_GTFreeRandom": "6fd70532370d307c2c7f222cb4b54b3b5239481e846c35202ec48bb513343767",
+      "acq2_FrozenDINOVisualDiversity": "670f892a3fda17d4f68fe66a72e525f77e56536f6fa3ead65baa0332ef6b39b3",
+      "acq3_GTFreeRandom": "b32a3887d1aae830867d89a5d0a56d3149edb736310cc62edff554cba0cf5bf9",
+      "acq3_FrozenDINOVisualDiversity": "168370c403f8643ba1fdd0ac22ad1e878f55a4275511a7e8e3fa063681b5c3e6",
+      "acq4_GTFreeRandom": "c0b7d9ed010d2c0ad713c29b96fd6b2f6585b62b048093cd88583797c130c4b4",
+      "acq4_FrozenDINOVisualDiversity": "38845c9c63f960ee67bbcb9a3b846ac17ac6eec7a2173041008664e72df051bc"
+    }
+  },
+  "actual_source_image_hashes_verified": 2068,
+  "source_image_hash_mismatches": 0,
+  "legacy_sample_id_mismatches": 0,
+  "frozen_selection_sets_checked": 10,
+  "frozen_selected_union_rows": 234,
+  "selected_hard_group_closure_rows": 969,
+  "unused_acquisition_audit_holdout_rows": 867,
+  "selection_parity": [
+    {
+      "set_key": "acq0_GTFreeRandom",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq0_FrozenDINOVisualDiversity",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq1_GTFreeRandom",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq1_FrozenDINOVisualDiversity",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq2_GTFreeRandom",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq2_FrozenDINOVisualDiversity",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq3_GTFreeRandom",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq3_FrozenDINOVisualDiversity",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq4_GTFreeRandom",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "set_key": "acq4_FrozenDINOVisualDiversity",
+      "rows": 40,
+      "legacy_id_order_equal": true,
+      "legacy_id_set_equal": true,
+      "image_sha_sequence_equal": true,
+      "image_sha_set_equal": true,
+      "cache_hash_mismatches": 0,
+      "status": "PASS"
+    }
+  ],
+  "selection_parity_all_passed": true,
+  "manifests": {
+    "train": {
+      "path": "manifests/harness/gc10_dev_confirm_harness_v1/train.csv",
+      "rows": 969,
+      "unique_canonical_ids": 969,
+      "unique_image_sha256s": 969,
+      "manifest_sha256": "928b2507a22862073c99ca8e58d6d92cc17e1c86f974222bd20de8844ef513dc"
+    },
+    "validation": {
+      "path": "manifests/harness/gc10_dev_confirm_harness_v1/validation.csv",
+      "rows": 232,
+      "unique_canonical_ids": 232,
+      "unique_image_sha256s": 232,
+      "manifest_sha256": "73fae346943a30ba96f7f5c8886bb16e95cea07cc61302a44d9978c95c5c5778"
+    },
+    "test": {
+      "path": "manifests/harness/gc10_dev_confirm_harness_v1/test.csv",
+      "rows": 867,
+      "unique_canonical_ids": 867,
+      "unique_image_sha256s": 867,
+      "manifest_sha256": "7d54e082def62b0a4c68d555b058bbc8f0e3faa99b17d35841c4af03c1adcfdd"
+    }
+  },
+  "canonical_id_overlaps": {
+    "train/validation": 0,
+    "train/test": 0,
+    "validation/test": 0
+  },
+  "raw_image_sha256_overlaps": {
+    "train/validation": 0,
+    "train/test": 0,
+    "validation/test": 0
+  },
+  "strict_config": {
+    "path": "configs/frozen/gc10_dev_confirm_harness_v1.yaml",
+    "sha256": "7e5d2f320d6176f65c3833fcf1508accb97ae3d4854b0f0181e9389a98452449"
+  },
+  "test_role_semantics": "unused acquisition audit holdout; not official/final evaluation data",
+  "locked_final_manifest_referenced": false,
+  "locked_final_images_opened": false,
+  "gpu_used": false,
+  "training_performed": false,
+  "inference_performed": false
+}

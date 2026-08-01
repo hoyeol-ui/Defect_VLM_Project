@@ -239,23 +239,47 @@ def validate_split_leakage(
 
     mapping = _coerce_indexes(indexes)
     problems = []
+    for item in summarize_split_overlaps(mapping):
+        if item["overlap_count"]:
+            problems.append(
+                f"{item['left_split']}/{item['right_split']} {item['identity_type']} "
+                f"overlap count={item['overlap_count']}, example={item['example']}"
+            )
+    if problems:
+        raise RuntimeError("Split leakage detected:\n- " + "\n- ".join(problems))
+
+
+def summarize_split_overlaps(
+    indexes: Mapping[str, ManifestIndex] | Iterable[ManifestIndex],
+) -> tuple[dict[str, Any], ...]:
+    """Return deterministic pairwise canonical-ID and raw-SHA overlap counts."""
+
+    mapping = _coerce_indexes(indexes)
+    rows: list[dict[str, Any]] = []
     for left_name, right_name in (("train", "validation"), ("train", "test"), ("validation", "test")):
         left = mapping[left_name]
         right = mapping[right_name]
         canonical_overlap = left.canonical_ids & right.canonical_ids
-        if canonical_overlap:
-            example = sorted(canonical_overlap)[0]
-            problems.append(
-                f"{left_name}/{right_name} canonical ID overlap count={len(canonical_overlap)}, example={example}"
-            )
+        rows.append(
+            {
+                "left_split": left_name,
+                "right_split": right_name,
+                "identity_type": "canonical ID",
+                "overlap_count": len(canonical_overlap),
+                "example": sorted(canonical_overlap)[0] if canonical_overlap else None,
+            }
+        )
         sha_overlap = left.image_sha256s & right.image_sha256s
-        if sha_overlap:
-            example = sorted(sha_overlap)[0]
-            problems.append(
-                f"{left_name}/{right_name} image SHA-256 overlap count={len(sha_overlap)}, example={example}"
-            )
-    if problems:
-        raise RuntimeError("Split leakage detected:\n- " + "\n- ".join(problems))
+        rows.append(
+            {
+                "left_split": left_name,
+                "right_split": right_name,
+                "identity_type": "image SHA-256",
+                "overlap_count": len(sha_overlap),
+                "example": sorted(sha_overlap)[0] if sha_overlap else None,
+            }
+        )
+    return tuple(rows)
 
 
 def load_frozen_manifest_indexes(config: "FrozenRunConfig") -> Mapping[str, ManifestIndex]:
@@ -277,4 +301,3 @@ def load_frozen_manifest_indexes(config: "FrozenRunConfig") -> Mapping[str, Mani
 # second implementation or a framework layer.
 parse_manifest = load_manifest_index
 validate_manifest_leakage = validate_split_leakage
-

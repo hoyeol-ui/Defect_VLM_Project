@@ -15,6 +15,7 @@ from .manifests import (
     ManifestIndex,
     load_frozen_manifest_indexes,
     load_manifest_index,
+    summarize_split_overlaps,
     validate_split_leakage,
 )
 
@@ -29,8 +30,8 @@ __all__ = [
     "make_canonical_id_from_file",
     "normalize_dataset_name",
     "normalize_relative_path",
+    "summarize_split_overlaps",
     "validate_canonical_id",
     "validate_sha256",
     "validate_split_leakage",
 ]
-
