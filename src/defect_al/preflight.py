@@ -82,6 +82,7 @@ def build_preflight_report(
         "status": "PASS",
         "run_id": config.run_id,
         "harness_version": HARNESS_VERSION,
+        "preflight_module_sha256": compute_file_sha256(Path(__file__).resolve()),
         "config_path": _report_path(config.config_path, root),
         "config_sha256": compute_file_sha256(config.config_path),
         "git_commit": _git_value(root, "rev-parse", "HEAD"),

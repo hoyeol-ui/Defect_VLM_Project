@@ -343,6 +343,7 @@ def main() -> None:
     report = {
         "status": "PASS",
         "run_id": args.run_id,
+        "builder_script_sha256": compute_file_sha256(Path(__file__).resolve()),
         "dataset_name": DATASET_NAME,
         "source_files": {
             "acquisition": {"path": _report_path(acquisition_path, project_root), "sha256": compute_file_sha256(acquisition_path)},

@@ -1,6 +1,7 @@
 {
   "status": "PASS",
   "run_id": "gc10_dev_confirm_harness_v1",
+  "builder_script_sha256": "fcc04423fc2843b7b23212980c4841906e3ae798b10456445a8f1e9743787f5e",
   "dataset_name": "GC10-DET",
   "source_files": {
     "acquisition": {

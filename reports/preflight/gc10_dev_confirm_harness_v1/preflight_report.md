@@ -3,7 +3,7 @@
 - Verdict: **PASS**
 - Harness version: `1.1`
 - Config SHA-256: `7e5d2f320d6176f65c3833fcf1508accb97ae3d4854b0f0181e9389a98452449`
-- Git commit: `3b74b0449e2a9db7d48d7b95a3fd477ff9a7348c`
+- Git commit: `dc2357257eaee280bf1da9491bbe8e1a4c0c462d`
 - Git dirty: `True`
 
 ## Manifest seals and identities

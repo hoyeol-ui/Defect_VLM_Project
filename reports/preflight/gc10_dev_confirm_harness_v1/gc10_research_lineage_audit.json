@@ -1,5 +1,7 @@
 {
   "overall_forensic_verdict": "PASS_WITH_REPRODUCIBILITY_CAVEATS",
+  "audit_script_sha256": "5399122892795f5dc554ccdaa0e37d0338ab89bac74b1bd6e6fc924f0530a253",
+  "forward_build_report_sha256": "8d2fdd28c2e9bd595d6de4570fad31ea5bcff6331dacb57e4a24a2f3826d7e1f",
   "analysis_environment": {
     "python": "3.11.9",
     "platform": "Windows-10-10.0.26200-SP0",
@@ -199,6 +201,7 @@
   "forward_manifest_summary": {
     "status": "PASS",
     "run_id": "gc10_dev_confirm_harness_v1",
+    "builder_script_sha256": "fcc04423fc2843b7b23212980c4841906e3ae798b10456445a8f1e9743787f5e",
     "dataset_name": "GC10-DET",
     "source_files": {
       "acquisition": {

@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+from defect_al.data.identity import compute_file_sha256
 from defect_al.preflight import build_preflight_report
 
 
@@ -63,6 +64,7 @@ def main() -> None:
     args = parser.parse_args()
 
     report = build_preflight_report(args.config, project_root=args.project_root)
+    report["preflight_cli_sha256"] = compute_file_sha256(Path(__file__).resolve())
     output_dir = args.output_dir.expanduser().resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "preflight_report.json").write_text(

@@ -560,6 +560,8 @@ def main() -> None:
     )
     report = {
         "overall_forensic_verdict": "PASS_WITH_REPRODUCIBILITY_CAVEATS" if all_core_pass else "FAIL_REVIEW_REQUIRED",
+        "audit_script_sha256": sha256_file(Path(__file__).resolve()),
+        "forward_build_report_sha256": sha256_file(forward_report_path),
         "analysis_environment": {
             "python": sys.version.split()[0],
             "platform": platform.platform(),

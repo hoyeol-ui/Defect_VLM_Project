@@ -39,6 +39,7 @@ def test_preflight_pass_is_portable_and_does_not_authorize_training(
     report = build_preflight_report(config_path, project_root=tmp_path)
 
     assert report["status"] == "PASS"
+    assert len(report["preflight_module_sha256"]) == 64
     assert report["data_preflight_passed"] is True
     assert report["selection_authorized"] is False
     assert report["training_authorized"] is False
