@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1440" viewBox="0 0 1920 1440" role="img" aria-labelledby="title desc">
+  <title id="title">산업 결함 Active Learning 연구 전체 개요</title>
+  <desc id="desc">선택 단계 근거에서 구성, 반복 단위, 다운스트림 효용, 희소 클래스 및 사전 기준 판정으로 이어지는 bounded empirical audit와 여섯 평가 분기를 요약한 도식</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 38px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #102a43; }
+      .subtitle { font: 400 20px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #52606d; }
+      .section { font: 700 21px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #102a43; }
+      .box-title { font: 700 19px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #102a43; }
+      .body { font: 400 17px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #243b53; }
+      .small { font: 400 15px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #486581; }
+      .tag { font: 700 14px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #ffffff; }
+      .result-title { font: 700 18px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #102a43; }
+      .result { font: 400 16px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #243b53; }
+      .conclusion-scope { font: 600 17px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #8a3f2c; }
+      .conclusion { font: 700 26px 'Malgun Gothic','Noto Sans KR',Arial,sans-serif; fill: #102a43; }
+      .panel { fill: #f5f7fa; stroke: #bcccdc; stroke-width: 2; }
+      .flow { fill: #eef2f6; stroke: #334e68; stroke-width: 2; }
+      .branch { fill: #ffffff; stroke: #9fb3c8; stroke-width: 2; }
+      .accent-panel { fill: #fff8f5; stroke: #b5543a; stroke-width: 3; }
+      .tag-bg { fill: #b5543a; }
+      .line { stroke: #627d98; stroke-width: 3; fill: none; }
+      .separator { stroke: #d9e2ec; stroke-width: 2; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#627d98"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1920" height="1440"/>
+
+  <text class="title" x="960" y="58" text-anchor="middle">산업 결함 Active Learning에서 선택 단계 신호와 다운스트림 학습 효용 간 연결</text>
+  <text class="subtitle" x="960" y="94" text-anchor="middle">Bounded Empirical Audit of Selection-stage Signals and Downstream Learning Utility</text>
+
+  <rect class="panel" x="70" y="125" width="880" height="230" rx="14"/>
+  <text class="section" x="100" y="162">논문 자기 규정 3문장 — 요약</text>
+  <line class="separator" x1="100" y1="178" x2="920" y2="178"/>
+  <circle cx="105" cy="213" r="6" fill="#b5543a"/>
+  <text class="body" x="125" y="219">무엇인가: 평가한 분기의 평가 단위·증거 상태·연결 제한을 정리한 bounded empirical audit</text>
+  <circle cx="105" cy="263" r="6" fill="#b5543a"/>
+  <text class="body" x="125" y="269">무엇이 아닌가: selector 우월성, 검증된 framework, benchmark, 비용 절감, production pool 일반화 입증</text>
+  <circle cx="105" cy="313" r="6" fill="#b5543a"/>
+  <text class="body" x="125" y="319">기여 층위: 새 선택 방법이 아니라 평가 단위 분리와 연결의 관찰 범위·제한에 대한 실증 정리</text>
+
+  <rect class="panel" x="980" y="125" width="870" height="230" rx="14"/>
+  <text class="section" x="1010" y="162">연구 질문 RQ1–RQ4</text>
+  <line class="separator" x1="1010" y1="178" x2="1820" y2="178"/>
+  <rect x="1010" y="197" width="390" height="62" rx="10" fill="#ffffff" stroke="#bcccdc"/>
+  <text class="box-title" x="1030" y="222">RQ1 · 선택 단계</text>
+  <text class="small" x="1030" y="247">discovery와 selected-set composition</text>
+  <rect x="1430" y="197" width="390" height="62" rx="10" fill="#ffffff" stroke="#bcccdc"/>
+  <text class="box-title" x="1450" y="222">RQ2 · 반복 단위</text>
+  <text class="small" x="1450" y="247">fixed-set training vs acquisition 반복</text>
+  <rect x="1010" y="275" width="390" height="62" rx="10" fill="#ffffff" stroke="#bcccdc"/>
+  <text class="box-title" x="1030" y="300">RQ3 · 후속 평가</text>
+  <text class="small" x="1030" y="325">utility · aggregate · rare · 최소효과 기준</text>
+  <rect x="1430" y="275" width="390" height="62" rx="10" fill="#ffffff" stroke="#bcccdc"/>
+  <text class="box-title" x="1450" y="300">RQ4 · 증거 경계</text>
+  <text class="small" x="1450" y="325">post-hoc · NOT_AVAILABLE · 사전 기준</text>
+
+  <text class="section" x="70" y="405">평가 단위의 연결 흐름</text>
+
+  <rect class="flow" x="70" y="430" width="300" height="145" rx="14"/>
+  <text class="box-title" x="220" y="468" text-anchor="middle">Selection-stage evidence</text>
+  <text class="body" x="220" y="507" text-anchor="middle">후보 선택 신호별</text>
+  <text class="body" x="220" y="535" text-anchor="middle">native endpoint 관찰</text>
+
+  <path class="line" d="M370,502 L402,502" marker-end="url(#arrow)"/>
+
+  <rect class="flow" x="420" y="430" width="310" height="145" rx="14"/>
+  <text class="box-title" x="575" y="468" text-anchor="middle">Discovery / Composition</text>
+  <text class="body" x="575" y="507" text-anchor="middle">결함 발견량</text>
+  <text class="body" x="575" y="535" text-anchor="middle">선택 집합의 범주 구성</text>
+
+  <path class="line" d="M730,502 L762,502" marker-end="url(#arrow)"/>
+
+  <rect class="flow" x="780" y="430" width="330" height="145" rx="14"/>
+  <text class="box-title" x="945" y="468" text-anchor="middle">두 반복 단위</text>
+  <text class="body" x="945" y="507" text-anchor="middle">fixed-set training stability</text>
+  <text class="body" x="945" y="535" text-anchor="middle">동일 fixed pool acquisition 반복</text>
+
+  <path class="line" d="M1110,502 L1142,502" marker-end="url(#arrow)"/>
+
+  <rect class="flow" x="1160" y="430" width="300" height="145" rx="14"/>
+  <text class="box-title" x="1310" y="468" text-anchor="middle">Downstream utility</text>
+  <text class="body" x="1310" y="507" text-anchor="middle">learner native metric</text>
+  <text class="body" x="1310" y="535" text-anchor="middle">증거 상태·판정 시점 병기</text>
+
+  <path class="line" d="M1460,502 L1492,502" marker-end="url(#arrow)"/>
+
+  <rect class="flow" x="1510" y="430" width="340" height="145" rx="14"/>
+  <text class="box-title" x="1680" y="464" text-anchor="middle">희소 클래스 지표 별도 판정</text>
+  <text class="small" x="1680" y="492" text-anchor="middle">rare-class safety 평가 항목</text>
+  <text class="body" x="1680" y="524" text-anchor="middle">endpoint-specific criteria</text>
+  <text class="body" x="1680" y="550" text-anchor="middle">사전 최소효과 기준</text>
+
+  <text class="section" x="70" y="625">평가 분기별 관찰 요약 — 분기 간 효과 합산 없음</text>
+
+  <rect class="branch" x="70" y="650" width="560" height="160" rx="14"/>
+  <rect class="tag-bg" x="92" y="670" width="58" height="28" rx="14"/>
+  <text class="tag" x="121" y="690" text-anchor="middle">EP02</text>
+  <text class="result-title" x="168" y="691">MPDD · selection-only</text>
+  <text class="result" x="100" y="730">anomaly images +6.245  ·  coverage -0.325</text>
+  <text class="result" x="100" y="760">downstream learner: NOT_AVAILABLE</text>
+  <text class="small" x="100" y="788">200 paired fixed-pool perturbations · 독립 production pool 아님</text>
+
+  <rect class="branch" x="680" y="650" width="560" height="160" rx="14"/>
+  <rect class="tag-bg" x="702" y="670" width="58" height="28" rx="14"/>
+  <text class="tag" x="731" y="690" text-anchor="middle">EP02</text>
+  <text class="result-title" x="778" y="691">VisA · selection-only</text>
+  <text class="result" x="710" y="730">anomaly images +14.480  ·  coverage -4.110</text>
+  <text class="result" x="710" y="760">downstream learner: NOT_AVAILABLE</text>
+  <text class="small" x="710" y="788">200 paired fixed-pool perturbations · 독립 production pool 아님</text>
+
+  <rect class="branch" x="1290" y="650" width="560" height="160" rx="14"/>
+  <rect class="tag-bg" x="1312" y="670" width="58" height="28" rx="14"/>
+  <text class="tag" x="1341" y="690" text-anchor="middle">EP03</text>
+  <text class="result-title" x="1388" y="691">NEU-DET · 두 재현성 단위</text>
+  <text class="result" x="1320" y="730">fixed-set +0.016236 · POSTHOC_DESCRIPTIVE</text>
+  <text class="result" x="1320" y="760">acquisition repeat +0.007019 · p=0.322266</text>
+  <text class="small" x="1320" y="788">동일 fixed pool에서의 acquisition reproducibility</text>
+
+  <rect class="branch" x="70" y="835" width="560" height="160" rx="14"/>
+  <rect class="tag-bg" x="92" y="855" width="58" height="28" rx="14"/>
+  <text class="tag" x="121" y="875" text-anchor="middle">EP04</text>
+  <text class="result-title" x="168" y="876">GC10 q20 · 전체/희소 지표</text>
+  <text class="result" x="100" y="915">overall mAP50-95 +0.017378</text>
+  <text class="result" x="100" y="945">rare-class macro AP -0.019877</text>
+  <text class="small" x="100" y="973">두 endpoint가 상반된 방향 · rare AP는 point estimate</text>
+
+  <rect class="branch" x="680" y="835" width="560" height="160" rx="14"/>
+  <rect class="tag-bg" x="702" y="855" width="58" height="28" rx="14"/>
+  <text class="tag" x="731" y="875" text-anchor="middle">EP05</text>
+  <text class="result-title" x="778" y="876">KSDD2 · 제한적 downstream 평가</text>
+  <text class="result" x="710" y="915">Dice 차이 +0.037565</text>
+  <text class="result" x="710" y="945">결과 확인 전 고정 기준 +0.05 미충족</text>
+  <text class="small" x="710" y="973">양의 방향과 최소효과 기준 충족은 별도 판정</text>
+
+  <rect class="branch" x="1290" y="835" width="560" height="160" rx="14"/>
+  <rect class="tag-bg" x="1312" y="855" width="96" height="28" rx="14"/>
+  <text class="tag" x="1360" y="875" text-anchor="middle">Appendix A</text>
+  <text class="result-title" x="1425" y="876">GC10 K40/140 · 보조 평가</text>
+  <text class="result" x="1320" y="915">K40 holdout all-class coverage check 충족</text>
+  <text class="result" x="1320" y="945">expansion not authorized</text>
+  <text class="small" x="1320" y="973">NUM-111 상태-only 패치 · 본문 핵심 결과로 승격하지 않음</text>
+
+  <rect class="accent-panel" x="70" y="1045" width="1780" height="180" rx="16"/>
+  <rect class="tag-bg" x="96" y="1070" width="64" height="30" rx="15"/>
+  <text class="tag" x="128" y="1091" text-anchor="middle">EP01</text>
+  <text class="conclusion-scope" x="180" y="1092">선택 단계와 다운스트림 결과가 모두 관찰된 세 평가 분기에서</text>
+  <text class="conclusion" x="960" y="1150" text-anchor="middle">선택 단계에서 양의 방향으로 나타난 결과만으로는 사전에 정한 다운스트림 평가 기준의 충족을</text>
+  <text class="conclusion" x="960" y="1190" text-anchor="middle">확인할 수 없었다.</text>
+
+  <line class="separator" x1="70" y1="1270" x2="1850" y2="1270"/>
+  <text class="small" x="70" y="1310">해석 경계: native metric 유지 · 분기 간 합산 없음 · NOT_AVAILABLE은 downstream 실패가 아님 · rare-class safety는 희소 클래스 지표의 별도 판정</text>
+  <text class="small" x="70" y="1342">본 도식은 특정 selector의 일반적 우월성, framework 검증, 비용 절감, 산업 benchmark 또는 독립 production pool 일반화를 주장하지 않는다.</text>
+  <text class="small" x="1850" y="1387" text-anchor="end">Thesis overview · 2026-08-08</text>
+</svg>
