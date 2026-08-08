@@ -1,0 +1,18 @@
+# Copy this template next to your sealed manifest set, replace each path and
+# SHA-256, then set DEFECT_AL_FROZEN_CONFIG to the copied config for integration
+# validation. No latest/newest/glob discovery is permitted.
+run_id: gc10_dev_confirm_20260715
+
+manifests:
+  train:
+    path: manifests/train.csv
+    manifest_sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+
+  validation:
+    path: manifests/validation.csv
+    manifest_sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+
+  test:
+    path: manifests/test.csv
+    manifest_sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+

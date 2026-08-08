@@ -1,0 +1,11 @@
+selection_order,acquisition_seed,criterion_max_same_strategy_jaccard,max_random_jaccard,max_dino_jaccard,rule,primary_seed_replacement_allowed
+1,5,0.0,0.0,0.0,first seed fixed to 5,false
+2,198,0.14285714285714285,0.0,0.14285714285714285,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false
+3,95,0.21212121212121213,0.02564102564102564,0.21212121212121213,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false
+4,100,0.21212121212121213,0.02564102564102564,0.21212121212121213,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false
+5,15,0.25,0.0,0.25,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false
+6,75,0.25,0.02564102564102564,0.25,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false
+7,24,0.2903225806451613,0.02564102564102564,0.2903225806451613,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false
+8,37,0.2903225806451613,0.02564102564102564,0.2903225806451613,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false
+9,55,0.2903225806451613,0.02564102564102564,0.2903225806451613,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false
+10,87,0.2903225806451613,0.05263157894736842,0.2903225806451613,"among learner-unused seeds 5-199, minimize the maximum same-strategy sample-ID Jaccard to already selected seeds; ties use smaller seed",false

@@ -1,0 +1,145 @@
+{
+  "protocol_version": "gc10-cost-translation-v1-candidate",
+  "overall_pass": true,
+  "status": "READY_FOR_RESEARCHER_DECISIONS",
+  "stage0_images": 24,
+  "phase_a_unique_images": 233,
+  "acquisition_seed_count": 10,
+  "overlap_aware_primary_analysis_implementable": true,
+  "official_final_split_rows": 0,
+  "checks": [
+    {
+      "check": "required_package_files_present",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "stage0_instrumentation_manifest.csv:required_columns",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "phase_a_unique_image_manifest.csv:required_columns",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "phase_a_seed_batch_manifest.csv:required_columns",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "stage0_phase_a_overlap_zero",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "stage0_image_count_24",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "check": "phase_a_unique_image_count_233",
+      "passed": true,
+      "detail": 233
+    },
+    {
+      "check": "phase_a_seeds_exactly_5_to_14",
+      "passed": true,
+      "detail": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "check": "strategy_seed_query_rank_complete",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "pair_count": 20
+      }
+    },
+    {
+      "check": "duplicate_blinded_task_id_zero",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "check": "stage0_annotator_blinded_manifest.csv:no_strategy_or_gt_fields",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "phase_a_annotator_blinded_manifest.csv:no_strategy_or_gt_fields",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "all_sample_paths_exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "official_final_split_sample_count_zero",
+      "passed": true,
+      "detail": {
+        "non_acquisition_rows": 0,
+        "split_values": [
+          "acquisition"
+        ]
+      }
+    },
+    {
+      "check": "manifest_hashes_match",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "source_evidence_hashes_match",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "event_schema_required_fields_complete",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "event_schema_event_enum_complete",
+      "passed": true,
+      "detail": {
+        "missing": [],
+        "extra": []
+      }
+    },
+    {
+      "check": "event_examples_complete",
+      "passed": true,
+      "detail": {
+        "missing_events": [],
+        "errors": []
+      }
+    },
+    {
+      "check": "quality_metric_schema_complete",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "protocol_version_consistent",
+      "passed": true,
+      "detail": {
+        "occurrences_in_files": 15,
+        "missing_from_core_files": []
+      }
+    }
+  ]
+}

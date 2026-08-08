@@ -1,0 +1,199 @@
+protocol:
+  id: KSDD2_G5_SINGLE_UNET_V1
+  version: 1
+  prepared_date: "2026-07-26"
+  status: READY_TO_FREEZE
+  purpose: bounded_selection_to_learning_translation_screen
+  hypothesis: >
+    At the same 200-image labeled-set size, the frozen PatchCore query
+    manifests produce higher positive-development macro Dice than the frozen
+    Random query manifests when both are consumed by one identical compact
+    U-Net learner configuration.
+  claim_scope: >
+    Prospective screen-stage learning translation on one reused KSDD2
+    development split. No final-test, production-pool, annotation-cost, or
+    universal selector-superiority claim is authorized.
+
+upstream:
+  protocol_id: KSDD2_PATCHCORE_G1_G4_V1
+  required_authorization: BOUNDED_SCREEN
+  frozen_git_commit: f10fd92985d63408212edd24e80d741de30ba5f7
+  default_source_run_root: ../Defect_VLM_Project_ksdd2_frozen/runs/ksdd2_patchcore_prospective_v1
+  freeze_manifest_sha256: 1f1c21f74a8a6d399248354119404cd0661d682f55830ff0b72a6bb2efa0e6ad
+  authorization_decision_sha256: 6e778f84a76626b0c2c1d69115abdde16f568e1fc7ab323392496948d58b4cc7
+  per_seed_metrics_sha256: 20fa920137695e6cfd0b78934bffecc60d1eed0f1cc90544c2fd5d1320d32e8b
+  required_gates:
+    g1: PASS
+    g2: PASS
+    g3: PASS
+    g4: PASS
+  official_test_use_authorized: false
+
+dataset:
+  name: KolektorSDD2
+  archive_path: downloads/KolektorSDD2.zip
+  archive_sha256: edcdb486809b24f1d17b785e30c52fafc5999554dd5fe18ddf77b61ceb6f36a8
+  data_root: data/KolektorSDD2
+  image_budget_unit: image
+  segmentation_mask_assumption: >
+    Every initial/query image is treated as fully mask-annotated after
+    acquisition; normal images carry an empty mask.
+  training_images_per_run: 200
+  initial_images_per_seed: 100
+  query_images_per_strategy: 100
+  evaluation_role: train_development_reused_screen_only
+  evaluation_images: 466
+  evaluation_positive_images: 53
+  evaluation_masks_used_for_training: false
+  official_test_images: 1004
+  official_test_access: false
+
+comparison:
+  strategies: [patchcore, random]
+  acquisition_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  training_seeds: [260727, 260728, 260729]
+  paired_unit: acquisition_seed
+  training_seed_aggregation: mean_within_acquisition_seed
+  total_training_runs: 60
+  same_initial_set_within_seed: true
+  same_model_initialization_within_training_seed: true
+  retries:
+    infrastructure_identical_retry_max: 1
+    hyperparameter_change_allowed: false
+    repeated_failure_action: NOT_IDENTIFIABLE_STOP
+
+learner:
+  name: compact_unet_binary_segmentation
+  implementation: repository_native_pytorch
+  framework:
+    torch: 2.12.1+cu126
+    torchvision: 0.27.1+cu126
+  input_channels: 3
+  output_channels: 1
+  encoder_channels: [16, 32, 64, 128, 256]
+  convolution_kernel: 3
+  padding: 1
+  normalization: group_norm
+  group_norm_groups: 8
+  activation: relu
+  downsampling: max_pool_2x2
+  upsampling: bilinear_align_corners_false_then_3x3_convolution
+  skip_connections: concat
+  dropout: 0.0
+  pretrained_encoder: false
+  parameter_search: false
+
+preprocessing:
+  image_size: [704, 256]
+  preserve_native_orientation: true
+  image_interpolation: bilinear
+  mask_interpolation: nearest
+  image_scale: zero_to_one
+  mask_positive_threshold: 0
+  augmentation:
+    horizontal_flip_probability: 0.5
+    vertical_flip_probability: 0.0
+    rotation_degrees: 0
+    crop: false
+    color_jitter: false
+
+training:
+  epochs: 80
+  batch_size: 4
+  num_workers: 0
+  shuffle: true
+  optimizer: adamw
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  scheduler: none
+  gradient_clip_norm: 1.0
+  precision: float32
+  amp: false
+  deterministic_algorithms: true
+  cudnn_benchmark: false
+  early_stopping: false
+  validation_during_training: false
+  checkpoint_selection: final_epoch_only
+  loss:
+    name: equal_bce_soft_dice
+    bce_with_logits_weight: 0.5
+    soft_dice_weight: 0.5
+    bce_pos_weight: null
+    soft_dice_epsilon: 0.000001
+
+evaluation:
+  run_once_after_final_epoch: true
+  screen_manifest: development_manifest.csv
+  screen_was_used_in_g1: true
+  probability_threshold: 0.5
+  minimum_false_positive_component_pixels: 16
+  primary_metric:
+    name: positive_image_macro_hard_dice
+    images: development_positive_only
+    aggregation: macro_mean
+    empty_prediction_on_positive_target_value: 0.0
+  secondary_metrics:
+    - all_pixel_average_precision_hist4096
+    - image_auroc_using_max_pixel_probability
+    - normal_image_false_positive_rate
+    - positive_image_recall_at_any_component
+  official_test_evaluation: false
+
+statistics:
+  bootstrap_replicates: 5000
+  confidence_level: 0.95
+  bootstrap_seed: 260727
+  inferential_unit: acquisition_seed
+  training_seed_handling: >
+    Average the three fixed training-seed results within each
+    acquisition-seed/strategy arm before paired inference.
+  comparison: patchcore_minus_random
+  multiple_primary_outcomes: false
+  missing_run_imputation: false
+
+g5_gate:
+  run_conformance:
+    required_completed_runs: 60
+    nan_or_nonfinite_runs_allowed: 0
+  primary_learning_translation:
+    macro_dice_delta_mean_min: 0.05
+    macro_dice_delta_ci_low_min_exclusive: 0.0
+    positive_seed_fraction_min: 0.80
+    leave_one_seed_out_delta_min_exclusive: 0.0
+  corroboration:
+    all_pixel_average_precision_delta_mean_min_exclusive: 0.0
+  safety:
+    candidate_normal_image_false_positive_rate_mean_max: 0.20
+    normal_image_false_positive_rate_delta_mean_max: 0.05
+
+decision:
+  all_checks_pass: LEARNING_TRANSLATION_OBSERVED
+  learning_translation_fail: TRANSLATION_NOT_OBSERVED_STOP
+  learning_pass_safety_fail: LEARNING_GAIN_WITH_SAFETY_FAIL_STOP
+  repeated_infrastructure_failure: NOT_IDENTIFIABLE_STOP
+  any_outcome_authorizes_hyperparameter_rescue: false
+  any_outcome_authorizes_official_test: false
+
+prohibited_actions:
+  - architecture_search
+  - encoder_search
+  - pretrained_weight_search
+  - learning_rate_search
+  - epoch_search
+  - augmentation_search
+  - loss_weight_search
+  - probability_threshold_search
+  - seed_exclusion
+  - early_stopping_on_development
+  - checkpoint_selection_on_development
+  - official_test_access
+  - strategy_specific_training_settings
+
+outputs:
+  run_root: runs/ksdd2_g5_single_unet_v1
+  input_ledger: g5_input_ledger.json
+  freeze_manifest: g5_freeze_manifest.json
+  per_run_metrics: per_run_metrics.csv
+  paired_metrics: paired_seed_metrics.csv
+  decision: g5_authorization_decision.json
+  presentation_summary: g5_presentation_summary.md

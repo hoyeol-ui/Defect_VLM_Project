@@ -1,0 +1,91 @@
+{
+  "acquisition_images": 1865,
+  "acquisition_positive_images": 193,
+  "acquisition_prevalence": 0.10348525469168901,
+  "exact_hash_audit": {
+    "cross_role_duplicate_groups": 0,
+    "duplicate_groups": 0,
+    "duplicate_images": 0
+  },
+  "interpretation": "No obvious exact-duplicate or simple global-statistic shortcut detected.",
+  "limitations": [
+    "Post-hoc audit was not part of the preregistered G1-G4 decision.",
+    "pHash is a coarse diagnostic and cannot exclude semantic or acquisition-session shortcuts.",
+    "Ten acquisition seeds perturb initial sets on one shared KSDD2 train pool."
+  ],
+  "patchcore_posthoc_diagnostics": {
+    "candidate_all_seed_intersection_images": 51,
+    "candidate_pairwise_jaccard_mean": 0.8128043814983771,
+    "candidate_pairwise_jaccard_min": 0.7391304347826086,
+    "candidate_selected_all_10_seeds": 51,
+    "candidate_union_images": 119,
+    "candidate_union_positive_fraction": 0.9663865546218487,
+    "candidate_union_positive_images": 115,
+    "random_pairwise_jaccard_mean": 0.026381732563280573,
+    "selection_pool_auroc_by_seed": [
+      0.9611821516652503,
+      0.9622117970135591,
+      0.9636380593148329,
+      0.9596450505343586,
+      0.9612097849440079,
+      0.963544796999026,
+      0.959627779735135,
+      0.9647952028628077,
+      0.9618730934785518,
+      0.9639160586728496
+    ],
+    "selection_pool_auroc_mean": 0.9621643775220379,
+    "selection_pool_auroc_min": 0.959627779735135
+  },
+  "perceptual_hash_cross_role_audit": {
+    "algorithm": "63-bit grayscale DCT pHash; post-hoc diagnostic threshold",
+    "distance_0": 0,
+    "distance_le_2": 0,
+    "distance_le_4": 0,
+    "minimum_distance": 8
+  },
+  "red_flags": {
+    "cross_development_acquisition_exact_duplicates": false,
+    "exact_duplicate_image_hashes": false,
+    "single_global_feature_directional_auc_ge_0_80": false,
+    "six_feature_cv_auc_ge_0_80": false
+  },
+  "scope": "official_train acquisition/development only; official test not accessed",
+  "simple_shortcut_audit": {
+    "six_feature_logistic_cv_auroc_folds": [
+      0.655223880597015,
+      0.7335428122545169,
+      0.761937663135268,
+      0.6822508828496852,
+      0.7845079072623983
+    ],
+    "six_feature_logistic_cv_auroc_mean": 0.7234926292197766,
+    "univariate_auroc": {
+      "height": {
+        "direction_free": 0.5060924213501252,
+        "raw": 0.5060924213501252
+      },
+      "laplacian_variance": {
+        "direction_free": 0.5781385576517838,
+        "raw": 0.5781385576517838
+      },
+      "mean": {
+        "direction_free": 0.540390956194065,
+        "raw": 0.45960904380593504
+      },
+      "numeric_id": {
+        "direction_free": 0.5033622976423631,
+        "raw": 0.49663770235763693
+      },
+      "std": {
+        "direction_free": 0.7428942410194115,
+        "raw": 0.7428942410194115
+      },
+      "width": {
+        "direction_free": 0.503119034633215,
+        "raw": 0.503119034633215
+      }
+    }
+  },
+  "status": "POSTHOC_NOT_PREREGISTERED"
+}

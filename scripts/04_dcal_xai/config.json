@@ -1,0 +1,77 @@
+{
+  "experiment_id": "dcal_xai_gc10_r1",
+  "dataset": "GC10-DET",
+  "protocol_dir": "runs/gc10_taxonomy_protocol/gc10_protocol_20260715",
+  "embedding_dir": "outputs/gc10_visual_embeddings/dinov2_small_protocol_20260715",
+  "output_dir": "runs/dcal_xai/gc10_r1",
+  "model": "yolov8n.pt",
+  "strategies": [
+    "Random",
+    "DetectorDifficulty",
+    "DetectorDifficultyDiversity"
+  ],
+  "primary_strategy": "DetectorDifficultyDiversity",
+  "acquisition_seeds": [0, 1, 2, 3, 4],
+  "selection_training_seed": 42,
+  "confirmation_training_seeds": [42, 43, 44],
+  "initial_size": 20,
+  "query_size": 20,
+  "rare_class_ids": [8, 9, 10],
+  "class_names": [
+    "chongkong",
+    "hanfeng",
+    "yueyawan",
+    "shuiban",
+    "youban",
+    "siban",
+    "yiwu",
+    "yahen",
+    "zhehen",
+    "yaozhe"
+  ],
+  "difficulty": {
+    "prediction_confidence": 0.05,
+    "prediction_iou": 0.70,
+    "max_detections": 100,
+    "weights": {
+      "confidence": 0.40,
+      "localization": 0.30,
+      "class": 0.15,
+      "count": 0.15
+    }
+  },
+  "diversity": {
+    "shortlist_multiplier": 5,
+    "uncertainty_weight": 0.65
+  },
+  "training": {
+    "epochs": 75,
+    "imgsz": 640,
+    "batch": 16,
+    "workers": 0,
+    "device": "0"
+  },
+  "selection_gate": {
+    "combined_unique_classes_gain_vs_random_min": -0.25,
+    "rare_images_gain_vs_random_min": -0.50,
+    "query_instances_gain_vs_random_min": -1.00,
+    "difficulty_gain_vs_random_min": 0.05,
+    "pairwise_similarity_gain_vs_difficulty_max": 0.0,
+    "top10_concentration_max": 0.40
+  },
+  "detector_gate": {
+    "map5095_gain_vs_random_min": 0.010,
+    "acquisition_seed_wins_min": 4,
+    "bootstrap_ci_low_min": 0.0,
+    "rare_macro_gain_vs_random_min": 0.0,
+    "recall_gain_vs_random_min": -0.020,
+    "worst_class_gain_vs_random_min": -0.050
+  },
+  "safety": {
+    "selector_reads_xml": false,
+    "selector_reads_gt": false,
+    "vlm_used_for_selection": false,
+    "evaluation_split": "development",
+    "final_test_used": false
+  }
+}

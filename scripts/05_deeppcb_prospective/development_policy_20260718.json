@@ -1,0 +1,31 @@
+{
+  "status": "FROZEN_BEFORE_DEVELOPMENT_EXECUTION",
+  "purpose": "Development-only comparison on group92000; never confirmatory evidence",
+  "allowed_group": "group92000",
+  "forbidden_groups": ["group00041", "group13000", "group20085", "group44000", "group50600", "group77000"],
+  "official_test_allowed": false,
+  "detector_training_allowed": false,
+  "detector_inference_allowed": false,
+  "methods": {
+    "M1_ABSDIFF": {"absolute_threshold": 32, "min_component_area": 9},
+    "M2_SSIM": {"central_quantile": 0.995, "opening_kernel": 3, "min_component_area": 9},
+    "M3_FUSED": {"ssim_weight": 0.5, "absdiff_weight": 0.5, "normalization_percentile": 99.5, "central_quantile": 0.995, "opening_kernel": 3, "min_component_area": 9, "conditional_phase_alignment_max_pixels": 8.0}
+  },
+  "matching_iou": 0.1,
+  "robustness": {"brightness_offsets": [-15, 15], "translation_pixels": 2},
+  "candidate_adequacy": {
+    "small_recall_at_or_below_1_fppi_min": 0.5,
+    "brightness_recall_retention_min": 0.8,
+    "translation_recall_retention_min": 0.8,
+    "hit_class_coverage_min": 5
+  },
+  "selection_order": [
+    "small_recall_at_or_below_1_fppi_desc",
+    "false_positives_per_image_asc",
+    "translation_recall_retention_desc",
+    "brightness_recall_retention_desc",
+    "hit_class_coverage_desc",
+    "method_name_asc"
+  ],
+  "result_scope": "FROZEN_CANDIDATE_FOR_EXTERNAL_CONFIRMATION or NO_CANDIDATE"
+}

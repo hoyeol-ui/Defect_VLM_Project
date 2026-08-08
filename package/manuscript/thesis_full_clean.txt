@@ -1,0 +1,451 @@
+# 산업 결함 Active Learning에서 선택 단계 신호와 다운스트림 학습 효용 간 연결에 대한 실증적 평가 (v0.2)
+
+**영문 제목:** An Empirical Evaluation of the Link Between Selection-Stage Signals and Downstream Learning Utility in Active Learning for Industrial Defect Detection
+
+**버전:** v0.2 (notion-ready, 이미지 4개 GitHub raw URL 임베드)
+
+**작성일:** 2026-08-08
+
+---
+
+## 논문 자기 규정 3문장
+
+1. 본 논문은 평가한 산업 결함 Active Learning 분기에서 selection-stage discovery, selected-set composition, fixed-set training stability, acquisition reproducibility, downstream learner utility, rare-class safety를 분리하고, 이들 사이의 연결이 어디까지 관찰되며 어디서 제한되는지를 정리한 bounded empirical audit이다.
+2. 본 논문은 특정 selector의 일반적 우월성, 선택–학습 연결을 예측하는 검증된 framework, 산업 benchmark, 실제 비용 절감 또는 독립 production pool 일반화를 입증하는 연구가 아니다.
+3. 본 논문의 기여는 새로운 선택 방법의 제안이 아니라, 평가한 분기 안에서 선택 단계와 후속 학습의 평가 단위 및 증거 상태를 분리하고 그 연결의 관찰 범위와 제한을 실증적으로 정리하는 데 있다.
+
+## 연구 질문
+
+- **RQ1 — 선택 단계:** 평가한 산업 결함 AL 분기에서 후보 선택 신호의 Random 대비 결과는 해당 지표가 관찰된 분기의 discovery 및 selected-set composition 지표에서 어떻게 나타나는가?
+- **RQ2 — 반복 단위:** 고정 선택 집합의 training seed 반복 결과와 selector를 다시 실행하는 acquisition seed 반복 결과는 각각 어떤 변동성을 보여 주는가?
+- **RQ3 — 후속 평가:** 선택 단계 결과와 downstream learner utility, aggregate 성능, 희소 클래스 지표 및 사전 최소효과 기준의 판정은 해당 결과가 관찰된 평가 분기에서 어떻게 함께 또는 다르게 나타나는가?
+- **RQ4 — 증거 경계:** Post-hoc 결과, fixed-pool 반복, learner outcome의 NOT_AVAILABLE, 결과 확인 전에 고정한 기준을 구분할 때 현재 자료가 허용하는 선택–학습 연결 해석의 범위는 어디까지인가?
+
+**EP01 배치:** 통합 문장은 중복을 피하기 위해 제6장 6.1 마지막 문장에만 원문으로 제시한다.
+
+---
+
+## 국문초록
+
+산업 결함 탐지에서는 희소·미세 결함과 전문가 판독 요구로 인해 labeled data 확보가 연구와 적용 모두의 병목으로 다뤄져 왔으며, Active Learning은 제한된 주석 예산 안에서 학습에 유용한 표본을 우선 선택하기 위한 접근으로 검토되어 왔다. 그러나 선택 단계에서 관찰되는 결과와 다운스트림 학습기 성능은 서로 다른 평가 단위와 조건에서 기록되므로, 하나의 선택 단계 지표만으로 후속 학습 결과의 판정을 대신할 수 있는지는 별도로 확인해야 한다.
+
+본 연구는 새로운 selector의 제안이나 우월성 비교보다, 축적된 산업 결함 Active Learning 평가 분기에서 선택 단계 신호와 다운스트림 학습 효용 사이의 연결을 분기별 native endpoint와 증거 상태에 따라 재정리하는 데 목적을 둔다. 이를 위해 selection-stage discovery, selected-set composition, fixed-set training stability, acquisition reproducibility, downstream learner utility, rare-class safety와 결과 확인 전에 고정한 최소효과 기준을 구분된 평가 대상으로 두었다.
+
+MPDD와 VisA의 동일한 물리적 fixed pool 내 200회 paired perturbation에서는 결함 이미지 발견량이 증가하였으나 선택 집합의 범주 구성 기준은 충족되지 않았다. 두 분기의 learner outcome은 NOT_AVAILABLE이며, 이는 다운스트림 성공이나 실패를 뜻하지 않는다. NEU-DET의 fixed-set 결과는 결과 관찰 후 선택된 favorable 사례의 POSTHOC_DESCRIPTIVE 분석이고 acquisition 반복은 동일한 물리적 fixed pool에서 수행되었다. 한 고정 선택 집합의 학습 seed 간 안정성은 선택 과정을 다른 acquisition seed에서 반복했을 때의 학습 효과 재현성과 동일하게 해석할 수 없었다. GC10 q20에서는 전체 mAP50-95가 증가한 반면 희소 클래스 macro AP는 감소하였다. KSDD2에서는 Macro Dice 차이와 신뢰구간 하한이 양의 방향으로 관찰되었으나 결과 확인 전에 고정한 평균 최소효과 기준은 충족되지 않았다.
+
+이 결과는 평가한 데이터셋과 실험 분기 안에서 선택 단계의 발견량, 선택 집합 구성, 반복 단위, 전체·희소 클래스 지표, 사전 최소효과 기준을 서로 구분해 보고해야 함을 보여준다. 본 연구의 결론은 평가한 분기의 관찰 범위에 한정되며, 특정 selector의 일반적 우월성, 실제 비용 절감 또는 독립 production pool에 대한 일반화를 제공하지 않는다.
+
+**키워드:** Active Learning, 산업 결함 탐지, Vision-Language Model, acquisition reproducibility, 희소 클래스 지표, 실증적 평가, bounded empirical audit
+
+---
+
+## 목차
+
+- 제1장 서론
+- 제2장 관련 연구
+- 제3장 연구 방법 (하위 페이지)
+- 제4장 실험 결과 (하위 페이지)
+- 제5장 논의 (하위 페이지)
+- 제6장 결론 (하위 페이지)
+- 부록 A 추가 평가 분기 (하위 페이지)
+
+---
+
+## 제1장 서론
+
+### 1.1 연구 배경
+
+산업 결함 탐지에서는 희소·미세 결함과 전문가 판독 요구 때문에 labeled data 확보가 연구와 실제 적용 모두에서 주요 제약으로 다뤄져 왔다. 결함 이미지의 상대적 희소성, 정상 이미지 대비 결함 이미지의 불균형, 그리고 결함 유형별 판독 난이도의 차이는 주석 작업의 단순한 물량 문제를 넘어 어떤 표본을 우선 확보할 것인가의 문제로 이어진다.
+
+이러한 제약을 완화하기 위해 산업 결함 Active Learning 연구는 uncertainty 기반 sampling, diversity 기반 sampling, 두 관점을 결합한 hybrid sampling, 그리고 human feedback을 활용한 iterative labeling 방향으로 전개되어 왔다. 이들 접근은 대체로 label efficiency의 관점에서 같은 주석 예산 안에서 학습 성능을 얼마나 확보할 수 있는지를 평가한다.
+
+최근에는 pretrained representation의 발전과 함께 Vision Foundation Model 및 Vision-Language Model의 표현을 사용해 unlabeled pool에서 표본을 선택하는 시도가 이어지고 있다. 이러한 접근은 image embedding의 유사도, cross-prompt response consistency, grounding 정합성 등의 신호를 acquisition 단계의 판단 근거로 사용한다.
+
+선택 단계 지표와 다운스트림 학습 지표는 측정 단위와 평가 조건이 다르다. 산업 결함 데이터의 클래스 불균형, source 및 category 구성, 결함 유형별 판정 난이도와 다층적인 평가 지표를 고려하면, 선택 단계에서 양의 방향으로 기록된 결과와 후속 학습 기준의 판정을 분리해 확인할 필요가 있다.
+
+### 1.2 연구 문제의 설정
+
+기존 연구는 acquisition 결과가 seed, 초기 집합, query batch와 training protocol에 민감할 수 있음을 지적해 왔다. 또한 object detection Active Learning에서는 클래스 불균형과 희소 클래스 성능을 전체 성능 지표와 분리해 다뤄야 한다는 관점이 축적되어 왔다. VFM/VLM 기반 접근에서도 pretrained signal의 평가는 선택 단계의 측정 결과와 실제 learner 결과를 구분할 필요가 있다.
+
+이러한 맥락에서 본 연구가 다루는 문제는 네 평가 질문으로 구성된다. 첫째, 선택 단계에서 관찰된 결함 이미지 발견량과 선택 집합의 범주 구성 결과가 같은 방향으로 기록되는지를 확인한다. 둘째, 하나의 고정 선택 집합을 여러 학습 seed로 재학습한 결과와 selector를 새로운 acquisition seed에서 다시 실행한 결과를 분리한다. 셋째, 다운스트림 전체 성능, 희소 클래스 지표와 사전 최소효과 기준의 판정을 병렬로 확인한다. 넷째, post-hoc 결과, fixed-pool 반복과 관찰되지 않은 learner outcome을 구분하여 현재 자료가 허용하는 해석 범위를 고정한다.
+
+### 1.3 연구 목적 및 연구 질문
+
+본 연구의 목적은 산업 결함 Active Learning에서 선택 단계 신호와 다운스트림 학습 효용 사이의 연결이 평가한 분기에서 어디까지 관찰되며 어디에서 제한되는지를 실증적으로 정리하는 것이다.
+
+**자기 규정 1:** 본 논문은 평가한 산업 결함 Active Learning 분기에서 selection-stage discovery, selected-set composition, fixed-set training stability, acquisition reproducibility, downstream learner utility, rare-class safety를 분리하고, 이들 사이의 연결이 어디까지 관찰되며 어디서 제한되는지를 정리한 bounded empirical audit이다.
+
+연구 질문은 다음과 같다.
+
+1. **RQ1 — 선택 단계:** 평가한 산업 결함 AL 분기에서 후보 선택 신호의 Random 대비 결과는 해당 지표가 관찰된 분기의 discovery 및 selected-set composition 지표에서 어떻게 나타나는가?
+2. **RQ2 — 반복 단위:** 고정 선택 집합의 training seed 반복 결과와 selector를 다시 실행하는 acquisition seed 반복 결과는 각각 어떤 변동성을 보여 주는가?
+3. **RQ3 — 후속 평가:** 선택 단계 결과와 downstream learner utility, aggregate 성능, 희소 클래스 지표 및 사전 최소효과 기준의 판정은 해당 결과가 관찰된 평가 분기에서 어떻게 함께 또는 다르게 나타나는가?
+4. **RQ4 — 증거 경계:** Post-hoc 결과, fixed-pool 반복, learner outcome의 NOT_AVAILABLE, 결과 확인 전에 고정한 기준을 구분할 때 현재 자료가 허용하는 선택–학습 연결 해석의 범위는 어디까지인가?
+
+이들 연구 질문은 개별 평가 단위의 관찰뿐 아니라, 선택 단계에서 양의 방향의 결과가 나타난 분기에서 사전에 정한 다운스트림 평가 기준이 어떤 판정을 내렸는지를 평가 분기별로 함께 확인하도록 구성하였다. 이 예고문은 EP01이 RQ3과 RQ4의 통합 답변으로 회수될 위치를 지정하지만 결과를 선취하지 않는다.
+
+### 1.4 연구 범위와 논문 구성
+
+본 연구의 범위는 평가한 산업 결함 데이터셋(MPDD, VisA, NEU-DET, GC10, KSDD2)과 그 위에서 수행된 selection–learning 실험 분기에 한정된다.
+
+**자기 규정 2:** 본 논문은 특정 selector의 일반적 우월성, 선택–학습 연결을 예측하는 검증된 framework, 산업 benchmark, 실제 비용 절감 또는 독립 production pool 일반화를 입증하는 연구가 아니다.
+
+**자기 규정 3:** 본 논문의 기여는 새로운 선택 방법의 제안이 아니라, 평가한 분기 안에서 선택 단계와 후속 학습의 평가 단위 및 증거 상태를 분리하고 그 연결의 관찰 범위와 제한을 실증적으로 정리하는 데 있다.
+
+본 논문은 다음을 다루지 않는다.
+
+- 새로운 Active Learning selector 또는 보편적 평가 framework의 제안
+- 실제 산업 현장의 주석 시간·인건비·GPU 비용 절감에 대한 정량 입증
+- 독립 production 데이터 pool에 대한 일반화
+- 특정 selector 또는 representation의 우월성에 대한 인과적 규명
+- 희소 클래스 지표의 차이를 실제 산업 안전 위해 또는 rare-class harm의 인과적 증거로 해석하는 것
+
+---
+
+## 제2장 관련 연구
+
+### 2.1 산업 결함 탐지와 데이터 주석화
+
+산업 결함 탐지는 희소·미세 결함과 전문가 판독 요구 때문에 labeled data 확보가 병목이 되는 영역으로 다뤄져 왔다. 결함 유형별 물리적 특성 차이와 정상 이미지 대비 결함 이미지의 불균형은 데이터 수집과 주석 단계의 설계에 직접적인 영향을 준다.
+
+산업 결함 Active Learning 연구는 uncertainty, category-aware sampling, hybrid sampling과 같은 접근을 통해 제한된 label에서 학습 성능을 확보하려는 문제에 초점을 두었다. 최근에는 explanation과 operator feedback을 활용해 sample 판정 근거와 human-in-the-loop 구조를 함께 고려하는 흐름도 나타난다. 본 연구는 이러한 접근의 재비교나 우열 판정을 목적으로 하지 않으며, 산업 결함 데이터에서 selection–learning 연결이 어느 조건에서 관찰되고 제한되는지를 평가 관점에서 다룬다.
+
+### 2.2 객체 탐지 Active Learning
+
+객체 탐지 Active Learning은 이미지 단위 분류와 달리 bounding box, 클래스와 위치 정합성 등 서로 다른 신호를 acquisition 판단에 반영해 왔다. 특히 클래스 불균형과 희소 클래스 성능은 detection AL 연구에서 반복적으로 지적되는 문제로, 전체 성능 지표만을 기준으로 삼는 평가가 특정 클래스의 성능 방향을 가릴 수 있다는 관찰이 축적되어 왔다.
+
+본 연구는 새로운 rare-aware selector를 제안하지 않으며, 전체 성능 지표와 희소 클래스 지표를 별도의 평가 항목으로 병렬 보고한다. 여기서 rare-class safety는 실제 산업 안전을 뜻하지 않고 희소 클래스 지표를 전체 성능과 따로 확인하는 평가 항목이다.
+
+### 2.3 VLM 및 시각 표현 기반 선택 신호
+
+Vision Foundation Model과 Vision-Language Model 기반 접근은 pretrained representation을 활용해 unlabeled pool에서 표본을 선택하는 다양한 신호를 제안하고 있다. 이 흐름은 embedding 유사도 기반 다양성, prompt response 기반 uncertainty와 grounding 정합성 등의 신호를 acquisition 단계에서 활용한다.
+
+본 연구는 새로운 prompt learning 또는 active finetuning 방법을 제안하지 않으며, 평가한 분기에서 pretrained signal의 선택 단계 결과와 학습기 결과를 분리해 기록한다. 따라서 특정 표현 모델의 보편적 유효성이나 선택–학습 연결의 인과 기제를 주장하지 않는다.
+
+### 2.4 Active Learning의 평가와 재현성
+
+Active Learning의 결과는 seed, 초기 집합, query batch와 training protocol에 민감할 수 있다는 지적이 축적되어 왔다. 이러한 지적은 fixed-set에서의 학습 안정성과 selector를 다시 실행하는 acquisition seed 반복이 서로 다른 조건부 질문임을 보여준다.
+
+본 연구는 fixed-set training stability와 동일 fixed pool에서의 acquisition reproducibility를 분리해 관찰한다. 반복 결과는 사용한 pool과 protocol의 범위 안에서만 해석하며, 독립 production pool의 일반화 증거로 사용하지 않는다.
+
+### 2.5 본 연구의 위치
+
+본 논문은 평가한 산업 결함 Active Learning 분기에서 selection-stage discovery, selected-set composition, fixed-set training stability, acquisition reproducibility, downstream learner utility, rare-class safety를 분리하고, 이들 사이의 연결이 어디까지 관찰되며 어디서 제한되는지를 정리한 bounded empirical audit이다.
+
+본 논문은 특정 selector의 일반적 우월성, 선택–학습 연결을 예측하는 검증된 framework, 산업 benchmark, 실제 비용 절감 또는 독립 production pool 일반화를 입증하는 연구가 아니다.
+
+본 논문의 기여는 새로운 선택 방법의 제안이 아니라, 평가한 분기 안에서 선택 단계와 후속 학습의 평가 단위 및 증거 상태를 분리하고 그 연결의 관찰 범위와 제한을 실증적으로 정리하는 데 있다.
+
+---
+
+## 하위 페이지 안내
+
+본문 나머지(제3장~제6장, 부록 A)는 이 페이지 아래에 하위 페이지로 분할해 첨부한다. 노션의 페이지당 블록 수 제한(100 blocks) 때문에 분할이 필요했다. 하위 페이지는 다음과 같다.
+
+- 제3장 연구 방법
+- 제4장 실험 결과 (그림 4개 임베드)
+- 제5장 논의
+- 제6장 결론
+- 부록 A 추가 평가 분기(GC10 K40/140)
+
+---
+
+## 노션 업로드 정보
+
+- **업로드 일자:** 2026-08-08
+- **버전:** v0.2 notion-ready
+- **이미지 소스:** GitHub raw (hoyeol-ui/Defect_VLM_Project, commit 137e53e0)
+- **본문 상태:** 팩트체크 재봉합 완료, 자기 규정 3문장 원문 유지, EP01 6.1 단독 배치
+- **주의:** 그림 내부의 반올림 수치·예전 용어보다 본문 표의 v3 수치와 증거 상태를 우선한다. 특히 그림 4-3 내부의 acquisition-generalization은 독립 pool 일반화를 뜻하지 않는다.
+
+제3장 연구 방법
+# 제3장 연구 방법
+
+> **장 요약**
+
+- 실험 분기는 데이터셋, 선택 신호, 예산, 학습기, native endpoint와 기준으로 구분한다.
+
+- 서로 다른 분기의 지표는 공통 효과크기로 합산하지 않는다.
+
+- fixed pool, post-hoc, NOT_AVAILABLE, 결과 확인 전 고정 기준의 상태를 결과와 함께 기록한다.
+> 
+
+## 3.1 전체 연구 설계
+
+본 연구의 설계는 평가한 산업 결함 데이터셋 각각에 대해 선택 단계와 다운스트림 학습 단계의 결과를 분리하여 기록하는 방식으로 구성되었다. 각 실험 분기는 데이터셋, 예산, 후보 선택 신호, 학습기, 지표 및 결과 확인 전에 고정된 판정 기준으로 정의된다. 서로 다른 분기의 native metric은 하나의 공통 효과크기로 합산되지 않았다.
+
+## 3.2 후보 선택 신호
+
+후보 선택 신호에는 Random baseline과 함께 uncertainty 계열, DINO 기반 embedding 다양성, hierarchical clustering 기반 diversity 및 Vision-Language Model 응답 관련 신호가 포함된다. 각 신호는 해당 평가 분기에서 정한 native endpoint를 기준으로 Random 대비 차이로 관찰되었다.
+
+## 3.3 데이터셋 및 실험 분기
+
+본 연구가 다루는 데이터셋과 실험 분기의 증거 상태는 다음과 같다.
+
+- **MPDD:** selection-only audit; learner outcome은 NOT_AVAILABLE
+- **VisA:** selection-only audit; learner outcome은 NOT_AVAILABLE
+- **NEU-DET:** 결과 관찰 후 선택된 favorable fixed set의 POSTHOC_DESCRIPTIVE 재학습과 동일 fixed pool의 새로운 acquisition seed 반복
+- **GC10 q20:** 5개 acquisition seed × seed별 3개 training seed의 downstream detector 평가
+- **GC10 K40/140:** 부록 A의 보조 평가 분기
+- **KSDD2 g5:** 결과 확인 전에 평균 Macro Dice 차이 +0.05 기준을 고정한 제한적 downstream learner 평가
+
+## 3.4 선택 단계 평가
+
+선택 단계 평가는 native endpoint의 Random 대비 차이와 해당 분기에서 정의된 기준 판정으로 구성된다. MPDD와 VisA는 candidate와 Random을 동일한 물리적 fixed pool 안에서 200회 paired perturbation으로 비교하였다. 이 반복은 독립 production pool의 반복이 아니다.
+
+## 3.5 획득 재현성 평가
+
+본 연구는 동일한 selected set을 여러 training seed로 다시 학습하는 fixed-set training stability와, selector를 동일한 물리적 fixed pool에서 다른 acquisition seed로 다시 실행하는 acquisition reproducibility를 구분한다. 두 평가는 변동의 원인이 되는 반복 단위가 다르다.
+
+## 3.6 다운스트림 학습 효용 평가
+
+다운스트림 학습 효용은 학습기의 전체 성능과 subgroup 지표를 병렬로 기록한다. GC10 q20에서는 overall mAP50-95, recall, frequent-class macro AP 및 rare-class macro AP를 구분한다. KSDD2에서는 Macro Dice를 primary endpoint로 사용하고 pixel AP와 정상 이미지 FPR 점검을 보조 항목으로 기록한다.
+
+## 3.7 안전성 평가 지표 및 의사결정 기준
+
+본 연구에서 rare-class safety는 희소 클래스 지표를 전체 성능과 별도로 확인하는 평가 항목을 의미한다. 실제 산업 안전 위험이나 rare-class harm의 인과적 입증을 뜻하지 않는다. KSDD2의 평균 Macro Dice 차이 +0.05 기준은 결과 확인 전에 고정되었으며, 통계적으로 양의 방향이 관찰되는지와 별도의 판정 항목이다.
+
+
+제4장 실험 결과
+# 제4장 실험 결과
+
+> **장 요약**
+
+- 4.1–4.5는 native endpoint, 비교 방향, 신뢰구간과 사전 기준 판정만 제시한다.
+
+- MPDD·VisA의 learner outcome은 NOT_AVAILABLE이고 NEU fixed-set 결과는 POSTHOC_DESCRIPTIVE다.
+
+- 부록 전용 보조 분기의 결과는 제4장에 포함하지 않는다.
+> 
+
+## 4.1 후보 선택 신호별 선택 단계 관찰
+
+| 데이터셋 | 지표 | 값 | 신뢰구간 | 사전 기준 | 판정 | 증거 상태 |
+| --- | --- | --- | --- | --- | --- | --- |
+| GC10 q20 | rare-class image discovery | +2.720 | [+2.455,+2.980] | 이 절에서 별도 기준 없음 | 양의 방향 관찰 | 선택 단계 native endpoint |
+| KSDD2 | 100-image query positive defect image | +88.8 | [+86.9,+90.6] | 이 절에서 별도 기준 없음 | 양의 방향 관찰 | 선택 단계 native endpoint |
+| MPDD | anomaly image | +6.245 | [+5.885,+6.605] | 구성 기준은 4.2에서 판정 | 양의 방향 관찰 | 동일 fixed pool의 paired 관찰 |
+| VisA | anomaly image | +14.480 | [+14.195,+14.770] | 구성 기준은 4.2에서 판정 | 양의 방향 관찰 | 동일 fixed pool의 paired 관찰 |
+
+이 절에서는 후보 선택 신호가 각 평가 분기에서 어떤 선택 단계 native endpoint로 측정되었고 Random 대비 어떤 차이가 기록되었는지를 제시한다. 서로 다른 단위의 효과는 합산하지 않는다. GC10 q20에서는 희소 클래스 이미지 발견량이 Random보다 평균 +2.720장 많았고 95% 신뢰구간은 [+2.455,+2.980]이었다. KSDD2의 100-image query에서는 positive defect image가 평균 +88.8장 많았고 신뢰구간은 [+86.9,+90.6]이었다. MPDD와 VisA의 anomaly image 차이는 각각 +6.245와 +14.480으로 기록되었다.
+
+이 절의 외부 그림은 **자료 없음**으로 처리한다. 저장소의 Atlas 계열 그림은 부록 전용 보조 분기의 다운스트림 결과를 함께 포함하므로 제4장의 관찰 범위를 지키기 위해 삽입하지 않았다.
+
+**한 문장 요약:** 평가한 각 분기의 후보 선택 신호는 해당 native endpoint에서 Random 대비 양의 차이를 보였으며, 구성 및 다운스트림 판정은 후속 절에서 별도로 기록된다.
+
+## 4.2 결함 발견량과 선택 집합 구성
+
+| 데이터셋 | 지표 | 값 | 신뢰구간 | 사전 기준 | 판정 | 증거 상태 |
+| --- | --- | --- | --- | --- | --- | --- |
+| MPDD | anomaly image | +6.245 | [+5.885,+6.605] | 선택 단계 discovery | 양의 방향 관찰 | 200회 paired fixed-pool perturbation |
+| MPDD | product-category coverage | -0.325 | 자료 없음 | noninferiority -0.25 | 미충족 | learner NOT_AVAILABLE |
+| VisA | anomaly image | +14.480 | [+14.195,+14.770] | 선택 단계 discovery | 양의 방향 관찰 | 200회 paired fixed-pool perturbation |
+| VisA | object-category coverage | -4.110 | 자료 없음 | coverage check | 미충족 | learner NOT_AVAILABLE |
+
+이 절에서는 MPDD와 VisA의 선택 단계 평가 결과를 결함 이미지 발견량과 선택 집합의 범주 구성으로 나누어 제시한다. 두 평가 항목은 candidate와 Random을 동일한 물리적 fixed pool 안에서 200회 paired perturbation으로 비교한 결과이며, 서로 독립적인 production pool의 반복이 아니다.
+
+MPDD의 hierarchical DINO selection-only audit에서 anomaly image 차이는 +6.245였고 95% 신뢰구간은 [+5.885,+6.605]였다. Product-category coverage 차이는 -0.325였으며 사전 noninferiority 기준 -0.25를 충족하지 못했다.
+
+VisA의 random-versus-visual selection-only audit에서 anomaly image 차이는 +14.480이었고 95% 신뢰구간은 [+14.195,+14.770]이었다. Object-category coverage 차이는 -4.110이었고 coverage check는 충족되지 않았다.
+
+MPDD와 VisA의 learner outcome은 NOT_AVAILABLE로 기록되어 관찰되지 않았다. 이 상태는 downstream 성공 또는 실패의 판정을 제공하지 않는다.
+
+[이미지 파일 경로: docs/notion_professor_update_20260803/assets/figure06_discovery_composition_contrast.png]
+
+그림 4-2. MPDD·VisA의 discovery와 selected-set composition 대비
+
+*원본: docs/notion_professor_update_20260803/assets/figure06_discovery_composition_contrast.png · mtime: 2026-08-03T23:11:45+09:00 · 실험 분기: MPDD hierarchical DINO 200-seed / VisA random-vs-visual 200-seed selection-only audit. 그림 내부의 추가 경계 수치는 보조 정보이며 본문 claim 강도를 확장하지 않는다.*
+
+**한 문장 요약:** MPDD와 VisA에서 anomaly image 차이는 양의 방향이었지만 두 데이터셋의 선택 집합 범주 구성 기준은 충족되지 않았다.
+
+## 4.3 고정 선택 집합 재학습과 acquisition 반복 결과
+
+| 데이터셋 | 지표 | 값 | 신뢰구간 | 사전 기준 | 판정 | 증거 상태 |
+| --- | --- | --- | --- | --- | --- | --- |
+| NEU-DET favorable fixed set | mAP50-95 차이 | +0.016236 | v3에 직접 사용하지 않음 | 별도 confirmatory 기준 아님 | 5/5 training seed 양의 차이 | POSTHOC_DESCRIPTIVE |
+| NEU-DET acquisition 반복 | 평균 mAP50-95 차이 | +0.007019 | [-0.005211,+0.019678] | +0.010 | 미충족; 7/10 양의 차이; p=0.322266 | 동일 fixed pool의 acquisition reproducibility |
+
+이 절에서는 NEU-DET 평가에서 관찰된 두 결과를 분리해 제시한다. 첫 번째는 결과 관찰 이후에 선택된 favorable fixed set을 여러 training seed로 다시 학습한 결과이며 POSTHOC_DESCRIPTIVE다. 두 번째는 동일한 물리적 fixed pool에서 selector를 새로운 acquisition seed로 다시 실행한 결과다.
+
+Favorable fixed set의 재학습에서 mAP50-95 차이는 평균 +0.016236이었고 5개의 training seed 모두에서 양의 방향으로 관찰되었다. 이 결과는 결과 관찰 이후에 선택된 집합에 대한 사후 기술 분석이다.
+
+새로운 acquisition seed에서의 반복 선택 결과에서 평균 mAP50-95 차이는 +0.007019였고 95% 신뢰구간은 [-0.005211,+0.019678]이었다. 10회 반복 중 7회에서 양의 차이가 관찰되었고 exact sign-flip은 p=0.322266이었으며, 사전 기준 +0.010은 충족되지 않았다.
+
+[이미지 파일 경로: docs/notion_professor_update_20260803/assets/figure05_neu_two_reproducibilities.png]
+
+그림 4-3. NEU-DET의 fixed-set training stability와 acquisition 반복
+
+*원본: docs/notion_professor_update_20260803/assets/figure05_neu_two_reproducibilities.png · mtime: 2026-08-03T23:11:45+09:00 · 실험 분기: NEU seed45 favorable fixed-set stability / v8 cold-start visual 10-acquisition confirmation. 그림 내부의 acquisition-generalization은 최신 본문의 용어가 아니며, 본문에서는 동일 fixed pool에서의 acquisition reproducibility로만 해석한다. 왼쪽 fixed-set 결과는 POSTHOC_DESCRIPTIVE다.*
+
+**한 문장 요약:** NEU-DET의 POSTHOC_DESCRIPTIVE fixed-set 재학습은 +0.016236과 5/5 양의 차이를 보였고, acquisition 반복의 +0.007019는 신뢰구간이 0을 포함하며 사전 +0.010 기준을 충족하지 못했다.
+
+## 4.4 전체 성능과 희소 클래스 성능
+
+| 데이터셋 | 지표 | 값 | 신뢰구간 | 사전 기준 | 판정 | 증거 상태 |
+| --- | --- | --- | --- | --- | --- | --- |
+| GC10 q20 | overall mAP50-95 차이 | +0.017378 | [+0.000580,+0.036332] | v3의 overall checks | 충족; 4/5 acquisition seed 양의 차이 | 5개 acquisition seed × seed별 3개 training seed |
+| GC10 q20 | recall 차이 | +0.035381 | 자료 없음 | recall noninferiority | 충족 | 동일 평가 분기 보조 지표 |
+| GC10 q20 | frequent-class macro AP 차이 | +0.033345 | 자료 없음 | frequent-class noninferiority | 충족 | 저장된 전체 평균 |
+| GC10 q20 | rare-class macro AP 차이 | -0.019877 | 별도 CI 없음 | 희소 클래스 기준 | 미충족 | 저장된 acquisition-seed 값과 point estimate |
+
+GC10 q20은 5개 acquisition seed × seed별 3개 training seed로 평가되었다. Overall mAP50-95 차이는 평균 +0.017378이었고 acquisition-seed 신뢰구간은 [+0.000580,+0.036332]였으며 5개 acquisition seed 중 4개에서 양의 차이가 기록되었다. Recall 차이는 +0.035381이었다.
+
+같은 평가에서 frequent-class macro AP 차이는 +0.033345였고 rare-class macro AP 차이는 -0.019877이었다. Rare-class macro AP에는 별도 신뢰구간이 저장되어 있지 않으므로 point estimate로 제시하며, 희소 클래스 기준은 충족되지 않았다.
+
+[이미지 파일 경로: docs/notion_professor_update_20260803/assets/figure04_gc10_endpoint_conflict.png]
+
+그림 4-4. GC10 q20의 전체·frequent·rare endpoint 관찰
+
+*원본: docs/notion_professor_update_20260803/assets/figure04_gc10_endpoint_conflict.png · mtime: 2026-08-03T23:11:45+09:00 · 실험 분기: GC10 q20 detector development confirmation, 5 acquisition seeds × seed별 3 training seeds. Rare-class macro AP는 저장된 acquisition-seed 값과 평균만 표시하며 새 CI를 계산하지 않는다.*
+
+**한 문장 요약:** GC10 q20에서 overall mAP50-95는 +0.017378이었지만 rare-class macro AP는 -0.019877이었고 희소 클래스 기준은 충족되지 않았다.
+
+## 4.5 KSDD2 Dice 차이와 사전 최소효과 기준 판정
+
+| 데이터셋 | 지표 | 값 | 신뢰구간 | 사전 기준 | 판정 | 증거 상태 |
+| --- | --- | --- | --- | --- | --- | --- |
+| KSDD2 | Macro Dice 차이 | +0.037565 | [+0.019581,+0.057029] | 결과 확인 전 평균 +0.05 | 미충족; CI 하한은 0 초과 | 제한적 downstream learner package |
+| KSDD2 | leave-one-seed-out 최소 평균 차이 | +0.031234 | 자료 없음 | 0 초과 | 충족 | 보조 안정성 점검 |
+| KSDD2 | positive acquisition-seed fraction | 0.8 | 자료 없음 | 저장된 primary check | 충족 | 저장된 fraction |
+| KSDD2 | pixel AP 차이 | +0.049824 | 자료 없음 | 0 초과 | 충족 | corroboration |
+| KSDD2 | 정상 이미지 FPR 점검 | FPR 0.160129; delta +0.010573 | 자료 없음 | 저장된 FPR 점검 기준 | 충족 | 정상 이미지 FPR 점검 |
+| KSDD2 | 실행 완결성 | 60/60 | 해당 없음 | required 60 | 충족 | nonfinite run 0 |
+
+KSDD2의 제한적 downstream 평가는 요구된 60/60 runs를 완료하였다. Macro Dice 차이는 평균 +0.037565였고 95% 신뢰구간은 [+0.019581,+0.057029]로 하한이 0을 초과했다. Leave-one-seed-out 최소 평균 차이는 +0.031234였고 positive acquisition-seed fraction은 0.8이었다.
+
+Pixel AP 차이는 +0.049824였다. 정상 이미지 FPR 점검에서 FPR은 0.160129, FPR delta는 +0.010573으로 기록되었다. 결과 확인 전에 고정한 평균 Macro Dice 차이 최소효과 기준 +0.05는 충족되지 않았다. 양의 방향의 차이와 사전 최소효과 기준의 판정은 별도로 기록한다.
+
+[이미지 파일 경로: docs/notion_professor_update_20260803/assets/figure08_ksdd2_positive_below_threshold.png]
+
+그림 4-5. KSDD2 Macro Dice 차이와 사전 최소효과 기준
+
+*원본: docs/notion_professor_update_20260803/assets/figure08_ksdd2_positive_below_threshold.png · mtime: 2026-08-03T23:11:46+09:00 · 실험 분기: KSDD2 G5 single-UNet 제한적 downstream 평가. +0.05는 결과 확인 전에 고정한 진행 기준이며 일반적인 실용 최소효과나 외부 보정된 임계값이 아니다.*
+
+**한 문장 요약:** KSDD2의 Macro Dice 차이는 +0.037565이고 신뢰구간 하한은 0을 초과했지만 결과 확인 전에 고정한 평균 +0.05 기준은 충족하지 못했다.
+
+
+제5장 논의
+# 제5장 논의
+
+> **장 요약**
+
+- MPDD·VisA에서는 discovery와 composition의 판정 방향이 달랐다.
+
+- NEU-DET에서는 fixed-set과 acquisition 반복의 평가 단위 및 시간적 지위가 달랐다.
+
+- GC10 q20과 KSDD2에서는 미충족 지표의 위치가 서로 달랐다.
+> 
+
+## 5.1 평가 분기별 선택 단계 결과와 다운스트림 기준 충족의 관계
+
+선택 단계와 다운스트림 결과가 모두 관찰된 평가 분기에서 미충족 지점은 서로 다르게 기록되었다. GC10 q20에서는 희소 클래스 지표가 기준을 충족하지 못했고 KSDD2에서는 결과 확인 전에 고정한 평균 최소효과 기준이 충족되지 않았다. GC10 K40/140 보조 평가에서는 전체 mAP50-95의 양의 방향이 확인되지 않았으며 세부 결과는 **부록 A 참조**로 제한한다. 각 분기의 데이터셋, 과업, 지표, 임계값과 시간적 지위가 이질적이므로 이 결과를 하나의 실패 확률로 합산하지 않는다.
+
+**표 5-1. 평가 분기별 증거 상태 요약 (본문 claim 경계에 맞춘 표시)**
+
+| 평가 분기 | 선택·구성 단계 | 반복·학습 단계 | 본문에서의 증거 상태 | 배치 |
+| --- | --- | --- | --- | --- |
+| MPDD | discovery 양의 방향; composition 기준 미충족 | learner NOT_AVAILABLE | selection-only, 동일 fixed pool 200회 | 4.2·5.2 |
+| VisA | discovery 양의 방향; composition 기준 미충족 | learner NOT_AVAILABLE | selection-only, 동일 fixed pool 200회 | 4.2·5.2 |
+| NEU-DET | favorable fixed set은 결과 관찰 후 선택 | fixed-set POSTHOC_DESCRIPTIVE; acquisition 반복은 동일 fixed pool | 두 반복 단위를 구분 | 4.3·5.3 |
+| GC10 q20 | rare-image discovery 양의 방향 | overall mAP 양의 방향; rare AP 음의 방향 | 5 acquisition seeds × seed별 3 training seeds | 4.4·5.4 |
+| KSDD2 | positive defect image 양의 방향 | Macro Dice 양의 방향; 사전 +0.05 기준 미충족 | 결과 확인 전 기준 고정 | 4.5·5.6 |
+| GC10 K40/140 | 본문 수치 재기재 없음 | 부록의 보조 평가 | EP06; 본문 핵심 주장 제외 | 부록 A 참조 |
+
+## 5.2 결함 발견량과 구성 기준의 비일치
+
+MPDD와 VisA의 선택 단계 평가에서는 결함 이미지 발견량 증가가 관찰되었지만 선택 집합의 범주 구성 기준은 충족되지 않았다. 이 관찰은 discovery와 selected-set composition을 같은 지표로 대신하지 않고 별도의 평가 항목으로 보고해야 하는 근거가 된다.
+
+해석 범위는 두 데이터셋의 동일한 물리적 fixed pool 내 200회 paired perturbation에 한정된다. 두 분기의 learner outcome은 NOT_AVAILABLE이므로 이 결과를 downstream 실패, selector의 일반적 무효성 또는 독립 production pool의 재현성으로 확대하지 않는다.
+
+## 5.3 고정 선택 집합의 training-seed 안정성과 동일 fixed pool에서의 acquisition reproducibility의 구분
+
+NEU-DET의 favorable fixed set 결과는 결과 관찰 후 선택된 사례에 대한 POSTHOC_DESCRIPTIVE 재학습이다. 이 결과는 해당 selected set을 고정한 조건에서 training seed 변화에 따른 결과를 보여준다. 반면 acquisition 반복은 동일한 물리적 fixed pool에서 selector를 다시 실행할 때의 변동을 보여준다.
+
+따라서 fixed-set training stability와 동일 fixed pool에서의 acquisition reproducibility는 서로 다른 조건부 질문이며, 하나의 결과가 다른 하나를 대체하지 않는다. 이 구분은 특정 selector가 재현에 실패했다는 결론이 아니며, favorable fixed set 결과를 confirmatory 근거로 승격하지도 않는다.
+
+## 5.4 전체 성능과 희소 클래스 성능의 충돌 가능성
+
+GC10 q20에서는 overall mAP50-95와 recall이 양의 방향으로 기록된 동시에 rare-class macro AP가 음의 방향으로 기록되었다. 이는 같은 평가 분기에서도 aggregate 지표와 subgroup 지표가 동일한 판정을 만들지 않을 수 있음을 보여준다.
+
+여기서 rare-class safety는 희소 클래스 지표를 전체 성능과 별도로 확인하는 평가 항목이다. Rare-class macro AP에는 별도의 신뢰구간이 저장되어 있지 않으므로 이 결과는 한 평가 분기의 point estimate와 사전 기준 판정 범위에서만 해석하며, 실제 산업 안전 위해나 일반적인 rare-class harm의 인과적 증거로 확대하지 않는다.
+
+## 5.5 이미지 예산 기반 평가의 한계
+
+본 연구의 selection 평가는 대체로 이미지 수 예산에 기반한다. 이미지 수는 실제 주석 시간, 결함별 판독 난이도, bounding-box 수, 인건비 또는 GPU 비용을 직접 측정하지 않는다. 따라서 본 연구의 image-budget 결과는 정해진 이미지 수 안에서의 selection 관찰이며 실제 운영 비용 절감의 입증이 아니다.
+
+이 한계는 비용·annotation-time·예산 문제를 다루는 중심 위치다. 5.7에서는 이 내용을 반복하지 않고, 본 절에서 규정한 범위 제한을 교차참조한다.
+
+## 5.6 선택–학습 연결 해석의 범위와 제한 조건
+
+KSDD2에서는 Macro Dice 차이의 신뢰구간 하한이 0을 초과했지만 결과 확인 전에 고정한 평균 +0.05 기준은 충족되지 않았다(표 4-5 참조). 이는 양의 방향의 통계적 관찰과 사전 의사결정 기준 충족이 서로 다른 판정임을 보여준다.
+
+이 결과를 success와 no-effect의 이분법으로 읽어서는 안 된다. 양의 방향은 관찰되었고 사전 최소효과 기준은 충족되지 않았다는 두 상태를 함께 유지해야 한다. 또한 +0.05는 외부에서 보정된 산업 최적 임계값이 아니며, 관찰 범위는 KSDD2 한 acquisition pool과 한 학습기 설정에 한정된다.
+
+## 5.7 연구의 한계
+
+첫째, 현재 논문의 통합은 서로 다른 시기에 수행된 실험 분기를 사후적으로 정렬한 post-hoc integration이다. 공통 protocol로 동시에 설계한 다중 데이터셋 시험이 아니다.
+
+둘째, MPDD와 VisA의 200회 paired perturbation 및 NEU-DET의 acquisition 반복은 동일한 물리적 fixed pool에서 수행되었다. 따라서 independent production pool 일반화를 제공하지 않는다.
+
+셋째, fixed-pool perturbation은 seed 변화에 따른 조건부 변동을 보여주지만 생산 환경의 pool shift, 신규 결함 유형 또는 독립적인 수집 세션의 변동을 직접 평가하지 않는다.
+
+넷째, KSDD2의 +0.05 기준은 결과 확인 전에 고정되었지만 외부 calibration 근거를 갖지 않는다. 기준 미충족은 효과 부재가 아니라 해당 사전 기준의 미충족이다.
+
+다섯째, MPDD·VisA 및 DeepPCB를 포함해 learner outcome이 NOT_AVAILABLE인 분기의 counterfactual downstream outcome은 관찰되지 않았다. STOP branch를 downstream 실패로 포함하지 않는다.
+
+여섯째, 이미지 예산과 실제 annotation-time·운영 비용의 차이는 5.5의 범위 제한을 따른다. 본 연구는 비용 절감을 정량 입증하지 않는다.
+
+
+제6장 결론
+
+# 제6장 결론
+
+> **장 요약**
+
+- MPDD·VisA, NEU-DET, GC10 q20 및 KSDD2에서 서로 다른 평가 단위의 결과가 기록되었다.
+
+- learner NOT_AVAILABLE, POSTHOC_DESCRIPTIVE, fixed pool 및 사전 기준의 증거 상태를 유지했다.
+
+- 결론은 평가한 분기에 한정된 통합 문장으로 마무리한다.
+> 
+
+## 6.1 연구 결과 요약
+
+본 연구는 평가한 산업 결함 Active Learning 분기에서 selection-stage discovery, selected-set composition, fixed-set training stability, acquisition reproducibility, downstream learner utility, rare-class safety와 결과 확인 전에 고정한 최소효과 기준을 구분된 평가 대상으로 관찰하였다.
+
+MPDD와 VisA에서는 결함 이미지 발견량과 범주 구성 기준의 판정이 서로 다른 방향으로 기록되었으며 두 분기의 learner outcome은 NOT_AVAILABLE이었다. NEU-DET의 fixed-set 결과는 결과 관찰 후 선택된 favorable 사례의 POSTHOC_DESCRIPTIVE 분석이고 acquisition 반복은 동일한 물리적 fixed pool에서 수행되었다. 한 고정 선택 집합의 학습 seed 간 안정성은 선택 과정을 다른 acquisition seed에서 반복했을 때의 학습 효과 재현성과 동일하게 해석할 수 없었다. GC10 q20에서는 전체 성능 지표와 희소 클래스 지표가 반대 방향으로 관찰되었다. KSDD2에서는 Macro Dice 차이가 양의 방향으로 관찰되었으나 결과 확인 전에 고정한 평균 최소효과 기준은 충족되지 않았다.
+
+**EP01 통합 문장:**
+
+> 선택 단계와 다운스트림 결과가 모두 관찰된 세 평가 분기에서, 선택 단계에서 양의 방향으로 나타난 결과만으로는 사전에 정한 다운스트림 평가 기준의 충족을 확인할 수 없었다.
+> 
+
+## 6.2 시사점 및 향후 과제
+
+평가한 분기의 결과는 산업 결함 Active Learning을 보고할 때 selection-stage discovery, selected-set composition, 반복 단위, downstream endpoint, 희소 클래스 지표 및 사전 최소효과 기준을 구분해 제시할 필요가 있음을 시사한다. 이 시사점은 평가한 데이터셋과 실험 분기에 한정된다.
+
+향후 과제로는 관찰되지 않은 learner outcome이 있는 분기의 downstream 학습 평가, 독립 production pool에서의 acquisition reproducibility 평가, 최소효과 기준의 외부 calibration 및 전체·희소 클래스 지표의 조건부 관계를 다루는 사전 등록 실험을 고려할 수 있다. 이는 현재 관찰의 범위를 확장하기 위한 과제이며 본 연구가 이미 입증한 일반화로 해석하지 않는다.
+
+부록 A 추가 평가 분기 (GC10 K40/140) 및 보조 표
+
+# 부록 A 추가 평가 분기 (GC10 K40/140) 및 보조 표
+
+GC10 K40/140 분기에서는 K40 후보가 holdout의 all-class coverage 기준을 충족한 것으로 기록되었다. 다운스트림 mAP50-95의 추정 차이는 -0.001678이었고 95% 신뢰구간은 [-0.017424,+0.018332]로 0을 포함하였다. 희소 클래스 macro AP는 -0.018290, recall은 -0.021871로 기록되었다. 이 분기는 EP04와 논리 기능이 중복되므로 본문의 핵심 결과 절이 아니라 부록의 보조 평가로 둔다. mAP50-95 신뢰구간이 0을 포함하므로 detector 성능 저하를 유의하게 입증하는 근거로 해석하지 않는다.
+
+**표 A-1. v8n_screen_decision.json의 저장 판정 요약**
+
+| JSON 필드 | 저장 값 | 본문 표시 |
+| --- | --- | --- |
+| models | 30 | YOLOv8n screen의 모델 실행 수 |
+| map_difference | -0.001678 | 양의 방향 확인 안 됨; CI는 0 포함 |
+| rare_macro_difference | -0.018290 | rare macro 기준 미충족 |
+| recall_difference | -0.021871 | recall 기준 미충족 |
+| checks.map_noninferiority | true | mAP noninferiority는 충족 |
+| checks.rare_macro_noninferiority | false | 미충족 |
+| checks.recall_noninferiority | false | 미충족 |
+| authorizes_v8s_expansion | false | 후속 확장 미수행 |
+| final_test_used | false | official/final test 미사용 |
+
+*원본: runs/dcal_xai/v2_backbone_main/v8n_screen_decision.json · mtime: 2026-07-18T15:10:25+09:00 · 실험 분기: GC10 K40/140 YOLOv8n downstream screen. 이 표는 저장된 JSON 필드를 재계산 없이 표시한다.*
+
+**각주 A-1:** 희소 클래스 macro AP -0.018290과 recall -0.021871의 정확한 값은 chapter4_writing_packets_v3.md와 chapter5_writing_packets_v3.md 본문에 직접 기재되지 않았다. 본 부록에서는 final_claim_adoption_table.csv의 EP06 핵심 수치를 출처로 유지했으며, 원 실험 파일 runs/dcal_xai/v2_backbone_main/v8n_screen_decision.json의 저장 값과도 일치함을 확인하였다.

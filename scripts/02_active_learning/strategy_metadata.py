@@ -12,6 +12,41 @@ from typing import Any
 
 
 STRATEGY_METADATA: dict[str, dict[str, str]] = {
+    "GTFreeRandom": {
+        "display_name": "GT-free Random",
+        "family": "GT-free baseline",
+        "role": "Random acquisition without class-label or annotation access",
+    },
+    "GTFreeConsistency": {
+        "display_name": "GT-free ExpertPromptConsistency",
+        "family": "GT-free core hypothesis",
+        "role": "Prompt-family inconsistency acquisition without class-label or annotation access",
+    },
+    "GTFreeDatasetBalancedConsistency": {
+        "display_name": "GT-free Dataset-balanced ExpertPromptConsistency",
+        "family": "GT-free composition control",
+        "role": "Consistency acquisition with cumulative dataset-level deficit balancing and no class-label access",
+    },
+    "GTFreeConsistencyPseudoFeatureDiversity": {
+        "display_name": "GT-free Consistency + Pseudo-feature Diversity",
+        "family": "GT-free diversity control",
+        "role": "High-consistency-uncertainty candidate filtering followed by GT-free pseudo-grounding feature diversity selection",
+    },
+    "GTFreeConsistencyDiversity": {
+        "display_name": "GT-free Consistency + Pseudo-feature Diversity (legacy ID)",
+        "family": "GT-free diversity control",
+        "role": "Legacy alias for GTFreeConsistencyPseudoFeatureDiversity",
+    },
+    "OracleClassDatasetBalancedRandom": {
+        "display_name": "Oracle-balanced Random",
+        "family": "Oracle diagnostic",
+        "role": "Random acquisition controlled using ground-truth-derived class and dataset strata",
+    },
+    "OracleClassDatasetBalancedConsistency": {
+        "display_name": "Oracle-balanced ExpertPromptConsistency",
+        "family": "Oracle diagnostic",
+        "role": "Consistency acquisition controlled using ground-truth-derived class and dataset strata",
+    },
     "Random": {
         "display_name": "Random",
         "family": "Baseline",

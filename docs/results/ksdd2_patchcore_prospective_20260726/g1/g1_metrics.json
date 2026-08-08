@@ -1,0 +1,26 @@
+{
+  "bbox_count_spearman": {
+    "ci95": [
+      0.41957152916853957,
+      0.5460167035513862
+    ],
+    "estimate": 0.4865154749681066
+  },
+  "development_count": 466,
+  "development_positive_images": 53,
+  "image_auroc": {
+    "ci95": [
+      0.904976817532057,
+      0.971324875275126
+    ],
+    "estimate": 0.9421627301384258
+  },
+  "query_size": 100,
+  "top_query_enrichment": {
+    "ci95": [
+      3.429056603773585,
+      4.3330299877600975
+    ],
+    "estimate": 3.956603773584906
+  }
+}

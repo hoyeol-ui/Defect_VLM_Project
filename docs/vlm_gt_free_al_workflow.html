@@ -1,481 +1,236 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>VLM-based GT-free Active Learning Workflow</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
-        
-        body {
-            margin: 0;
-            padding: 30px;
-            background-color: #f8fafc;
-            font-family: 'Inter', 'Noto Sans KR', sans-serif;
-            color: #1e293b;
-        }
-
-        .canvas {
-            max-width: 1440px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-
-        /* Title Area */
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            color: #0f172a;
-            font-weight: 700;
-        }
-        .header p {
-            margin: 10px 0 0 0;
-            font-size: 16px;
-            color: #64748b;
-            font-style: italic;
-        }
-
-        /* Main Flowchart Container */
-        .flow-container {
-            display: flex;
-            gap: 20px;
-            align-items: stretch;
-            margin-bottom: 30px;
-        }
-
-        /* Sections */
-        .section {
-            background: #ffffff;
-            border: 2px dashed #e2e8f0;
-            border-radius: 10px;
-            padding: 25px 15px 15px 15px;
-            position: relative;
-        }
-        
-        .section-title {
-            position: absolute;
-            top: -15px;
-            left: 20px;
-            background: #1e40af;
-            color: white;
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        /* Column Widths */
-        .col-source { width: 14%; border: none; padding-top: 35px; }
-        .col-scoring { width: 42%; border-color: #bfdbfe; }
-        .col-selection { width: 22%; border-color: #bfdbfe; }
-        .col-validation { width: 22%; border-color: #bfdbfe; }
-
-        /* Block Boxes */
-        .box {
-            border: 1px solid #94a3b8;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            background: #ffffff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            font-size: 13px;
-            position: relative;
-        }
-        .box h3 {
-            margin: 0 0 10px 0;
-            font-size: 14px;
-            color: #1e40af;
-            line-height: 1.3;
-        }
-        .box-title-num {
-            color: #1e40af;
-            font-weight: 800;
-            margin-right: 5px;
-        }
-
-        /* Code/File Tags */
-        .code-tag {
-            display: block;
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            padding: 4px 8px;
-            font-family: monospace;
-            font-size: 10.5px;
-            color: #64748b;
-            border-radius: 4px;
-            margin-top: 8px;
-            word-break: break-all;
-        }
-
-        /* Lists & Formulas */
-        ul {
-            margin: 0;
-            padding-left: 20px;
-            color: #475569;
-            line-height: 1.5;
-        }
-        .formula {
-            background: #f8fafc;
-            border-left: 3px solid #3b82f6;
-            padding: 8px 12px;
-            margin: 8px 0;
-            font-family: 'Cambria', serif;
-            font-size: 13px;
-        }
-
-        /* Callouts / Warnings */
-        .callout {
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .callout.no-gt { background: #f1f5f9; border: 1px dashed #94a3b8; }
-        .callout.warning-yellow { background: #fef9c3; border: 1px solid #fde047; color: #854d0e; }
-        .callout.warning-red { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
-
-        /* Cross-dependency link (2A -> 3B) */
-        .dependency-link {
-            background: #f0fdfa;
-            border: 1px dashed #14b8a6;
-            color: #0f766e;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 11.5px;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        /* Arrows */
-        .arrow-right {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        .arrow-down {
-            text-align: center;
-            color: #94a3b8;
-            font-weight: bold;
-            font-size: 18px;
-            margin: 5px 0;
-        }
-        .arrow-merge {
-            text-align: center;
-            color: #3b82f6;
-            font-weight: 700;
-            font-size: 13px;
-            margin: 10px 0;
-            background: #eff6ff;
-            padding: 6px;
-            border-radius: 6px;
-            border: 1px dashed #bfdbfe;
-        }
-
-        /* Grid for parallel branches */
-        .parallel-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .branch-header {
-            font-size: 12px;
-            font-weight: 700;
-            color: #64748b;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 11px;
-            margin-bottom: 10px;
-        }
-        th, td {
-            border: 1px solid #cbd5e1;
-            padding: 4px;
-            text-align: left;
-        }
-        th { background: #f8fafc; }
-
-        /* Bottom Diagnosis Section */
-        .diagnosis-section {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 20px;
-            position: relative;
-            margin-top: 30px;
-        }
-        .diagnosis-section .section-title {
-            background: #0f172a;
-        }
-        .diag-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .diag-box {
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            padding: 12px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            text-align: center;
-            color: #334155;
-            font-weight: 600;
-        }
-
-        /* Conclusion Bar */
-        .conclusion-bar {
-            margin-top: 20px;
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            padding: 15px 20px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .conclusion-bar h3 {
-            margin: 0 0 5px 0;
-            color: #1e40af;
-            font-size: 16px;
-        }
-        .conclusion-bar p {
-            margin: 0;
-            font-size: 13px;
-            color: #1e293b;
-            line-height: 1.5;
-        }
-        .conclusion-note {
-            color: #b91c1c;
-            font-weight: 600;
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V10b GT-free Detector-aware Active Learning Workflow</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+:root{
+  --navy:#0f172a; --blue:#1d4ed8; --teal:#0f766e; --purple:#6d28d9;
+  --amber:#b45309; --green:#166534; --red:#991b1b; --slate:#475569;
+  --line:#cbd5e1; --muted:#f1f5f9; --bg:#f8fafc; --white:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Inter,"Noto Sans KR",sans-serif;color:var(--navy)}
+.canvas{max-width:1680px;margin:0 auto;padding:28px;background:#fff;min-height:100vh}
+.header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;border-bottom:4px solid var(--navy);padding-bottom:16px;margin-bottom:18px}
+.header h1{margin:0;font-size:30px;letter-spacing:-.7px}
+.header p{margin:8px 0 0;color:var(--slate);font-size:15px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.badge{border:1px solid;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800;white-space:nowrap}
+.badge.blue{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.badge.green{background:#f0fdf4;color:#166534;border-color:#bbf7d0}
+.badge.red{background:#fef2f2;color:#991b1b;border-color:#fecaca}
+.badge.amber{background:#fffbeb;color:#92400e;border-color:#fde68a}
+.grid{display:grid;grid-template-columns:1.05fr 1.2fr 1.35fr 1.2fr 1.15fr;gap:14px;align-items:stretch}
+.stage{border:1.5px solid var(--line);border-radius:16px;background:#fff;padding:16px;position:relative}
+.stage h2{margin:0 0 13px;display:inline-block;color:#fff;font-size:13px;padding:6px 12px;border-radius:999px}
+.source h2{background:var(--navy)} .round0 h2{background:var(--teal)} .score h2{background:var(--purple)} .train h2{background:var(--amber)} .eval h2{background:#0369a1}
+.box{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;background:#fff}
+.box:last-child{margin-bottom:0}
+.box h3{margin:0 0 8px;font-size:13px;color:#0f172a}
+.box p,.box li{font-size:11.6px;line-height:1.48;color:#334155}
+.box ul{margin:0;padding-left:17px}
+.active{border:2px solid #14b8a6;background:#f0fdfa}
+.baseline{border:2px solid #f59e0b;background:#fffbeb}
+.locked{border:2px solid #ef4444;background:#fef2f2}
+.formula{font-family:Cambria,serif;background:#f8fafc;border-left:4px solid #3b82f6;padding:8px 10px;margin:8px 0;font-size:12.5px;color:#1e293b}
+.metric{display:grid;grid-template-columns:1fr auto;gap:4px 8px;font-size:11.3px;margin-top:8px}
+.metric b{text-align:right}
+.status{display:inline-block;font-size:10px;font-weight:800;border-radius:999px;padding:4px 7px;margin-bottom:7px}
+.status.main{background:#ccfbf1;color:#115e59}.status.base{background:#fef3c7;color:#92400e}.status.stop{background:#fee2e2;color:#991b1b}.status.audit{background:#dbeafe;color:#1e40af}
+.arrow{font-weight:800;color:#94a3b8;text-align:center;margin:6px 0}
+.loop{margin-top:16px;border:2px solid #dbeafe;border-radius:16px;background:#f8fbff;padding:16px}
+.loop h2{margin:0 0 12px;font-size:16px;color:#1e3a8a}
+.loop-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:11px}
+.card h3{font-size:12px;margin:0 0 7px}.card p{font-size:11px;line-height:1.38;color:#334155;margin:0}
+.bottom{display:grid;grid-template-columns:1.25fr 1.15fr 1.1fr;gap:14px;margin-top:16px}
+.panel{border-radius:16px;padding:16px}
+.panel h2{font-size:15px;margin:0 0 10px}
+.evidence{background:#f8fafc;border:2px solid #cbd5e1}.result{background:#eff6ff;border:2px solid #bfdbfe}.next{background:#f0fdf4;border:2px solid #bbf7d0}
+table{width:100%;border-collapse:collapse;font-size:11px}
+th,td{border:1px solid #cbd5e1;padding:5px;text-align:left}th{background:#f1f5f9}
+.good{color:#166534;font-weight:800}.bad{color:#991b1b;font-weight:800}.warn{color:#92400e;font-weight:800}
+.foot{margin-top:12px;text-align:right;font-size:10px;color:#64748b}
+</style>
 </head>
 <body>
-
 <div class="canvas">
-    
-    <div class="header">
-        <h1>VLM-based GT-free Active Learning for Industrial Defect Detection</h1>
-        <p>Parallel GT-free acquisition scoring for annotation-efficient detector training</p>
+  <div class="header">
+    <div>
+      <h1>V10b GT-free Detector-aware Active Learning Workflow</h1>
+      <p>Updated after V10 smoke → V10b selection probe → seed42 detector gate → independent audit</p>
     </div>
-
-    <div class="flow-container">
-        
-        <div class="section col-source" style="border: none;">
-            <div class="box" style="border-color: #3b82f6; border-width: 2px;">
-                <h3><span class="box-title-num">1.</span> Unlabeled industrial defect images</h3>
-                <p style="text-align: center; font-size: 24px; margin: 10px 0;">🖼️</p>
-                <p style="text-align: center; color: #64748b; font-size: 11px;">GC10-DET / NEU-DET<br>benchmark pool</p>
-            </div>
-            
-            <div class="callout no-gt">
-                🚫 <strong>Acquisition is GT-free</strong><br>
-                <span style="font-size: 11px; font-weight: normal;">No GT labels / boxes used</span>
-            </div>
-        </div>
-
-        <div class="arrow-right">▶</div>
-
-        <div class="section col-scoring">
-            <div class="section-title">A. GT-free scoring (Parallel Branches & Merge)</div>
-            
-            <div class="parallel-grid">
-                <div class="branch-header">Semantic Branch</div>
-                <div class="branch-header">Visual Grounding Branch</div>
-
-                <div class="box">
-                    <h3><span class="box-title-num">2A.</span> VLM multi-prompt description</h3>
-                    <ul>
-                        <li>Image-level defect description</li>
-                        <li>Location & scale/appearance prompt</li>
-                        <li>Multiple responses per image</li>
-                    </ul>
-                    <div class="code-tag">generate_response()</div>
-                </div>
-
-                <div class="box">
-                    <h3><span class="box-title-num">2B.</span> OWL-ViT pseudo visual evidence</h3>
-                    <ul>
-                        <li>Open-vocabulary pseudo boxes</li>
-                        <li>Spatial zone & Scale category</li>
-                    </ul>
-                    <div class="callout warning-yellow" style="margin-top:8px; padding:4px;">
-                        Weak visual evidence (Not GT)
-                    </div>
-                    <div class="code-tag">predict_pseudo_boxes()</div>
-                </div>
-
-                <div class="arrow-down">▼</div>
-                <div class="arrow-down">▼</div>
-
-                <div class="box">
-                    <h3><span class="box-title-num">3A.</span> SBERT semantic consistency</h3>
-                    <div class="formula">
-                        C(x) = mean<sub>i&lt;j</sub> cos(e<sub>i</sub>, e<sub>j</sub>)<br>
-                        U<sub>C</sub>(x) = 1 - C(x)
-                    </div>
-                    <div class="code-tag">compute_sbert_consistency()</div>
-                </div>
-
-                <div class="box" style="border-color: #14b8a6; border-width: 2px;">
-                    <h3><span class="box-title-num">3B.</span> Pseudo groundedness</h3>
-                    <div class="dependency-link">
-                        ⤡ Uses VLM terms from [2A] + boxes from [2B]
-                    </div>
-                    <p style="margin:0 0 5px 0; font-size: 11px; color: #475569;">Compare VLM location/scale terms with pseudo box zone/scale</p>
-                    <div class="formula" style="font-size: 12px;">
-                        G(x) = mean matching score<br>
-                        U<sub>G</sub>(x) = 1 - G(x)
-                    </div>
-                    <div class="code-tag">compute_groundedness_for_item()</div>
-                </div>
-            </div>
-
-            <div class="arrow-merge">
-                ↘ Merge (Combine U<sub>C</sub> from 3A and U<sub>G</sub> from 3B) ↙
-            </div>
-
-            <div class="box" style="margin-bottom: 0;">
-                <h3><span class="box-title-num">4.</span> GT-free acquisition score</h3>
-                <div class="formula" style="font-size: 12px; margin-top: 0;"><strong>Original:</strong> S<sub>combined</sub> = U<sub>C</sub> + U<sub>G</sub> + λ · 1(no_pseudo_box)</div>
-                <div class="formula" style="font-size: 12px; margin-top: 5px;"><strong>Diagnostic fix:</strong> S<sub>suppress</sub> = U<sub>C</sub> + U<sub>G</sub> - γ · 1(no_pseudo_box)</div>
-                
-                <div class="callout warning-red" style="margin-top: 10px;">
-                    ⚠️ <strong>Direction issue:</strong> +lambda can boost no_pseudo_box under descending selection
-                </div>
-                <div class="code-tag">make_priority_scores.py</div>
-            </div>
-        </div>
-
-        <div class="arrow-right">▶</div>
-
-        <div class="section col-selection">
-            <div class="section-title">B. Active learning selection</div>
-            
-            <div class="box">
-                <h3><span class="box-title-num">5.</span> Sample selection</h3>
-                <table>
-                    <thead>
-                        <tr><th>strategy</th><th>rule</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Random</td><td>random sampling</td></tr>
-                        <tr><td>ConsistencyOnly</td><td>select high U<sub>C</sub></td></tr>
-                        <tr><td>GroundednessOnlySoft</td><td>select high U<sub>G</sub></td></tr>
-                        <tr><td>CombinedSoftPenalty</td><td>select high S<sub>combined</sub></td></tr>
-                        <tr><td>LowPrioritySoft</td><td>select low S<sub>combined</sub></td></tr>
-                        <tr style="background-color:#eff6ff;"><td>CombinedSuppressNoPseudo</td><td>select high S<sub>suppress</sub></td></tr>
-                    </tbody>
-                </table>
-                <div class="code-tag">select_samples()</div>
-            </div>
-
-            <div class="arrow-down">▼</div>
-            
-            <div style="text-align: center; color: #3b82f6; font-size: 11px; font-weight: bold; margin-bottom: 5px;">
-                Annotation Simulation / Human Labeling
-            </div>
-
-            <div class="box" style="border-width: 2px; border-color: #3b82f6; margin-bottom: 0;">
-                <h3 style="text-align: center;"><span class="box-title-num">6.</span> Selected samples are labeled</h3>
-                <p style="text-align: center; font-size: 24px; margin: 5px 0;">✍️</p>
-                <p style="text-align: center; font-size: 12px; font-weight: bold; color: #1e40af; margin-bottom: 5px;">GT is NOT used before selection</p>
-                <p style="text-align: center; font-size: 11px; color: #64748b; line-height: 1.3;">Benchmark GT XML simulates human annotation after selection</p>
-            </div>
-        </div>
-
-        <div class="arrow-right">▶</div>
-
-        <div class="section col-validation">
-            <div class="section-title">C. Detector-level validation</div>
-            
-            <div class="box">
-                <h3 style="text-align: center;"><span class="box-title-num">7.</span> YOLOv8 detector validation</h3>
-                <p style="text-align: center; font-size: 24px; margin: 10px 0;">⚙️</p>
-                <ul>
-                    <li>Build train/val dataset</li>
-                    <li>Train YOLO on selected labeled subset</li>
-                    <li>Evaluate on fixed validation split</li>
-                </ul>
-                <div class="code-tag">train_and_eval_yolo()</div>
-            </div>
-
-            <div class="arrow-down">▼</div>
-
-            <div class="box" style="margin-bottom: 0;">
-                <h3><span class="box-title-num">8.</span> Evaluation metrics</h3>
-                <ul>
-                    <li>mAP@50 & mAP@50-95</li>
-                    <li>AULC over labeled budget</li>
-                </ul>
-                <div class="formula" style="font-size: 12px;">
-                    AULC = ∑ 0.5 · (m<sub>t</sub> + m<sub>t+1</sub>) · (b<sub>t+1</sub> - b<sub>t</sub>)
-                </div>
-                <div class="code-tag">compute_aulc()</div>
-            </div>
-        </div>
-
-    </div> <div class="diagnosis-section">
-        <div class="section-title">D. Post-hoc diagnosis</div>
-        <h3 style="margin: 0; font-size: 15px; color: #0f172a;"><span class="box-title-num">9.</span> Direction and failure analysis</h3>
-        <p style="margin: 5px 0 0 0; font-size: 12px; color: #64748b;">(Feedback loop to acquisition scoring module)</p>
-        
-        <div class="diag-grid">
-            <div class="diag-box">
-                📊 Class & Reason Dist.<br>
-                <div class="code-tag">analyze_selection_direction_issue.py</div>
-                <div class="code-tag">analyze_selection_enrichment.py</div>
-            </div>
-            <div class="diag-box">
-                🔍 Overlap & Quantiles<br>
-                <div class="code-tag">analyze_selection_direction_issue.py</div>
-            </div>
-            <div class="diag-box">
-                🏷️ no_pseudo_box GT Audit<br>
-                <div class="code-tag">audit_no_pseudo_box_gt_presence.py</div>
-            </div>
-            <div class="diag-box">
-                📈 Round Pool State<br>
-                <div class="code-tag">analyze_round_pool_state.py</div>
-            </div>
-        </div>
+    <div class="badges">
+      <span class="badge blue">NEU-DET 1,800</span>
+      <span class="badge green">Pool 900 / Dev 300</span>
+      <span class="badge amber">Seed42 development gate</span>
+      <span class="badge red">Final test locked</span>
     </div>
+  </div>
 
-    <div class="conclusion-bar">
-        <div style="font-size: 32px;">🚀</div>
-        <div>
-            <h3>Current conclusion: Promising but not closed</h3>
-            <p>Score direction and pseudo groundedness calibration remain open issues (e.g., LowPrioritySoft performance anomaly).<br>
-            <span class="conclusion-note">* Note: <code>no_pseudo_box</code> can indicate OVD failure candidates with GT defects, not necessarily background.</span></p>
+  <div class="grid">
+    <section class="stage source">
+      <h2>1. Protocol split</h2>
+      <div class="box">
+        <h3>NEU large-pool protocol</h3>
+        <ul>
+          <li>Manifest: <b>1,800 images</b></li>
+          <li>Acquisition pool: <b>900</b> (150/class)</li>
+          <li>Development eval: <b>300</b> (50/class)</li>
+          <li>Final test: <b>300</b>, locked / unused</li>
+          <li>Unused reserve: <b>300</b></li>
+        </ul>
+      </div>
+      <div class="box locked">
+        <span class="status stop">NON-NEGOTIABLE</span>
+        <h3>GT-free acquisition boundary</h3>
+        <ul>
+          <li>No XML class during acquisition</li>
+          <li>No GT bbox count during acquisition</li>
+          <li>No final-test read/evaluation</li>
+          <li>XML is post-hoc analysis only</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stage round0">
+      <h2>2. Shared Round0</h2>
+      <div class="box">
+        <h3>Initial labeled set</h3>
+        <p>Sample <b>60</b> images from the acquisition pool with acquisition seed.</p>
+        <div class="metric">
+          <span>Seed42 training seed</span><b>1042</b>
+          <span>Detector</span><b>YOLOv8n</b>
+          <span>Epochs</span><b>100</b>
+          <span>Image size</span><b>640</b>
         </div>
-    </div>
+      </div>
+      <div class="box active">
+        <span class="status main">DETECTOR-AWARE PIVOT</span>
+        <h3>Round0 best.pt</h3>
+        <p>The current detector is used to score the remaining unlabeled pool. This replaces the older VLM-only / DINO-only workflow.</p>
+      </div>
+    </section>
 
+    <section class="stage score">
+      <h2>3. Pool scoring & selection</h2>
+      <div class="box">
+        <h3>Frozen V10b score</h3>
+        <div class="formula">S(x)=0.25U(x)+0.35D(x)+0.15B(x)+0.25I(x)</div>
+        <ul>
+          <li><b>U</b>: detector uncertainty</li>
+          <li><b>D</b>: DINO visual distance/diversity</li>
+          <li><b>B</b>: predicted class deficit</li>
+          <li><b>I</b>: pseudo instance count score</li>
+        </ul>
+      </div>
+      <div class="box baseline">
+        <span class="status base">BASELINE</span>
+        <h3>Random query</h3>
+        <p>Random remains the primary baseline because it is empirically strong in this dataset and budget regime.</p>
+      </div>
+      <div class="box">
+        <h3>V10b constraints</h3>
+        <ul>
+          <li>candidate fraction = 1.00</li>
+          <li>predict conf = 0.05, IoU = 0.70</li>
+          <li>max no-box = 0</li>
+          <li>min pseudo boxes = 2</li>
+          <li>max per predicted class = 2</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stage train">
+      <h2>4. Budget 90 training</h2>
+      <div class="box">
+        <h3>Two one-cycle branches</h3>
+        <ul>
+          <li>Round0 60 + Random query 30</li>
+          <li>Round0 60 + V10b query 30</li>
+        </ul>
+        <div class="arrow">↓</div>
+        <p>Each branch trains a YOLOv8n detector and evaluates only on development eval.</p>
+      </div>
+      <div class="box">
+        <h3>V9b status</h3>
+        <p>V9b is no longer in the multiseed validation loop. It remains historical evidence because V10b beat V9b across all NEU6 AP50-95 classes in seed42 audit.</p>
+      </div>
+    </section>
+
+    <section class="stage eval">
+      <h2>5. Development evaluation</h2>
+      <div class="box">
+        <h3>Seed42 aggregate results</h3>
+        <div class="metric">
+          <span>Random mAP50-95</span><b>0.329700</b>
+          <span>V9b mAP50-95</span><b>0.317276</b>
+          <span>V10b mAP50-95</span><b class="good">0.340866</b>
+          <span>V10b - Random</span><b class="good">+0.011166</b>
+          <span>V10b recall - Random</span><b class="good">+0.010999</b>
+        </div>
+      </div>
+      <div class="box">
+        <h3>Per-class audit</h3>
+        <p><b>V10b > Random</b>: crazing, patches, pitted_surface, scratches</p>
+        <p><b>V10b < Random</b>: inclusion, rolled-in_scale</p>
+        <p><b>V10b > V9b</b>: all six NEU classes on AP50-95</p>
+      </div>
+      <div class="box locked">
+        <span class="status stop">INTERPRETATION LIMIT</span>
+        <p>Seed42 is a method-development seed. This is a development gate pass, not final evidence.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="loop">
+    <h2>Frozen multiseed validation loop now in scope</h2>
+    <div class="loop-grid">
+      <div class="card"><h3>Seed 43</h3><p>Split → Round0 → Random/V10b → dev eval</p></div>
+      <div class="card"><h3>Seed 44</h3><p>Same frozen V10b weights; no retuning</p></div>
+      <div class="card"><h3>Seed 45</h3><p>Same protocol; final test remains locked</p></div>
+      <div class="card"><h3>Seed 46</h3><p>Paired Random vs V10b comparison</p></div>
+      <div class="card"><h3>After pass</h3><p>Only then move to full learning curve</p></div>
+      <div class="card"><h3>After method lock</h3><p>Final test can be used once</p></div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <section class="panel evidence">
+      <h2>Evidence level</h2>
+      <table>
+        <tr><th>Level</th><th>Current statement</th></tr>
+        <tr><td>Verified fact</td><td>V10b seed42 mAP50-95=0.340866; Random=0.329700; final test unused.</td></tr>
+        <tr><td>Supported interpretation</td><td>V10b reduced V9b's instance-rich bias and improved recall.</td></tr>
+        <tr><td>Unverified</td><td>V10b is generally superior to Random across seeds/final test.</td></tr>
+      </table>
+    </section>
+
+    <section class="panel result">
+      <h2>Why V10b replaced V9b</h2>
+      <table>
+        <tr><th>Metric</th><th>V9b</th><th>V10b</th></tr>
+        <tr><td>mAP50-95</td><td>0.317276</td><td class="good">0.340866</td></tr>
+        <tr><td>Recall</td><td>0.579154</td><td class="good">0.621586</td></tr>
+        <tr><td>Total bbox</td><td>224</td><td>206</td></tr>
+        <tr><td>Gain / bbox</td><td>0.000132</td><td class="good">0.000519</td></tr>
+      </table>
+    </section>
+
+    <section class="panel next">
+      <h2>Current defensible conclusion</h2>
+      <p>
+        V10b passed the seed42 development gate and is now the frozen candidate method.
+        The next claim must come from seed43-46 paired validation, not from additional
+        weight tuning or final-test access.
+      </p>
+    </section>
+  </div>
+
+  <div class="foot">Updated 2026-07-12 · V10b seed42 documentation + independent audit · Final test locked / unused</div>
 </div>
-
 </body>
 </html>

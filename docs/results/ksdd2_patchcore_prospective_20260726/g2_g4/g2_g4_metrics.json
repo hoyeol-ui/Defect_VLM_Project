@@ -1,0 +1,32 @@
+{
+  "js_divergence_vs_pool_delta_mean": -0.014564702780658429,
+  "leave_one_seed_out_delta_means": [
+    89.44444444444444,
+    88.66666666666667,
+    88.66666666666667,
+    88.66666666666667,
+    88.22222222222223,
+    89.0,
+    88.77777777777777,
+    89.33333333333333,
+    88.55555555555556,
+    88.66666666666667
+  ],
+  "leave_one_seed_out_min_delta": 88.22222222222223,
+  "positive_excess_by_size_bin": {
+    "large": 516,
+    "medium": 463,
+    "small": 66
+  },
+  "positive_excess_max_size_bin_share": 0.4937799043062201,
+  "positive_image_delta_ci95": [
+    86.9,
+    90.6
+  ],
+  "positive_image_delta_mean": 88.8,
+  "positive_image_enrichment_mean": 10.545541061821096,
+  "positive_seed_fraction": 1.0,
+  "seed_count": 10,
+  "size_bin_coverage_delta_mean": 0.2,
+  "small_defect_image_delta_mean": 5.7
+}

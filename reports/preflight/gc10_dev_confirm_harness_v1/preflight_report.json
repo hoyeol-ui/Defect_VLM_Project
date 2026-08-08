@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "run_id": "gc10_dev_confirm_harness_v1",
+  "harness_version": "1.1",
+  "preflight_module_sha256": "72e4969c7967d9d115a863d2aa0d8d334214562f21989186c2e6ca95742b8c95",
+  "config_path": "configs/frozen/gc10_dev_confirm_harness_v1.yaml",
+  "config_sha256": "7e5d2f320d6176f65c3833fcf1508accb97ae3d4854b0f0181e9389a98452449",
+  "git_commit": "dc2357257eaee280bf1da9491bbe8e1a4c0c462d",
+  "git_branch": "codex/test-harness-v1",
+  "git_dirty": true,
+  "python_version": "3.11.9",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "manifests": {
+    "train": {
+      "path": "manifests/harness/gc10_dev_confirm_harness_v1/train.csv",
+      "manifest_sha256": "928b2507a22862073c99ca8e58d6d92cc17e1c86f974222bd20de8844ef513dc",
+      "verified_actual_sha256": "928b2507a22862073c99ca8e58d6d92cc17e1c86f974222bd20de8844ef513dc",
+      "row_count": 969,
+      "unique_canonical_ids": 969,
+      "unique_image_sha256s": 969,
+      "duplicate_canonical_ids": 0
+    },
+    "validation": {
+      "path": "manifests/harness/gc10_dev_confirm_harness_v1/validation.csv",
+      "manifest_sha256": "73fae346943a30ba96f7f5c8886bb16e95cea07cc61302a44d9978c95c5c5778",
+      "verified_actual_sha256": "73fae346943a30ba96f7f5c8886bb16e95cea07cc61302a44d9978c95c5c5778",
+      "row_count": 232,
+      "unique_canonical_ids": 232,
+      "unique_image_sha256s": 232,
+      "duplicate_canonical_ids": 0
+    },
+    "test": {
+      "path": "manifests/harness/gc10_dev_confirm_harness_v1/test.csv",
+      "manifest_sha256": "7d54e082def62b0a4c68d555b058bbc8f0e3faa99b17d35841c4af03c1adcfdd",
+      "verified_actual_sha256": "7d54e082def62b0a4c68d555b058bbc8f0e3faa99b17d35841c4af03c1adcfdd",
+      "row_count": 867,
+      "unique_canonical_ids": 867,
+      "unique_image_sha256s": 867,
+      "duplicate_canonical_ids": 0
+    }
+  },
+  "split_overlaps": [
+    {
+      "left_split": "train",
+      "right_split": "validation",
+      "identity_type": "canonical ID",
+      "overlap_count": 0,
+      "example": null
+    },
+    {
+      "left_split": "train",
+      "right_split": "validation",
+      "identity_type": "image SHA-256",
+      "overlap_count": 0,
+      "example": null
+    },
+    {
+      "left_split": "train",
+      "right_split": "test",
+      "identity_type": "canonical ID",
+      "overlap_count": 0,
+      "example": null
+    },
+    {
+      "left_split": "train",
+      "right_split": "test",
+      "identity_type": "image SHA-256",
+      "overlap_count": 0,
+      "example": null
+    },
+    {
+      "left_split": "validation",
+      "right_split": "test",
+      "identity_type": "canonical ID",
+      "overlap_count": 0,
+      "example": null
+    },
+    {
+      "left_split": "validation",
+      "right_split": "test",
+      "identity_type": "image SHA-256",
+      "overlap_count": 0,
+      "example": null
+    }
+  ],
+  "data_preflight_passed": true,
+  "selection_authorized": false,
+  "training_authorized": false,
+  "note": "PASS verifies only the frozen data boundary. A separate protocol must explicitly authorize selection or training.",
+  "preflight_cli_sha256": "51ef996c61ab757617f64f80db39b182093d2075e14d433b367630e5f6659f10"
+}

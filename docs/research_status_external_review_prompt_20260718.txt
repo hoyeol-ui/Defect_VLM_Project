@@ -1,0 +1,274 @@
+당신은 산업 AI, 객체검출, Active Learning(AL), Vision-Language Model(VLM) 연구를 냉정하게 검토하는 독립 선임 연구자다.
+
+아래는 하나의 산업 결함 객체검출 연구에서 얻은 실제 결과다. 긍정적인 결론을 억지로 만들지 말고, 연구 질문·실험설계·통계·실용가치·논문화 가능성을 비판적으로 검토해 달라. 특히 이미 실패한 방법을 이름만 바꿔 다시 제안하지 말고, 어떤 가설이 폐기되었고 어떤 제한적 신호가 남았는지 구분해 달라.
+
+======================================================================
+1. 연구 환경과 절대 제약
+======================================================================
+
+- 프로젝트: C:\Users\user\Desktop\vlm\Defect_VLM_Project
+- 연구 대상: 산업 표면 결함 객체검출과 annotation-efficient learning
+- 주요 데이터: NEU-DET, GC10-DET, MPDD, VisA
+- locked final test는 현재까지 한 번도 사용하지 않았다.
+- XML/GT는 selector 점수 생성에 사용하지 않고, 선택 ID가 고정된 뒤 post-hoc audit 또는 이미 annotation된 학습 데이터 구성에만 사용한다.
+- 새로운 학습 전에 protocol, gate, stopping rule을 먼저 고정한다.
+- Random baseline을 약한 baseline으로 취급하지 않는다.
+- 실패한 gate를 결과 확인 후 낮추어 PASS로 바꾸지 않는다.
+
+======================================================================
+2. 최초 연구 아이디어
+======================================================================
+
+초기 연구는 GT-free에만 한정되지 않았다. 핵심 아이디어는 다음과 같았다.
+
+1) VLM self-consistency / explanation consistency / groundedness를 이미지의 annotation utility와 연결
+2) detector uncertainty와 visual diversity를 결합
+3) 수치적 uncertainty와 사람이 이해할 수 있는 언어 설명의 역할을 분리
+4) 산업 조건별로 적절한 AL 전략을 선택
+5) domain shift와 detector/backbone capacity의 영향을 분석
+6) detector learning utility와 grounded explanation interface를 함께 제공
+
+초기에는 VLM consistency, DINO diversity, detector-aware uncertainty를 결합한 GT-free AL selector가 Random보다 우수할 것으로 예상했다.
+
+======================================================================
+3. NEU large-pool 및 Random baseline 결과
+======================================================================
+
+- V10b seed43~46: selector - Random 평균 mAP50-95 = +0.000949. Recall penalty가 존재했다.
+- V10c24 seed47~50: 평균 mAP50-95 = +0.001542, recall = +0.011695. 제한적 후보였지만 확정되지 않았다.
+- V10c24 seed51 round2 budget120: mAP50-95 = -0.004863, gate 0/1. 확장에 실패했다.
+- PDF V10c 21/9 및 V10d selector branch는 중단했다.
+- Random baseline audit에서 Random은 class coverage, instance diversity, bbox richness 측면에서 약한 baseline이 아니었다.
+- 결론: balanced large-pool 조건에서는 Random이 강하며, 새 selector가 안정적으로 우월하지 않았다.
+
+주요 문서:
+- docs\reframed_gt_free_al_workflow_20260713.md
+- docs\research_context_handoff_20260712.md
+- runs\random_baseline_audit_v10c24\random_baseline_audit_20260713_225216\random_baseline_audit_summary.md
+
+======================================================================
+4. NEU seed45 cold-start 단서와 독립 확인
+======================================================================
+
+원래 V8 seed45 round1에서 initial15 + query5 조건으로 다음 결과가 관찰됐다.
+
+- Random20 mAP50-95 = 0.177844
+- GTFreeDatasetBalancedVisualDiversity = 0.202852, Random 대비 +0.025008
+- DetectorInstanceRichDINOBalanced = 0.200670, Random 대비 +0.022826
+- 그러나 round2~4에서 Random이 따라잡거나 역전했다.
+
+동일한 고정 선택 집합을 training seed 5개로 재학습한 결과:
+
+- Random20 평균 mAP50-95 = 0.187550
+- Visual20 = 0.203786
+- Visual20 - Random20 = +0.016236, 5/5 승리, CI 약 [0.006738, 0.027864]
+- Visual20 recall 차이 = +0.057570
+- InstanceRich20 - Random20 = +0.007039, CI가 0 부근을 포함
+
+하지만 새로운 acquisition seed 52~61의 독립 confirmation에서:
+
+- Visual 평균 = 0.171372, Random 평균 = 0.164353
+- 차이 = +0.007019
+- bootstrap descriptive CI = [-0.005211, 0.019678]
+- exact sign-flip p = 0.322266
+- 10개 seed 중 7승 3패
+- pre-registered gate FAIL
+
+해석: seed45의 고정-set 효과는 training noise만으로 설명되지는 않았지만 acquisition-set 일반화에는 실패했다. 따라서 “cold-start에서 항상 DINO visual diversity가 유효하다”는 가설은 지지되지 않는다.
+
+주요 문서:
+- runs\seed45_fixed_set_stability\seed45_fixed_set_stability_main\seed45_fixed_set_stability_summary.md
+- runs\active_learning_v8_cold_start_confirmation\v8_cold_start_visual_confirm_main\v8_cold_start_visual_confirmation_analysis.md
+
+======================================================================
+5. 다른 데이터셋 selection-only 결과
+======================================================================
+
+- GC10-DET: all-defect cold-start taxonomy / rare-class discovery 조건으로 평가했다.
+- MPDD와 VisA에서도 GT-free selection-only gate를 사용했다.
+- GC10, MPDD, VisA에서 global DINO 기반 selector가 Random보다 안정적인 class/rare discovery 이득을 만들지 못한 branch들이 있었다.
+- GC10 D2R label-aware retrieval에서는 class 8 representation을 복구하려고 nearest exemplar, target-vs-nontarget margin, target top-k similarity를 비교했지만 branch를 지지할 만큼 복구하지 못했다.
+- global DINO representation이 작은/local defect semantics보다 생산 배경·재질·표면 texture를 더 반영할 가능성이 반복적으로 관찰됐다.
+
+======================================================================
+6. VLM consistency / groundedness 검증
+======================================================================
+
+Structured VLM signal을 GC10 full image, oracle crop, paired positive/background view에서 검증했다.
+
+Oracle crop 20장에서도 frozen gate FAIL:
+- JSON parse rate = 1.0
+- informative response rate = 1.0
+- positive presence rate = 0
+- defect evidence rate = 0
+- bbox response coverage = 0
+- mean/median bbox IoU = 0
+
+Paired model comparison 3개 모두 FAIL:
+
+- Qwen2-VL-2B: sensitivity 1.0, specificity 0, balanced accuracy 0.5, median bbox IoU 0.161664
+- Qwen3-VL-2B: sensitivity 0.1, specificity 1.0, balanced accuracy 0.55, median bbox IoU 0
+- Qwen2.5-VL-3B: schema compliance 0.325, sensitivity 0.4, specificity 1.0, balanced accuracy 0.7, median bbox IoU 0
+
+모델마다 collapse 형태가 달랐고, prompt/model iteration으로 acquisition signal을 살릴 근거가 없었다. VLM은 현재 acquisition score가 아니라 검증된 수치 evidence를 설명하는 제한적 interface/paraphraser 후보로만 남아 있다.
+
+주요 문서:
+- runs\vlm_consistency_groundedness_validity\oracle_crop_diagnostic20_gc10_20260715\oracle_crop_audit\oracle_crop_diagnostic_summary.md
+- runs\vlm_consistency_groundedness_validity\paired_model_comparison_gc10_20260715\comparison\paired_model_gate_comparison_summary.md
+
+======================================================================
+7. DCAL-XAI R1: detector difficulty + diversity
+======================================================================
+
+GC10 initial20/query20, acquisition seed 0~4에서 Random, DetectorDifficulty, DetectorDifficultyDiversity를 비교했다.
+
+- Hybrid vs Random combined unique classes = +0.6
+- rare images = +2.0
+- unique rare classes = +1.0
+- query instances = -2.2로 frozen non-inferiority gate 실패
+- detector difficulty = +0.328
+- Hybrid vs pure difficulty pairwise similarity = -0.0244
+- 100 query slot 중 99개가 unique였으나, hybrid와 pure difficulty overlap이 seed별 18~20/20이었다.
+- 약 94/100 선택은 original-vs-horizontal-flip에서 한 view만 detection되는 현상에 지배됐다.
+
+결론: horizontal-flip prediction inconsistency는 실제 utility보다 geometry/augmentation confound를 크게 반영했다. 이 uncertainty는 폐기했다.
+
+주요 문서:
+- runs\dcal_xai\gc10_r1\selection_summary.md
+
+======================================================================
+8. V2 initial budget reset: selection-only 성공과 downstream 실패
+======================================================================
+
+initial20이 GC10 10-class detector에 구조적으로 너무 작다는 가설을 점검했다. GT를 보지 않는 Random 및 DINO cluster coverage K10/K20/K40을 budget20~200에서 design 200 seeds와 independent holdout 200 seeds로 비교했다.
+
+최초 selection-only 통과 후보:
+- DINOClusterCoverageK40, initial budget140
+- design: all-class 0.960, all-rare 0.960, class별 최소 2장 0.820
+- holdout: all-class 0.955, all-rare 0.955, class별 최소 2장 0.820
+- holdout instances 218.105, Random 대비 -0.52
+- holdout production groups 107.3, Random 대비 +2.87
+- holdout pairwise similarity 0.55962, Random 대비 -0.01061
+
+새 acquisition seed 20000~20004에서도:
+- K40 all-class = 5/5, Random = 4/5
+- K40 class별 최소 2장 = 5/5, Random = 4/5
+- K40 평균 instances 221.6, Random 215.2
+- K40 pairwise similarity 0.5527, Random 0.5822
+- Random seed20004는 class 8을 한 장도 포함하지 못했다.
+
+그러나 Random140 vs K40/140을 YOLOv8n, acquisition seed 5개, training seed 3개, 총 30모델로 비교한 downstream screen은 FAIL:
+
+- Random140 평균 mAP50-95 = 0.198880
+- K40/140 = 0.197202
+- K40 - Random mAP50-95 = -0.001678
+- bootstrap CI = [-0.017424, 0.018332]
+- mAP50 차이 = -0.025588
+- precision 차이 = -0.045964
+- recall 차이 = -0.021871
+- rare macro AP 차이 = -0.018290
+- worst class AP 차이 = -0.044765
+- K40 training-seed mAP std = 0.012426
+- mAP 기준 K40 2/5 seed 승리, recall 1/5 승리
+- class 8 AP 차이 +0.008142이나 K40 absolute AP는 0.010787
+- class 9 AP 차이 -0.044765
+- class 10 AP 차이 -0.018245
+
+해석: K40은 taxonomy zero-coverage risk를 낮췄지만 detector learning utility, rare AP, recall로 번역되지 않았다. “coverage-utility gap”이 관찰됐다. K40 detector-training branch와 YOLOv8s 30-model 확장은 중단했다.
+
+주요 문서:
+- runs\dcal_xai\v2_budget_extended\budget_decision.md
+- runs\dcal_xai\v2_backbone_main\v8n_screen_decision.md
+
+======================================================================
+9. V2.3 detector-native uncertainty validity audit: 최신 결과
+======================================================================
+
+새 학습 없이 기존 Random140 x YOLOv8n checkpoint 15개를 사용했다. Development 232장 prediction을 GT 없이 먼저 JSONL로 봉인한 후 GT를 post-hoc 결합했다.
+
+Primary signal은 결과 확인 전에 다음 5개 rank의 평균으로 고정했다.
+- mean confidence deficit
+- no-detection fraction
+- 3-training-seed predicted-count disagreement
+- max-confidence disagreement
+- class-presence entropy
+
+Frozen primary gate는 top20% total error(FP+FN) enrichment >=1.50, CI lower>1, AUROC>=0.65, Spearman>=0.20, seed consistency, rank stability>=0.50였다.
+
+결과: Gate FAIL. 단, 7개 check 중 6개 통과했고 실패한 항목은 total-error enrichment mean 하나였다.
+
+Primary ensemble combined uncertainty:
+- total-error enrichment mean = 1.115901
+- 95% bootstrap CI = [1.034640, 1.221093]
+- FN enrichment = 1.379693
+- rare-FN enrichment = 1.785910
+- majority-error AUROC = 0.766432
+- AUROC >0.5 = 5/5 acquisition seeds
+- Spearman(total error) = 0.293777
+- positive Spearman = 5/5
+- training-seed confidence rank stability = 0.652379
+
+Secondary diagnostics:
+- confidence uncertainty: total-error enrichment 0.914333, FN enrichment 1.375099, rare-FN enrichment 2.683022, AUROC 0.747053, Spearman 0.176823
+- disagreement uncertainty: total-error enrichment 1.245894, FN enrichment 1.364937, rare-FN enrichment 1.595614, AUROC 0.695547, Spearman 0.328985
+
+해석 제한:
+- frozen gate는 FAIL이며 사후에 기준이나 primary signal을 바꿔 PASS로 처리하지 않는다.
+- 그러나 detector uncertainty가 완전히 무작위는 아니다. 특히 FN/rare miss enrichment 신호가 존재한다.
+- total FP+FN utility를 primary로 한 일반 AL signal에는 효과크기가 부족했다.
+- confidence-only rare-FN 2.68배는 post-hoc hypothesis-generation 결과이지 확정 증거가 아니다.
+- development의 rare GT는 18 images / 22 boxes뿐이므로 rare-FN enrichment의 표본 불확실성이 크다. combined top-20%(47장)에 포함된 rare GT box 수는 acquisition realization별 4, 4, 11, 10, 10개였다.
+
+주요 문서와 코드:
+- scripts\04_dcal_xai\v2_detector_signal_validity_protocol.md
+- scripts\04_dcal_xai\run_v2_detector_signal_validity.py
+- runs\dcal_xai\v2_detector_signal_validity\detector_signal_validity_decision.md
+- runs\dcal_xai\v2_detector_signal_validity\signal_validity_summary.csv
+
+======================================================================
+10. 현재 가능한 정직한 연구 기여
+======================================================================
+
+현재 가장 방어 가능한 중심 기여 후보는 다음이다.
+
+“산업 결함 Active Learning에서 GT-free/VLM/DINO/detector 신호가 실제 detector utility로 번역되는지 학습 전에 단계적으로 검증하고, Random이 강한 조건, representation coverage와 learning utility가 분리되는 조건, VLM/detector 신호가 붕괴하거나 제한적으로만 유효한 조건을 판별하는 validity-gated workflow.”
+
+확인된 경계 결과:
+- Random은 balanced large-pool에서 강하다.
+- 한 acquisition seed의 positive result는 training-seed stability만으로 일반화되지 않는다.
+- global DINO coverage는 class 누락 위험을 낮출 수 있지만 rare AP/recall을 보장하지 않는다.
+- VLM structured consistency/grounding은 모델별 다른 compliance collapse를 보였다.
+- horizontal-flip detector inconsistency는 geometry confound에 지배됐다.
+- detector-native ensemble uncertainty는 total error enrichment gate에는 실패했지만 FN/rare miss를 농축하는 제한적 신호를 보였다.
+- 단계별 gate 덕분에 VLM 뒤의 YOLO 학습, K40 뒤의 YOLOv8s 30개 학습, final-test 소비를 방지했다.
+
+======================================================================
+11. 독립 검토자가 답해줄 질문
+======================================================================
+
+다음 질문에 우선순위를 붙여 답해 달라.
+
+1) 이 결과 집합에서 논문/학위 연구로 방어 가능한 중심 연구 질문은 무엇인가?
+2) validity-gated workflow가 단순한 “실패 기록”을 넘어 산업 AI에서 어떤 비용·안전·운영 가치를 가지는가?
+3) selection coverage와 detector utility의 분리를 어떤 이론적 또는 실험적 프레임으로 설명하는 것이 적절한가?
+4) V2.3의 total-error gate FAIL과 FN/rare-FN enrichment를 어떻게 해석해야 하는가? 별도의 recall-repair/rare-miss triage 가설을 독립 protocol로 검증할 가치가 있는가, 아니면 사후 가설 확장에 불과한가?
+5) 추가 실험을 딱 하나만 허용한다면 무엇을 해야 하는가? 예상 비용, 필요한 baseline, inferential unit, stopping rule을 구체적으로 제시해 달라.
+6) 추가 AL selector 실험을 중단해야 한다면, 별도의 supervised detector/backbone capacity 연구를 어떻게 분리해야 연구 서사가 오염되지 않는가?
+7) 현재 통계 설계의 약점은 무엇인가? 특히 acquisition seed 수, bootstrap CI, point-estimate non-inferiority gate, development split 재사용 문제를 비판해 달라.
+8) 논문화 시 반드시 포함해야 할 표·그림·ablation과 제외해야 할 과장된 주장은 무엇인가?
+9) 다음 중 어떤 방향을 추천하는가? 근거와 함께 하나를 우선 선택해 달라.
+   A. 일반-purpose AL selector 연구 종료 및 validity-gated workflow 논문화
+   B. FN/rare-miss에 한정한 detector recall-repair triage를 독립 가설로 1회 검증
+   C. AL과 분리된 supervised detector/backbone/small-defect capacity 연구
+   D. 다른 방향
+
+답변 형식:
+- 냉정한 총평
+- 살아 있는 가설 / 폐기할 가설
+- 가장 강한 연구 기여 1개
+- 다음 실험 1개 또는 중단 권고
+- 구체적 protocol과 gate
+- 예상되는 reviewer 비판과 대응
+- 논문 제목 후보 3개
+
+중요: “더 큰 VLM을 써라”, “selector를 더 복잡하게 섞어라”, “seed를 더 돌려라”처럼 구체적 실패 원인을 해결하지 않는 일반론은 피하라. 현재 결과를 사후적으로 PASS로 바꾸지 말고, 새 가설이라면 반드시 독립 검증과 stopping rule을 제시하라.

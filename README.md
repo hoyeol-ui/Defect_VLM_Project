@@ -1,418 +1,107 @@
-# Expert Prompt Consistency-driven GT-free Active Learning for Industrial Defect Detection
+# 산업 결함 Active Learning에서 선택 단계 신호와 다운스트림 학습 효용 간 연결
 
-This repository studies **GT-free active learning for industrial defect detection** driven by an **expert-designed VLM prompt family**.
-The central question is:
+> **Bounded Empirical Audit of Selection-stage Signals and Downstream Learning Utility**
+> Thesis/Notion package snapshot: **2026-08-08** · NUM-111 safe patch applied
 
-> Can inconsistency among VLM explanations generated from an expert-designed industrial-defect prompt family identify informative unlabeled images for annotation before any ground-truth labels or boxes are used?
+![연구 전체 개요: 선택 단계 근거에서 다운스트림 효용과 희소 클래스 지표 판정까지](package/assets/overview_research_architecture.png)
 
-The project does **not** use ground-truth annotations during acquisition scoring.
-Ground-truth XML annotations from benchmark datasets are used only **after sample selection** to simulate human annotation and to validate the selected samples through YOLOv8 detector training.
+이 저장소는 산업 결함 Active Learning에서 선택 단계에 나타난 신호와 이후 학습 효용을 하나의 점수로 합치지 않고, 서로 다른 평가 단위와 증거 상태로 나누어 확인한 석사학위논문 프로젝트다. 현재 브랜치의 우선 진입점은 [`package/`](package/)이며, NUM-111 안전 패치가 반영된 Notion 재업로드용 원고·그림·검증 문서·ZIP을 포함한다.
 
-Core novelty:
+## 논문 자기 규정
 
-- expert-designed prompt family for industrial defect description,
-- semantic consistency uncertainty from multi-prompt VLM responses,
-- GT-free active learning acquisition.
+> 본 논문은 평가한 산업 결함 Active Learning 분기에서 selection-stage discovery, selected-set composition, fixed-set training stability, acquisition reproducibility, downstream learner utility, rare-class safety를 분리하고, 이들 사이의 연결이 어디까지 관찰되며 어디서 제한되는지를 정리한 bounded empirical audit이다.
 
-Auxiliary extension:
+> 본 논문은 특정 selector의 일반적 우월성, 선택–학습 연결을 예측하는 검증된 framework, 산업 benchmark, 실제 비용 절감 또는 독립 production pool 일반화를 입증하는 연구가 아니다.
 
-- pseudo groundedness from OWL-ViT weak visual evidence.
+> 본 논문의 기여는 새로운 선택 방법의 제안이 아니라, 평가한 분기 안에서 선택 단계와 후속 학습의 평가 단위 및 증거 상태를 분리하고 그 연결의 관찰 범위와 제한을 실증적으로 정리하는 데 있다.
 
-Failure analysis:
+여기서 `rare-class safety`는 희소 클래스 지표를 전체 성능과 별도로 확인하는 평가 항목이다. 실제 산업 안전 위험이나 rare-class harm의 인과적 입증을 뜻하지 않는다.
 
-- `no_pseudo_box` direction/calibration issue,
-- `LowPrioritySoft` reverse-direction control,
-- `CombinedSuppressNoPseudo` calibration.
+## 연구 질문
 
-## Overview
+| ID | 질문 |
+|---|---|
+| RQ1 | 평가한 산업 결함 AL 분기에서 후보 선택 신호의 Random 대비 결과는 해당 지표가 관찰된 분기의 discovery 및 selected-set composition 지표에서 어떻게 나타나는가? |
+| RQ2 | 고정 선택 집합의 training seed 반복 결과와 selector를 다시 실행하는 acquisition seed 반복 결과는 각각 어떤 변동성을 보여 주는가? |
+| RQ3 | 선택 단계 결과와 downstream learner utility, aggregate 성능, 희소 클래스 지표 및 사전 최소효과 기준의 판정은 해당 결과가 관찰된 평가 분기에서 어떻게 함께 또는 다르게 나타나는가? |
+| RQ4 | Post-hoc 결과, fixed-pool 반복, learner outcome의 `NOT_AVAILABLE`, 결과 확인 전에 고정한 기준을 구분할 때 현재 자료가 허용하는 선택–학습 연결 해석의 범위는 어디까지인가? |
 
-![VLM-based GT-free active learning workflow](docs/assets/vlm_gt_free_al_workflow.png)
+## 평가 분기와 확정 증거 상태
 
-Figure. Overall workflow of the VLM-based GT-free active learning pipeline. Ground-truth annotations are not used during acquisition scoring; benchmark XML labels are used only after sample selection to simulate human annotation and validate YOLO detector performance. The editable HTML source for this figure is available at [`docs/vlm_gt_free_al_workflow.html`](docs/vlm_gt_free_al_workflow.html).
+분기별 task·metric·threshold·시간적 지위가 다르므로 아래 효과를 합산하거나 공통 실패율로 해석하지 않는다.
 
-## Research Motivation
-
-Industrial defect detection often requires bounding-box annotation, which is expensive and slow. Conventional active learning methods typically depend on a detector model that has already been trained with some labeled data. This project explores a different setting:
-
-- the image pool is initially treated as unlabeled,
-- VLM explanations are used as a semantic uncertainty signal,
-- OWL-ViT pseudo boxes are used as weak visual evidence,
-- acquisition scores are computed without GT labels or GT boxes,
-- selected samples are then treated as annotated and evaluated by detector training.
-
-The goal is not to prove that the current scoring rule is already optimal. The current conclusion is:
-
-> The framework is promising but not closed. Useful acquisition signals exist, but score direction and pseudo-groundedness calibration remain open issues.
-
-## End-to-End Workflow
-
-### 1. Unlabeled Industrial Defect Pool
-
-The input pool consists of industrial defect images, currently from benchmark datasets such as **GC10-DET** and **NEU-DET**. During acquisition, the code treats these images as unlabeled.
-
-Important distinction:
-
-- **Acquisition scoring:** no GT labels, no GT boxes.
-- **Post-selection simulation:** benchmark GT XML files simulate human annotation.
-- **Evaluation:** YOLOv8 is trained and evaluated using the selected labeled subset and a fixed validation split.
-
-### 2. VLM Multi-prompt Description
-
-For each image, a VLM generates multiple descriptions using an expert-inspired prompt family for industrial defect inspection. The current version is `expert_defect_v1`, with location, scale, and appearance prompts.
-
-Main code lineage:
-
-- `scripts/01_score_generation/prompt_families.py`
-- `EXPERT_DEFECT_PROMPT_FAMILY`
-- `get_prompt_family()`
-- `compute_prompt_family_hash()`
-- `scripts/old/260511_VLM_ActiveLearning_FullExperiment.py`
-- `generate_response()`
-- `run_prompt_group_experiment()`
-- `scripts/grounded_prompt_experiment.py`
-
-Although this code currently lives under `scripts/old/`, it is the source of the VLM multi-prompt consistency experiments used by the current pipeline.
-The compatibility script `scripts/grounded_prompt_experiment.py` is treated as prompt-family pilot validation; it may use benchmark GT for audit, but GT is not used in downstream active learning acquisition.
-
-### 3. Semantic Consistency
-
-The generated VLM responses are embedded using SBERT. Pairwise cosine similarities between response embeddings are averaged to estimate semantic consistency.
-
-```text
-C(x) = [2 / (K * (K - 1))] * sum_{i<j} cos(e_i, e_j)
-```
-
-```text
-U_C(x) = 1 - C(x)
-```
-
-Interpretation:
-
-- high `C(x)`: VLM descriptions are semantically stable,
-- low `C(x)`: VLM descriptions are inconsistent,
-- high `U_C(x)`: high semantic uncertainty and potentially informative acquisition candidate.
-
-Main code:
-
-- `compute_sbert_consistency()`
-- `cosine_similarity()`
-
-### 4. OWL-ViT Pseudo Visual Evidence
-
-In parallel with VLM description generation, OWL-ViT predicts open-vocabulary pseudo boxes. These boxes are not treated as ground truth. They are only weak GT-free visual evidence.
-
-Main code:
-
-- `scripts/01_score_generation/run_ovd_pseudo_boxes.py`
-- `collect_candidate_images()`
-- `load_ovd_model()`
-- `predict_pseudo_boxes()`
-
-### 5. Pseudo Groundedness
-
-Pseudo groundedness compares VLM-extracted location/scale terms with OWL-ViT pseudo-box spatial zones and scale categories.
-
-```text
-G(x) = [1 / |D|] * sum_{d in D} s_d
-```
-
-```text
-U_G(x) = 1 - G(x)
-```
-
-Here, `D` denotes comparable dimensions such as location and scale, and `s_d` denotes the matching score for each dimension.
-
-Main code:
-
-- `scripts/01_score_generation/compute_pseudo_groundedness.py`
-- `choose_best_pseudo_box()`
-- `compute_groundedness_for_item()`
-- `determine_reason()`
-
-Groundedness reason categories include:
-
-- `matched`
-- `partial_match`
-- `location_mismatch`
-- `no_pseudo_box`
-
-Important note: `no_pseudo_box` does not necessarily mean background or non-defect. Post-hoc audits show that it can indicate OWL-ViT failure candidates where GT defects exist but the pseudo detector failed to produce a box.
-
-### 6. GT-free Acquisition Score
-
-The original combined score uses semantic uncertainty and pseudo-groundedness uncertainty:
-
-```text
-S_combined(x) = U_C(x) + U_G(x) + lambda * I(no_pseudo_box)
-```
-
-The current diagnostic variant suppresses excessive `no_pseudo_box` priority:
-
-```text
-S_suppress(x) = U_C(x) + U_G(x) - gamma * I(no_pseudo_box)
-```
-
-Main code:
-
-- `scripts/01_score_generation/make_priority_scores.py`
-- `compute_priority_score()`
-- `get_effective_groundedness()`
-- `make_row()`
-- `scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py`
-- `prepare_priority_dataframe()`
-
-Key implementation finding:
-
-> Because high-priority selection sorts scores in descending order, adding `+lambda` for `no_pseudo_box` can behave as a boost rather than a penalty.
-
-This is one of the main score-direction issues diagnosed in the current experiments.
-
-## Acquisition Strategies
-
-The current active learning experiments compare the following strategies:
-
-| Strategy ID | Research display name | Score used | Selection rule | Purpose |
-|---|---|---|---|---|
-| `Random` | Random | none | random sampling | baseline |
-| `RandomClassBalanced` | Class-balanced Random | none | random sampling within class_hint quota | diversity-controlled baseline |
-| `RandomClassDatasetBalanced` | Class/Dataset-balanced Random | none | random sampling within dataset_type and class_hint quota | stronger diversity-controlled baseline |
-| `ConsistencyOnly` | ExpertPromptConsistency | `U_C` | select high score | core hypothesis: expert prompt-family consistency |
-| `ConsistencyOnlyClassBalanced` | Class-balanced ExpertPromptConsistency | `U_C` | select high score within class_hint quota | tests whether consistency helps after class diversity is controlled |
-| `ConsistencyOnlyDatasetBalanced` | Dataset-balanced ExpertPromptConsistency | `U_C` | select high score within dataset_type quota | tests whether consistency helps after dataset composition is controlled |
-| `ConsistencyOnlyClassDatasetBalanced` | Class/Dataset-balanced ExpertPromptConsistency | `U_C` | select high score within dataset_type and class_hint quota | tests consistency under Random-like diversity control |
-| `GroundednessOnlySoft` | PseudoGroundingOnly | `U_G` with soft missing handling | select high score | auxiliary-only ablation |
-| `CombinedSoftPenalty` | Consistency + AuxGrounding | `S_combined` | select high score | naive auxiliary extension |
-| `LowPrioritySoft` | ReverseDirectionControl | `S_combined` | select low score | direction-control strategy |
-| `CombinedSuppressNoPseudo` | Calibrated Consistency + AuxGrounding | `S_suppress` | select high score | no-pseudo calibration diagnostic |
-| `CombinedSuppressNoPseudoClassBalanced` | Class-balanced Calibrated AuxGrounding | `S_suppress` with class-balanced selection | select high score within class quota | diagnostic class-balance variant |
-
-Main code:
-
-- `scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py`
-- `scripts/02_active_learning/strategy_metadata.py`
-- `select_samples()`
-- `sort_select()`
-- `class_balanced_select()`
-
-## Detector-level Validation
-
-After samples are selected, the benchmark GT XML annotations are used to simulate human labeling. YOLOv8 is trained on the selected labeled subset and evaluated on a fixed validation split.
-
-Main code:
-
-- `scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py`
-- `make_fixed_val_split()`
-- `build_yolo_dataset()`
-- `train_and_eval_yolo()`
-
-Evaluation metrics:
-
-- `mAP@50`
-- `mAP@50-95`
-- AULC over labeled budget
-
-```text
-AULC = sum_{t=1}^{T-1} 0.5 * (m_t + m_{t+1}) * (b_{t+1} - b_t)
-```
-
-Main summary code:
-
-- `compute_aulc()`
-- `make_seed_strategy_summary()`
-- `make_aggregate_strategy_summary()`
-
-## Post-hoc Diagnosis
-
-The current work includes post-hoc analysis scripts to diagnose whether the acquisition scores behave as intended.
-
-| Analysis | Main script | Purpose |
+| 평가 분기 | 직접 관찰 | 증거 상태와 경계 |
 |---|---|---|
-| Selection direction issue | `scripts/03_analysis/analyze_selection_direction_issue.py` | compare strategy distributions, overlap, quantiles, and mAP trends |
-| Selection enrichment | `scripts/03_analysis/analyze_selection_enrichment.py` | compare selected samples against the full priority pool |
-| No-pseudo GT audit | `scripts/03_analysis/audit_no_pseudo_box_gt_presence.py` | check whether `no_pseudo_box` selected samples contain GT defects |
-| Round pool state | `scripts/03_analysis/analyze_round_pool_state.py` | track selected vs remaining pool behavior by round |
-| Consistency hypothesis | `scripts/03_analysis/analyze_consistency_hypothesis.py` | reframe results around the core prompt-family consistency hypothesis |
-| Recovered result summaries | `scripts/03_analysis/recover_v3_minimal_results.py` | recover and summarize runs if training completed but final aggregation failed |
+| MPDD | anomaly images `+6.245`; coverage `-0.325` | selection-only; downstream learner `NOT_AVAILABLE`; 200 paired fixed-pool perturbations |
+| VisA | anomaly images `+14.480`; coverage `-4.110` | selection-only; downstream learner `NOT_AVAILABLE`; 200 paired fixed-pool perturbations |
+| NEU-DET | fixed-set `+0.016236`; acquisition repeat `+0.007019`, `p=0.322266` | favorable fixed set은 `POSTHOC_DESCRIPTIVE`; acquisition 반복은 동일 fixed pool 범위 |
+| GC10 q20 | overall mAP50-95 `+0.017378`; rare-class macro AP `-0.019877` | 전체·희소 클래스 지표가 상반된 방향; rare AP는 해당 설정의 point estimate |
+| KSDD2 | Dice 차이 `+0.037565` | 결과 확인 전 고정한 평균 Dice 차이 `+0.05` 기준 미충족 |
+| Appendix A · GC10 K40/140 | K40 후보가 holdout all-class coverage 기준 충족 | NUM-111 상태-only 표현; `expansion not authorized`; 본문 핵심 결과로 승격하지 않음 |
 
-Important diagnostic findings so far:
+### 통합 결론
 
-- `CombinedSoftPenalty` can outperform `Random` in some budget ranges or AULC settings, suggesting that the acquisition signal is not meaningless.
-- `LowPrioritySoft` performing strongly in some runs indicates that the high-priority direction is not yet fully validated.
-- `no_pseudo_box` can reflect OWL-ViT pseudo-box failure candidates rather than background-only images.
-- The sign and calibration of `no_pseudo_box` handling materially affect selected sample composition.
-- `CombinedSuppressNoPseudo` reduces `no_pseudo_box` selection compared with `CombinedSoftPenalty`, but later rounds can still become dominated by `no_pseudo_box` due to remaining-pool composition.
+> 선택 단계와 다운스트림 결과가 모두 관찰된 세 평가 분기에서, 선택 단계에서 양의 방향으로 나타난 결과만으로는 사전에 정한 다운스트림 평가 기준의 충족을 확인할 수 없었다.
 
-## Current 8-seed Result Snapshot
+이 문장은 평가한 세 분기의 제한된 통합 요약이며, selector의 일반적 실패율이나 보편 법칙을 뜻하지 않는다.
 
-The following table summarizes the latest lightweight result sets used for lab-meeting discussion.
-Raw training folders remain ignored; curated result summaries can be stored under `docs/results/`.
+## 2026-08-08 Notion import package
 
-| Result set | Strategy | Research role | Final mAP@50 | Final mAP@50-95 | AULC@50 | AULC@50-95 |
-|---|---|---|---:|---:|---:|---:|
-| 20260706 auxiliary calibration | `Random` | detector-level reference baseline | 0.348 | 0.172 | 6.264 | 2.857 |
-| 20260706 auxiliary calibration | `CombinedSoftPenalty` | naive consistency + auxiliary groundedness | 0.295 | 0.139 | 5.618 | 2.627 |
-| 20260706 auxiliary calibration | `CombinedSuppressNoPseudo` | calibrated no-pseudo diagnostic variant | 0.264 | 0.131 | 5.855 | 2.850 |
-| 20260707 consistency core | `ConsistencyOnly` | core expert-prompt consistency hypothesis | 0.294 | 0.148 | 5.901 | 2.822 |
-| 20260707 consistency core | `GroundednessOnlySoft` | auxiliary pseudo-groundedness-only ablation | 0.155 | 0.076 | 5.340 | 2.415 |
-| 20260707 consistency core | `LowPrioritySoft` | reverse-direction control | 0.315 | 0.144 | 7.339 | 3.325 |
+### 바로 사용할 파일
 
-Current interpretation:
+1. **Notion import 기준 원고:** [`package/manuscript/thesis_notion_import_clean.md`](package/manuscript/thesis_notion_import_clean.md)
+2. **업로드 순서:** [`package/docs/import_sequence.md`](package/docs/import_sequence.md)
+3. **패키지 검증:** [`package/docs/package_verification.md`](package/docs/package_verification.md)
+4. **대표 도식 캡션:** [`package/assets/overview_research_architecture_caption.md`](package/assets/overview_research_architecture_caption.md)
+5. **완성 ZIP:** [`notion_import_package_20260808.zip`](notion_import_package_20260808.zip)
 
-- `Random` remains a strong detector-level reference and should not be presented as defeated.
-- `ConsistencyOnly` is much stronger than `GroundednessOnlySoft`, supporting the claim that expert prompt-family consistency is the more meaningful core signal.
-- `CombinedSoftPenalty` and `CombinedSuppressNoPseudo` do not clearly improve over `ConsistencyOnly`, so pseudo groundedness should be framed as weak auxiliary evidence rather than the main contribution.
-- `LowPrioritySoft` still performs strongly in AULC, which means score direction and calibration remain open.
-- The defensible conclusion is: promising but not closed.
-
-## Main Repository Structure
+패키지는 다음 구조를 갖는다.
 
 ```text
-scripts/
-  01_score_generation/
-    prompt_families.py
-    run_ovd_pseudo_boxes.py
-    compute_pseudo_groundedness.py
-    make_priority_scores.py
-    make_priority_scores_sensitivity.py
-
-  02_active_learning/
-    strategy_metadata.py
-    run_al_yolo_ablation_v3_minimal.py
-    run_al_yolo_ablation_v4_direction_fix.py
-    run_yolo_full_supervised_baseline.py
-
-  03_analysis/
-    analyze_consistency_hypothesis.py
-    analyze_selection_direction_issue.py
-    analyze_selection_enrichment.py
-    analyze_round_pool_state.py
-    audit_no_pseudo_box_gt_presence.py
-    recover_v3_minimal_results.py
-
-  00_prompt_validation/
-    validate_expert_prompt_family_with_gt.py
-
-  old/
-    260511_VLM_ActiveLearning_FullExperiment.py
+package/
+├─ manuscript/
+│  ├─ thesis_notion_import_clean.md
+│  ├─ thesis_full_clean.txt
+│  └─ cleaning_log.md
+├─ assets/
+│  ├─ overview_research_architecture.svg
+│  ├─ overview_research_architecture.png
+│  ├─ overview_research_architecture_caption.md
+│  ├─ figure04_gc10_endpoint_conflict.png
+│  ├─ figure05_neu_two_reproducibilities.png
+│  ├─ figure06_discovery_composition_contrast.png
+│  ├─ figure08_ksdd2_positive_below_threshold.png
+│  ├─ asset_manifest.csv
+│  └─ asset_manifest.md
+└─ docs/
+   ├─ import_readme.md
+   ├─ import_sequence.md
+   ├─ package_verification.md
+   └─ included_files_table.csv
 ```
 
-## Typical Commands
+Clean Markdown은 기존 그림 4개를 `../assets/` 상대경로로 참조한다. Notion importer가 상대경로를 자동 처리하지 못하면 [`import_sequence.md`](package/docs/import_sequence.md)의 순서대로 PNG를 수동 첨부한다. 대표 개요 이미지는 자동 삽입하지 않았으며, 제3장 3.1 말미 또는 별도 연구 개요 블록에 수동 배치하는 것을 권장한다.
 
-Generate priority-score sensitivity variants:
+## 제4장 결과 그림
 
-```bash
-.venv/bin/python scripts/01_score_generation/make_priority_scores_sensitivity.py \
-  --priority-csv outputs/pseudo_boxes_20260622_191121/priority_scores_pseudo.csv \
-  --penalties 0,0.1,0.2,0.5 \
-  --groundedness-weights 0,0.25,0.5,1.0
-```
+- [MPDD·VisA discovery/composition 대비](package/assets/figure06_discovery_composition_contrast.png)
+- [NEU-DET의 두 재현성 단위](package/assets/figure05_neu_two_reproducibilities.png)
+- [GC10 q20 전체·희소 endpoint](package/assets/figure04_gc10_endpoint_conflict.png)
+- [KSDD2 Dice 차이와 사전 최소효과 기준](package/assets/figure08_ksdd2_positive_below_threshold.png)
 
-Run a dry-run selection check without YOLO training:
+4.1 전용 외부 그림은 현재 장 경계를 만족하는 확정 자산이 없어 자동 대체하지 않았다. GC10 K40/140이나 STOP branch를 포함하는 기존 atlas 그림을 제4장에 유입하지 않는 원칙을 유지한다.
 
-```bash
-AL_DRY_RUN_ONLY=1 \
-AL_PRIORITY_CSV=outputs/priority_sensitivity_20260706_152020/penalty_0/priority_scores_pseudo.csv \
-AL_STRATEGIES=Random,CombinedSoftPenalty,CombinedSuppressNoPseudo \
-AL_SEEDS=42,43,44 \
-AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
-.venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
-```
+## 재현성과 해석 경계
 
-Run detector-level validation:
+- `fixed-set training stability`는 선택 집합을 고정한 조건의 training-seed 변동이다.
+- `acquisition reproducibility`는 동일 물리적 pool에서 selector를 다시 실행해 선택 집합 변화까지 포함한 반복이다.
+- `NOT_AVAILABLE`은 downstream 실패가 아니라 learner outcome이 관찰되지 않았다는 상태다.
+- `POSTHOC_DESCRIPTIVE`는 결과 확인 후 선택된 기술적 분석이며 confirmatory 결과가 아니다.
+- KSDD2 `+0.05`는 결과 확인 전에 고정한 분기별 기준이지만 외부 calibration 또는 산업적 최적성을 뜻하지 않는다.
+- 이미지 예산은 선택 이미지 수를 뜻하며 annotation time, GPU-hour 또는 비용과 등가로 해석하지 않는다.
 
-```bash
-AL_PRIORITY_CSV=outputs/priority_sensitivity_20260706_152020/penalty_0/priority_scores_pseudo.csv \
-AL_STRATEGIES=Random,CombinedSoftPenalty,CombinedSuppressNoPseudo \
-AL_SEEDS=42,43,44 \
-AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
-.venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
-```
+## 저장소 사용 시 주의
 
-Run the next consistency-centered diversity-control experiment:
+이 저장소에는 연구 진행 과정에서 생성된 과거 protocol, 초안, 실험 branch 및 보조 문서가 audit trail로 남아 있다. 현재 논문·Notion 재업로드 작업에서는 `package/`의 clean manuscript와 검증 문서를 우선하며, 과거 문서의 더 강한 표현을 현재 claim으로 되살리지 않는다.
 
-```bash
-AL_PRIORITY_CSV=outputs/priority_sensitivity_20260706_152020/penalty_0/priority_scores_pseudo.csv \
-AL_STRATEGIES=Random,RandomClassBalanced,RandomClassDatasetBalanced,ConsistencyOnly,ConsistencyOnlyClassBalanced,ConsistencyOnlyClassDatasetBalanced \
-AL_SEEDS=42,43,44,45,46,47,48,49 \
-AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
-.venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
-```
-
-### Windows CUDA Desktop Run
-
-For a Windows desktop with an NVIDIA GPU, use the Windows/CUDA entrypoint. It preserves the same active-learning logic as the macOS script, but reads `AL_PROJECT_ROOT`, forces CUDA by default, and exposes batch/workers through environment variables.
-
-Recommended PowerShell dry-run first:
-
-```powershell
-.\scripts\02_active_learning\run_windows_cuda_consistency_experiment.ps1 -DryRun
-```
-
-Then run YOLO training:
-
-```powershell
-.\scripts\02_active_learning\run_windows_cuda_consistency_experiment.ps1
-```
-
-For an RTX 3070 8GB GPU, start conservatively with `-BatchSize 8`. If CUDA out-of-memory occurs, rerun with `-BatchSize 4`.
-
-Equivalent explicit PowerShell command:
-
-```powershell
-$env:AL_PROJECT_ROOT="C:\path\to\Defect_VLM_Project"
-$env:AL_PRIORITY_CSV="outputs\priority_sensitivity_20260706_152020\penalty_0\priority_scores_pseudo.csv"
-$env:AL_YOLO_DEVICE="0"
-$env:AL_BATCH_SIZE="8"
-$env:AL_WORKERS="4"
-$env:AL_STRATEGIES="Random,RandomClassDatasetBalanced,ConsistencyOnly,ConsistencyOnlyClassDatasetBalanced"
-$env:AL_SEEDS="42,43,44,45,46,47,48,49"
-.\.venv\Scripts\python.exe scripts\02_active_learning\run_al_yolo_ablation_v3_windows_cuda.py
-```
-
-Run direction-issue analysis:
-
-```bash
-.venv/bin/python scripts/03_analysis/analyze_selection_direction_issue.py \
-  --run-dir runs/active_learning_ablation_v3_minimal/<RUN_DIR> \
-  --priority-dir outputs/pseudo_boxes_20260622_191121
-```
-
-Run consistency-hypothesis analysis:
-
-```bash
-.venv/bin/python scripts/03_analysis/analyze_consistency_hypothesis.py \
-  --run-dir runs/active_learning_ablation_v3_minimal/<RUN_DIR>
-```
-
-## Current Status
-
-Implemented:
-
-- expert prompt family versioning for VLM industrial defect descriptions
-- VLM explanation consistency scoring
-- OWL-ViT pseudo-box generation
-- pseudo groundedness computation
-- GT-free priority score generation
-- multiple active learning acquisition strategies
-- YOLOv8 detector-level validation
-- mAP/AULC aggregation
-- direction-issue and no-pseudo diagnostics
-
-Open research issues:
-
-- score-direction calibration,
-- pseudo-groundedness reliability,
-- `no_pseudo_box` handling,
-- class and dataset distribution shifts,
-- seed and validation split sensitivity,
-- stronger evidence before claiming superiority over random selection.
-
-## Research Position
-
-This repository should be read as an experimental research framework, not as a closed final method. The current evidence supports the following careful claim:
-
-> VLM consistency and pseudo-groundedness provide useful GT-free acquisition signals, but the acquisition direction and weak visual evidence calibration require further validation before claiming robust superiority.
-
-More precisely, the core hypothesis is:
-
-> Expert-designed VLM prompt-family inconsistency can serve as a GT-free active learning acquisition signal. Pseudo groundedness is weak auxiliary visual evidence, not the core method or ground-truth localization.
+데이터셋, 모델 가중치, 가상환경과 대규모 raw training output은 저장소 배포 범위에 포함하지 않을 수 있다. 결과를 인용하거나 재사용할 때는 분기별 native metric, 증거 상태, pool 범위와 판정 시점을 함께 유지해야 한다.

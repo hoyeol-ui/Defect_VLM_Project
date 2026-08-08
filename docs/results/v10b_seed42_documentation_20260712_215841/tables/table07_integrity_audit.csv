@@ -1,0 +1,15 @@
+﻿check,status,evidence,caveat
+V10b training count exactly one,pass,1,
+V10 smoke final test unused,pass,False,
+V10b final test unread/unused,pass,"used=False, read=False",
+V10b source V10 config sha matches,pass,actual=a657cacebbe5899ba6dd84a2d902d3700710c6b19213dac0550f5d702e6ea30e expected=a657cacebbe5899ba6dd84a2d902d3700710c6b19213dac0550f5d702e6ea30e,
+V10b selection SHA matches,pass,actual=9d19c5ea5bb6ac76ff29ecd82a56bae5ba7c40db8e8b3049d5c24300255fb15f expected=9d19c5ea5bb6ac76ff29ecd82a56bae5ba7c40db8e8b3049d5c24300255fb15f,
+Seeds are acquisition 42 / training 1042,pass,v10=42/1042 v10b=42/1042,
+YOLO model/epochs comparable,pass,"v10=yolov8n.pt,100 v10b=yolov8n.pt,100",
+Development eval size consistent,pass,random=300 v10b=300,
+development_eval_v10.csv available for direct identity check,review,v10_exists=True v10b_exists=False,V10b may reference copied dataset rather than top-level CSV
+V10 pool/dev/final overlap zero,pass,"{""pool_dev_overlap"": 0, ""pool_final_overlap"": 0, ""dev_final_overlap"": 0}",
+random train/dev image overlap zero,pass,0,
+v9b train/dev image overlap zero,pass,0,
+v10b train/dev image overlap zero,pass,0,
+git dirty reproducibility caveat,pass with caveat,v10_dirty=True v10b_dirty=True,Dirty worktree weakens exact reproducibility unless runner/config hashes are preserved.
