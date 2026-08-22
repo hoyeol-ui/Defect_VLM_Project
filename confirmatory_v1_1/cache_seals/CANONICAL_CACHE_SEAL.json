@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "canonical_label": "A",
+  "GC10-DET": {
+    "count": 1605,
+    "dimension": 384,
+    "dtype": "float32",
+    "cache_content_sha256": "cc1c9826c692f8b9c9b445504037698692cafa54f62848e79842de29e12a29b8",
+    "cache_A_B_exact": true,
+    "classification": "BITWISE_REPRODUCIBLE"
+  },
+  "NEU-DET": {
+    "count": 1259,
+    "dimension": 384,
+    "dtype": "float32",
+    "cache_content_sha256": "1f6c92f6e54a7ad8134bc6c65eeba6d5b5a51dc8f35a9c5bb1917dd32da9a326",
+    "cache_A_B_exact": true,
+    "classification": "BITWISE_REPRODUCIBLE"
+  },
+  "all_20_dino_trajectory_pairs_identical": true,
+  "gt_used": false
+}

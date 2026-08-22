@@ -1,0 +1,25 @@
+{
+  "cache_audits": {
+    "GC10-DET": {
+      "cache_A_B_exact_files": true,
+      "cache_A_canonical": true,
+      "classification": "BITWISE_REPRODUCIBLE",
+      "numeric_max_abs_difference": 0.0
+    },
+    "NEU-DET": {
+      "cache_A_B_exact_files": true,
+      "cache_A_canonical": true,
+      "classification": "BITWISE_REPRODUCIBLE",
+      "numeric_max_abs_difference": 0.0
+    }
+  },
+  "dino_A_B_trajectory_comparisons": 20,
+  "dino_query_events": 100,
+  "gt_fields_used": false,
+  "random_query_events": 100,
+  "runtime_seconds": 202.46938950000003,
+  "shared_initial_manifests": 20,
+  "status": "PASS",
+  "trajectory_ledger_sha256": "bbdd09a645cc84849cbe88662abf61ec1e7e2937f382c071840dfc432a6824ea",
+  "unique_cumulative_states": 220
+}
