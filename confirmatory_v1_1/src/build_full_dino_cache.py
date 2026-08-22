@@ -82,8 +82,10 @@ def main() -> None:
 
     import torch
 
+    torch.cuda.set_device("cuda:0")
+    torch.cuda.init()
     torch.cuda.empty_cache()
-    torch.cuda.reset_peak_memory_stats(0)
+    torch.cuda.reset_peak_memory_stats("cuda:0")
     started = time.perf_counter()
     with ResourceSampler() as sampler:
         cache = extract_embeddings(items, snapshot_dir=SNAPSHOT, device="cuda:0", batch_size=32)

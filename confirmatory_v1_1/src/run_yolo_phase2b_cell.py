@@ -126,8 +126,10 @@ def main() -> None:
             import ultralytics
             from ultralytics import YOLO
 
+            torch.cuda.set_device("cuda:0")
+            torch.cuda.init()
             torch.cuda.empty_cache()
-            torch.cuda.reset_peak_memory_stats(0)
+            torch.cuda.reset_peak_memory_stats("cuda:0")
             model = YOLO(str(CHECKPOINT), verbose=False)
             train_started = time.perf_counter()
 
