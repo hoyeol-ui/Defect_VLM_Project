@@ -85,3 +85,8 @@ confirmatory_v1_1/benchmark_registry/jobs/
 confirmatory_v1_1/outcomes_private/
 confirmatory_v1_1/yolo_data_cache/
 confirmatory_v1_1/execution/
+
+# Phase 2C long-running execution products. Compact frozen plans/code are tracked.
+confirmatory_v1_1/full_run/yolo_data_cache/
+confirmatory_v1_1/full_run/outcomes_private/
+confirmatory_v1_1/full_run/runtime/

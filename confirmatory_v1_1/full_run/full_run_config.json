@@ -1,0 +1,17 @@
+{
+  "protocol_sha256": "6836f452d22c3de26dfa2680c45d0b5cb8f925b1a9274789c4ef81a1770f0b10",
+  "checkpoint_path": "C:/Users/user/Desktop/vlm/Defect_VLM_Project/yolov8n.pt",
+  "checkpoint_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+  "planned_cells": 440,
+  "reusable_cells": 6,
+  "new_cells": 434,
+  "max_infrastructure_attempts_per_cell": 3,
+  "minimum_free_disk_gb": 10,
+  "gpu_temperature_wait_c": 87,
+  "gpu_temperature_resume_c": 82,
+  "python_executable": "C:/Users/user/Desktop/vlm/Defect_VLM_Project/.python311/python.exe",
+  "final_evaluation_authorized": false,
+  "outcome_blind_during_training": true,
+  "order": "dataset_acquisition_training_slot_shared_then_random_then_dino",
+  "sleep_prevention": "SetThreadExecutionState_ES_SYSTEM_REQUIRED"
+}

@@ -1,0 +1,16 @@
+{
+  "completed_reusable": 6,
+  "datasets": {
+    "GC10-DET": 220,
+    "NEU-DET": 220
+  },
+  "duplicate_cell_ids": 0,
+  "final_evaluation_authorized": false,
+  "pending_new": 434,
+  "plan_sha256": "ff1b428c1dd07bd16403fad495d135fb3cdd5578d84c96834c57e9422ed8df8e",
+  "planned": 440,
+  "post_round_dino": 200,
+  "post_round_random": 200,
+  "round0_shared": 40,
+  "status": "PASS"
+}
