@@ -1,0 +1,527 @@
+protocol_id: confirmatory-random-dino-v1
+protocol_version: 1.0.0
+created_at: "2026-08-22T22:27:09+09:00"
+phase: "CONTROLLED VALIDATION — PROTOCOL FREEZE PREPARATION & CPU PREFLIGHT"
+status: FROZEN_CANDIDATE_NOT_EXECUTED
+phase2a_readiness: READY_FOR_GPU_SMOKE
+execution_authority:
+  gpu_smoke: false
+  full_440: false
+  final_evaluation: false
+  remote_push: false
+  advisor_approval_claimed: false
+
+repository:
+  historical_repository: "C:/Users/user/Desktop/vlm/Defect_VLM_Project"
+  isolated_worktree: "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1"
+  local_branch: experiment/confirmatory-random-dino-v1
+  base_branch: codex/thesis-notion-package-20260808
+  base_commit: 71489c238d3a44316d4721d6a62c963ebd919894
+  remote_push_permitted: false
+
+research_question_ko: >-
+  동일한 object-detection Active Learning protocol에서 DINO representation
+  diversity 기반 표본 선택이 Random sampling과 비교하여 budget 전반의
+  downstream detector learning performance에 어떤 차이를 만드는가?
+scientific_role: >-
+  A controlled anchor for selection-to-learning translation; not a new-selector
+  novelty claim and not a DINO-superiority trial.
+allowed_primary_directions:
+  - DINO_GREATER_THAN_RANDOM
+  - APPROXIMATELY_NULL_WITHOUT_EQUIVALENCE_CLAIM
+  - DINO_LESS_THAN_RANDOM
+  - DATASET_DIRECTIONS_DIFFER
+
+datasets:
+  GC10-DET:
+    source_root_local_audit: "C:/Users/user/Desktop/vlm/Defect_VLM_Project/data/GC10-DET"
+    raw_image_rows: 2312
+    curated_unique_samples: 2292
+    exclusions:
+      missing_xml: 6
+      empty_or_invalid_gt: 2
+      collapsed_identical_pixels_equivalent_gt: 12
+      conflicting_gt_for_identical_pixels: 0
+    split_counts:
+      acquisition: 1605
+      development: 229
+      final: 458
+    blind_acquisition_manifest:
+      path: data_freeze/gc10_acquisition_universe_blind.csv
+      file_sha256: da1aeaf9987437c922c49b5d1ab127f4d57000587bd6fb7d4d089c3f3c21db38
+      canonical_id_list_sha256: 86c199542cd764d06011b65597156f0dbf652315493654923839898419323adb
+    development_manifest:
+      path: data_freeze/gc10_development_locked_manifest.csv
+      file_sha256: a72501012d07e6f099a1c33379622242417d0bf71c0038fa60483ad7c1c75c82
+    final_manifest:
+      path: data_freeze/gc10_final_locked_manifest.csv
+      file_sha256: 8febd2c19c347473d259d7b59ec01cf7a5a9799bf1333e4e6cac6411f4c84b43
+  NEU-DET:
+    source_root_local_audit: "C:/Users/user/Desktop/vlm/Defect_VLM_Project/data/NEU-DET"
+    raw_image_rows: 1800
+    curated_unique_samples: 1798
+    exclusions:
+      missing_xml: 0
+      empty_or_invalid_gt: 0
+      collapsed_identical_pixels_equivalent_gt: 0
+      conflicting_gt_for_identical_pixels: 2
+    split_counts:
+      acquisition: 1259
+      development: 180
+      final: 359
+    blind_acquisition_manifest:
+      path: data_freeze/neu_acquisition_universe_blind.csv
+      file_sha256: 2398ec523cb4cd878b6f23a515a0ee863ea81cacdd028703cc4414c37019e069
+      canonical_id_list_sha256: 0eed999782c12490d8c5151473d0f46e29d9221dd046565dce393c42e728e1b1
+    development_manifest:
+      path: data_freeze/neu_development_locked_manifest.csv
+      file_sha256: c2641eb75bc9e420a4434d9a10ead1b58fd79cf057281b2ed6932ca77a099884
+    final_manifest:
+      path: data_freeze/neu_final_locked_manifest.csv
+      file_sha256: 7e649a5f3eee8d422b4bc0ddd8dacb96f4382256fe5ab834296db0153dfb48a0
+
+split:
+  name: prospective_common_70_10_20_v1
+  terminology: prospectively_locked_confirmatory_evaluation_split
+  untouched_test_claim_permitted: false
+  ratios:
+    acquisition: 0.70
+    development: 0.10
+    final: 0.20
+  seed: 20260822
+  algorithm: deterministic_rare_label_first_iterative_multilabel_stratification
+  size_rounding: global_largest_remainder
+  size_rounding_tie_order: [acquisition, development, final]
+  split_unit: canonical_pixel_identity_group
+  zero_class_support_allowed: false
+  observed_zero_class_support_cells: 0
+  private_source_registry:
+    path: data_freeze/private_source_registry.csv
+    sha256: 688fe8bee640b8a8e3fbadc9d3efdb4d08638be59cff8eb372ae7d62d5768f3c
+    selector_access: DENY
+  aggregate_class_support:
+    path: data_freeze/class_support.csv
+    sha256: fb9713790566521da3dae63f3637b87f22b3e5b7f1ecb9a96dea5c134827c74e
+
+sample_identity:
+  algorithm: SHA-256
+  canonical_payload: "CONFIRMATORY_RGB_U8_V1\\0 || width_be32 || height_be32 || RGB_U8_pixels"
+  output: lower_case_64_hex
+  filename_included: false
+  parent_directory_included: false
+  class_or_bbox_included: false
+  raw_byte_sha256_role: source_integrity_only_not_selector_identity
+  duplicate_policy:
+    identical_pixels_equivalent_gt: collapse_to_one_by_minimum_raw_sha256
+    identical_pixels_conflicting_gt: exclude_entire_identity_group
+    duplicate_canonical_id_in_acquisition: HARD_FAIL
+
+acquisition_universe:
+  unit: image
+  source: acquisition_split_only
+  selector_manifest_columns: [sample_id]
+  development_or_final_membership_visible_to_selector: false
+
+budgets:
+  initial_budget:
+    fraction_of_fixed_acquisition_universe: 0.10
+    rounding: decimal_round_half_up_once
+  query_budget:
+    fraction_of_fixed_acquisition_universe: 0.05
+    base: original_fixed_acquisition_universe_not_remaining_pool
+    rounding: decimal_round_half_up_once
+  rounds_after_initial: 5
+  budget_points: 6
+  GC10-DET:
+    acquisition_universe_n: 1605
+    initial_count: 161
+    query_count_per_round: 80
+    cumulative_counts: [161, 241, 321, 401, 481, 561]
+    cumulative_fractions: [0.1003115265, 0.1501557632, 0.2000000000, 0.2498442368, 0.2996884735, 0.3495327103]
+  NEU-DET:
+    acquisition_universe_n: 1259
+    initial_count: 126
+    query_count_per_round: 63
+    cumulative_counts: [126, 189, 252, 315, 378, 441]
+    cumulative_fractions: [0.1000794281, 0.1501191422, 0.2001588562, 0.2501985703, 0.3002382844, 0.3502780000]
+
+strategies:
+  - Random-PCG64-v1
+  - FrozenDINO-FF-v1
+
+random:
+  name: Random-PCG64-v1
+  sampling: uniform_without_replacement_from_remaining_pool
+  canonical_input_order: sample_id_ascending
+  rng_library: numpy
+  rng_version: 2.4.6
+  rng_api: numpy.random.Generator
+  bit_generator: PCG64
+  seed_sequence_entropy_fields:
+    - protocol_namespace_uint32_0x43524431
+    - dataset_code_uint32
+    - acquisition_seed
+    - acquisition_round
+    - purpose_code
+  shared_initial_purpose_code: 0x494E4954
+  query_purpose_code: 0x51554552
+  initial_manifest_shared_with_dino: true
+  training_seed_in_rng: false
+  trajectory_generation: once_per_dataset_acquisition_seed
+  trajectory_reused_by_both_training_seeds: true
+  cumulative_manifest_seal: "sha256(sorted sample_id joined by LF plus terminal LF)"
+
+frozen_dino:
+  name: FrozenDINO-FF-v1
+  internal_name: ConfirmatoryDINOFFV1
+  lineage_statement: HISTORICAL_LINEAGE_PLUS_PROSPECTIVELY_CLEANED_IMPLEMENTATION
+  historical_exact_binary_reproduction_claim: false
+  model_id: facebook/dinov2-small
+  recovered_snapshot_revision: ed25f3a31f01632728cabb09d1542f84ab7b0056
+  local_files_only: true
+  model_artifacts:
+    config_json_sha256: 1809f83e3bdb1609a501a610ad4a742f4fd8ae44d72ca4aa0df52d1f2ac8628d
+    preprocessor_config_json_sha256: 14e780d86fa1861f8751f868d7f45425b5feb55c38ca26f152ca5097ab30f828
+    model_safetensors_sha256: ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1
+  processor:
+    loader: AutoImageProcessor.from_pretrained
+    exact_class: BitImageProcessor
+    convert_rgb: true
+    resize: {shortest_edge: 256, resample: PIL_BICUBIC_3}
+    center_crop: {height: 224, width: 224}
+    rescale_factor: 0.00392156862745098
+    normalize_mean: [0.485, 0.456, 0.406]
+    normalize_std: [0.229, 0.224, 0.225]
+  representation:
+    exact_tensor: outputs.pooler_output
+    fallback_allowed: false
+    dimension: 384
+    saved_dtype: float32
+  inference:
+    full_cache_phase: Phase_2B_only
+    device: "cuda:0"
+    batch_size: 32
+    model_eval: true
+    inference_mode: true
+    dtype: torch.float32
+    autocast: false
+    tf32: false
+    deterministic_algorithms: true
+    cudnn_benchmark: false
+  normalization: row_wise_L2_after_float32_CPU_transfer
+  distance: "d(x,R) = 1 - max_{r in R} cosine(z_x, z_r)"
+  selection: greedy_farthest_first
+  reference_set: current_cumulative_labeled_plus_same_query_already_selected
+  reference_update: immediate_after_each_pick
+  candidate_score_direction: larger_distance_selected_first
+  exact_tie_break: sample_id_ascending_with_absolute_tolerance_1e-12
+  training_seed_input: forbidden
+  completeness_hard_failures:
+    - expected_count_not_equal_embedding_rows
+    - duplicate_sample_id
+    - missing_embedding
+    - extra_embedding
+    - wrong_dimension
+    - NaN_or_infinity
+    - zero_norm
+
+seed_freeze:
+  generation_rule: "int32_positive(SHA256(protocol_id|dataset|purpose|index)[0:4] big-endian)"
+  prior_outcome_screening: false
+  historical_favorable_seed_reuse: false
+  manifest_path: data_freeze/seed_manifest.csv
+  manifest_sha256: 31372e88b78478fc3400ed363030681e48c0468b8bc599af7d86fbc33defd93d
+  acquisition_seed_list:
+    GC10-DET: [118406135, 1544253486, 1207468566, 1047824994, 489338187, 1247201608, 1159501161, 1248489736, 1498171501, 1117821898]
+    NEU-DET: [556094945, 1401936841, 308869329, 1765023412, 1863187687, 1566547639, 1039657086, 1644540782, 1157893727, 1944238630]
+  training_seed_mapping:
+    GC10-DET:
+      - {acquisition_index: 0, A: 1356694077, B: 850898698}
+      - {acquisition_index: 1, A: 1510088360, B: 1732754538}
+      - {acquisition_index: 2, A: 657626531, B: 1207353763}
+      - {acquisition_index: 3, A: 19504879, B: 530173103}
+      - {acquisition_index: 4, A: 1318114342, B: 2066734596}
+      - {acquisition_index: 5, A: 722011557, B: 1136601338}
+      - {acquisition_index: 6, A: 353235486, B: 299585371}
+      - {acquisition_index: 7, A: 1779269858, B: 1069543283}
+      - {acquisition_index: 8, A: 469985488, B: 937737446}
+      - {acquisition_index: 9, A: 233252860, B: 1996254211}
+    NEU-DET:
+      - {acquisition_index: 0, A: 838661549, B: 2073899285}
+      - {acquisition_index: 1, A: 796232085, B: 745513910}
+      - {acquisition_index: 2, A: 1002146992, B: 383022918}
+      - {acquisition_index: 3, A: 1690576487, B: 695389876}
+      - {acquisition_index: 4, A: 384083196, B: 1208687006}
+      - {acquisition_index: 5, A: 1161462808, B: 1361074316}
+      - {acquisition_index: 6, A: 515752122, B: 1907935622}
+      - {acquisition_index: 7, A: 95705870, B: 125815902}
+      - {acquisition_index: 8, A: 1097300708, B: 1703931780}
+      - {acquisition_index: 9, A: 665477887, B: 838538952}
+  pairing_rule: same_A_and_B_training_seeds_for_Random_and_DINO_within_acquisition
+
+yolo:
+  family: YOLOv8n
+  ultralytics_version: 8.4.90
+  pretrained_checkpoint:
+    source_path_local_audit: "C:/Users/user/Desktop/vlm/Defect_VLM_Project/yolov8n.pt"
+    sha256: f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36
+    bytes: 6549796
+    embedded_ultralytics_version: 8.0.0.dev0
+  lifecycle: independent_cold_start_at_every_budget
+  previous_round_warm_start: false
+  resume: false
+  initialization: reload_same_sealed_pretrained_checkpoint_then_seed_dataset_head_initialization
+  epochs: 100
+  imgsz: 640
+  batch: 8
+  device: 0
+  workers: 4
+  cache: false
+  amp: true
+  deterministic: true
+  optimizer: SGD
+  lr0: 0.01
+  lrf: 0.01
+  cos_lr: false
+  momentum: 0.937
+  weight_decay: 0.0005
+  nominal_batch_size: 64
+  warmup_epochs: 3.0
+  warmup_momentum: 0.8
+  warmup_bias_lr: 0.1
+  patience: 100
+  close_mosaic: 10
+  rect: false
+  single_cls: false
+  fraction: 1.0
+  augmentation:
+    hsv_h: 0.015
+    hsv_s: 0.7
+    hsv_v: 0.4
+    degrees: 0.0
+    translate: 0.1
+    scale: 0.5
+    shear: 0.0
+    perspective: 0.0
+    flipud: 0.0
+    fliplr: 0.5
+    bgr: 0.0
+    mosaic: 1.0
+    mixup: 0.0
+    cutmix: 0.0
+    copy_paste: 0.0
+  training_validation:
+    enabled: true
+    split: development
+    final_visible: false
+    checkpoint_selection: best_pt_by_ultralytics_fitness_on_development
+  primary_evaluation:
+    checkpoint: best.pt
+    split: development_until_external_final_unlock
+    conf: 0.001
+    iou: 0.7
+    max_det: 300
+    plots: false
+    save_json: false
+  artifact_retention: [best.pt, last.pt, results.csv, args.yaml, aggregate_metrics, per_class_metrics, logs]
+  shared_round0: true_within_dataset_acquisition_training_seed_when_manifest_and_config_hashes_match
+
+primary_endpoint:
+  name: two_training_seed_averaged_six_budget_mAP50_95_AULC
+  metric: mAP50-95
+  budget_axis: labeled_fraction_of_fixed_acquisition_universe
+  includes_round0: true
+  fully_supervised_normalization: false
+  learner_repeat_reduction: arithmetic_mean_of_two_training_seed_AULCs
+  primary_unit: acquisition_seed
+  paired_contrast: mean_training_seed_AULC_DINO_minus_mean_training_seed_AULC_Random
+  reporting_order: dataset_specific_first
+  naive_pool_GC10_and_NEU_as_n20: forbidden
+
+aulc:
+  exact_definition: >-
+    sum_{i=0..4} ((m_i + m_{i+1}) / 2) * (f_{i+1} - f_i)
+    divided by (f_5 - f_0), where f_i is labeled_count_i divided by
+    the fixed acquisition-universe count.
+  interpretation: budget_averaged_mAP50_95_over_the_evaluated_span
+  requires_all_six_points: true
+  missing_point_interpolation: forbidden
+  historical_semantics_preserved: trapezoid_area_divided_by_observed_budget_span
+
+secondary_endpoints:
+  - final_budget_mAP50-95
+  - recall_at_each_budget_and_final_budget
+  - class_wise_AP50-95
+  - GC10_rare_group_macro_AP50-95
+  - NEU_macro_class_AP50-95
+  - NEU_worst_class_AP50-95
+  - post_seal_target_discovery
+  - post_seal_selected_set_composition
+
+subgroups:
+  GC10-DET:
+    rare_definition_rule: bottom_three_image_frequency_classes_in_curated_pre_split_universe_tie_by_class_id
+    frozen_class_ids: [8, 9, 10]
+    frozen_class_names: [rolled_pit, crease, waist_folding]
+    curated_image_support: {8: 46, 9: 53, 10: 140}
+    historical_lineage_match: true
+    endpoint: unweighted_macro_mean_of_finite_AP50-95_for_all_three_classes
+    missing_class_AP_policy: cell_incomplete_not_zero
+  NEU-DET:
+    artificial_rare_definition: forbidden
+    class_ids: [0, 1, 2, 3, 4, 5]
+    endpoints:
+      macro_AP50-95: unweighted_mean_of_all_six_class_AP50-95
+      worst_class_AP50-95: minimum_of_all_six_class_AP50-95
+    missing_class_AP_policy: cell_incomplete_not_zero
+
+post_seal_selection_audit:
+  GT_join_timing: only_after_query_and_cumulative_manifest_SHA256_is_written
+  GC10_target_discovery: cumulative_count_of_images_containing_class_8_or_9_or_10
+  NEU_target_discovery: cumulative_per_class_image_count_vector_no_rare_scalar
+  composition:
+    - per_class_image_incidence_counts
+    - per_class_instance_counts
+    - unique_class_coverage
+    - normalized_Shannon_entropy_of_class_image_incidences
+  acquisition_feedback_from_audit: forbidden
+
+statistical_analysis:
+  estimand_order:
+    - compute_six_point_AULC_per_dataset_acquisition_strategy_training_seed
+    - average_two_training_seed_AULCs_within_dataset_acquisition_strategy
+    - compute_paired_DINO_minus_Random_within_acquisition
+    - summarize_ten_paired_acquisition_differences_per_dataset
+  point_estimate: arithmetic_mean_of_10_paired_acquisition_differences
+  uncertainty: paired_acquisition_cluster_percentile_bootstrap_95_CI
+  bootstrap_replicates: 100000
+  bootstrap_rng: numpy_Generator_PCG64
+  bootstrap_seed:
+    GC10-DET: 421397045
+    NEU-DET: 1672358496
+  two_sided_test: exact_sign_flip_enumeration_of_all_2_power_10_assignments
+  alpha: 0.05
+  two_dataset_multiplicity: Holm_adjustment_for_the_two_primary_dataset_p_values
+  minimum_effect_threshold: none_estimation_first
+  CI_includes_zero_language: no_clear_downstream_advantage_established_not_equivalence
+  secondary_endpoint_inference: descriptive_estimates_and_CIs_no_protocol_rescue
+  cross_dataset_pooling: forbidden
+  missing_cell_imputation: forbidden
+  incomplete_dataset_primary_status: INCOMPLETE_NOT_ESTIMATED
+
+gt_free_boundary:
+  selector_allow:
+    - raw_image_only_inside_embedding_adapter
+    - sealed_DINO_embedding
+    - class_neutral_sample_id
+    - labeled_unlabeled_membership
+    - acquisition_seed
+    - acquisition_round
+    - already_selected_membership
+  selector_deny:
+    - true_class
+    - GT_bbox
+    - rare_or_frequent_status
+    - anomaly_label
+    - bbox_size
+    - filename_or_parent_directory
+    - development_metric
+    - final_metric
+    - future_round_information
+    - training_seed
+  unexpected_selector_column_policy: HARD_FAIL
+  selector_core_imports_XML: false
+  blind_manifest_only: true
+
+final_evaluation_lock:
+  phase2a_final_evaluations: 0
+  default: HARD_FAIL
+  required_cli_flag: "--authorize-final-evaluation"
+  required_external_authorization_record_status: AUTHORIZED
+  required_protocol_sha256_match: true
+  authorization_record_present_in_phase2a: false
+  unlock_preconditions:
+    - advisor_and_user_scope_authorization_documented_externally
+    - protocol_YAML_and_code_hashes_sealed
+    - all_planned_development_cells_closed_or_dataset_marked_incomplete
+    - analysis_plan_unchanged
+  one_simultaneous_evaluation_for_both_strategies: true
+  post_final_retuning: forbidden
+
+retry_policy:
+  scientific_cells_planned: 440
+  retries_add_scientific_replicates: false
+  same_cell_id_and_attempt_counter: true
+  retry_allowed_only_for: [infrastructure_failure, process_crash, transient_IO_failure]
+  retry_requires_identical:
+    - protocol_sha256
+    - code_sha256
+    - manifest_sha256
+    - model_sha256
+    - acquisition_seed
+    - training_seed
+    - software_environment
+  output_blind_retry_decision: true
+  config_change_on_retry: forbidden_requires_protocol_reapproval
+
+failure_policy:
+  result_based_seed_replacement: forbidden
+  silent_cell_deletion: forbidden
+  AULC_with_missing_budget: forbidden
+  embedding_on_demand_repair: forbidden
+  label_or_GT_boundary_violation: STOP
+  manifest_or_hash_mismatch: STOP
+  unresolved_scientific_cell: dataset_primary_INCOMPLETE
+  attempts_registry: append_only
+
+planned_lifecycle_counts:
+  shared_round0_detector_jobs: 40
+  Random_post_round_detector_jobs: 200
+  DINO_post_round_detector_jobs: 200
+  total_detector_jobs: 440
+  unique_cumulative_manifests: 220
+  Random_query_events: 100
+  DINO_query_events: 100
+  DINO_full_cache_builds: 2
+  final_evaluations_before_unlock: 0
+
+raw_result_policy:
+  future_master: RAW_CONFIRMATORY_RESULTS_MASTER_V1.md
+  mix_with_historical_RAW_EXPERIMENT_RESULTS_MASTER: false
+  preserve_null_negative_and_failed_attempts: true
+
+software_versions:
+  os: Windows-10-10.0.26200-SP0
+  python: 3.11.9
+  numpy: 2.4.6
+  pillow: 12.3.0
+  torch: 2.12.1+cu126
+  torch_cuda_build: "12.6"
+  cudnn: 91002
+  transformers: 5.13.0
+  ultralytics: 8.4.90
+  gpu_model_observed_read_only: NVIDIA_GeForce_RTX_3070
+  gpu_driver_observed_read_only: "560.94"
+
+model_hashes:
+  yolov8n_pt: f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36
+  dinov2_config_json: 1809f83e3bdb1609a501a610ad4a742f4fd8ae44d72ca4aa0df52d1f2ac8628d
+  dinov2_preprocessor_config_json: 14e780d86fa1861f8751f868d7f45425b5feb55c38ca26f152ca5097ab30f828
+  dinov2_model_safetensors: ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1
+
+code_hashes:
+  protocol_core_py: af80f0566b6e051c76d4096d53e0db4d4a379acb34fa1f35748aceecdb10df22
+  frozen_dino_ff_v1_py: cb98419adc5df72e798b22f9b4cace3e1e0fb026bb415d62ff9dd37c515a63cc
+  build_split_and_seed_freeze_py: f623b49a0ddca7e36eb0348b56a850df987f73a90ddb8d9a8ad272ba3b9dd0ac
+  cpu_preflight_test_py: 4e5e19463f753eb949d493dc729b69ca63107a72da101aac1ac2806e1096d316
+
+cpu_preflight:
+  required_tests: 14
+  passed: 14
+  failed: 0
+  dino_one_image_cpu_spec_smoke: PASS
+  split_builder_byte_reproducibility: PASS
+  gpu_used: false
+  detector_training_jobs_executed: 0
+  full_dataset_embeddings_built: 0
+

@@ -1,0 +1,75 @@
+{
+  "datasets": {
+    "GC10-DET": {
+      "acquisition_manifest_sha256": "86c199542cd764d06011b65597156f0dbf652315493654923839898419323adb",
+      "budget_grid": [
+        161,
+        241,
+        321,
+        401,
+        481,
+        561
+      ],
+      "curated_unique_samples": 2292,
+      "initial_count": 161,
+      "query_count": 80,
+      "raw_image_rows": 2312,
+      "split_counts": {
+        "acquisition": 1605,
+        "development": 229,
+        "final": 458
+      }
+    },
+    "NEU-DET": {
+      "acquisition_manifest_sha256": "0eed999782c12490d8c5151473d0f46e29d9221dd046565dce393c42e728e1b1",
+      "budget_grid": [
+        126,
+        189,
+        252,
+        315,
+        378,
+        441
+      ],
+      "curated_unique_samples": 1798,
+      "initial_count": 126,
+      "query_count": 63,
+      "raw_image_rows": 1800,
+      "split_counts": {
+        "acquisition": 1259,
+        "development": 180,
+        "final": 359
+      }
+    }
+  },
+  "embedding_executed": false,
+  "exclusion_reason_counts": {
+    "COLLAPSED_IDENTICAL_PIXELS_EQUIVALENT_GT": 12,
+    "CONFLICTING_GT_FOR_IDENTICAL_PIXELS": 2,
+    "EMPTY_OR_INVALID_GT": 2,
+    "MISSING_XML": 6
+  },
+  "files_sha256": {
+    "class_support.csv": "fb9713790566521da3dae63f3637b87f22b3e5b7f1ecb9a96dea5c134827c74e",
+    "gc10_acquisition_universe_blind.csv": "da1aeaf9987437c922c49b5d1ab127f4d57000587bd6fb7d4d089c3f3c21db38",
+    "gc10_development_locked_manifest.csv": "a72501012d07e6f099a1c33379622242417d0bf71c0038fa60483ad7c1c75c82",
+    "gc10_final_locked_manifest.csv": "8febd2c19c347473d259d7b59ec01cf7a5a9799bf1333e4e6cac6411f4c84b43",
+    "neu_acquisition_universe_blind.csv": "2398ec523cb4cd878b6f23a515a0ee863ea81cacdd028703cc4414c37019e069",
+    "neu_development_locked_manifest.csv": "c2641eb75bc9e420a4434d9a10ead1b58fd79cf057281b2ed6932ca77a099884",
+    "neu_final_locked_manifest.csv": "7e649a5f3eee8d422b4bc0ddd8dacb96f4382256fe5ab834296db0153dfb48a0",
+    "private_source_registry.csv": "688fe8bee640b8a8e3fbadc9d3efdb4d08638be59cff8eb372ae7d62d5768f3c",
+    "seed_manifest.csv": "31372e88b78478fc3400ed363030681e48c0468b8bc599af7d86fbc33defd93d",
+    "source_exclusions.csv": "518a2adacf101b295be83a665d84cdce02444a3ec94f118886c0987774f2a378",
+    "split_assignment.csv": "e4e0ad0f56efa28ce59b3710b852737b02fc774cd88d7121e98f477bd618133d"
+  },
+  "final_evaluation_executed": false,
+  "protocol_id": "confirmatory-random-dino-v1",
+  "sample_id": "sha256(CONFIRMATORY_RGB_U8_V1\\0 || width_be32 || height_be32 || RGB_U8_pixels)",
+  "split_ratios": {
+    "acquisition": "0.70",
+    "development": "0.10",
+    "final": "0.20"
+  },
+  "split_rounding": "global largest remainder; tie order acquisition, development, final",
+  "split_seed": 20260822,
+  "training_executed": false
+}

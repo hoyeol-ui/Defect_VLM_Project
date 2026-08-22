@@ -9,6 +9,7 @@ __pycache__/
 *.pyo
 *.pyd
 *.egg-info/
+.pytest_cache/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -77,3 +78,10 @@ logs/
 .python311/
 .codex_doc_deps/
 Ultralytics/
+
+# Phase 2B execution products remain local and outcome-blinded.
+confirmatory_v1_1/cache_seals/*/cache_*/
+confirmatory_v1_1/benchmark_registry/jobs/
+confirmatory_v1_1/outcomes_private/
+confirmatory_v1_1/yolo_data_cache/
+confirmatory_v1_1/execution/
