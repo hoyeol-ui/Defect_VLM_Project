@@ -1,0 +1,90 @@
+protocol_id: confirmatory-random-dino-v1
+protocol_version: 1.1.0
+phase: "PHASE 2B — PROTOCOL v1.1 REFREEZE + GPU FEASIBILITY SMOKE"
+status: FROZEN_CANDIDATE_GPU_SMOKE_ONLY
+
+inheritance:
+  parent_yaml: ../confirmatory_v1/confirmatory_protocol_v1.yaml
+  parent_yaml_sha256: fa6ad82f5f6b282b1fde5529af41cb54eb5471d3f2950f00d32f491b8ed0c663
+  parent_baseline_commit: e1267a05e0d52769ac478375992599433144e2f2
+  rule: all_v1_fields_normative_except_the_explicit_evaluation_source_delta_below
+  forbidden_change_result: PROTOCOL_REFREEZE_REQUIRED
+
+execution_authority:
+  full_acquisition_dino_cache_a_and_b: true
+  trajectory_materialization: true
+  tiny_cuda_lifecycle_smoke: true
+  feasibility_100_epoch_cells_maximum: 6
+  full_440: false
+  actual_final_evaluation: false
+  remote_push: false
+
+scientific_freeze:
+  datasets: [GC10-DET, NEU-DET]
+  strategies: [Random-PCG64-v1, FrozenDINO-FF-v1]
+  split: prospective_common_70_10_20_v1
+  split_membership_sha256: e4e0ad0f56efa28ce59b3710b852737b02fc774cd88d7121e98f477bd618133d
+  budgets:
+    GC10-DET: [161, 241, 321, 401, 481, 561]
+    NEU-DET: [126, 189, 252, 315, 378, 441]
+  acquisition_seeds_per_dataset: 10
+  training_seeds_per_acquisition: 2
+  detector_training_cells: 440
+  unique_cumulative_manifests: 220
+  dino_snapshot: ed25f3a31f01632728cabb09d1542f84ab7b0056
+  dino_precision: FP32_autocast_off_TF32_off_batch32
+  dino_representation: pooler_output_384_row_L2
+  yolo_checkpoint_sha256: f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36
+  yolo: {epochs: 100, imgsz: 640, batch: 8, device: 0, workers: 4, cache: false, amp: true, optimizer: SGD, lr0: 0.01, lrf: 0.01, momentum: 0.937, weight_decay: 0.0005, patience: 100, close_mosaic: 10, cold_start_every_budget: true}
+  immutable_parent_sections: [sample_identity, gt_free_boundary, random, frozen_dino, seed_freeze, subgroups, retry_policy, failure_policy, statistical_analysis, claim_freeze]
+
+evaluation_source_delta_v1_1:
+  checkpoint_selection:
+    checkpoint: best.pt
+    source: development
+  primary_confirmatory_evaluation:
+    split: locked_final
+    timing: after_all_440_complete_integrity_pass_and_explicit_authorization
+    metric: mAP50-95
+    evaluations_planned: 440
+    evaluations_completed_in_phase2b: 0
+  primary_aulc:
+    source: six_locked_final_mAP50_95_values
+    requires_exactly_six_points: true
+    development_substitution: forbidden
+    missing_point: INCOMPLETE_NOT_ESTIMATED
+    interpolation: forbidden
+  development_aulc:
+    role: supplementary_diagnostic_only
+
+phase2b_benchmark_cells:
+  datasets: [GC10-DET, NEU-DET]
+  acquisition_index: 0
+  strategy: Random-PCG64-v1
+  training_seed_slot: A
+  rounds: [0, 3, 5]
+  count: 6
+  output_policy: outcome_blinded_for_feasibility_decision
+  future_reuse_policy: reusable_only_if_all_frozen_hashes_match_and_no_outcome_guided_change
+
+final_evaluation_lock:
+  default: HARD_FAIL
+  authorization_filename: FINAL_EVALUATION_AUTHORIZATION.json
+  required_status: AUTHORIZED
+  required_cell_count: 440
+  required_protocol_sha256_match: true
+  required_freeze_commit_sha_match: true
+  required_attempt_registry_sha_match: true
+  required_integrity_audits: [manifest, checkpoint, retry_closure, final_lock]
+  authorization_present_in_phase2b: false
+
+freeze_ledger:
+  post_commit_record: execution/PRE_GPU_FREEZE_LEDGER.json
+  self_referential_commit_rule: commit_sha_recorded_only_in_post_commit_immutable_ledger
+
+raw_result_policy:
+  master: RAW_CONFIRMATORY_RESULTS_MASTER_V1_1.md
+  historical_master_mutation: forbidden
+  preserve_null_negative_failed_attempts: true
+  outcome_values_in_phase2b_readiness: forbidden
+

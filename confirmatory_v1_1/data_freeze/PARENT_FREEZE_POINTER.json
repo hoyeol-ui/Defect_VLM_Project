@@ -1,0 +1,7 @@
+{
+  "parent_directory": "../../confirmatory_v1/data_freeze",
+  "parent_protocol_sha256": "fa6ad82f5f6b282b1fde5529af41cb54eb5471d3f2950f00d32f491b8ed0c663",
+  "split_assignment_sha256": "e4e0ad0f56efa28ce59b3710b852737b02fc774cd88d7121e98f477bd618133d",
+  "seed_manifest_sha256": "31372e88b78478fc3400ed363030681e48c0468b8bc599af7d86fbc33defd93d",
+  "mutation_allowed": false
+}
