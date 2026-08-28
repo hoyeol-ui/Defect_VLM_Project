@@ -1,0 +1,11 @@
+{
+  "development_curves": 80,
+  "development_substituted_into_primary": false,
+  "locked_final_curves": 80,
+  "paired_acquisition_rows": 20,
+  "status": "PASS",
+  "tables": {
+    "development_vs_locked_final_acquisition_deltas.csv": "c6d1fb7ddd4f742fd50d403b2dc0c93fbeac644e175efc41eff0916e7f28ddaa",
+    "development_vs_locked_final_summary.csv": "56530542861b1fd3863591a97c657a9cfad2d192bbbd773aa5239a21ec4751ad"
+  }
+}

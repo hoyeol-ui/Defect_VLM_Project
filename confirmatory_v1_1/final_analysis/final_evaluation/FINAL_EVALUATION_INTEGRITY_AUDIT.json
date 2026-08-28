@@ -1,0 +1,12 @@
+{
+  "authorization_sha256": "82e8a0586a11420012453cdb82c6c28226c55988409891f187bdb71f3eef5b5c",
+  "completed_at_utc": "2026-08-28T07:36:42.117842+00:00",
+  "completed_evaluations": 440,
+  "development_substitutions": 0,
+  "missing_evaluations": 0,
+  "planned_evaluations": 440,
+  "post_final_retraining_or_retuning": 0,
+  "raw_final_metric_registry_sha256": "4f97f5e1577b9d89c5ac3f33b1c095505f9098133993e4cd51862dd85b5fa24d",
+  "status": "PASS",
+  "unique_cell_ids": 440
+}

@@ -1,0 +1,29 @@
+{
+  "datasets": {
+    "GC10-DET": {
+      "data_yaml_path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\confirmatory_v1_1\\final_analysis\\final_evaluation\\data_cache\\GC10-DET\\locked_final.yaml",
+      "data_yaml_sha256": "9985ffcd206ef2a91ffaa5f3d6854540a39e64180e2becf4cb563b1c06639bf9",
+      "final_count": 458,
+      "final_list_sha256": "9c04700c765b50a7854e339897b64ec51a70d94e0a1001d59250d00c41d00c99",
+      "materialization": {
+        "copy": 0,
+        "existing": 0,
+        "hardlink": 458
+      },
+      "source_manifest_sha256": "8febd2c19c347473d259d7b59ec01cf7a5a9799bf1333e4e6cac6411f4c84b43"
+    },
+    "NEU-DET": {
+      "data_yaml_path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\confirmatory_v1_1\\final_analysis\\final_evaluation\\data_cache\\NEU-DET\\locked_final.yaml",
+      "data_yaml_sha256": "27030c998b35e1f0f459cf2a00da4d03b58e2070926655fd0c96edfa6fe2e763",
+      "final_count": 359,
+      "final_list_sha256": "8b32fd2196a9fd930c1de349cdb50d4f113308455d1332722f9b2e836a566225",
+      "materialization": {
+        "copy": 0,
+        "existing": 0,
+        "hardlink": 359
+      },
+      "source_manifest_sha256": "7e649a5f3eee8d422b4bc0ddd8dacb96f4382256fe5ab834296db0153dfb48a0"
+    }
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,62 @@
+{
+  "bootstrap_replicates": 100000,
+  "complete_six_point_curves": 80,
+  "conceptual_strategy_budget_rows": 480,
+  "cross_dataset_pooling": false,
+  "development_metric_substitutions": 0,
+  "exact_sign_assignments_per_dataset": 1024,
+  "missing_or_interpolated_primary_points": 0,
+  "primary_acquisition_units": 20,
+  "primary_summary": [
+    {
+      "ci95_high": 0.007575998032446293,
+      "ci95_low": 0.003970138111192901,
+      "dataset": "GC10-DET",
+      "exact_sign_flip_p_raw": 0.001953125,
+      "holm_adjusted_p": 0.00390625,
+      "losses": 0,
+      "maximum": 0.010011890728144318,
+      "mean_dino_minus_random": 0.005811525937436679,
+      "median_dino_minus_random": 0.006888772901773893,
+      "metric": "primary_aulc_map50_95",
+      "minimum": 0.001546798662526272,
+      "n_acquisition_seeds": 10,
+      "sd_dino_minus_random": 0.00309178637954418,
+      "ties": 0,
+      "wins": 10
+    },
+    {
+      "ci95_high": 0.008119344037372227,
+      "ci95_low": 0.0031001467933441957,
+      "dataset": "NEU-DET",
+      "exact_sign_flip_p_raw": 0.00390625,
+      "holm_adjusted_p": 0.00390625,
+      "losses": 1,
+      "maximum": 0.012475812014153376,
+      "mean_dino_minus_random": 0.005781564784978243,
+      "median_dino_minus_random": 0.005687087351358283,
+      "metric": "primary_aulc_map50_95",
+      "minimum": -0.003997064075425438,
+      "n_acquisition_seeds": 10,
+      "sd_dino_minus_random": 0.004273774406181598,
+      "ties": 0,
+      "wins": 9
+    }
+  ],
+  "raw_scientific_evaluations": 440,
+  "selection_states_conceptual": 240,
+  "status": "PASS",
+  "table_sha256": {
+    "budget_curve_summary.csv": "1fba8cfa0dff6b32f3c01866ed6f6ca6cec014f26490400a746b09f2bcb95c12",
+    "classwise_final_summary.csv": "0b3849f6e7daf866da9f5e9f144b68706bf3d29db4959605a5ba4ad92d95c93c",
+    "curve_level_aulc_80.csv": "54128964654d9954f9f550062ffa0e950d82c8e693c4bf8b7d88f7a35810b8ab",
+    "primary_acquisition_deltas_20.csv": "205411b2dc7d4483a745dafe2f7c6b73e3cf15483e2c515e5db7b0c3023b665e",
+    "primary_summary_2.csv": "8891f3905e0510372d02bb06a2b9abd853d38aece3980caa9075ad4181cecf1a",
+    "raw_locked_final_metrics_conceptual_480.csv": "ff0e6861d44efa5d9266c4a216b601f28fd7f1acd2541a85f385f652a39f3a86",
+    "secondary_acquisition_deltas.csv": "b1b1f0deb4c4d778545ba01f976a9994d90296c3ca35f5955be7a3c000d532b4",
+    "secondary_summary.csv": "75f963c1d5a0e29be7a18adf8172570cfab99463d67cdc09bba0274e03a6ea11",
+    "selection_composition_raw_240.csv": "32fedb86d2fa1aabdb4c7445e5740dec2ee188f14f750c7ab3c60767da353c4f",
+    "selection_composition_summary.csv": "da75425fd95695c245e9a1aacd2b21a8d7bd94dc773e6dc9dd188cb2b368ecc3",
+    "training_seed_sensitivity.csv": "ae40720abdd47d00902d19f8eafe10b13231ecd22d8d507cd49e803fdd1ba7d3"
+  }
+}

@@ -16,3 +16,8 @@
 *.docx binary
 *.pt binary
 *.pth binary
+
+# Locked-final CSVs are integrity-sealed byte artifacts. Preserve their original
+# line endings so the published SHA-256 manifest verifies after a fresh clone.
+/confirmatory_v1_1/final_analysis/results/*.csv -text
+/results/thesis_final/tables/*.csv -text
