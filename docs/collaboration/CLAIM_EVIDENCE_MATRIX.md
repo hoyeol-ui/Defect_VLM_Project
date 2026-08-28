@@ -1,0 +1,30 @@
+# Claim–Evidence Matrix
+
+| ID | Claim | Evidence / dataset / metric | Strength | Allowed wording | Forbidden wording | Layer / source |
+|---|---|---|---|---|---|---|
+| C01 | Frozen DINO improved primary downstream learning utility on GC10 under the frozen protocol. | 10 paired acquisition effects; normalized locked-final mAP50-95 AULC delta `+0.005812`, CI `[+0.003970,+0.007576]`, 10/10; Holm p `.003906`. | controlled positive, small effect | “Under this GC10 protocol, Frozen DINO yielded a small positive paired AULC difference.” | “DINO is universally better,” “large practical gain,” “SOTA.” | Controlled; `locked_final_primary.csv` |
+| C02 | The primary difference replicated on NEU. | delta `+0.005782`, CI `[+0.003100,+0.008119]`, 9/10; Holm p `.003906`. | controlled positive, small effect | “The bounded positive primary direction was also observed on NEU.” | “All NEU classes improved,” “production generalization.” | Controlled; primary table |
+| C03 | A bounded two-dataset conclusion is supported. | Both dataset-specific primary intervals >0; no pooling. | bounded cross-dataset consistency | “Both evaluated datasets showed a positive primary difference under the same protocol.” | pooled `n=20` universal effect; all industrial data | Controlled; analysis report |
+| C04 | The effect is a learning-curve result, not merely an endpoint result. | Six budgets; largest deltas near R2; final-budget CIs include zero. | strong design, modest effect | “A modest advantage accumulated across the observed budget span.” | “DINO wins at every budget,” “final performance conclusively higher.” | Controlled; `budget_level.csv` |
+| C05 | Overall gain does not establish class safety. | NEU worst-class AULC `−0.014879`, CI `[−0.01978,−0.01002]`, 0/10; final `−3.118 pp`. | strong descriptive subgroup warning | “NEU showed a repeated worst-class deterioration alongside the overall gain.” | “DINO safely benefits NEU,” “all-class improvement.” | Controlled secondary; `secondary_subgroup.csv` |
+| C06 | GC10 frozen rare macro improved over the curve. | rare macro AULC `+0.673 pp`, CI `[+0.302,+1.068]`, 9/10. | descriptive positive subgroup | “The predefined GC10 rare macro AULC was positive in this study.” | “All rare classes improved”; universal rare-defect benefit | Controlled secondary |
+| C07 | Selection composition helps interpret class trade-offs. | NEU R5: crazing `−41.5`, rolled-in-scale `−35.1`, pitted `+31.6`, scratches `+57.6` images; class AP direction broadly aligns. | mechanism-consistent association | “Composition shifts were consistent with the class-effect pattern.” | “Composition caused the AP changes” without mediation/causal analysis | Controlled post-seal audit |
+| C08 | Learner stability and acquisition reproducibility are distinct. | Historical NEU fixed set `+0.016236`, 5/5 learner seeds; new acquisition `+0.007019`, interval includes zero, p `.322266`. | strong historical contrast | “One selected set's learner stability did not establish acquisition reproducibility.” | pooling learner and acquisition repeats; claiming historical confirmation | Historical; condition/evidence matrices |
+| C09 | Discovery and composition can conflict. | MPDD anomaly `+6.245`, category `−0.325`; VisA anomaly `+14.480`, categories `−4.110`. | historical selection-only | “Target discovery increased while composition safety failed in these fixed pools.” | downstream utility improved; production anomaly detector improved | Historical selection-only |
+| C10 | Positive direction is not the same as gate success. | KSDD2 Dice `+0.037565` below frozen `+0.05`; DeepPCB enrichment `1.107693` below `1.20`. | prospective gate evidence | “Positive estimates remained insufficient under frozen criteria.” | “KSDD2/DeepPCB succeeded”; changing thresholds post outcome | Historical prospective |
+| C11 | The evidence-layer framework is empirically motivated. | Validity, discovery, composition, reproducibility, and downstream results differ across branches. | thesis-level synthesis | “The case series supports evaluating these stages separately.” | “A new universal AL theory was proven.” | Historical + controlled, not pooled |
+| C12 | The 440 lifecycle increases coverage, not statistical n. | 40 shared R0 + 200 + 200; primary n=10 acquisitions/dataset. | design fact | “440 detector jobs generated 10 paired acquisition effects per dataset.” | `n=440`; treating budgets/learners as independent | Controlled protocol |
+| C13 | The final outcome was protected from adaptation. | final lock; 440/440 training integrity; 440/440 final; zero substitutions/retuning. | strong procedural evidence | “Outcomes were opened after frozen training closure and authorization.” | claiming universally untouched public test; claiming preregistration outside recorded scope | Controlled audits |
+| C14 | Annotation efficiency was evaluated in image-count budget terms. | cumulative image budgets 10–35%. | limited operational proxy | “The selector used the same number of labeled images.” | money/time saved; fewer boxes; production cost reduction proved | Controlled protocol |
+| C15 | Reproducible public result audit is provided. | published row-level tables, hashes, verification script, code/protocol/manifests. | strong numerical auditability | “Published summaries can be independently recalculated from released tables.” | “Fully self-contained reproduction without datasets/weights.” | Public package |
+
+## Global forbidden claims
+
+- Frozen DINO universally outperforms Random or state-of-the-art active learning.
+- Results generalize to all industrial datasets or production lines.
+- Every defect class or worst-case performance improves.
+- Monetary annotation cost, annotation time, deployment reliability, or business savings were measured.
+- Public benchmark outcomes equal production deployment evidence.
+- The 440 jobs are independent samples.
+- Historical and controlled effects can be pooled into one meta-effect without a new design.
+- Null/inconclusive historical results prove equivalence.
