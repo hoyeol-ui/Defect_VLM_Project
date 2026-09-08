@@ -1,0 +1,28 @@
+{
+  "algorithm": "SHA-256",
+  "scope": "All public package files except this seal and Python caches",
+  "files": {
+    ".gitattributes": "33274285cb058c0ddc6501e949394ca6b33d8680b32dd51268d9dfde9a48ff93",
+    "analysis_config.json": "f52d491815387bc19bf981bc2e8eb7f9549ca192a61ffb964f86b2f1a545447b",
+    "analyze.py": "10897a44a82fa9bae5dc8b06ff10669dfe875473d30b0efaf1d51471432df013",
+    "README.md": "daa4dee9fb94a4d199f3d289c93b12413e59519189ccde93be02ca86b59a95bb",
+    "results/analysis_integrity.json": "7eb91bd67677eef1b4b715c673de2cda871ecf5bc363ab42d0793b7de95a092e",
+    "results/chance_baseline.csv": "e6cf2f56e03547431ce190b64ec7727a4195bbd3696db5312ae7eab430a693ff",
+    "results/class_compactness.csv": "20a5412d570bcdbe7bf178d4ba323b8e74992964c5b418f99ed88f3275a3e6ed",
+    "results/figure_1_chance_baseline.png": "8f1189a9a4b7806003744bda4eb3589177165efeda2b8ba1a6eebce9edf8951b",
+    "results/figure_1_chance_baseline.svg": "7cb21fc3ae55157961ee5496e93c1c77be20bab7741c66ec59f151f38281d863",
+    "results/figure_2_neu_selection_geometry.png": "0602322339ccfdffe8f01d607d1135cb75b343f7abc94f08d469316754233330",
+    "results/figure_2_neu_selection_geometry.svg": "9299bab2d8e55f032ea58462327d79c7456980977677bd7dff91cb41b1dd22c8",
+    "results/figure_3_gc10_selection_geometry.png": "42196feadf77ae84d1b500c25938c6e8489b7d2a6e75d6774f42d2520a52bf59",
+    "results/figure_3_gc10_selection_geometry.svg": "c6d46b210f120f0d106c650b5d15f389ed63f1b12ebf250bb563a83cfae56ccd",
+    "results/figure_4_neu_ranked_geometry.png": "7f779e44a1f3d432f4b3f91b77e08b711026b375088f702763e8dec06002d7d7",
+    "results/figure_4_neu_ranked_geometry.svg": "f839203754cd6a4aeba883cc9c83cf100dba24a03b4c7d5bc86aa55f87b5cf1f",
+    "results/input_files_and_hashes.json": "ad5b0240d3cb263282f154d46bb0792212657bff4a4b474e420fc677ba95aea5",
+    "results/permutation_null_samples.csv": "20c7ddcf0e5d418a2b9a91ed015d12fa0a8b7331fba953a62407335f0a8409e5",
+    "results/protected_metadata_before.json": "241936098c039de1292b2fdcacc6fbbd5ee201054d44729fe0f3995710121257",
+    "results/selection_vs_geometry.csv": "5eaef2d2ec26ae93f1a381b7b93defff89e69051c414a1ef99bdff3302a0311b",
+    "results/spearman_by_round.csv": "908a264fc360229a98ebeeb3519e56be5bd4040c3c7a8cd247da41ca692a6b1d",
+    "test_analysis.py": "4093b152cb0db7574fad3d27011b8ad29f9c4450230e17ac1d020316428025fd",
+    "verify.py": "1e6bc5c2cdf63162e9b27a46cc99be9b1cc91f9d3cd06591cf07f83c1634a6e9"
+  }
+}

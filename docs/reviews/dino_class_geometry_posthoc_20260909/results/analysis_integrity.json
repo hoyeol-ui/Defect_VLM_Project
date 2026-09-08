@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "started_at_utc": "2026-09-08T15:09:40.021368+00:00",
+  "completed_at_utc": "2026-09-08T15:09:45.220635+00:00",
+  "runtime_seconds": 5.1987658001016825,
+  "config_sha256": "f52d491815387bc19bf981bc2e8eb7f9549ca192a61ffb964f86b2f1a545447b",
+  "script_sha256": "10897a44a82fa9bae5dc8b06ff10669dfe875473d30b0efaf1d51471432df013",
+  "datasets": [
+    {
+      "dataset": "GC10-DET",
+      "feature_rows": 1605,
+      "cache_sha256": "cc1c9826c692f8b9c9b445504037698692cafa54f62848e79842de29e12a29b8",
+      "conceptual_states_checked": 120,
+      "selection_counts_exact": true,
+      "shared_R0": true,
+      "duplicate_reselection_outside_acquisition": 0,
+      "permutation_exact_null_check": true
+    },
+    {
+      "dataset": "NEU-DET",
+      "feature_rows": 1259,
+      "cache_sha256": "1f6c92f6e54a7ad8134bc6c65eeba6d5b5a51dc8f35a9c5bb1917dd32da9a326",
+      "conceptual_states_checked": 120,
+      "selection_counts_exact": true,
+      "shared_R0": true,
+      "duplicate_reselection_outside_acquisition": 0,
+      "permutation_exact_null_check": true
+    }
+  ],
+  "historical_guard_paths_stat_unchanged": 1348,
+  "prior_protected_metadata_paths_match": 2574,
+  "protected_unique_paths_stat_unchanged": 3922,
+  "all_analysis_input_hashes_unchanged": true,
+  "protection_scope": "Hash checks on every analysis input plus before/after size/mtime on protected historical files. No fresh 440-checkpoint hash audit or test-content access.",
+  "official_registry_unchanged": true,
+  "official_registry_sha256": "e610be1d3ea2e740be26123606137572b454164d91f21a251d9c0ff9a56d73e3",
+  "official_job_states": [
+    {
+      "kind": "acquisition",
+      "state": "COMPLETE",
+      "count": 10,
+      "attempts": 10
+    },
+    {
+      "kind": "acquisition",
+      "state": "PENDING",
+      "count": 90,
+      "attempts": 0
+    },
+    {
+      "kind": "training",
+      "state": "BLOCKED_MANIFEST",
+      "count": 180,
+      "attempts": 0
+    },
+    {
+      "kind": "training",
+      "state": "COMPLETE",
+      "count": 20,
+      "attempts": 20
+    }
+  ],
+  "entropy_frozen_hashes": {
+    "freeze.json": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb",
+    "official_release_v1/freeze.json": "e40842787a93d2e06304f8da7eea5ea93f2125c7bd15982bbce6610903505e6a",
+    "authorizations/official_tranche_a00.json": "1cf0b12328878f222be2a3824e945f21e51620240f16723db51b15ef959e3936"
+  },
+  "feature_extraction_calls": 0,
+  "training_calls": 0,
+  "selection_calls": 0,
+  "locked_test_content_reads": 0,
+  "cuda_visible_devices": "",
+  "access_evidence": "Explicit input allowlist and code path; no OS-wide syscall audit claimed",
+  "python": "3.11.9",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "matplotlib": "3.11.0",
+  "full_reference_run_directory_exists": false
+}

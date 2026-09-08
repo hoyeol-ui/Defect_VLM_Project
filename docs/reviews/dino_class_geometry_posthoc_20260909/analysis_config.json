@@ -1,0 +1,37 @@
+{
+  "analysis_id": "pretrained_dinov2_class_geometry_posthoc_20260909_v1",
+  "role": "POST-HOC DIAGNOSTIC",
+  "decision_timing": "Recorded before computing geometry or permutation outcomes; motivated by previously observed selection/AP differences",
+  "datasets": ["GC10-DET", "NEU-DET"],
+  "seed_by_dataset": {"GC10-DET": 2026090801, "NEU-DET": 2026090802},
+  "permutations": 10000,
+  "rng": "numpy.random.PCG64",
+  "chance_null": "Permute complete annotation label sets over the fixed, previously saved directed 1-NN graph; exclude self edges; preserve label-set multiset and co-occurrence",
+  "observed_knn": "Reuse existing per-sample graph, dataset metrics, and classwise agreement; overlap means nonempty set intersection",
+  "null_interval": "Empirical 2.5th/97.5th percentiles (linear interpolation), NOT a confidence interval of the observed rate",
+  "class_membership": "All acquisition images containing annotation class c; images may appear in several classes in BOTH datasets",
+  "geometry_order": ["within_class_pair_median", "within_class_knn5_mean_median", "centroid_distance_median", "centroid_distance_p90"],
+  "geometry_definitions": {
+    "within_class_pair_median": "Median cosine distance across distinct unordered pairs of class members; diagonal excluded",
+    "within_class_knn5_mean_median": "For each class member take mean cosine distance to its 5 nearest OTHER same-class images, then median across members",
+    "centroid_distance_median": "Median cosine distance to the arithmetic-mean class embedding direction",
+    "centroid_distance_p90": "90th percentile of cosine distance to the arithmetic-mean class embedding direction"
+  },
+  "geometry_numeric_policy": "Read sealed FP32 cache unchanged; float64 CPU arithmetic, normalize a temporary copy to compute cosine, clip similarities to [-1,1]; no saved cache modification",
+  "selection": {
+    "rounds_for_correlations": [1, 2, 3, 4, 5],
+    "round0": "Validate shared initial state and include baseline counts; omit correlations because deviation is constant zero",
+    "unit": "10 historical acquisition trajectories per dataset, learner A/B shared selection counted once",
+    "reuse": "Use archived class-image counts from selection_composition_raw_240.csv, verify against hash-checked actual cumulative manifests and saved acquisition label sets",
+    "deviation": "mean DINO selected class-image count minus mean historical Random selected class-image count",
+    "ratio": "mean DINO count divided by mean historical Random count",
+    "expected_random": "round cumulative image count times available class count divided by fixed acquisition pool size",
+    "r5_primary_display": true
+  },
+  "correlations": "Spearman rank correlation for ALL four geometry diagnostics, each dataset and R1-R5; average tied ranks; no p-values or confidence intervals; class-level n=10 or n=6 with overlapping groups",
+  "interpretation": "Smaller distances indicate compactness. Positive association of distance with DINO-minus-Random counts supports the proposed direction. Qualitative judgement must consider all metrics, rounds, datasets, and exceptions; no causal claim or tuning",
+  "source_root": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1",
+  "prior_analysis_root": "C:/Users/user/Desktop/vlm/Defect_VLM_Project_thesis_release/confirmatory_v1_1/posthoc_analysis/results/dinov2_representation_validity_20260907",
+  "output_subdirectory": "results",
+  "restrictions": {"cpu_only": true, "gpu_training": false, "feature_inference": false, "locked_test_read": false, "new_selection": false, "historical_write": false, "existing_output_overwrite": false}
+}

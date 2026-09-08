@@ -1,0 +1,3 @@
+dataset,pool_images,multilabel_images,observed_rate,permutation_mean,permutation_p025,permutation_p975,observed_minus_chance,exact_finite_pool_chance,permutations,seed,interval_type
+GC10-DET,1605,331,0.81246105919,0.210716573209,0.188161993769,0.233021806854,0.601744485981,0.21091663365,10000,2026090801,"95% label-permutation null interval, not confidence interval"
+NEU-DET,1259,83,0.992057188245,0.189585146942,0.164416203336,0.21525019857,0.802472041303,0.189270006352,10000,2026090802,"95% label-permutation null interval, not confidence interval"
