@@ -1,0 +1,341 @@
+{
+  "B1_document": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\docs\\design\\entropy_b1_resolution_20260908.md",
+  "budgets": {
+    "GC10-DET": {
+      "acquisition_universe_n": 1605,
+      "cumulative_counts": [
+        161,
+        241,
+        321,
+        401,
+        481,
+        561
+      ],
+      "cumulative_fractions": [
+        0.1003115265,
+        0.1501557632,
+        0.2,
+        0.2498442368,
+        0.2996884735,
+        0.3495327103
+      ],
+      "initial_count": 161,
+      "query_count_per_round": 80
+    },
+    "NEU-DET": {
+      "acquisition_universe_n": 1259,
+      "cumulative_counts": [
+        126,
+        189,
+        252,
+        315,
+        378,
+        441
+      ],
+      "cumulative_fractions": [
+        0.1000794281,
+        0.1501191422,
+        0.2001588562,
+        0.2501985703,
+        0.3002382844,
+        0.350278
+      ],
+      "initial_count": 126,
+      "query_count_per_round": 63
+    },
+    "budget_points": 6,
+    "initial_budget": {
+      "fraction_of_fixed_acquisition_universe": 0.1,
+      "rounding": "decimal_round_half_up_once"
+    },
+    "query_budget": {
+      "base": "original_fixed_acquisition_universe_not_remaining_pool",
+      "fraction_of_fixed_acquisition_universe": 0.05,
+      "rounding": "decimal_round_half_up_once"
+    },
+    "rounds_after_initial": 5
+  },
+  "cold_start_every_cell": true,
+  "created_at": "2026-09-08T10:07:33.864932+00:00",
+  "decision_source": "user B1 instruction 20260908 before Entropy training/AP outcomes",
+  "environment": {
+    "cuda": "12.6",
+    "gpu": "NVIDIA GeForce RTX 3070",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.4.6",
+      "pillow": "12.3.0",
+      "pytest": "9.1.1",
+      "scipy": "1.17.1",
+      "torch": "2.12.1+cu126",
+      "torchvision": "0.27.1+cu126",
+      "transformers": "5.13.0",
+      "ultralytics": "8.4.90"
+    },
+    "python_executable": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\.python311\\python.exe",
+    "python_version": "3.11.9",
+    "ultralytics_sources": {
+      "cfg/__init__.py": "5a58e7ab86cc593c48e08a765c4757ddd3fa007e144a3cb4d9fd89f94d58695d",
+      "cfg\\default.yaml": "f6e19ab7228826341cc6370bcc8c78d10478d2bd604e25a13d9975b5efc9b410",
+      "data/build.py": "80264b44c8c3c5049699e6548a9dcd8a5a9f5b2c66d9ec8bff58132f9498d5ab",
+      "data/loaders.py": "c871b1b9b1ed701f5dbd8867f975090cb64be9809e2d839fab9f351592d85709",
+      "engine/trainer.py": "256eb7680a361308d8e5b55deaf8148280ddea1fc734663a3c46fa491388f0d8",
+      "engine\\model.py": "c6975bbb681f0b092fbaf3d07e09bb034c13c0c9150578633e8f743be4f321f1",
+      "engine\\predictor.py": "34428abf7b704bf0c22c1fbd46ce4c9d578154c1420771fa03db749913e25391",
+      "engine\\results.py": "b1473b8abe7754e9376d56ab98d1c3707160450f034c5fc050b54e24ef8c0dda",
+      "models\\yolo\\detect\\predict.py": "2f4d4e817782da56d9d6864084727a9576a5d276370cc1811435622941a2385d",
+      "nn/autobackend.py": "49e4597a61af5a46395371c6c263706461b489660c6a22d05813ce1f1137e9bd",
+      "nn\\modules\\head.py": "5701116d86881827ac9e1e7462dfaa44c33937bd68e23324763459685729e06f",
+      "utils/metrics.py": "56578b6b3fc83b8d87fed64c8895431f17adcb3e45b79199685cc4e45fe0037c",
+      "utils\\nms.py": "3220699ae742312e3fc3816ea917ff17ffd17a96b57593c4c2caff3ff72cf4f7"
+    }
+  },
+  "evaluation_learners": [
+    "A",
+    "B"
+  ],
+  "historical_R0_references": 40,
+  "historical_protocol_sha256": "6836f452d22c3de26dfa2680c45d0b5cb8f925b1a9274789c4ef81a1770f0b10",
+  "id": "entropy-extension-v1",
+  "inference": {
+    "agnostic_nms": false,
+    "augment": false,
+    "batch": 1,
+    "classes": null,
+    "compile": false,
+    "conf": 0.25,
+    "cublas_workspace_config": ":4096:8",
+    "cudnn_benchmark": false,
+    "deterministic": true,
+    "device": "0",
+    "dnn": false,
+    "embed": null,
+    "end2end": false,
+    "half": false,
+    "imgsz": 640,
+    "iou": 0.7,
+    "max_det": 300,
+    "mode": "predict",
+    "multi_label": false,
+    "nms_max_nms": 30000,
+    "nms_max_time_img": 0.05,
+    "nms_max_wh": 7680,
+    "plots": false,
+    "rect": false,
+    "save": false,
+    "save_conf": false,
+    "save_crop": false,
+    "save_frames": false,
+    "save_json": false,
+    "save_txt": false,
+    "seed": 0,
+    "show": false,
+    "software_version": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.4.6",
+      "pillow": "12.3.0",
+      "pytest": "9.1.1",
+      "scipy": "1.17.1",
+      "torch": "2.12.1+cu126",
+      "torchvision": "0.27.1+cu126",
+      "transformers": "5.13.0",
+      "ultralytics": "8.4.90"
+    },
+    "source_sha256": {
+      "cfg\\default.yaml": "f6e19ab7228826341cc6370bcc8c78d10478d2bd604e25a13d9975b5efc9b410",
+      "engine\\model.py": "c6975bbb681f0b092fbaf3d07e09bb034c13c0c9150578633e8f743be4f321f1",
+      "engine\\predictor.py": "34428abf7b704bf0c22c1fbd46ce4c9d578154c1420771fa03db749913e25391",
+      "engine\\results.py": "b1473b8abe7754e9376d56ab98d1c3707160450f034c5fc050b54e24ef8c0dda",
+      "models\\yolo\\detect\\predict.py": "2f4d4e817782da56d9d6864084727a9576a5d276370cc1811435622941a2385d",
+      "nn\\modules\\head.py": "5701116d86881827ac9e1e7462dfaa44c33937bd68e23324763459685729e06f",
+      "utils\\nms.py": "3220699ae742312e3fc3816ea917ff17ffd17a96b57593c4c2caff3ff72cf4f7"
+    },
+    "stream_buffer": false,
+    "task": "detect",
+    "tf32": false,
+    "verbose": false,
+    "vid_stride": 1,
+    "visualize": false
+  },
+  "integration_results_auto_promoted": false,
+  "integration_scope": {
+    "acquisition_index": 0,
+    "dataset": "GC10-DET",
+    "learners": [
+      "A",
+      "B"
+    ],
+    "round": 1
+  },
+  "learner_B_in_acquisition": false,
+  "learner_reduction": "arithmetic mean of A/B six-point AULCs; policy-role asymmetry disclosed",
+  "locked_test_access": "FORBIDDEN",
+  "new_final_evaluation_endpoint": null,
+  "new_training_cells": 200,
+  "official_requires_real_integration_pass": true,
+  "parent_preflight_sha256": "8bee6279b72978e7aade48840a90607f9fa0f8a4aa36409b85aa8eef2ae78cdb",
+  "policy_learner": "A",
+  "pretrained": {
+    "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\yolov8n.pt",
+    "sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36"
+  },
+  "retry_policy": {
+    "automatic_retry": false,
+    "max_infrastructure_attempts": 3,
+    "resume": false
+  },
+  "rounds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "seeds": [
+    {
+      "acquisition_index": "0",
+      "acquisition_seed": "118406135",
+      "dataset": "GC10-DET",
+      "training_seed_a": "1356694077",
+      "training_seed_b": "850898698"
+    },
+    {
+      "acquisition_index": "1",
+      "acquisition_seed": "1544253486",
+      "dataset": "GC10-DET",
+      "training_seed_a": "1510088360",
+      "training_seed_b": "1732754538"
+    },
+    {
+      "acquisition_index": "2",
+      "acquisition_seed": "1207468566",
+      "dataset": "GC10-DET",
+      "training_seed_a": "657626531",
+      "training_seed_b": "1207353763"
+    },
+    {
+      "acquisition_index": "3",
+      "acquisition_seed": "1047824994",
+      "dataset": "GC10-DET",
+      "training_seed_a": "19504879",
+      "training_seed_b": "530173103"
+    },
+    {
+      "acquisition_index": "4",
+      "acquisition_seed": "489338187",
+      "dataset": "GC10-DET",
+      "training_seed_a": "1318114342",
+      "training_seed_b": "2066734596"
+    },
+    {
+      "acquisition_index": "5",
+      "acquisition_seed": "1247201608",
+      "dataset": "GC10-DET",
+      "training_seed_a": "722011557",
+      "training_seed_b": "1136601338"
+    },
+    {
+      "acquisition_index": "6",
+      "acquisition_seed": "1159501161",
+      "dataset": "GC10-DET",
+      "training_seed_a": "353235486",
+      "training_seed_b": "299585371"
+    },
+    {
+      "acquisition_index": "7",
+      "acquisition_seed": "1248489736",
+      "dataset": "GC10-DET",
+      "training_seed_a": "1779269858",
+      "training_seed_b": "1069543283"
+    },
+    {
+      "acquisition_index": "8",
+      "acquisition_seed": "1498171501",
+      "dataset": "GC10-DET",
+      "training_seed_a": "469985488",
+      "training_seed_b": "937737446"
+    },
+    {
+      "acquisition_index": "9",
+      "acquisition_seed": "1117821898",
+      "dataset": "GC10-DET",
+      "training_seed_a": "233252860",
+      "training_seed_b": "1996254211"
+    },
+    {
+      "acquisition_index": "0",
+      "acquisition_seed": "556094945",
+      "dataset": "NEU-DET",
+      "training_seed_a": "838661549",
+      "training_seed_b": "2073899285"
+    },
+    {
+      "acquisition_index": "1",
+      "acquisition_seed": "1401936841",
+      "dataset": "NEU-DET",
+      "training_seed_a": "796232085",
+      "training_seed_b": "745513910"
+    },
+    {
+      "acquisition_index": "2",
+      "acquisition_seed": "308869329",
+      "dataset": "NEU-DET",
+      "training_seed_a": "1002146992",
+      "training_seed_b": "383022918"
+    },
+    {
+      "acquisition_index": "3",
+      "acquisition_seed": "1765023412",
+      "dataset": "NEU-DET",
+      "training_seed_a": "1690576487",
+      "training_seed_b": "695389876"
+    },
+    {
+      "acquisition_index": "4",
+      "acquisition_seed": "1863187687",
+      "dataset": "NEU-DET",
+      "training_seed_a": "384083196",
+      "training_seed_b": "1208687006"
+    },
+    {
+      "acquisition_index": "5",
+      "acquisition_seed": "1566547639",
+      "dataset": "NEU-DET",
+      "training_seed_a": "1161462808",
+      "training_seed_b": "1361074316"
+    },
+    {
+      "acquisition_index": "6",
+      "acquisition_seed": "1039657086",
+      "dataset": "NEU-DET",
+      "training_seed_a": "515752122",
+      "training_seed_b": "1907935622"
+    },
+    {
+      "acquisition_index": "7",
+      "acquisition_seed": "1644540782",
+      "dataset": "NEU-DET",
+      "training_seed_a": "95705870",
+      "training_seed_b": "125815902"
+    },
+    {
+      "acquisition_index": "8",
+      "acquisition_seed": "1157893727",
+      "dataset": "NEU-DET",
+      "training_seed_a": "1097300708",
+      "training_seed_b": "1703931780"
+    },
+    {
+      "acquisition_index": "9",
+      "acquisition_seed": "1944238630",
+      "dataset": "NEU-DET",
+      "training_seed_a": "665477887",
+      "training_seed_b": "838538952"
+    }
+  ],
+  "stage": "INTEGRATION_CANDIDATE_NOT_OFFICIALLY_AUTHORIZED",
+  "statistical_unit": "acquisition index, separately within each dataset (n=10)",
+  "training_requires_authorization": true,
+  "trajectory_count": 20,
+  "trajectory_sharing": "same selected manifest for A/B"
+}

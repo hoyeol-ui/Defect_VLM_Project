@@ -1,0 +1,58 @@
+{
+  "all_official_cells_fresh_after_authorization": true,
+  "cold_start_pretrained": {
+    "path": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\yolov8n.pt",
+    "sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36"
+  },
+  "created_at": "2026-09-08T10:54:42.587517+00:00",
+  "engine_freeze_sha256": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb",
+  "entropy": {
+    "aggregation": "SUM",
+    "class_aware_nms": true,
+    "conf": 0.25,
+    "equation": "-p ln(p) - (1-p) ln(1-p)",
+    "iou": 0.7,
+    "max_det": 300,
+    "no_detection": 0.0,
+    "p": "post-NMS boxes.conf",
+    "ranking": "score descending, canonical image ID ascending"
+  },
+  "historical_440_mutation": "FORBIDDEN",
+  "historical_R0": "hash-verified read-only reuse",
+  "id": "entropy-official-v1",
+  "integration_reuse": false,
+  "interim_policy": "development descriptive only after complete tranche integrity audit; NOT FINAL - 1/10 acquisition trajectories; no CI/significance/superiority claim; no protocol changes from interim outcomes",
+  "learner_B_policy_participant": false,
+  "learner_reduction": "arithmetic mean of A/B six-point AULCs; policy-role asymmetry disclosed",
+  "limitations": {
+    "interpretation": "strong dependence on number of retained detections; no threshold/aggregation/seed/budget tuning",
+    "smoke_entropy_detection_count_spearman": {
+      "GC10-DET": 0.9466,
+      "NEU-DET": 0.9738
+    }
+  },
+  "locked_test_access": "FORBIDDEN",
+  "locked_test_endpoint": null,
+  "manifest_sharing": "A/B identical cumulative manifest",
+  "method_protocol_path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\protocol.json",
+  "method_protocol_sha256": "9c9b3ccfc3f962c133e47083f73c594ee3b916d3c4f1f09f85144f01639dd6f5",
+  "namespace": "official",
+  "official_artifacts_root": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1",
+  "planned_acquisitions": 100,
+  "planned_training_cells": 200,
+  "policy_learner": "A",
+  "reference_runs_in_scope": false,
+  "round_gate": "both learner artifacts, selection, data, policy-parent and historical integrity PASS before next round",
+  "rounds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "stage": "OFFICIAL_PROTOCOL_FROZEN",
+  "statistical_unit": "acquisition index, separately within each dataset (n=10)",
+  "training_config_sha256": "c95126df53289c804f2df9c016b65442c833983dd77158a14dc5d9fb6033d223",
+  "trajectories": 20,
+  "worker_delta": "scoped authorization/official provenance and CUDA memory counters only; training semantics identical to integration worker"
+}

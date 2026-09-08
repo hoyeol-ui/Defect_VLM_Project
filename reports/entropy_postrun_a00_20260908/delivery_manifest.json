@@ -1,0 +1,122 @@
+[
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/POST_RUN_REPORT.md",
+    "sha256": "519104c2f7a5fcf093ff53cdfd39873550f3643a242c96e5a5378a968fcf5b5c"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/interim_development_curves.png",
+    "sha256": "bae0628a19588e458e4fc209b608b264ab0d4b74e6e150423c99357ce93d1344"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/interim_development_curves.svg",
+    "sha256": "3bec751db016675a5a69721a502dc37347d69497b80a2dcac5f8f0770ed80024"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/after_analysis_integrity.json",
+    "sha256": "a969dc1dbf96bfb76c81878145ef00a6cbd5c54107ccedee08f093a55e615692"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/interim_descriptive_results.json",
+    "sha256": "b43836b3f7c6d6d5325f75b4d93d46323f7bf12a2f5f22f5b6e13b074c3451bc"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/interim_raw_development.json",
+    "sha256": "d38d1e3b15f9911ce68049c79588529fae0f54caa2850adff7901d57b0d29c3c"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/post_run_audit.json",
+    "sha256": "47804771c07509d665d15bc2383ac3597c6b37290143fb6c199cc2c40eb744e0"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/runtime_and_remaining_work.json",
+    "sha256": "d75edf9eaf656342e3a6b4c0ceedaa78d3e48df2192cd4f18dac7fea9bb3f494"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_A_R1.json",
+    "sha256": "6f9818f226e6c7d421730b39e5b37ace18d4400fa87b552cb4de535e872507c1"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_A_R2.json",
+    "sha256": "fb42375cc676cfd5e972b88d8cdb1a6cf6ae23937d9ae147b9f9c8cbf6e4e645"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_A_R3.json",
+    "sha256": "ecd2906753b389443cb788645067e883d79100c6ff6960c6f7f6a55286d8eeea"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_A_R4.json",
+    "sha256": "12603bd1930d0fdce42f26a169aea141bc3a86fc7dcf45eb618956b694c2c5d2"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_A_R5.json",
+    "sha256": "1551318a332e93391f52cc4c7c9f42a3d789d8616910080889d0acae423f9397"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_B_R1.json",
+    "sha256": "5ce8b7584abb790ec1be4f85c1906e8b8a443a29ffd685818ecd63c9e194025e"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_B_R2.json",
+    "sha256": "0dd1066a75854dfb465df2c5c8ecaab90f9458a8186388345ca0aa95937b5954"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_B_R3.json",
+    "sha256": "4762440226e37081cee59cdaa6acc14095624cf0c42af2147b6243adf237f917"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_B_R4.json",
+    "sha256": "3b6065e650a8f2632eee238bceade676751aabe784070bd2f139d00e9d5e04c2"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/GC10-DET_a00_Entropy_B_R5.json",
+    "sha256": "5202589397c9d055340f23add8a7135651ad94bcd1c202bab04d044c771c8ea0"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_A_R1.json",
+    "sha256": "701ce75d8176772c1ca524b57f1c9fad93231013be30f162b8e3dd268db82c42"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_A_R2.json",
+    "sha256": "abcc7d3ebde4e6f9b2a956aa2819cf3148ccb5085fbc370d1cb5ea3c0c918820"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_A_R3.json",
+    "sha256": "d115374f4e03c0f24a976487a2d815545dcbeadca5285087fde1002b056d0998"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_A_R4.json",
+    "sha256": "7a34ed8afbb69e224adcbb1c0705a0f1a9e83be039833671b7169d26534d0b97"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_A_R5.json",
+    "sha256": "950ea9ed436f1281b1b251612556c5e46f169dd2ef58d5309d9dd829ac8cd4b0"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_B_R1.json",
+    "sha256": "1f6013b61a17b11fcead031298941a499b68b026a46f784f32d6f5969beabaff"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_B_R2.json",
+    "sha256": "041e0e009e96cb716bad23dcd5b3d55815a4a8d68729a49e1645d9e6df781fa6"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_B_R3.json",
+    "sha256": "9098b2539edf7fbb84d5a8eda617af496a1c7750699b347aa5104f80af2da0b3"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_B_R4.json",
+    "sha256": "afed0a1e028c295b6af83710a4779aa919e2e9170224db4fefe27a607407122f"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/development_metrics/NEU-DET_a00_Entropy_B_R5.json",
+    "sha256": "e45dbbccf64945af088c3b9913919fe3bfe8048d99ee31607e8538bb6e737926"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/post_run.py",
+    "sha256": "5b41ba095669e78c681fb7a12f22730360f57389dcbec5ac2733830fb8df4675"
+  },
+  {
+    "path": "C:/Users/user/Desktop/vlm/confirmatory_random_dino_v1/reports/entropy_postrun_a00_20260908/publish_report.py",
+    "sha256": "6e79149b36cf38b356b872fbe76f740b91d21b1936fffb3c7f83ed3d70eb59f3"
+  }
+]

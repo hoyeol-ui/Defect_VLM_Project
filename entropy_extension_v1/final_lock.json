@@ -1,0 +1,7 @@
+{
+  "evaluation_endpoint": null,
+  "historical_authorization_accepted": false,
+  "locked_test_access": "FORBIDDEN",
+  "reason": "This extension implements training/validation only; no locked-test execution.",
+  "status": "LOCKED"
+}

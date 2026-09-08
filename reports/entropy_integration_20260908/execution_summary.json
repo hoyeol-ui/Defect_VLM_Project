@@ -1,0 +1,22 @@
+{
+  "command": [
+    "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\.python311\\python.exe",
+    "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\scripts\\entropy_extension\\run.py",
+    "integration",
+    "--mode",
+    "integration",
+    "--execute-training",
+    "--approve-gc10-a00-r1",
+    "--freeze-sha256",
+    "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb"
+  ],
+  "finished_at": "2026-09-08T10:38:07.415311+00:00",
+  "freeze_sha256": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb",
+  "gpu_sample_count": 944,
+  "gpu_sampling_errors": [],
+  "peak_measurement": "device-wide nvidia-smi; approximately 1-second samples, not an exact per-process allocator peak",
+  "returncode": 0,
+  "sampled_device_peak_vram_mib": 2091,
+  "started_at": "2026-09-08T10:21:04.709112+00:00",
+  "total_wall_seconds": 1022.698923900025
+}

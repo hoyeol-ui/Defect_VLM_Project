@@ -1,0 +1,16 @@
+{
+  "B_policy_edges": 0,
+  "R0_read_only_references_verified": 40,
+  "execution_time_gate": "PASS",
+  "historical_best_last_manifest_count": 440,
+  "integration_artifacts_in_registry": 0,
+  "locked_test_endpoint": "DISABLED",
+  "official_attempts": 0,
+  "planned_cells": 200,
+  "queries": 100,
+  "reference_runs_preserved": true,
+  "seeds_budgets_config_hashes": "PASS",
+  "status": "PASS",
+  "timestamp": "2026-09-08T10:54:42.603027+00:00",
+  "trajectories": 20
+}

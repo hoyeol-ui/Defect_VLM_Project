@@ -1,0 +1,13 @@
+dataset,metric,value,n
+GC10-DET,nearest_neighbor_any_annotation_label_agreement,0.8124610591900312,1605
+GC10-DET,knn_neighbor_annotation_overlap_k1,0.8124610591900312,1605
+GC10-DET,knn_neighbor_annotation_overlap_k5,0.7551401869158878,1605
+GC10-DET,nearest_neighbor_annotation_label_jaccard_mean,0.7383177570093458,1605
+NEU-DET,nearest_neighbor_any_annotation_label_agreement,0.9920571882446386,1259
+NEU-DET,knn_neighbor_annotation_overlap_k1,0.9920571882446386,1259
+NEU-DET,knn_neighbor_annotation_overlap_k5,0.9864972200158856,1259
+NEU-DET,nearest_neighbor_annotation_label_jaccard_mean,0.964124966904951,1259
+NEU-DET,nearest_neighbor_same_nominal_category,0.9920571882446386,1259
+NEU-DET,leave_one_out_nominal_knn_accuracy_k1,0.9920571882446386,1259
+NEU-DET,leave_one_out_nominal_knn_accuracy_k5,0.9904686258935663,1259
+NEU-DET,nominal_category_silhouette_cosine,0.2994803488254547,1259

@@ -1,0 +1,63 @@
+{
+  "created_at": "2026-09-08T10:54:42.605538+00:00",
+  "engine_freeze_sha256": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb",
+  "files": [
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\official_release_v1\\initial_registry_snapshot.json",
+      "sha256": "58d42f35e7b1020d48c53ca1c5563b78af4339d35c307282e0b985e3e0a33054"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\official_release_v1\\preflight.json",
+      "sha256": "b39105e2defb94d7062d3794bc0ddaf0cb450d46adfaf91a3ea25817d981e6a8"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\official_release_v1\\protected_metadata.json",
+      "sha256": "139907b9581b9a7ee9675f41b49af1aec9b4d07810473544f184d31fd781b883"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\official_release_v1\\protocol.json",
+      "sha256": "dcb372f9f2d01d6668891513df2a3fa8459c6b9b27c7e847b69fd6c8c240699a"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\official_release_v1\\runtime_estimate.json",
+      "sha256": "ad51b2b3addf817a954f5a50ea2ffa22c76435f6154f8ff56575053821715fd1"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\freeze.json",
+      "sha256": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\integration_pass.json",
+      "sha256": "2d0d999d7a7417e2b2a7f32eaf09b2b7f5d27e66658ab0e2fd0a9ed58450a720"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\reports\\entropy_integration_20260908\\integration_audit.json",
+      "sha256": "31ace309e57f52bc67f5145879aec7dd90c36bb102373dcb6c4c4c6c90fa16a7"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\yolo26n.pt",
+      "sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\src\\defect_al\\entropy_official.py",
+      "sha256": "2337d8ace0ac7fdb29e9dbca15035ecd1ae2b604379f82a837cbe92b6ba670f2"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\src\\defect_al\\entropy_official_training.py",
+      "sha256": "64ae7a0ecf9c762ad7b11aa0f9e35cbbfb5a283e22cc6a48d9a7e20ce65cfeba"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\scripts\\entropy_extension\\official.py",
+      "sha256": "40dc488c1c9f8d74bdc2a8474cf1f11192034d7a1ae60936da442a9b8bac462d"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\scripts\\entropy_extension\\prepare_official.py",
+      "sha256": "7f5a0d51f21505953c6acfa184ccf2ea23a2b5ee1254d3c455c20853eb94448b"
+    },
+    {
+      "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\tests\\test_entropy_official.py",
+      "sha256": "c891bfeb118db9e1b8c6e2a1bf9e8bf25f31f13fc8ab62a3af16a6894ae405d0"
+    }
+  ],
+  "stage": "OFFICIAL_PROTOCOL_FROZEN"
+}

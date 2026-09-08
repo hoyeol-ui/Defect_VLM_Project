@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "two_full_inferences_per_dataset_identical": true,
+  "csv_required_fields": [
+    "acquisition_seed",
+    "checkpoint_path",
+    "checkpoint_sha256",
+    "conf",
+    "dataset",
+    "entropy_sum",
+    "image_id",
+    "imgsz",
+    "iou",
+    "max_det",
+    "n_detections",
+    "rank",
+    "round",
+    "selected",
+    "software_version",
+    "timestamp"
+  ],
+  "full_reference_configs_prepared": 4,
+  "full_reference_outputs_exist": false,
+  "no_train_or_val_calls_in_scorer_or_smoke": true,
+  "original_tracked_files_changed": false,
+  "frozen_dataset_hashes_unchanged": true
+}

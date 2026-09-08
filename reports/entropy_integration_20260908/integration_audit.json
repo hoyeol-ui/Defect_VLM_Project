@@ -1,0 +1,154 @@
+{
+  "cells": [
+    {
+      "best_path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_A_R1\\attempt_01\\weights\\best.pt",
+      "best_sha256": "088e6085b296e9e5cdf79947ae0a25ab42780e6bfd5ae192035e1b4c25c13877",
+      "checkpoint_metadata_seed_and_initialization": "PASS",
+      "checkpoint_selection_split": "validation",
+      "cold_start": true,
+      "data_yaml_sha256": "c8b6bf192f9614a8946e35069c50066d0014de15537c826d95ac6dd27f27142e",
+      "epochs_completed": 100,
+      "files": [
+        {
+          "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_A_R1\\attempt_01\\weights\\best.pt",
+          "sha256": "088e6085b296e9e5cdf79947ae0a25ab42780e6bfd5ae192035e1b4c25c13877"
+        },
+        {
+          "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_A_R1\\attempt_01\\weights\\last.pt",
+          "sha256": "8a6cd00cbcc29bd5f39fe55b7229f4b371c78d2abde9fe2d9de49aa3bd8a3cd7"
+        },
+        {
+          "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_A_R1\\attempt_01\\args.yaml",
+          "sha256": "fca982d61a1c2237790cbfc710fa1156bed78bb5de94d96970ffdff0d22ec3ef"
+        }
+      ],
+      "initialization_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+      "last_path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_A_R1\\attempt_01\\weights\\last.pt",
+      "last_sha256": "8a6cd00cbcc29bd5f39fe55b7229f4b371c78d2abde9fe2d9de49aa3bd8a3cd7",
+      "manifest_sha256": "30985e4b95050f4ab28223d7a67af0444a0503aca21894488e3b522090dd9097",
+      "node_id": "GC10-DET_a00_Entropy_A_R1",
+      "resume": false,
+      "sealed_image_and_label_hashes": "PASS",
+      "test_ids_in_input_lists": 0,
+      "train_count": 241,
+      "train_runtime_seconds": 499.16567040001974,
+      "training": "PASS",
+      "training_config_sha256": "e43afc83bd512859e36477674ca60f2ba5ab9a182af38bb539606ebea1277441",
+      "training_seed": 1356694077,
+      "validation_best_consistency": "PASS",
+      "validation_count": 229,
+      "validation_runtime_seconds": 9.169329800177366
+    },
+    {
+      "best_path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_B_R1\\attempt_01\\weights\\best.pt",
+      "best_sha256": "bcc6113f4a0bac7f53175c8cdcb30cd57af37801392ce86865ba841784e57252",
+      "checkpoint_metadata_seed_and_initialization": "PASS",
+      "checkpoint_selection_split": "validation",
+      "cold_start": true,
+      "data_yaml_sha256": "c8b6bf192f9614a8946e35069c50066d0014de15537c826d95ac6dd27f27142e",
+      "epochs_completed": 100,
+      "files": [
+        {
+          "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_B_R1\\attempt_01\\weights\\best.pt",
+          "sha256": "bcc6113f4a0bac7f53175c8cdcb30cd57af37801392ce86865ba841784e57252"
+        },
+        {
+          "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_B_R1\\attempt_01\\weights\\last.pt",
+          "sha256": "d2a79db7b76f2d51100d2272024878721c1b3c4aa79d9ca780f25fb35c6f686a"
+        },
+        {
+          "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_B_R1\\attempt_01\\args.yaml",
+          "sha256": "8591767cb20bd5859dfd03ce659a894cd1d21f50ccf9ab9a8752406dc23f0b4c"
+        }
+      ],
+      "initialization_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+      "last_path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_B_R1\\attempt_01\\weights\\last.pt",
+      "last_sha256": "d2a79db7b76f2d51100d2272024878721c1b3c4aa79d9ca780f25fb35c6f686a",
+      "manifest_sha256": "30985e4b95050f4ab28223d7a67af0444a0503aca21894488e3b522090dd9097",
+      "node_id": "GC10-DET_a00_Entropy_B_R1",
+      "resume": false,
+      "sealed_image_and_label_hashes": "PASS",
+      "test_ids_in_input_lists": 0,
+      "train_count": 241,
+      "train_runtime_seconds": 494.704268499976,
+      "training": "PASS",
+      "training_config_sha256": "275906b65feae48b10108b69282e00a779c1b018f0a79ebf2a443fa88a2b4fc6",
+      "training_seed": 850898698,
+      "validation_best_consistency": "PASS",
+      "validation_count": 229,
+      "validation_runtime_seconds": 9.28664129995741
+    }
+  ],
+  "execution": {
+    "command": [
+      "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\.python311\\python.exe",
+      "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\scripts\\entropy_extension\\run.py",
+      "integration",
+      "--mode",
+      "integration",
+      "--execute-training",
+      "--approve-gc10-a00-r1",
+      "--freeze-sha256",
+      "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb"
+    ],
+    "finished_at": "2026-09-08T10:38:07.415311+00:00",
+    "freeze_sha256": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb",
+    "gpu_sample_count": 944,
+    "gpu_sampling_errors": [],
+    "peak_measurement": "device-wide nvidia-smi; approximately 1-second samples, not an exact per-process allocator peak",
+    "returncode": 0,
+    "sampled_device_peak_vram_mib": 2091,
+    "started_at": "2026-09-08T10:21:04.709112+00:00",
+    "total_wall_seconds": 1022.698923900025
+  },
+  "freeze_sha256": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb",
+  "historical_best_checkpoints_verified": 440,
+  "historical_last_checkpoints_verified": 440,
+  "historical_manifests_verified": 440,
+  "historical_protected_hashes_unchanged": 1348,
+  "historical_registry_matches_archived_seal": true,
+  "integration_registry": [
+    {
+      "artifact": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_A_R1\\attempt_01\\cell_result.json",
+      "artifact_sha256": "3a8405edd83d88d4f9476c2588a684c58e62b70212b103821aa96174286c8479",
+      "attempt": 1,
+      "node_id": "GC10-DET_a00_Entropy_A_R1",
+      "state": "COMPLETE"
+    },
+    {
+      "artifact": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_B_R1\\attempt_01\\cell_result.json",
+      "artifact_sha256": "5b0dd34f3db2153d8b939922bc07b83e782e5bbd1ab06074459181aadebf2f30",
+      "attempt": 1,
+      "node_id": "GC10-DET_a00_Entropy_B_R1",
+      "state": "COMPLETE"
+    },
+    {
+      "artifact": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\acquisitions\\integration\\GC10-DET_a00_Q_R1\\attempt_01\\acquisition.json",
+      "artifact_sha256": "c7cd6b69fc4796ffa8dae15a1a04934ddf9ae3d168431860c380fc191cb3e907",
+      "attempt": 1,
+      "node_id": "GC10-DET_a00_Q_R1",
+      "state": "COMPLETE"
+    }
+  ],
+  "learner_B_policy_edges": 0,
+  "locked_test_access": {
+    "basis": "frozen runner/source, train/validation-only YAML, lists and checkpoint metadata, completed records; no OS syscall-level tracing",
+    "test_images_in_inputs": 0,
+    "training_or_evaluation_calls": 0
+  },
+  "next_r2_policy_parent": {
+    "node_id": "GC10-DET_a00_Entropy_A_R1",
+    "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_A_R1\\attempt_01\\weights\\best.pt",
+    "round": 1,
+    "sha256": "088e6085b296e9e5cdf79947ae0a25ab42780e6bfd5ae192035e1b4c25c13877",
+    "slot": "A"
+  },
+  "official_registry_bytes_unchanged": true,
+  "official_training_attempts": 0,
+  "outcome_comparison_or_interpretation": false,
+  "r2_acquisition_executed": false,
+  "same_cold_start_pretrained": true,
+  "shared_manifest": true,
+  "status": "INTEGRATION PASS",
+  "timestamp": "2026-09-08T10:38:22.375797+00:00"
+}

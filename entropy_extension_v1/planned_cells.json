@@ -1,0 +1,3202 @@
+[
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a00_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 1356694077,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a00_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 850898698,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a00_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 1356694077,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a00_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 850898698,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a00_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 1356694077,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a00_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 850898698,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a00_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 1356694077,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a00_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 850898698,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a00_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 1356694077,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 118406135,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a00_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a00_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 850898698,
+    "trajectory": "GC10-DET_a00"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a01_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 1510088360,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a01_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1732754538,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a01_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 1510088360,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a01_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1732754538,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a01_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 1510088360,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a01_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1732754538,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a01_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 1510088360,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a01_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1732754538,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a01_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 1510088360,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1544253486,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a01_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a01_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1732754538,
+    "trajectory": "GC10-DET_a01"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a02_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 657626531,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a02_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1207353763,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a02_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 657626531,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a02_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1207353763,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a02_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 657626531,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a02_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1207353763,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a02_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 657626531,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a02_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1207353763,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a02_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 657626531,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 1207468566,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a02_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a02_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1207353763,
+    "trajectory": "GC10-DET_a02"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a03_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 19504879,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a03_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 530173103,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a03_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 19504879,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a03_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 530173103,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a03_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 19504879,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a03_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 530173103,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a03_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 19504879,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a03_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 530173103,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a03_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 19504879,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1047824994,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a03_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a03_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 530173103,
+    "trajectory": "GC10-DET_a03"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a04_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 1318114342,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a04_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 2066734596,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a04_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 1318114342,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a04_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 2066734596,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a04_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 1318114342,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a04_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 2066734596,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a04_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 1318114342,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a04_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 2066734596,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a04_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 1318114342,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 489338187,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a04_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a04_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 2066734596,
+    "trajectory": "GC10-DET_a04"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a05_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 722011557,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a05_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1136601338,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a05_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 722011557,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a05_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1136601338,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a05_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 722011557,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a05_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1136601338,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a05_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 722011557,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a05_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1136601338,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a05_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 722011557,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1247201608,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a05_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a05_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1136601338,
+    "trajectory": "GC10-DET_a05"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a06_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 353235486,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a06_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 299585371,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a06_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 353235486,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a06_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 299585371,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a06_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 353235486,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a06_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 299585371,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a06_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 353235486,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a06_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 299585371,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a06_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 353235486,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1159501161,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a06_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a06_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 299585371,
+    "trajectory": "GC10-DET_a06"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a07_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 1779269858,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a07_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1069543283,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a07_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 1779269858,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a07_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1069543283,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a07_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 1779269858,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a07_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1069543283,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a07_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 1779269858,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a07_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1069543283,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a07_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 1779269858,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1248489736,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a07_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a07_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1069543283,
+    "trajectory": "GC10-DET_a07"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a08_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 469985488,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a08_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 937737446,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a08_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 469985488,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a08_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 937737446,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a08_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 469985488,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a08_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 937737446,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a08_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 469985488,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a08_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 937737446,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a08_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 469985488,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1498171501,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a08_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a08_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 937737446,
+    "trajectory": "GC10-DET_a08"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a09_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 233252860,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 241,
+    "node_id": "GC10-DET_a09_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1996254211,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a09_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 233252860,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 321,
+    "node_id": "GC10-DET_a09_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1996254211,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a09_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 233252860,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 401,
+    "node_id": "GC10-DET_a09_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1996254211,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a09_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 233252860,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 481,
+    "node_id": "GC10-DET_a09_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1996254211,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a09_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 233252860,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1117821898,
+    "dataset": "GC10-DET",
+    "depends_on": [
+      "GC10-DET_a09_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 561,
+    "node_id": "GC10-DET_a09_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1996254211,
+    "trajectory": "GC10-DET_a09"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a00_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 838661549,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a00_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 2073899285,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a00_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 838661549,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a00_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 2073899285,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a00_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 838661549,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a00_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 2073899285,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a00_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 838661549,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a00_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 2073899285,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a00_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 838661549,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 0,
+    "acquisition_seed": 556094945,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a00_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a00_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 2073899285,
+    "trajectory": "NEU-DET_a00"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a01_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 796232085,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a01_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 745513910,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a01_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 796232085,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a01_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 745513910,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a01_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 796232085,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a01_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 745513910,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a01_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 796232085,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a01_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 745513910,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a01_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 796232085,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 1,
+    "acquisition_seed": 1401936841,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a01_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a01_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 745513910,
+    "trajectory": "NEU-DET_a01"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a02_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 1002146992,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a02_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 383022918,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a02_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 1002146992,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a02_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 383022918,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a02_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 1002146992,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a02_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 383022918,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a02_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 1002146992,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a02_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 383022918,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a02_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 1002146992,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 2,
+    "acquisition_seed": 308869329,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a02_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a02_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 383022918,
+    "trajectory": "NEU-DET_a02"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a03_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 1690576487,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a03_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 695389876,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a03_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 1690576487,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a03_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 695389876,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a03_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 1690576487,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a03_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 695389876,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a03_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 1690576487,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a03_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 695389876,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a03_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 1690576487,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 3,
+    "acquisition_seed": 1765023412,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a03_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a03_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 695389876,
+    "trajectory": "NEU-DET_a03"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a04_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 384083196,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a04_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1208687006,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a04_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 384083196,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a04_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1208687006,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a04_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 384083196,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a04_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1208687006,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a04_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 384083196,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a04_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1208687006,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a04_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 384083196,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 4,
+    "acquisition_seed": 1863187687,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a04_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a04_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1208687006,
+    "trajectory": "NEU-DET_a04"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a05_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 1161462808,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a05_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1361074316,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a05_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 1161462808,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a05_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1361074316,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a05_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 1161462808,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a05_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1361074316,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a05_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 1161462808,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a05_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1361074316,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a05_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 1161462808,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 5,
+    "acquisition_seed": 1566547639,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a05_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a05_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1361074316,
+    "trajectory": "NEU-DET_a05"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a06_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 515752122,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a06_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1907935622,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a06_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 515752122,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a06_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1907935622,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a06_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 515752122,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a06_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1907935622,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a06_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 515752122,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a06_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1907935622,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a06_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 515752122,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 6,
+    "acquisition_seed": 1039657086,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a06_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a06_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1907935622,
+    "trajectory": "NEU-DET_a06"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a07_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 95705870,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a07_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 125815902,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a07_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 95705870,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a07_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 125815902,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a07_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 95705870,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a07_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 125815902,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a07_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 95705870,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a07_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 125815902,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a07_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 95705870,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 7,
+    "acquisition_seed": 1644540782,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a07_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a07_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 125815902,
+    "trajectory": "NEU-DET_a07"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a08_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 1097300708,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a08_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 1703931780,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a08_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 1097300708,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a08_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 1703931780,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a08_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 1097300708,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a08_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 1703931780,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a08_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 1097300708,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a08_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 1703931780,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a08_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 1097300708,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 8,
+    "acquisition_seed": 1157893727,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a08_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a08_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 1703931780,
+    "trajectory": "NEU-DET_a08"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a09_Entropy_A_R1",
+    "policy_participant": true,
+    "round": 1,
+    "slot": "A",
+    "training_seed": 665477887,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R1"
+    ],
+    "kind": "training",
+    "labeled_count": 189,
+    "node_id": "NEU-DET_a09_Entropy_B_R1",
+    "policy_participant": false,
+    "round": 1,
+    "slot": "B",
+    "training_seed": 838538952,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a09_Entropy_A_R2",
+    "policy_participant": true,
+    "round": 2,
+    "slot": "A",
+    "training_seed": 665477887,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R2"
+    ],
+    "kind": "training",
+    "labeled_count": 252,
+    "node_id": "NEU-DET_a09_Entropy_B_R2",
+    "policy_participant": false,
+    "round": 2,
+    "slot": "B",
+    "training_seed": 838538952,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a09_Entropy_A_R3",
+    "policy_participant": true,
+    "round": 3,
+    "slot": "A",
+    "training_seed": 665477887,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R3"
+    ],
+    "kind": "training",
+    "labeled_count": 315,
+    "node_id": "NEU-DET_a09_Entropy_B_R3",
+    "policy_participant": false,
+    "round": 3,
+    "slot": "B",
+    "training_seed": 838538952,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a09_Entropy_A_R4",
+    "policy_participant": true,
+    "round": 4,
+    "slot": "A",
+    "training_seed": 665477887,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R4"
+    ],
+    "kind": "training",
+    "labeled_count": 378,
+    "node_id": "NEU-DET_a09_Entropy_B_R4",
+    "policy_participant": false,
+    "round": 4,
+    "slot": "B",
+    "training_seed": 838538952,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a09_Entropy_A_R5",
+    "policy_participant": true,
+    "round": 5,
+    "slot": "A",
+    "training_seed": 665477887,
+    "trajectory": "NEU-DET_a09"
+  },
+  {
+    "acquisition_index": 9,
+    "acquisition_seed": 1944238630,
+    "dataset": "NEU-DET",
+    "depends_on": [
+      "NEU-DET_a09_Q_R5"
+    ],
+    "kind": "training",
+    "labeled_count": 441,
+    "node_id": "NEU-DET_a09_Entropy_B_R5",
+    "policy_participant": false,
+    "round": 5,
+    "slot": "B",
+    "training_seed": 838538952,
+    "trajectory": "NEU-DET_a09"
+  }
+]

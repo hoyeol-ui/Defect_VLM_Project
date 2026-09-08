@@ -1,0 +1,8 @@
+{
+  "verified_cells": 440,
+  "checkpoint_and_manifest_current_hashes_verified": true,
+  "matches_archived_cell_registry": true,
+  "canonical_registry_sha256": "d94ce301766abc58de308e86dc6debb7341aa61969bdbd09da39ba6327e71b05",
+  "outcomes_loaded": false,
+  "locked_test_loaded": false
+}

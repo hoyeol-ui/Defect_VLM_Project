@@ -1,0 +1,417 @@
+{
+  "curves": [
+    {
+      "AB_mean_map50_95": 0.21204808191976557,
+      "budget_fraction": 0.10031152647975078,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 161,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 0
+    },
+    {
+      "AB_mean_map50_95": 0.2436110987189703,
+      "budget_fraction": 0.1501557632398754,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 241,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 1
+    },
+    {
+      "AB_mean_map50_95": 0.2551875520975704,
+      "budget_fraction": 0.2,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 321,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 2
+    },
+    {
+      "AB_mean_map50_95": 0.2684980796564199,
+      "budget_fraction": 0.2498442367601246,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 401,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 3
+    },
+    {
+      "AB_mean_map50_95": 0.2830469261598928,
+      "budget_fraction": 0.29968847352024924,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 481,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 4
+    },
+    {
+      "AB_mean_map50_95": 0.29226824807129526,
+      "budget_fraction": 0.34953271028037386,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 561,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 5
+    },
+    {
+      "AB_mean_map50_95": 0.21204808191976557,
+      "budget_fraction": 0.10031152647975078,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 161,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 0
+    },
+    {
+      "AB_mean_map50_95": 0.23772933929727225,
+      "budget_fraction": 0.1501557632398754,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 241,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 1
+    },
+    {
+      "AB_mean_map50_95": 0.2653288252745485,
+      "budget_fraction": 0.2,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 321,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 2
+    },
+    {
+      "AB_mean_map50_95": 0.2848063564771743,
+      "budget_fraction": 0.2498442367601246,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 401,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 3
+    },
+    {
+      "AB_mean_map50_95": 0.2961623616830904,
+      "budget_fraction": 0.29968847352024924,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 481,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 4
+    },
+    {
+      "AB_mean_map50_95": 0.2993783699116642,
+      "budget_fraction": 0.34953271028037386,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 561,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 5
+    },
+    {
+      "AB_mean_map50_95": 0.21204808191976557,
+      "budget_fraction": 0.10031152647975078,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 161,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 0
+    },
+    {
+      "AB_mean_map50_95": 0.23710716393020687,
+      "budget_fraction": 0.1501557632398754,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 241,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 1
+    },
+    {
+      "AB_mean_map50_95": 0.2541837605458791,
+      "budget_fraction": 0.2,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 321,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 2
+    },
+    {
+      "AB_mean_map50_95": 0.2766157973598103,
+      "budget_fraction": 0.2498442367601246,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 401,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 3
+    },
+    {
+      "AB_mean_map50_95": 0.29682765778512,
+      "budget_fraction": 0.29968847352024924,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 481,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 4
+    },
+    {
+      "AB_mean_map50_95": 0.2932063761482324,
+      "budget_fraction": 0.34953271028037386,
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 561,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 5
+    },
+    {
+      "AB_mean_map50_95": 0.2905076885947142,
+      "budget_fraction": 0.10007942811755362,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 126,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 0
+    },
+    {
+      "AB_mean_map50_95": 0.34501691248104127,
+      "budget_fraction": 0.15011914217633043,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 189,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 1
+    },
+    {
+      "AB_mean_map50_95": 0.36657056530944415,
+      "budget_fraction": 0.20015885623510724,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 252,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 2
+    },
+    {
+      "AB_mean_map50_95": 0.375137681842118,
+      "budget_fraction": 0.25019857029388404,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 315,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 3
+    },
+    {
+      "AB_mean_map50_95": 0.3718075092888381,
+      "budget_fraction": 0.30023828435266087,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 378,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 4
+    },
+    {
+      "AB_mean_map50_95": 0.3947665214341173,
+      "budget_fraction": 0.35027799841143764,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 441,
+      "method": "Entropy",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 5
+    },
+    {
+      "AB_mean_map50_95": 0.2905076885947142,
+      "budget_fraction": 0.10007942811755362,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 126,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 0
+    },
+    {
+      "AB_mean_map50_95": 0.3329212805837089,
+      "budget_fraction": 0.15011914217633043,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 189,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 1
+    },
+    {
+      "AB_mean_map50_95": 0.3443437656470202,
+      "budget_fraction": 0.20015885623510724,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 252,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 2
+    },
+    {
+      "AB_mean_map50_95": 0.3693929627502628,
+      "budget_fraction": 0.25019857029388404,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 315,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 3
+    },
+    {
+      "AB_mean_map50_95": 0.37661567505265126,
+      "budget_fraction": 0.30023828435266087,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 378,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 4
+    },
+    {
+      "AB_mean_map50_95": 0.3722038334610371,
+      "budget_fraction": 0.35027799841143764,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 441,
+      "method": "Random",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 5
+    },
+    {
+      "AB_mean_map50_95": 0.2905076885947142,
+      "budget_fraction": 0.10007942811755362,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 126,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 0
+    },
+    {
+      "AB_mean_map50_95": 0.33230396540736457,
+      "budget_fraction": 0.15011914217633043,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 189,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 1
+    },
+    {
+      "AB_mean_map50_95": 0.3629642384362136,
+      "budget_fraction": 0.20015885623510724,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 252,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 2
+    },
+    {
+      "AB_mean_map50_95": 0.3823675237196319,
+      "budget_fraction": 0.25019857029388404,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 315,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 3
+    },
+    {
+      "AB_mean_map50_95": 0.3746780425573896,
+      "budget_fraction": 0.30023828435266087,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 378,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 4
+    },
+    {
+      "AB_mean_map50_95": 0.38875222616981797,
+      "budget_fraction": 0.35027799841143764,
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "labeled_n": 441,
+      "method": "DINO",
+      "role": "INTERIM DESCRIPTIVE ONLY",
+      "round": 5
+    }
+  ],
+  "development_revalidation_seconds": null,
+  "development_timing_note": "exact aggregate validation timer was not saved before relative-path comparison assembly resumed; existing 20 validated metric records reused",
+  "formula": "trapezoidal A/B mean development mAP50-95 over exact labeled fractions, divided by R5-R0 fraction span",
+  "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+  "locked_test_accesses": 0,
+  "nAULC": [
+    {
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "method": "Entropy",
+      "provisional_nAULC": 0.26050036432567675,
+      "role": "INTERIM DESCRIPTIVE ONLY"
+    },
+    {
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "method": "Random",
+      "provisional_nAULC": 0.26794802172956006,
+      "role": "INTERIM DESCRIPTIVE ONLY"
+    },
+    {
+      "dataset": "GC10-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "method": "DINO",
+      "provisional_nAULC": 0.26347232173100305,
+      "role": "INTERIM DESCRIPTIVE ONLY"
+    },
+    {
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "method": "Entropy",
+      "provisional_nAULC": 0.3602339547871714,
+      "role": "INTERIM DESCRIPTIVE ONLY"
+    },
+    {
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "method": "Random",
+      "provisional_nAULC": 0.3509258890123037,
+      "role": "INTERIM DESCRIPTIVE ONLY"
+    },
+    {
+      "dataset": "NEU-DET",
+      "label": "NOT FINAL \u2014 1/10 acquisition trajectories",
+      "method": "DINO",
+      "provisional_nAULC": 0.35838874550057315,
+      "role": "INTERIM DESCRIPTIVE ONLY"
+    }
+  ],
+  "new_training_calls": 0,
+  "protocol_changes": false,
+  "role": "INTERIM DESCRIPTIVE ONLY",
+  "statistics": "descriptive only; no CI or hypothesis tests"
+}

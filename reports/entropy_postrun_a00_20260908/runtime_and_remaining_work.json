@@ -1,0 +1,122 @@
+{
+  "basis": "same local RTX3070; 9 remaining trajectories/dataset multiplied by measured a00 round runtimes; handoff idle time excluded",
+  "dataset_active_seconds": {
+    "GC10-DET": 6620.416435799561,
+    "NEU-DET": 5172.857844099635
+  },
+  "estimated_active_seconds": 11793.274279899197,
+  "imputation": "GC10 R1 B process overhead and manual R1 gate runtime missing after intentional scheduler suspension; use observed medians",
+  "planning_hours_range": [
+    26.534867129773193,
+    35.37982283969759
+  ],
+  "range_is_confidence_interval": false,
+  "range_note": "operational planning margin only; image mix, load and thermal changes can alter duration",
+  "remaining_acquisitions": 90,
+  "remaining_hours_central": 29.48318569974799,
+  "remaining_training_cells": 180,
+  "rounds": [
+    {
+      "acquisition_seconds": 45.454831100068986,
+      "dataset": "GC10-DET",
+      "estimated_active_wall_seconds": 1076.3399944999255,
+      "gate_seconds": 4.584706200053915,
+      "missing_overhead_imputed": true,
+      "process_overhead_seconds": 15.877610799856484,
+      "round": 1,
+      "train_and_validation_seconds": 1010.4228463999461
+    },
+    {
+      "acquisition_seconds": 34.88699649996124,
+      "dataset": "GC10-DET",
+      "estimated_active_wall_seconds": 1130.8526598997414,
+      "gate_seconds": 4.919952299911529,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 11.749036399880424,
+      "round": 2,
+      "train_and_validation_seconds": 1079.2966746999882
+    },
+    {
+      "acquisition_seconds": 31.59889300004579,
+      "dataset": "GC10-DET",
+      "estimated_active_wall_seconds": 1314.1517960000783,
+      "gate_seconds": 5.193736500106752,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 12.243108500028029,
+      "round": 3,
+      "train_and_validation_seconds": 1265.1160579998977
+    },
+    {
+      "acquisition_seconds": 29.62977460003458,
+      "dataset": "GC10-DET",
+      "estimated_active_wall_seconds": 1470.1601984999143,
+      "gate_seconds": 5.169885499868542,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 12.521255899919197,
+      "round": 4,
+      "train_and_validation_seconds": 1422.839282500092
+    },
+    {
+      "acquisition_seconds": 27.94779819995165,
+      "dataset": "GC10-DET",
+      "estimated_active_wall_seconds": 1628.911786899902,
+      "gate_seconds": 11.519243199843913,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 16.734619500115514,
+      "round": 5,
+      "train_and_validation_seconds": 1572.7101259999909
+    },
+    {
+      "acquisition_seconds": 19.594104500021785,
+      "dataset": "NEU-DET",
+      "estimated_active_wall_seconds": 765.2434773999266,
+      "gate_seconds": 3.965388499898836,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 12.798230699962005,
+      "round": 1,
+      "train_and_validation_seconds": 728.885753700044
+    },
+    {
+      "acquisition_seconds": 18.695326499873772,
+      "dataset": "NEU-DET",
+      "estimated_active_wall_seconds": 893.8765275999904,
+      "gate_seconds": 4.170649399980903,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 9.920046000275761,
+      "round": 2,
+      "train_and_validation_seconds": 861.0905056998599
+    },
+    {
+      "acquisition_seconds": 18.01161910011433,
+      "dataset": "NEU-DET",
+      "estimated_active_wall_seconds": 1029.4135892002378,
+      "gate_seconds": 4.281811499968171,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 10.30152210011147,
+      "round": 3,
+      "train_and_validation_seconds": 996.8186365000438
+    },
+    {
+      "acquisition_seconds": 17.63706269999966,
+      "dataset": "NEU-DET",
+      "estimated_active_wall_seconds": 1183.6501756997313,
+      "gate_seconds": 4.510953099932522,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 10.767015499761328,
+      "round": 4,
+      "train_and_validation_seconds": 1150.7351444000378
+    },
+    {
+      "acquisition_seconds": 17.052409699885175,
+      "dataset": "NEU-DET",
+      "estimated_active_wall_seconds": 1300.6740741997492,
+      "gate_seconds": 4.584706200053915,
+      "missing_overhead_imputed": false,
+      "process_overhead_seconds": 11.162169499788433,
+      "round": 5,
+      "train_and_validation_seconds": 1267.8747888000216
+    }
+  ],
+  "sampled_peak_vram_mib": 2373,
+  "total_elapsed_wall_seconds_including_handoff": 12026.30852818489
+}

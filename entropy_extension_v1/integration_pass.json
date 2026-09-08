@@ -1,0 +1,19 @@
+{
+  "freeze_sha256": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb",
+  "locked_test_accessed": false,
+  "manifest_sha256": "30985e4b95050f4ab28223d7a67af0444a0503aca21894488e3b522090dd9097",
+  "next_policy_parent": {
+    "node_id": "GC10-DET_a00_Entropy_A_R1",
+    "path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\outcomes_private\\integration\\GC10-DET_a00_Entropy_A_R1\\attempt_01\\weights\\best.pt",
+    "round": 1,
+    "sha256": "088e6085b296e9e5cdf79947ae0a25ab42780e6bfd5ae192035e1b4c25c13877",
+    "slot": "A"
+  },
+  "r2_acquisition_executed": false,
+  "status": "PASS",
+  "timestamp": "2026-09-08T10:38:07.395016+00:00",
+  "verified_completed_cells": [
+    "GC10-DET_a00_Entropy_A_R1",
+    "GC10-DET_a00_Entropy_B_R1"
+  ]
+}

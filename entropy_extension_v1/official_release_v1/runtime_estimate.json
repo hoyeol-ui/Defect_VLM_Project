@@ -1,0 +1,2916 @@
+{
+  "central_tranche_hours": 3.6667160072008818,
+  "conservative_tranche_hours": 4.2831243728265465,
+  "full_200_central_hours": 36.66716007200881,
+  "gpu": "NVIDIA GeForce RTX 3070",
+  "integration_observed_process_overhead_seconds": 10.373013899894431,
+  "integration_two_cell_wall_seconds": 1022.698923900025,
+  "method": "dataset/round historical medians scaled by GC10 integration training ratio; validation separate; process, query and gate overhead included",
+  "neu_scaling_assumption": "same 1.072x local runtime correction; no NEU integration timing available",
+  "observed_gc10_training_ratio": 1.072156136014765,
+  "performance_values_used": false,
+  "rounds": [
+    {
+      "acquisition_estimate_seconds": 73.02030590013601,
+      "conservative_seconds": 1366.797093752551,
+      "dataset": "GC10-DET",
+      "estimated_seconds": 1119.8920840001338,
+      "historical_runtime_n": 40,
+      "round": 1,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 241
+    },
+    {
+      "acquisition_estimate_seconds": 69.80588452062709,
+      "conservative_seconds": 1595.773452566424,
+      "dataset": "GC10-DET",
+      "estimated_seconds": 1302.9109338196054,
+      "historical_runtime_n": 40,
+      "round": 2,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 321
+    },
+    {
+      "acquisition_estimate_seconds": 66.59146314111817,
+      "conservative_seconds": 1831.2631196894017,
+      "dataset": "GC10-DET",
+      "estimated_seconds": 1490.9736923321395,
+      "historical_runtime_n": 40,
+      "round": 3,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 401
+    },
+    {
+      "acquisition_estimate_seconds": 63.37704176160925,
+      "conservative_seconds": 2061.9683325306396,
+      "dataset": "GC10-DET",
+      "estimated_seconds": 1680.3500815115483,
+      "historical_runtime_n": 40,
+      "round": 4,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 481
+    },
+    {
+      "acquisition_estimate_seconds": 60.16262038210033,
+      "conservative_seconds": 2264.900636066382,
+      "dataset": "GC10-DET",
+      "estimated_seconds": 1872.6559144762227,
+      "historical_runtime_n": 40,
+      "round": 5,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 561
+    },
+    {
+      "acquisition_estimate_seconds": 37.22112960019149,
+      "conservative_seconds": 945.8130648001055,
+      "dataset": "NEU-DET",
+      "estimated_seconds": 866.4547816416124,
+      "historical_runtime_n": 40,
+      "round": 1,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 189
+    },
+    {
+      "acquisition_estimate_seconds": 35.98553280865392,
+      "conservative_seconds": 1081.9782045402287,
+      "dataset": "NEU-DET",
+      "estimated_seconds": 1005.4076240961041,
+      "historical_runtime_n": 40,
+      "round": 2,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 252
+    },
+    {
+      "acquisition_estimate_seconds": 34.749936017116354,
+      "conservative_seconds": 1290.7444932690303,
+      "dataset": "NEU-DET",
+      "estimated_seconds": 1147.4358665009804,
+      "historical_runtime_n": 40,
+      "round": 3,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 315
+    },
+    {
+      "acquisition_estimate_seconds": 33.51433922557879,
+      "conservative_seconds": 1371.3946775447048,
+      "dataset": "NEU-DET",
+      "estimated_seconds": 1286.6386827635656,
+      "historical_runtime_n": 40,
+      "round": 4,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 378
+    },
+    {
+      "acquisition_estimate_seconds": 32.27874243404122,
+      "conservative_seconds": 1608.6146674160973,
+      "dataset": "NEU-DET",
+      "estimated_seconds": 1427.4579647812634,
+      "historical_runtime_n": 40,
+      "round": 5,
+      "round_gate_estimate_seconds": 15,
+      "train_count": 441
+    }
+  ],
+  "source_runtime_measurements": [
+    {
+      "cell_id": "GC10-DET_a00_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 473.59204359999967,
+      "validation_seconds": 9.434457700001076
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 553.9825100999988,
+      "validation_seconds": 9.12810719999834
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 663.6966453000005,
+      "validation_seconds": 9.549326500000461
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 721.5229107999985,
+      "validation_seconds": 9.098856699998578
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 837.0526182000012,
+      "validation_seconds": 9.511498399999255
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 462.3897547999986,
+      "validation_seconds": 9.034477899997
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 542.2656358999993,
+      "validation_seconds": 9.034921200000099
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 636.9478804999999,
+      "validation_seconds": 9.227040499998111
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 727.1481141000004,
+      "validation_seconds": 9.076545600000827
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 816.0278561999985,
+      "validation_seconds": 9.134349399999337
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 456.46292750000066,
+      "validation_seconds": 9.026308500000596
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 542.3320323000007,
+      "validation_seconds": 8.962426099998993
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 631.8787280999968,
+      "validation_seconds": 8.990267900000617
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 723.6377056000019,
+      "validation_seconds": 9.381628199997067
+    },
+    {
+      "cell_id": "GC10-DET_a00_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 817.125551000001,
+      "validation_seconds": 9.169937200000277
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 453.67433940000046,
+      "validation_seconds": 9.0945950000023
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 544.1812547000009,
+      "validation_seconds": 8.865304699997068
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 640.8603828000014,
+      "validation_seconds": 9.161477400000877
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 817.2222271999999,
+      "validation_seconds": 9.099784300000465
+    },
+    {
+      "cell_id": "GC10-DET_a00_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 915.9829202000001,
+      "validation_seconds": 9.104340899997624
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 510.66083869999784,
+      "validation_seconds": 9.177128999999695
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 611.4383849000005,
+      "validation_seconds": 9.040708100001211
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 713.1721715999993,
+      "validation_seconds": 9.261598900000536
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 816.3849655000013,
+      "validation_seconds": 9.219718899999862
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 919.9847205000005,
+      "validation_seconds": 9.127885400001105
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 514.6353378999993,
+      "validation_seconds": 9.139692099997774
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 613.585818100004,
+      "validation_seconds": 8.976714900003572
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 716.1329727999982,
+      "validation_seconds": 9.12398700000631
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 817.1962800000038,
+      "validation_seconds": 9.097841299997526
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 915.0066442000025,
+      "validation_seconds": 9.046823299999232
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 512.563940299995,
+      "validation_seconds": 8.9755307000014
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 615.1633719999954,
+      "validation_seconds": 9.062564399995608
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 717.1101991000032,
+      "validation_seconds": 9.150933999997505
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 814.3341091000038,
+      "validation_seconds": 9.29244579999795
+    },
+    {
+      "cell_id": "GC10-DET_a01_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 916.9933777000042,
+      "validation_seconds": 9.278541799998493
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 514.1371856000042,
+      "validation_seconds": 9.104883699998027
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 618.8744193999955,
+      "validation_seconds": 9.13085090000095
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 718.6918368000042,
+      "validation_seconds": 9.096712099999422
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 820.0699592999954,
+      "validation_seconds": 9.193723299998965
+    },
+    {
+      "cell_id": "GC10-DET_a01_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 931.808832200004,
+      "validation_seconds": 9.190215299997362
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 461.11456849999377,
+      "validation_seconds": 8.948772700001427
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 561.1304470999967,
+      "validation_seconds": 9.114557100001548
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 637.3679793000047,
+      "validation_seconds": 9.001140100001066
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 722.8618650999997,
+      "validation_seconds": 9.138561300002038
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 817.4272153999991,
+      "validation_seconds": 9.1232502999992
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 460.71942119999585,
+      "validation_seconds": 9.19334269999672
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 548.4076726999992,
+      "validation_seconds": 8.967236800002865
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 613.0269173999986,
+      "validation_seconds": 8.96924779999972
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 736.767291300006,
+      "validation_seconds": 9.048725200002082
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 802.9921726999964,
+      "validation_seconds": 9.062811399999191
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 468.22813170000154,
+      "validation_seconds": 9.259922799996275
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 558.3321750999967,
+      "validation_seconds": 9.07168339999771
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 638.3075742000001,
+      "validation_seconds": 8.935001500001817
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 721.5043359999981,
+      "validation_seconds": 9.2469001999998
+    },
+    {
+      "cell_id": "GC10-DET_a02_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 821.0876398999972,
+      "validation_seconds": 9.05627789999562
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 464.59271119999903,
+      "validation_seconds": 9.208532900003775
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 548.2168792000011,
+      "validation_seconds": 9.253447099996265
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 641.3725103000033,
+      "validation_seconds": 9.16973500000313
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 730.0060540999984,
+      "validation_seconds": 9.119841499996255
+    },
+    {
+      "cell_id": "GC10-DET_a02_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 832.8543214000019,
+      "validation_seconds": 9.15127040000516
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 461.9729133000001,
+      "validation_seconds": 9.050890999998956
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 549.8482139999978,
+      "validation_seconds": 9.183840799996688
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 637.3023736999967,
+      "validation_seconds": 9.155916000003344
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 728.6347692999989,
+      "validation_seconds": 9.07698530000198
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 816.0285473999975,
+      "validation_seconds": 8.979149599996163
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 459.6113573000039,
+      "validation_seconds": 9.05633559999842
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 545.1770748999988,
+      "validation_seconds": 8.93054430000484
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 633.116259800001,
+      "validation_seconds": 8.94520729999931
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 722.1450738999993,
+      "validation_seconds": 9.033605500000704
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 807.5540890000048,
+      "validation_seconds": 8.920931399996334
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 459.3395543000006,
+      "validation_seconds": 9.09895410000172
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 550.8292766000013,
+      "validation_seconds": 9.063142099999823
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 643.9947998000061,
+      "validation_seconds": 9.006207800004631
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 731.4736435000086,
+      "validation_seconds": 9.010393699994893
+    },
+    {
+      "cell_id": "GC10-DET_a03_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 832.082208199994,
+      "validation_seconds": 9.287769999995362
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 467.91218300000764,
+      "validation_seconds": 9.136656799993943
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 557.8028596000077,
+      "validation_seconds": 9.115941800002474
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 643.9761777000094,
+      "validation_seconds": 9.211784600003739
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 733.0910176999896,
+      "validation_seconds": 9.148858600005042
+    },
+    {
+      "cell_id": "GC10-DET_a03_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 830.4234907000064,
+      "validation_seconds": 9.023579600005178
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 468.1337613000069,
+      "validation_seconds": 9.082438700002967
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 549.9544985000102,
+      "validation_seconds": 9.376984899994568
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 645.7293136999942,
+      "validation_seconds": 9.281079699998372
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 735.2741854000051,
+      "validation_seconds": 9.110880000007455
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 819.8109818999947,
+      "validation_seconds": 9.142818799999077
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 466.3227981000091,
+      "validation_seconds": 9.258997800003272
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 557.9649949999875,
+      "validation_seconds": 9.251301399999647
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 636.4605581999931,
+      "validation_seconds": 9.1585158000089
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 734.1686609000026,
+      "validation_seconds": 9.08601389999967
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 820.0849039000022,
+      "validation_seconds": 9.12495029999991
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 466.7030356000032,
+      "validation_seconds": 9.041328100007377
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 559.8044883999974,
+      "validation_seconds": 9.160962599999039
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 647.6922911000001,
+      "validation_seconds": 9.15479570000025
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 730.6435660000134,
+      "validation_seconds": 9.062512999997125
+    },
+    {
+      "cell_id": "GC10-DET_a04_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 826.0774793999881,
+      "validation_seconds": 9.162445499998285
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 467.7534536999883,
+      "validation_seconds": 9.119571899995208
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 560.2876662000053,
+      "validation_seconds": 9.132224599990877
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 644.9395147000032,
+      "validation_seconds": 9.129146599996602
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 739.9144032999902,
+      "validation_seconds": 9.124037300003693
+    },
+    {
+      "cell_id": "GC10-DET_a04_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 972.6334698999999,
+      "validation_seconds": 9.463776200005668
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 544.8822611999931,
+      "validation_seconds": 9.373718999995617
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 653.9395289000095,
+      "validation_seconds": 9.407034399991971
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 765.4089304000081,
+      "validation_seconds": 9.635946199996397
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 875.2891581000003,
+      "validation_seconds": 10.004743299999973
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 972.5585868000053,
+      "validation_seconds": 9.513409899998805
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 540.5791628999868,
+      "validation_seconds": 9.32667290000245
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 643.0468426000007,
+      "validation_seconds": 9.360584199996083
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 761.101751299997,
+      "validation_seconds": 10.050081199995475
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 716.9303950999999,
+      "validation_seconds": 9.179639100000031
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 920.6740713,
+      "validation_seconds": 8.809326399999918
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 509.48332219999975,
+      "validation_seconds": 8.734283799999957
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 610.0507625999999,
+      "validation_seconds": 8.591804499999853
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 719.4569363999999,
+      "validation_seconds": 8.810249299999668
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 815.3364380000003,
+      "validation_seconds": 8.735908200000267
+    },
+    {
+      "cell_id": "GC10-DET_a05_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 921.2602287,
+      "validation_seconds": 8.698813999999402
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 511.4523100000006,
+      "validation_seconds": 8.876291000000492
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 607.7053373999997,
+      "validation_seconds": 8.682428199999777
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 715.1668389999995,
+      "validation_seconds": 8.763220000000729
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 815.7241173000002,
+      "validation_seconds": 8.742305400000987
+    },
+    {
+      "cell_id": "GC10-DET_a05_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 922.1093541999999,
+      "validation_seconds": 8.766473499999847
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 515.6232572999998,
+      "validation_seconds": 8.64936039999884
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 611.6769414000009,
+      "validation_seconds": 8.681957000000693
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 712.7020971999991,
+      "validation_seconds": 8.799788000000262
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 819.6396148999993,
+      "validation_seconds": 8.79092639999908
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 905.0447405000014,
+      "validation_seconds": 8.532820899999933
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 449.198532800001,
+      "validation_seconds": 8.543340700000044
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 535.9970275999985,
+      "validation_seconds": 8.526594700000715
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 620.0071660000012,
+      "validation_seconds": 8.450482800000827
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 704.8001676999993,
+      "validation_seconds": 8.758804099999907
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 791.1816572000007,
+      "validation_seconds": 8.500688300002366
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 446.51528730000064,
+      "validation_seconds": 8.495539600000484
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 566.8110185000005,
+      "validation_seconds": 8.566621199999645
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 706.3458161000017,
+      "validation_seconds": 8.469035900001472
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 806.0665694999989,
+      "validation_seconds": 8.600249999999505
+    },
+    {
+      "cell_id": "GC10-DET_a06_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 900.4018795000011,
+      "validation_seconds": 8.701484500001243
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 504.3394006999988,
+      "validation_seconds": 8.740104299999075
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 603.6625631000024,
+      "validation_seconds": 8.871941699999297
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 708.779222600002,
+      "validation_seconds": 8.649992499998916
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 805.3451079999977,
+      "validation_seconds": 8.649272400001792
+    },
+    {
+      "cell_id": "GC10-DET_a06_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 908.5794494000002,
+      "validation_seconds": 8.611482600001182
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 504.25606719999996,
+      "validation_seconds": 8.709054099999776
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 603.2950751999997,
+      "validation_seconds": 8.603212199999689
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 710.4705044000002,
+      "validation_seconds": 8.84789830000227
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 805.9269697999989,
+      "validation_seconds": 8.607636699998693
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 903.7903662000026,
+      "validation_seconds": 8.73297950000051
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 503.51200940000126,
+      "validation_seconds": 8.75754489999963
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 526.7809691000002,
+      "validation_seconds": 8.453281099999003
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 601.3363131000006,
+      "validation_seconds": 8.454776000002312
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 687.1931684999981,
+      "validation_seconds": 8.623965899998439
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 799.9773649000017,
+      "validation_seconds": 8.569986799997423
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 444.69263769999816,
+      "validation_seconds": 8.469433399997797
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 526.0562209999989,
+      "validation_seconds": 8.58569489999718
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 616.4500752000022,
+      "validation_seconds": 8.788647300003504
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 685.9488539000013,
+      "validation_seconds": 8.469092399995134
+    },
+    {
+      "cell_id": "GC10-DET_a07_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 781.1040062999964,
+      "validation_seconds": 8.550028800003929
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 446.4178733000008,
+      "validation_seconds": 8.696583100005228
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 533.0695384999999,
+      "validation_seconds": 8.412642000002961
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 620.3434288999997,
+      "validation_seconds": 8.542412599999807
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 700.5691998999973,
+      "validation_seconds": 8.573617599999125
+    },
+    {
+      "cell_id": "GC10-DET_a07_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 785.5050816000003,
+      "validation_seconds": 8.593768400001863
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 441.5182210000057,
+      "validation_seconds": 8.720687700006238
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 535.995342000002,
+      "validation_seconds": 8.658984299996519
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 623.1779405999987,
+      "validation_seconds": 8.510393999997177
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 704.5291590999987,
+      "validation_seconds": 8.635314200000721
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 799.9162838999982,
+      "validation_seconds": 8.64103750000504
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 452.74703690000024,
+      "validation_seconds": 8.603944800001045
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 530.043662600001,
+      "validation_seconds": 8.524024199999985
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 623.3860455999966,
+      "validation_seconds": 8.634602099999029
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 717.1091197999995,
+      "validation_seconds": 8.621337099997618
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 798.268247400003,
+      "validation_seconds": 8.610308900002565
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 453.2915636000034,
+      "validation_seconds": 8.60255170000164
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 542.5851716000034,
+      "validation_seconds": 8.502778599999147
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 630.8239335000035,
+      "validation_seconds": 8.762268200000108
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 723.6762606000048,
+      "validation_seconds": 8.909873699994932
+    },
+    {
+      "cell_id": "GC10-DET_a08_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 805.2006005999938,
+      "validation_seconds": 8.627844700000423
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 451.0399777999992,
+      "validation_seconds": 8.520741799999087
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 541.6454187999989,
+      "validation_seconds": 8.684606900002109
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 631.4963193000003,
+      "validation_seconds": 8.82162740000058
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 715.1626676999949,
+      "validation_seconds": 8.498469099999056
+    },
+    {
+      "cell_id": "GC10-DET_a08_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 795.0437357999981,
+      "validation_seconds": 8.525742199999513
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 449.0188649999982,
+      "validation_seconds": 8.674846699999762
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 537.984767199996,
+      "validation_seconds": 8.48686369999632
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 634.1656682999965,
+      "validation_seconds": 8.741722999999183
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 697.0843619000007,
+      "validation_seconds": 8.739163899997948
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 793.3065767000007,
+      "validation_seconds": 8.69475059999968
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_A_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 445.6689455000014,
+      "validation_seconds": 8.77166120000038
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_A_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 547.3501905000012,
+      "validation_seconds": 8.554860399999598
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_A_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 625.2307864000031,
+      "validation_seconds": 8.85948549999739
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_A_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 723.1237215000001,
+      "validation_seconds": 8.650081399995543
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_A_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 797.6865277000034,
+      "validation_seconds": 8.672858999998425
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 453.21866180000507,
+      "validation_seconds": 8.610646799999813
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 547.0050158000013,
+      "validation_seconds": 8.763052399997832
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 618.9811434000003,
+      "validation_seconds": 8.697357199998805
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 709.1459418999948,
+      "validation_seconds": 8.539505000000645
+    },
+    {
+      "cell_id": "GC10-DET_a09_Random_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 789.167199800002,
+      "validation_seconds": 8.504253300001437
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_B_R1",
+      "dataset": "GC10-DET",
+      "round": 1,
+      "train_seconds": 440.836610499995,
+      "validation_seconds": 8.544978599995375
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_B_R2",
+      "dataset": "GC10-DET",
+      "round": 2,
+      "train_seconds": 530.5419493000009,
+      "validation_seconds": 8.46597109999857
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_B_R3",
+      "dataset": "GC10-DET",
+      "round": 3,
+      "train_seconds": 607.3274645999991,
+      "validation_seconds": 8.618322800000897
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_B_R4",
+      "dataset": "GC10-DET",
+      "round": 4,
+      "train_seconds": 704.2929308999956,
+      "validation_seconds": 8.626522999998997
+    },
+    {
+      "cell_id": "GC10-DET_a09_DINO_B_R5",
+      "dataset": "GC10-DET",
+      "round": 5,
+      "train_seconds": 789.9694285000005,
+      "validation_seconds": 8.380850699999428
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 363.50467729999946,
+      "validation_seconds": 8.752526500000386
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 430.0852581000072,
+      "validation_seconds": 8.443856300000334
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 536.3855571999993,
+      "validation_seconds": 9.22072819999994
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 561.4451937999984,
+      "validation_seconds": 8.444120400003158
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 686.3206460000001,
+      "validation_seconds": 9.255385000000388
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 361.4548408999981,
+      "validation_seconds": 8.454685199991218
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 430.1970172000001,
+      "validation_seconds": 8.32819390000077
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 493.9121938999888,
+      "validation_seconds": 8.624292299995432
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 563.6301291999989,
+      "validation_seconds": 8.486642100004246
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 612.3571768000111,
+      "validation_seconds": 8.345443500002148
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 361.03236159999506,
+      "validation_seconds": 8.380470899995998
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 426.22951839999587,
+      "validation_seconds": 8.426517999992939
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 495.100386399994,
+      "validation_seconds": 8.626033399996231
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 558.2759504999995,
+      "validation_seconds": 8.601321000009193
+    },
+    {
+      "cell_id": "NEU-DET_a00_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 625.6228660999914,
+      "validation_seconds": 8.514491099995212
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 359.9702449999895,
+      "validation_seconds": 8.687516099991626
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 427.3060853999923,
+      "validation_seconds": 8.472461800003657
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 496.6455707999994,
+      "validation_seconds": 8.680489899998065
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 567.0553358000034,
+      "validation_seconds": 8.46292179999
+    },
+    {
+      "cell_id": "NEU-DET_a00_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 622.7917590999859,
+      "validation_seconds": 8.36078180000186
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 361.9947233999992,
+      "validation_seconds": 8.615033099995344
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 426.53169610000623,
+      "validation_seconds": 8.384845200009295
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 491.8261887000117,
+      "validation_seconds": 8.43339430000924
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 562.9390951000096,
+      "validation_seconds": 8.426095300004818
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 629.1996065999992,
+      "validation_seconds": 8.545090200001141
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 361.017943999992,
+      "validation_seconds": 8.588311800005613
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 425.10757019999437,
+      "validation_seconds": 8.469795600001817
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 493.32167609999306,
+      "validation_seconds": 8.53268589999061
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 558.4662429000018,
+      "validation_seconds": 8.465781400009291
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 625.5082440999977,
+      "validation_seconds": 8.265059799989103
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 364.5501634000102,
+      "validation_seconds": 8.6111835000047
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 422.4331794000027,
+      "validation_seconds": 8.477258700004313
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 500.17155040000216,
+      "validation_seconds": 8.374368999997387
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 559.274218400009,
+      "validation_seconds": 8.577655599990976
+    },
+    {
+      "cell_id": "NEU-DET_a01_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 628.9415518999886,
+      "validation_seconds": 8.327444700000342
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 359.53692440000304,
+      "validation_seconds": 8.720511999999871
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 425.869059500008,
+      "validation_seconds": 8.425702100008493
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 494.70537620001414,
+      "validation_seconds": 8.393991000004462
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 557.8704806999885,
+      "validation_seconds": 8.59841299999971
+    },
+    {
+      "cell_id": "NEU-DET_a01_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 622.9215560000011,
+      "validation_seconds": 8.41673979999905
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 359.7582026000018,
+      "validation_seconds": 8.461032699997304
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 424.73123540000233,
+      "validation_seconds": 8.515181999988272
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 495.1528940999997,
+      "validation_seconds": 8.418863799990504
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 558.5440638,
+      "validation_seconds": 8.4953547000041
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 621.5823504,
+      "validation_seconds": 8.359668200006126
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 368.5227501000045,
+      "validation_seconds": 9.14771330000076
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 430.707262099997,
+      "validation_seconds": 8.387520599993877
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 488.79249659999914,
+      "validation_seconds": 8.390530400007265
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 559.2338936000015,
+      "validation_seconds": 8.552475800010143
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 620.9811123999971,
+      "validation_seconds": 8.345681400009198
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 363.7769477999973,
+      "validation_seconds": 8.57671449999907
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 428.8582150000002,
+      "validation_seconds": 8.375838199994178
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 494.8713807000022,
+      "validation_seconds": 8.361283999998705
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 559.0778263999964,
+      "validation_seconds": 8.484845099999802
+    },
+    {
+      "cell_id": "NEU-DET_a02_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 626.6698384000047,
+      "validation_seconds": 8.493198299998767
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 363.27714450001076,
+      "validation_seconds": 8.39288800000213
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 427.8327405000018,
+      "validation_seconds": 8.323799599995255
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 483.2265411999979,
+      "validation_seconds": 8.429587999999058
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 561.072982800004,
+      "validation_seconds": 8.431316599991987
+    },
+    {
+      "cell_id": "NEU-DET_a02_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 622.3117960999953,
+      "validation_seconds": 8.395664999989094
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 360.6315522000077,
+      "validation_seconds": 9.015926299995044
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 431.5543064999947,
+      "validation_seconds": 8.341921600003843
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 495.4760743999941,
+      "validation_seconds": 8.617119000002276
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 557.1280779999943,
+      "validation_seconds": 8.511787900002673
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 624.8979724999954,
+      "validation_seconds": 8.338841299992055
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 362.91354649999994,
+      "validation_seconds": 8.647850699999253
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 433.732404600014,
+      "validation_seconds": 8.511282000006759
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 494.18170650000684,
+      "validation_seconds": 8.436312099991483
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 570.7962703999947,
+      "validation_seconds": 8.477396400005091
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 637.4705312999868,
+      "validation_seconds": 8.376596100002644
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 365.10085039999103,
+      "validation_seconds": 8.97279700000945
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 434.2845104000007,
+      "validation_seconds": 8.457013799998094
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 497.36241339999833,
+      "validation_seconds": 8.53793140000198
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 575.3464715000009,
+      "validation_seconds": 8.592239699995844
+    },
+    {
+      "cell_id": "NEU-DET_a03_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 640.1667801000003,
+      "validation_seconds": 8.559575999999652
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 369.9945616000041,
+      "validation_seconds": 8.606789400000707
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 438.6530739000009,
+      "validation_seconds": 8.63118690000556
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 491.1270034999907,
+      "validation_seconds": 8.603238600000623
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 574.7379217999987,
+      "validation_seconds": 8.700334599998314
+    },
+    {
+      "cell_id": "NEU-DET_a03_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 615.1596745999996,
+      "validation_seconds": 8.766924199997447
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 373.86622939999506,
+      "validation_seconds": 8.642025599998306
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 434.3866473000089,
+      "validation_seconds": 8.60630559999845
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 498.813332500009,
+      "validation_seconds": 8.536526299998513
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 574.8854501000023,
+      "validation_seconds": 8.566910900000948
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 635.9464093999995,
+      "validation_seconds": 8.726334900013171
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 369.23765530000674,
+      "validation_seconds": 8.555414299989934
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 430.1163404000108,
+      "validation_seconds": 8.460955800008378
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 494.03064769999764,
+      "validation_seconds": 8.46165060000203
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 557.206726599994,
+      "validation_seconds": 8.392986799997743
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 627.0005485000001,
+      "validation_seconds": 8.402524600009201
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 358.50938780000433,
+      "validation_seconds": 8.6241691000032
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 427.91140820000146,
+      "validation_seconds": 8.695367899999837
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 490.8175895000022,
+      "validation_seconds": 8.300631499994779
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 552.900335000013,
+      "validation_seconds": 8.53460320000886
+    },
+    {
+      "cell_id": "NEU-DET_a04_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 627.5058193000004,
+      "validation_seconds": 8.448370900005102
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 364.7631146000058,
+      "validation_seconds": 8.669553100000485
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 424.3884728999983,
+      "validation_seconds": 8.418217200000072
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 487.44021529999736,
+      "validation_seconds": 8.347598899999866
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 553.8492181000038,
+      "validation_seconds": 8.492608999993536
+    },
+    {
+      "cell_id": "NEU-DET_a04_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 625.0662370000064,
+      "validation_seconds": 8.255406999989646
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 358.94397310000204,
+      "validation_seconds": 8.591919600003166
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 423.2324557999964,
+      "validation_seconds": 8.391084799994132
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 490.1712286999973,
+      "validation_seconds": 8.514675700003863
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 557.285549200009,
+      "validation_seconds": 8.453436800002237
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 617.6996411,
+      "validation_seconds": 8.485881899992819
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 363.76943090000714,
+      "validation_seconds": 8.665106200001901
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 418.99250629999733,
+      "validation_seconds": 8.455214399989927
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 489.18769380000595,
+      "validation_seconds": 8.413360100006685
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 557.171998100006,
+      "validation_seconds": 8.454943000004278
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 624.65093660001,
+      "validation_seconds": 8.315839600007166
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 356.6509917000076,
+      "validation_seconds": 8.528881300007924
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 427.8202455999999,
+      "validation_seconds": 8.362130599998636
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 492.6871162000025,
+      "validation_seconds": 8.49559269999736
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 558.261963900004,
+      "validation_seconds": 8.599421600010828
+    },
+    {
+      "cell_id": "NEU-DET_a05_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 624.3270202999993,
+      "validation_seconds": 8.319481099999393
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 360.195344199994,
+      "validation_seconds": 8.584429599999567
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 427.2308209000039,
+      "validation_seconds": 8.38906470000802
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 494.7544789000094,
+      "validation_seconds": 8.390213300008327
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 557.4768650000042,
+      "validation_seconds": 8.5371945000079
+    },
+    {
+      "cell_id": "NEU-DET_a05_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 622.4807865999901,
+      "validation_seconds": 8.507999300010852
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 361.2083619000041,
+      "validation_seconds": 8.741111799987266
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 425.54177500000515,
+      "validation_seconds": 8.616019400011282
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 489.0385258000024,
+      "validation_seconds": 8.449159800002235
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 560.1709943000023,
+      "validation_seconds": 8.563059100008104
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 617.1908407999872,
+      "validation_seconds": 8.544097400008468
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 364.1947188000049,
+      "validation_seconds": 8.656724700005725
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 427.2097610000055,
+      "validation_seconds": 8.377260700013721
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 494.6490560999955,
+      "validation_seconds": 8.395263600017643
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 557.6227808999829,
+      "validation_seconds": 8.527300599991577
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 620.3118946999894,
+      "validation_seconds": 8.437447400006931
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 358.5673429000017,
+      "validation_seconds": 8.744467900018208
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 425.56329650001135,
+      "validation_seconds": 8.375539700005902
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 476.1805717999814,
+      "validation_seconds": 8.371921399986604
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 552.9375592000142,
+      "validation_seconds": 8.65557189998799
+    },
+    {
+      "cell_id": "NEU-DET_a06_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 630.0674679000222,
+      "validation_seconds": 8.242808000009973
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 357.85127469999134,
+      "validation_seconds": 8.473640999989584
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 424.88643640000373,
+      "validation_seconds": 8.346713400009321
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 490.08137840000563,
+      "validation_seconds": 8.332077700004447
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 563.9704781000037,
+      "validation_seconds": 8.427033999993
+    },
+    {
+      "cell_id": "NEU-DET_a06_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 611.9890063999919,
+      "validation_seconds": 8.382781699998304
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 360.8128003999882,
+      "validation_seconds": 8.493317100015702
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 429.77826420002384,
+      "validation_seconds": 8.522311200009426
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 488.80190970000695,
+      "validation_seconds": 8.547311100002844
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 559.8282033000141,
+      "validation_seconds": 8.492694500018843
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 618.454617099982,
+      "validation_seconds": 8.401176799990935
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 363.1747782000166,
+      "validation_seconds": 8.487837499997113
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 425.17394440001226,
+      "validation_seconds": 8.57398230000399
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 494.198307499988,
+      "validation_seconds": 8.61471680001705
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 563.7450061000127,
+      "validation_seconds": 8.479784800001653
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 626.1856765999983,
+      "validation_seconds": 8.495896800013725
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 362.45830070000375,
+      "validation_seconds": 8.605425000016112
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 427.0827515000128,
+      "validation_seconds": 8.51591419999022
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 495.10936820000643,
+      "validation_seconds": 8.477509999996983
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 564.3783014999935,
+      "validation_seconds": 8.379877100000158
+    },
+    {
+      "cell_id": "NEU-DET_a07_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 629.4232079999929,
+      "validation_seconds": 8.517459099995904
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 358.4451934999961,
+      "validation_seconds": 8.707562399999006
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 430.6514260999975,
+      "validation_seconds": 8.516704799985746
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 490.2065810000058,
+      "validation_seconds": 8.465995200007455
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 558.3035842000099,
+      "validation_seconds": 8.495327600016026
+    },
+    {
+      "cell_id": "NEU-DET_a07_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 628.1813011000049,
+      "validation_seconds": 8.358486899989657
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 361.275183699996,
+      "validation_seconds": 8.714454700006172
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 423.55174439999973,
+      "validation_seconds": 8.487414499977604
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 496.95132910000393,
+      "validation_seconds": 8.620735499978764
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 566.3095830999955,
+      "validation_seconds": 8.467772100004368
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 628.1940328000055,
+      "validation_seconds": 8.51598350002314
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 362.21392799998284,
+      "validation_seconds": 8.58188290000544
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 433.2409363000188,
+      "validation_seconds": 8.48592040000949
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 498.0944146999973,
+      "validation_seconds": 8.577757099992596
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 560.681590000022,
+      "validation_seconds": 8.546619100001408
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 639.2528388999926,
+      "validation_seconds": 8.474123500025598
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 363.0769369000045,
+      "validation_seconds": 8.572434200003045
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 430.4826058000035,
+      "validation_seconds": 8.545045100006973
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 498.5987889000098,
+      "validation_seconds": 8.460719800001243
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 564.353045099997,
+      "validation_seconds": 8.348184300004505
+    },
+    {
+      "cell_id": "NEU-DET_a08_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 631.1727117999981,
+      "validation_seconds": 8.669041299988749
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 364.86371790000703,
+      "validation_seconds": 8.46531510000932
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 430.97713210000074,
+      "validation_seconds": 8.39572479997878
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 496.56014979997417,
+      "validation_seconds": 8.451781799987657
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 560.1263401000178,
+      "validation_seconds": 8.519770200015046
+    },
+    {
+      "cell_id": "NEU-DET_a08_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 642.1481129000022,
+      "validation_seconds": 8.804826200008392
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 364.95162680000067,
+      "validation_seconds": 8.631625699985307
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 433.4915942000225,
+      "validation_seconds": 8.485038999991957
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 503.5151052000001,
+      "validation_seconds": 8.486648999998579
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 570.269776400004,
+      "validation_seconds": 8.511090399988461
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 642.7967053000175,
+      "validation_seconds": 8.666723800008185
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_A_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 366.8213585999911,
+      "validation_seconds": 8.616714200004935
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_A_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 432.793557099998,
+      "validation_seconds": 8.530488199990941
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_A_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 506.0240526999987,
+      "validation_seconds": 8.527847899997141
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_A_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 566.0394390000147,
+      "validation_seconds": 8.419801400013966
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_A_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 633.8521231999912,
+      "validation_seconds": 8.503922499978216
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 362.2565140000079,
+      "validation_seconds": 8.91474670000025
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 428.1764752000163,
+      "validation_seconds": 8.529338699998334
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 502.5393424000067,
+      "validation_seconds": 8.496916900010547
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 565.363182000001,
+      "validation_seconds": 8.5756582999893
+    },
+    {
+      "cell_id": "NEU-DET_a09_Random_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 628.5179684999748,
+      "validation_seconds": 8.731650700006867
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_B_R1",
+      "dataset": "NEU-DET",
+      "round": 1,
+      "train_seconds": 364.9182437999989,
+      "validation_seconds": 8.518181399995228
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_B_R2",
+      "dataset": "NEU-DET",
+      "round": 2,
+      "train_seconds": 432.98208200000226,
+      "validation_seconds": 8.601146200002404
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_B_R3",
+      "dataset": "NEU-DET",
+      "round": 3,
+      "train_seconds": 497.48535599999013,
+      "validation_seconds": 8.523580700013554
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_B_R4",
+      "dataset": "NEU-DET",
+      "round": 4,
+      "train_seconds": 567.1861185000162,
+      "validation_seconds": 8.635052300000098
+    },
+    {
+      "cell_id": "NEU-DET_a09_DINO_B_R5",
+      "dataset": "NEU-DET",
+      "round": 5,
+      "train_seconds": 644.1866326000018,
+      "validation_seconds": 8.521254499995848
+    }
+  ]
+}

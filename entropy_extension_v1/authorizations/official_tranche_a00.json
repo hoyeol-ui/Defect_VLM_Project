@@ -1,0 +1,52 @@
+{
+  "allowed_cells": [
+    "GC10-DET_a00_Entropy_A_R1",
+    "GC10-DET_a00_Entropy_B_R1",
+    "GC10-DET_a00_Entropy_A_R2",
+    "GC10-DET_a00_Entropy_B_R2",
+    "GC10-DET_a00_Entropy_A_R3",
+    "GC10-DET_a00_Entropy_B_R3",
+    "GC10-DET_a00_Entropy_A_R4",
+    "GC10-DET_a00_Entropy_B_R4",
+    "GC10-DET_a00_Entropy_A_R5",
+    "GC10-DET_a00_Entropy_B_R5",
+    "NEU-DET_a00_Entropy_A_R1",
+    "NEU-DET_a00_Entropy_B_R1",
+    "NEU-DET_a00_Entropy_A_R2",
+    "NEU-DET_a00_Entropy_B_R2",
+    "NEU-DET_a00_Entropy_A_R3",
+    "NEU-DET_a00_Entropy_B_R3",
+    "NEU-DET_a00_Entropy_A_R4",
+    "NEU-DET_a00_Entropy_B_R4",
+    "NEU-DET_a00_Entropy_A_R5",
+    "NEU-DET_a00_Entropy_B_R5"
+  ],
+  "allowed_queries": [
+    "GC10-DET_a00_Q_R1",
+    "GC10-DET_a00_Q_R2",
+    "GC10-DET_a00_Q_R3",
+    "GC10-DET_a00_Q_R4",
+    "GC10-DET_a00_Q_R5",
+    "NEU-DET_a00_Q_R1",
+    "NEU-DET_a00_Q_R2",
+    "NEU-DET_a00_Q_R3",
+    "NEU-DET_a00_Q_R4",
+    "NEU-DET_a00_Q_R5"
+  ],
+  "authorized_trajectories": [
+    "GC10-DET_a00",
+    "NEU-DET_a00"
+  ],
+  "automatic_scope_expansion": false,
+  "created_at": "2026-09-08T10:54:42.646581+00:00",
+  "freeze_sha256": "0d3deb6656b9b22ddbb8d63f17ef6721adac4f3120560528c44954f8713d00fb",
+  "integration_pass_path": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\entropy_extension_v1\\integration_pass.json",
+  "integration_pass_sha256": "2d0d999d7a7417e2b2a7f32eaf09b2b7f5d27e66658ab0e2fd0a9ed58450a720",
+  "integration_reuse": false,
+  "locked_test_access": false,
+  "max_wall_hours": 8,
+  "mode": "official",
+  "official_freeze_sha256": "e40842787a93d2e06304f8da7eea5ea93f2125c7bd15982bbce6610903505e6a",
+  "source": "explicit user attached tranche instructions 2026-09-08; estimated total below six hours",
+  "status": "AUTHORIZED"
+}

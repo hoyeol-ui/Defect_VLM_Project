@@ -1,0 +1,307 @@
+[
+  {
+    "path": "docs/design/entropy_baseline_preflight_audit_20260908.md",
+    "sha256": "4a6033c8beadd59a5abc4a1ff23c52e0aa5710684310d3ff0d575ee988cabc3c",
+    "bytes": 20818
+  },
+  {
+    "path": "docs/design/entropy_baseline_protocol_manifest_v1.yaml",
+    "sha256": "8bee6279b72978e7aade48840a90607f9fa0f8a4aa36409b85aa8eef2ae78cdb",
+    "bytes": 12572
+  },
+  {
+    "path": "docs/design/entropy_smoke_test_report_20260908.md",
+    "sha256": "90367454822837b3b77515f25f787bc5c8adca0cea28f119746ae93ddf72f946",
+    "bytes": 6742
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/GC10-DET/dataset.yaml",
+    "sha256": "c29d065addbf105fc025176abe3cb473f103eb02ecf71ad189275fc5b07e11b3",
+    "bytes": 542
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/GC10-DET/train_A.yaml",
+    "sha256": "898e107efdf98476a8028c997a65dc688332c5cf2064af618fd154fe07702b17",
+    "bytes": 1818
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/GC10-DET/train_B.yaml",
+    "sha256": "328123dacf7901800cb468174f43e64dbd04470a59eb331b12cbb5ba1fe1c56d",
+    "bytes": 1817
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/GC10-DET/train_ids.txt",
+    "sha256": "86c199542cd764d06011b65597156f0dbf652315493654923839898419323adb",
+    "bytes": 104325
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/GC10-DET/train_images.txt",
+    "sha256": "fc8852aef0341dc531bb826af3d2ff3ca4b4d9b96b9a589578f6166d0b362f49",
+    "bytes": 292110
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/NEU-DET/dataset.yaml",
+    "sha256": "f47a70beb42ee51ec0aac049b5c23c3c995a21920f1864a82266eebb09674bcf",
+    "bytes": 474
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/NEU-DET/train_A.yaml",
+    "sha256": "27b33dbfa60f6e1931eda5bdd8229be5621671c2a63aa6ae638d226b4271cb44",
+    "bytes": 1815
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/NEU-DET/train_B.yaml",
+    "sha256": "4c74c517423c3c45e0816557d6acbb3d7e5749033d7167b6240791e0552679a2",
+    "bytes": 1816
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/NEU-DET/train_ids.txt",
+    "sha256": "0eed999782c12490d8c5151473d0f46e29d9221dd046565dce393c42e728e1b1",
+    "bytes": 81835
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/NEU-DET/train_images.txt",
+    "sha256": "8be9005439318f43a7e5bf64ec13d395396c47d583b367a1ed2f13b081c9fcd7",
+    "bytes": 227879
+  },
+  {
+    "path": "docs/design/full_data_reference_20260908/runplan.json",
+    "sha256": "7363eb78968041082e9df2d0cd6fae3a0536d5ddfdde2851204c8006f3fbb872",
+    "bytes": 8141
+  },
+  {
+    "path": "docs/design/full_data_reference_runplan_20260908.md",
+    "sha256": "9e8de92d7660b34f0a944944afe1fab2a7ae45a750f82a86d1be275b9c8ee49c",
+    "bytes": 8970
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/current_440_integrity.json",
+    "sha256": "81fe491e9659fba37b9645cabc64ca544dda0ed83cf87a2ad83b7cf5f0154ba9",
+    "bytes": 295
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/current_440_training_args.json",
+    "sha256": "c8978f06340472a767c82aaa6795475fdd54912bd99bb5e4c3102515c505cd42",
+    "bytes": 225
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/final_artifact_verification.json",
+    "sha256": "986719b016ef7a5e6a30aeac3851e3d5fb70f9da5ac97ca7170315ec66f3dc48",
+    "bytes": 628
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/effective_predict_args.json",
+    "sha256": "5ffc4846767098606f96ef7881cccfb87c69e045ad90793268045ab0eff506c6",
+    "bytes": 6095
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_1/labeled_R1.txt",
+    "sha256": "30985e4b95050f4ab28223d7a67af0444a0503aca21894488e3b522090dd9097",
+    "bytes": 15665
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_1/query_R1.txt",
+    "sha256": "cff0fa92c46f096889f2f911c96226036e9800cad33b7bd8b02b50852eb55409",
+    "bytes": 5200
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_1/scores.json",
+    "sha256": "9fd9a36647ec19c61223977e39bb7a4d1ad551880e12f5cea7a48b4f320e725d",
+    "bytes": 536474
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_1/scores_with_provenance.csv",
+    "sha256": "db3ecd5b9c80ed12047587561513f3efcc3c6dd6b63606af6f4354b43148ce4c",
+    "bytes": 920081
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_1/summary.json",
+    "sha256": "58054af3b2d4b72c7e2c5da3ead58ef847fa9a8a0431d233e316d8e713cd7814",
+    "bytes": 2819
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_1/unlabeled_R1.txt",
+    "sha256": "111006de91246a66a832bd8ff628799f3195a92e6b0482162657455ea5060c87",
+    "bytes": 88660
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_2/labeled_R1.txt",
+    "sha256": "30985e4b95050f4ab28223d7a67af0444a0503aca21894488e3b522090dd9097",
+    "bytes": 15665
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_2/query_R1.txt",
+    "sha256": "cff0fa92c46f096889f2f911c96226036e9800cad33b7bd8b02b50852eb55409",
+    "bytes": 5200
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_2/scores.json",
+    "sha256": "9fd9a36647ec19c61223977e39bb7a4d1ad551880e12f5cea7a48b4f320e725d",
+    "bytes": 536474
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_2/scores_with_provenance.csv",
+    "sha256": "ff13e5fcd4f8e78c700b58c6e9feea418e6da01eb179ed418e61682834405b9d",
+    "bytes": 920081
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_2/summary.json",
+    "sha256": "f9b078f24dbe2b2eef9b4c3f46cd4038da8ad8738e13e9a545099f059d11e047",
+    "bytes": 2819
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/repeat_2/unlabeled_R1.txt",
+    "sha256": "111006de91246a66a832bd8ff628799f3195a92e6b0482162657455ea5060c87",
+    "bytes": 88660
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET/unlabeled_images.json",
+    "sha256": "6de3304365499f29ada5a9ccdb0644189ac556f660e990f61d508ad5342249db",
+    "bytes": 447645
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/GC10-DET_repeat_2.log",
+    "sha256": "eb4aa7b31b821a3cea81921a76cbb5f6946c9dbc77faad842cb5db9c7cfdb7ed",
+    "bytes": 131416
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/effective_predict_args.json",
+    "sha256": "ad8eaf59bb35be9f80db49e0ab8d363e945dabd76078b4fb001993ba5c667fe8",
+    "bytes": 6092
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_1/labeled_R1.txt",
+    "sha256": "be36122a0e8eda2b346227e22da4e93a8646326018b09c5f2ce702d85ddf99a5",
+    "bytes": 12285
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_1/query_R1.txt",
+    "sha256": "0806f90d4bd01d7a85c58d334afc593768f4c5740a0050849050b6728d2a296e",
+    "bytes": 4095
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_1/scores.json",
+    "sha256": "c5e7634e71b391fb869054e6ccb35981cbb213a08a92c961ae672ba24af35d27",
+    "bytes": 422013
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_1/scores_with_provenance.csv",
+    "sha256": "f1bdd691a2e4c9a9eb5a76e55112314b1f92172039c742eb0ed741b6ca4aa5e2",
+    "bytes": 719559
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_1/summary.json",
+    "sha256": "2a1d72869afaab5cc55746e9f560aee05ffddf23fdf5628e4ba137473518a9c3",
+    "bytes": 2811
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_1/unlabeled_R1.txt",
+    "sha256": "28b1205b29bf36c9826fea42fef6854a66a2f59b4012b489ab7ad7328393ae6b",
+    "bytes": 69550
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_2/labeled_R1.txt",
+    "sha256": "be36122a0e8eda2b346227e22da4e93a8646326018b09c5f2ce702d85ddf99a5",
+    "bytes": 12285
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_2/query_R1.txt",
+    "sha256": "0806f90d4bd01d7a85c58d334afc593768f4c5740a0050849050b6728d2a296e",
+    "bytes": 4095
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_2/scores.json",
+    "sha256": "c5e7634e71b391fb869054e6ccb35981cbb213a08a92c961ae672ba24af35d27",
+    "bytes": 422013
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_2/scores_with_provenance.csv",
+    "sha256": "432421594c5b39fac9e194a7e2d3a03886cbb3cd1de28a47040482a029029759",
+    "bytes": 719559
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_2/summary.json",
+    "sha256": "effa73ae7dec2215cb3302ca742df984c2a11b149de57ec81fb63f6eca5bfcb3",
+    "bytes": 2812
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/repeat_2/unlabeled_R1.txt",
+    "sha256": "28b1205b29bf36c9826fea42fef6854a66a2f59b4012b489ab7ad7328393ae6b",
+    "bytes": 69550
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET/unlabeled_images.json",
+    "sha256": "ed97190c7b2c6ced61048470533a40dbffce36401af17b28553a2eb886ba8ee9",
+    "bytes": 350102
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET_repeat_1.log",
+    "sha256": "21100ce4d77f52a3a195b53d5ac9501b9d58b24862e1e87f8ba519cd4b2870c4",
+    "bytes": 103728
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/NEU-DET_repeat_2.log",
+    "sha256": "b2e4081fccf3cf3cc5f27e951a86b1f1a6213207c9cf2c25ece3f63d813866b5",
+    "bytes": 103729
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/pip_show_ultralytics.txt",
+    "sha256": "5d0fb3e18048e6d3d44bd62b8da8603afa8ad01a521364115365440cf59e1ee7",
+    "bytes": 599
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/repository_audit.json",
+    "sha256": "f2eb2b8fb0f176106cbc9e6799b0756b00b76641f721cd2016ab044083588ebf",
+    "bytes": 16668
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/smoke_comparison.json",
+    "sha256": "1703b6bc76d0fb4beb17071846836b238f0f4c46bb0458068220e24e624f246b",
+    "bytes": 4856
+  },
+  {
+    "path": "reports/entropy_preflight_20260908/unit_tests.log",
+    "sha256": "416a1251fcbf3211cb7d269e335706e2fcb9e2ecc389f53b647cc4dd29261a90",
+    "bytes": 368
+  },
+  {
+    "path": "scripts/entropy_preflight/build_reports.py",
+    "sha256": "ef8ea7dc4f2d0357d3aba830c6d84bb836331a4e79cbadf80ba7cc871cb99f15",
+    "bytes": 25385
+  },
+  {
+    "path": "scripts/entropy_preflight/capture_predict_audit.py",
+    "sha256": "eda03daa9a8b55ea76c2f8828912d15a105d5aa4e5205a3f66490d598f955e8d",
+    "bytes": 2669
+  },
+  {
+    "path": "scripts/entropy_preflight/prepare_manifest.py",
+    "sha256": "214bdb2c6bdb57592610b6d9f1a2f3fedfd24075657c0a6e99c35e5cf2afa911",
+    "bytes": 5265
+  },
+  {
+    "path": "scripts/entropy_preflight/prepare_reference.py",
+    "sha256": "e03009ca88df76ffdc1edf385316caf4be8b4a32d13373f5141d5beb47798138",
+    "bytes": 8342
+  },
+  {
+    "path": "scripts/entropy_preflight/run_smoke.py",
+    "sha256": "ffcef6f04ddc33ed7d44d028db6f646d8439fea2f525c56f3d4ce726914c7343",
+    "bytes": 9411
+  },
+  {
+    "path": "src/defect_al/entropy.py",
+    "sha256": "de13fa437fab83471a0a936dc4c657c1801b1dc75b5a554e7e96131f9bfbc243",
+    "bytes": 10370
+  },
+  {
+    "path": "tests/test_entropy.py",
+    "sha256": "de564d1303ce581cf10cab7620534df0bf1d75db6199851364e9c1cd59c30d46",
+    "bytes": 5391
+  },
+  {
+    "path": "tests/test_entropy_ultralytics_contract.py",
+    "sha256": "eb2f97c1cb4de2a4480391cc17995bb5dd2621dca6e8894826dc1c66b39b8d16",
+    "bytes": 1838
+  }
+]

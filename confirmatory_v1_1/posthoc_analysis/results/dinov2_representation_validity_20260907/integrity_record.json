@@ -1,0 +1,88 @@
+{
+  "acquisition_modified": false,
+  "analysis_protocol_amendment": {
+    "outcome_driven": false,
+    "primary_label_basis": "full annotation object-class set; no label collapsed or excluded",
+    "secondary_label_basis": "pre-existing nominal image category parsed deterministically from the sealed source filename",
+    "timing": "before any metric output was written or inspected",
+    "trigger": "NEU-DET acquisition annotations contain multi-class images (83 of 1259)"
+  },
+  "analysis_role": "posthoc_representation_audit_only",
+  "datasets": {
+    "GC10-DET": {
+      "acquisition_label_files_used": 1605,
+      "cache_A_B_bitwise_exact": true,
+      "cache_content_sha256": "cc1c9826c692f8b9c9b445504037698692cafa54f62848e79842de29e12a29b8",
+      "cache_count": 1605,
+      "cache_dimension": 384,
+      "cache_dtype": "float32",
+      "development_overlap": 0,
+      "final_overlap": 0,
+      "model_revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+      "multi_label_image_count": 331,
+      "ordered_manifest_equal_sample_ids_row_order": true,
+      "precision": "FP32_AUTocast_OFF_TF32_OFF",
+      "raw_data_root": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\data",
+      "sample_ids_equal_blind_acquisition_manifest": true,
+      "sample_ids_equal_split_assignment_acquisition": true,
+      "source_XML_class_sets_equal_adapter_label_sets": true,
+      "source_XML_files_hash_verified": 1605
+    },
+    "NEU-DET": {
+      "acquisition_label_files_used": 1259,
+      "cache_A_B_bitwise_exact": true,
+      "cache_content_sha256": "1f6c92f6e54a7ad8134bc6c65eeba6d5b5a51dc8f35a9c5bb1917dd32da9a326",
+      "cache_count": 1259,
+      "cache_dimension": 384,
+      "cache_dtype": "float32",
+      "development_overlap": 0,
+      "final_overlap": 0,
+      "model_revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+      "multi_label_image_count": 83,
+      "nominal_category_counts": {
+        "crazing": 210,
+        "inclusion": 211,
+        "patches": 208,
+        "pitted_surface": 210,
+        "rolled-in_scale": 210,
+        "scratches": 210
+      },
+      "nominal_category_source": "sealed private_source_registry.csv relative_image_path filename prefix; secondary diagnostic only",
+      "ordered_manifest_equal_sample_ids_row_order": true,
+      "precision": "FP32_AUTocast_OFF_TF32_OFF",
+      "raw_data_root": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\data",
+      "sample_ids_equal_blind_acquisition_manifest": true,
+      "sample_ids_equal_split_assignment_acquisition": true,
+      "source_XML_class_sets_equal_adapter_label_sets": true,
+      "source_XML_files_hash_verified": 1259
+    }
+  },
+  "dino_model_sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+  "dino_revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+  "feature_extraction_performed": false,
+  "fine_tuning_performed": false,
+  "gt_used_for": "posthoc_representation_audit_only",
+  "locked_test_labels_read": false,
+  "protocol_sha256": "6836f452d22c3de26dfa2680c45d0b5cb8f925b1a9274789c4ef81a1770f0b10",
+  "raw_data_root": "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project\\data",
+  "release_source_records": {
+    "confirmatory_v1/confirmatory_protocol_v1.yaml": "fa6ad82f5f6b282b1fde5529af41cb54eb5471d3f2950f00d32f491b8ed0c663",
+    "confirmatory_v1/data_freeze/gc10_development_locked_manifest.csv": "a72501012d07e6f099a1c33379622242417d0bf71c0038fa60483ad7c1c75c82",
+    "confirmatory_v1/data_freeze/gc10_final_locked_manifest.csv": "8febd2c19c347473d259d7b59ec01cf7a5a9799bf1333e4e6cac6411f4c84b43",
+    "confirmatory_v1/data_freeze/neu_development_locked_manifest.csv": "c2641eb75bc9e420a4434d9a10ead1b58fd79cf057281b2ed6932ca77a099884",
+    "confirmatory_v1/data_freeze/neu_final_locked_manifest.csv": "7e649a5f3eee8d422b4bc0ddd8dacb96f4382256fe5ab834296db0153dfb48a0",
+    "confirmatory_v1/data_freeze/seed_manifest.csv": "31372e88b78478fc3400ed363030681e48c0468b8bc599af7d86fbc33defd93d",
+    "confirmatory_v1_1/cache_seals/CANONICAL_CACHE_SEAL.json": "4446e080bb5eae9bbca2d2c090a4310b8c00e63dd7423facac2dde3d7d1d0d24",
+    "confirmatory_v1_1/confirmatory_protocol_v1_1.yaml": "6836f452d22c3de26dfa2680c45d0b5cb8f925b1a9274789c4ef81a1770f0b10",
+    "confirmatory_v1_1/full_run/full_run_config.json": "cb5ebba8895036708ca10b99619a27ac17b0c4d9ce4baba2ba67d66ea5aa5659",
+    "confirmatory_v1_1/full_run/planned_cells.jsonl": {
+      "byte_hash_difference_reason": "release CRLF; run copy LF",
+      "line_count": 440,
+      "scientific_records_exact": true
+    },
+    "confirmatory_v1_1/full_run/runtime/FULL_TRAINING_INTEGRITY_AUDIT.json": "4b8cf5008609321cf6eda19134ac1c51144ba7851deb5cf235b1d031663b1dae"
+  },
+  "source_root": "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1",
+  "status": "PASS",
+  "training_performed": false
+}
