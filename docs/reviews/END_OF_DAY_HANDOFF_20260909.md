@@ -53,7 +53,7 @@ NEU의 primary 거리 순위와 선택 편차 순위가 정확히 일치한다. 
 
 ## 8. 다음 작업 우선순위 1–5
 
-1. 이번 geometry/chance와 예외를 멘토에게 공유하고 논문 3.10.4의 post-hoc 진단 위치에 맞춰 반영 범위를 결정한다. GPU 불필요.
+1. 이번 geometry/chance와 예외를 검토자에게 공유하고 논문 3.10.4의 post-hoc 진단 위치에 맞춰 반영 범위를 결정한다. GPU 불필요.
 2. 남은 Entropy 180 cells의 범위를 명시적으로 승인한 뒤 기존 freeze/seed/config를 유지해 독립 Windows runner로 실행한다. integration/a00 재사용 규칙을 바꾸지 않는다.
 3. Entropy 공식 완료 후 integrity audit를 먼저 하고, 별도 평가 승인에 따라 기존 checkpoint의 class-wise AP·dynamic worst-class AP·해당 curve nAULC를 분석한다. 추가 학습 없이 checkpoint 평가가 가능하며 locked-test는 승인 전 접근하지 않는다.
 4. 사전 계획된 100% reference 4 runs를 별도 승인·queue에서 실행한다. 결과가 없는데 참조 성능을 인용하지 않는다.

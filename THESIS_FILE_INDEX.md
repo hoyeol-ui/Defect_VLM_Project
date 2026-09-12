@@ -1,4 +1,23 @@
-# Thesis File Index
+# 연구 결과 파일 안내
+
+## Start Here — completed development analysis, 2026-09-13
+
+1. [README](README.md) — 현재 질문·완료 상태·대표 결과.
+2. [실험 결과 기록](results/development_20260913/EXPERIMENT_RESULT_BRIEF.md).
+3. [그림 5종 PNG/SVG/PDF](results/development_20260913/figures/).
+4. [Seed/budget/selection 원표](results/development_20260913/tables/).
+5. [분석 검증 보고](results/development_20260913/ANALYSIS_VALIDATION_REPORT.md).
+6. [Historical locked-final](results/thesis_final/README.md) — 신규 development와 별도 근거.
+7. [Controlled protocol](docs/collaboration/CONTROLLED_440_PROTOCOL.md) / [Entropy protocol](entropy_extension_v1/official_release_v1/protocol.json).
+8. [Public reproduction](scripts/analysis/development_20260913/README.md) / [Public release audit](results/development_20260913/audit/PUBLIC_RELEASE_AUDIT.md).
+
+새 locked-final: NOT EXECUTED / PENDING SEPARATE FREEZE. 추가 AL training 종료와 최종평가 완료를 구분한다.
+
+## Historical / Previous-stage navigation
+
+아래는 기존 단계의 파일 안내다. 날짜 당시의 완료 수와 evidence 범위를 현재 상태로 오인하지 않는다.
+
+### Previous file index
 
 ## A. Start here
 

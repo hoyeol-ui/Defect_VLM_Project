@@ -1,31 +1,31 @@
-# 멘토 의견서와 repository 결과의 교차 감사
+# 검토자 의견서와 repository 결과의 교차 감사
 
 감사 기준일: 2026-09-08 (Asia/Seoul)  
-감사 범위: 멘토 검토 의견서, 추가 피드백, 현재 `al-selector` release와 Entropy a00 공식 tranche의 보존된 산출물  
+감사 범위: 검토자 검토 의견서, 추가 피드백, 현재 `al-selector` release와 Entropy a00 공식 tranche의 보존된 산출물  
 실행 범위: 새 학습·새 selector·protocol 변경·잠긴 test 접근·논문/PPT 수정 0회
 
 첨부된 학위논문 검토 의견서는 연구 방향과 보강 우선순위를 제시한 검토 자료다. 그것을 새 실행 authorization이나 protocol 변경 명령으로 해석하지 않았다. 수치의 판정에는 저장소의 config, source, sealed result table과 audit record를 우선 사용했다.
 
 ## 1. Executive conclusion
 
-멘토가 제안한 최종 논리는 제한된 라벨 예산의 산업 결함 object detection에서 Frozen DINOv2 표현 기반 farthest-first 선택의 평균 학습 효용을 검증하되, 전체 mAP가 가릴 수 있는 취약 클래스 악화를 함께 드러내는 것이다. 이 방향은 현재 repository의 역사적 440-cell 결과와 맞는다. Frozen DINO는 GC10-DET와 NEU-DET에서 primary budget-curve AULC가 Random보다 각각 +0.581 pp와 +0.578 pp였지만, NEU의 worst-class AULC는 -1.488 pp, R5는 -3.118 pp였다. 멘토가 인용한 NEU R5 클래스별 선택 수와 AP 변화는 최종 보고서의 값과 일치하고, 여섯 개의 반올림된 점만으로 계산한 Spearman 0.942857과 Pearson 0.991712도 각각 0.943과 0.992를 재현한다. 다만 그 상관계수는 현재 최종 보고서에 별도의 sealed artifact로 저장되어 있지 않고, n=6인 사후 요약의 기술통계다. 기존 class-wise kNN/distance 분석은 이미 있으므로 DINO 표현에 라벨 관련 국소 구조가 있다는 근거는 충분하지만, class compactness나 farthest-first under-selection의 원인을 직접 검증한 분석은 아니다. Entropy는 제목의 중심을 바꾸는 새 연구가 아니라 detector uncertainty 계열의 보조 비교군이며, 현재 공식 결과는 acquisition index 10개 중 a00 하나뿐이므로 최종 비교나 일반화 주장을 할 단계가 아니다. 따라서 논문의 방향은 일관되지만, 상관·kNN·Entropy를 논문에 넣을 때 사후 분석, chance 기준, worst-class endpoint, 1/10 범위를 명시해야 한다.
+검토자가 제안한 최종 논리는 제한된 라벨 예산의 산업 결함 object detection에서 Frozen DINOv2 표현 기반 farthest-first 선택의 평균 학습 효용을 검증하되, 전체 mAP가 가릴 수 있는 취약 클래스 악화를 함께 드러내는 것이다. 이 방향은 현재 repository의 역사적 440-cell 결과와 맞는다. Frozen DINO는 GC10-DET와 NEU-DET에서 primary budget-curve AULC가 Random보다 각각 +0.581 pp와 +0.578 pp였지만, NEU의 worst-class AULC는 -1.488 pp, R5는 -3.118 pp였다. 검토자가 인용한 NEU R5 클래스별 선택 수와 AP 변화는 최종 보고서의 값과 일치하고, 여섯 개의 반올림된 점만으로 계산한 Spearman 0.942857과 Pearson 0.991712도 각각 0.943과 0.992를 재현한다. 다만 그 상관계수는 현재 최종 보고서에 별도의 sealed artifact로 저장되어 있지 않고, n=6인 사후 요약의 기술통계다. 기존 class-wise kNN/distance 분석은 이미 있으므로 DINO 표현에 라벨 관련 국소 구조가 있다는 근거는 충분하지만, class compactness나 farthest-first under-selection의 원인을 직접 검증한 분석은 아니다. Entropy는 제목의 중심을 바꾸는 새 연구가 아니라 detector uncertainty 계열의 보조 비교군이며, 현재 공식 결과는 acquisition index 10개 중 a00 하나뿐이므로 최종 비교나 일반화 주장을 할 단계가 아니다. 따라서 논문의 방향은 일관되지만, 상관·kNN·Entropy를 논문에 넣을 때 사후 분석, chance 기준, worst-class endpoint, 1/10 범위를 명시해야 한다.
 
-## 2. Mentor feedback vs repository truth
+## 2. research feedback vs repository truth
 
 | 항목 | 현재 상태 | 근거 | 추가 작업 여부 | 논문 위치 |
 |---|---|---|---|---|
-| 제목 방향 | 대체로 정합. `성능을 높이기 위한`은 연구 목적 표현으로 쓰고 보편적 달성 주장으로 쓰지 않음 | 멘토 의견서, `final_analysis/CONFIRMATORY_FINAL_ANALYSIS_REPORT.md` | 제목 문구 결정만 필요 | 제목·초록·서론 목적 |
+| 제목 방향 | 대체로 정합. `성능을 높이기 위한`은 연구 목적 표현으로 쓰고 보편적 달성 주장으로 쓰지 않음 | 검토자 의견서, `final_analysis/CONFIRMATORY_FINAL_ANALYSIS_REPORT.md` | 제목 문구 결정만 필요 | 제목·초록·서론 목적 |
 | NEU 선택 수 ↔ AP | 값과 방향 일치. 선택 수 CI 5/6, AP CI 4/6이 0을 배제 | `confirmatory_v1_1/final_analysis/CONFIRMATORY_FINAL_ANALYSIS_REPORT.md` | 상관표를 별도 post-hoc 표로 봉인하면 완료 | 3.10.4, 결과/논의 |
 | Spearman .943 / Pearson .992 | 반올림된 6개 점으로 정확히 재현. 현재 보고서에는 correlation row/hash가 없음 | 위 보고서의 R5 class rows; 본 감사 산술 재확인 | 상관계수 산출 방식과 p-value를 명시할 문서화 필요 | 3.10.4 |
 | “왜 덜 뽑혔나” | 기존 kNN은 있음. 그러나 within-class dispersion/density와 선택 trajectory의 직접 연결은 없음 | `docs/reviews/dinov2_representation_validity_audit_20260907.md`, `classwise_nearest_neighbor_agreement.csv` | 새 학습 불필요. 기존 값으로 가능한 주장만 사용 | DINO 진단/한계 |
 | 81.25% / 99.21% | 1-NN 이웃이 query와 annotation class를 하나라도 공유하는 비율. chance-adjusted 값 아님 | `analyze_dinov2_representation_validity.py`, `dataset_metrics.csv` | prevalence 보정 기준을 표에 추가할지 결정 | 3.6.2 또는 사후 진단 |
 | GC10 multi-label | label set bit mask의 교집합이 비어 있지 않으면 match. 전체 set equality가 아님 | `analyze_dinov2_representation_validity.py` | 정의를 본문에 한 문장으로 고정 | 방법/사후 분석 |
-| 숫자→이미지 순서 | repository 수치와 멘토 요구가 일치 | classwise kNN CSV와 기존 figure package | 새 PPT는 이번 감사 범위 밖 | 발표자료 |
+| 숫자→이미지 순서 | repository 수치와 검토자 요구가 일치 | classwise kNN CSV와 기존 figure package | 새 PPT는 이번 감사 범위 밖 | 발표자료 |
 | DINO 설정 | 모델, revision, 전처리, 384-D pooler output, FP32, L2, deterministic, batch 32 모두 일치 | `confirmatory_v1/confirmatory_protocol_v1.yaml`, `confirmatory_v1/src/confirmatory_v1/frozen_dino_ff_v1.py` | 없음 | 3.6.2 |
 | 선택 신호의 성격 | detector 예측을 선택 점수에 쓰지 않음. DINO는 feature extractor, farthest-first가 selector | protocol YAML, frozen DINO source | 용어만 일관되게 교정 | 3.6.2 |
 | best.pt 의미 | fixed validation에서 선택된 checkpoint. budget/라벨 비율이 아님 | `confirmatory_v1_1/src/run_yolo_phase2b_cell.py`, Entropy training audit | 없음 | 학습 protocol |
 | Entropy | 현재 freeze와 a00 공식 tranche는 존재. 20 cells/10 queries complete; 전체는 1/10 trajectory | `entropy_extension_v1/official_release_v1/*`, `reports/entropy_postrun_a00_20260908/POST_RUN_REPORT.md` | 남은 180 cells 후 class-wise validation 분석 | 보조 비교군/논의 |
-| Lv et al. 선례 | Sensors 2020 논문은 NEU-DET active learning에서 uncertainty와 class-wise sampling을 다룸. 멘토가 제시한 최저 클래스 수치는 논문 표와 함께 인용할 수 있음 | [Lv et al. (2020)](https://doi.org/10.3390/s20061650) | 원문 표의 dataset subset과 metric 정의를 함께 적기 | 관련 연구/논의 |
+| Lv et al. 선례 | Sensors 2020 논문은 NEU-DET active learning에서 uncertainty와 class-wise sampling을 다룸. 검토자가 제시한 최저 클래스 수치는 논문 표와 함께 인용할 수 있음 | [Lv et al. (2020)](https://doi.org/10.3390/s20061650) | 원문 표의 dataset subset과 metric 정의를 함께 적기 | 관련 연구/논의 |
 
 ## 3. Already completed
 
@@ -39,7 +39,7 @@
 
 ## 4. Still missing
 
-1. The mentor correlation should be recorded as an explicitly post-hoc, six-class descriptive row with the exact input values, rounding rule, and correlation method. For six observations, the usual asymptotic Spearman p-value should not be treated as decisive; a permutation p-value would be the defensible inferential option if a formal test is later required. This is a reporting issue, not a reason to change the selector.
+1. The research correlation should be recorded as an explicitly post-hoc, six-class descriptive row with the exact input values, rounding rule, and correlation method. For six observations, the usual asymptotic Spearman p-value should not be treated as decisive; a permutation p-value would be the defensible inferential option if a formal test is later required. This is a reporting issue, not a reason to change the selector.
 2. Existing class-wise kNN does not report within-class radius, average kNN distance by class, or the distance from each candidate to the current farthest-first reference set. It cannot by itself establish “dense class → fewer selections.” Use it to state label locality and the observed boundary, not as a causal explanation.
 3. The 81.25% and 99.21% numbers need an explicit chance reference if shown as validity evidence. Uniform `1/10` and `1/6` are only toy baselines. A fair baseline preserves the observed image-level label-set prevalence (and multi-label co-occurrence), for example by permutation or an empirical independent-neighbor calculation. The repository currently labels these values as raw descriptive, chance-unadjusted.
 4. Entropy a00 stores aggregate development mAP50-95 per checkpoint, not class-wise AP or worst-class AP. The official protocol is fixed, but the requested class-wise/worst-class Entropy comparison is not complete. It should be derived from retained validation checkpoints only after the official tranche is complete; it does not require changing training.
@@ -68,7 +68,7 @@ Entropy therefore does not require a title centered on uncertainty. The proposed
 
 The a00 interim curve is not a final method comparison. It is one of ten acquisition indices and uses development validation only. The retained aggregate values are useful for orchestration and descriptive monitoring, but they do not establish Entropy superiority, inferiority, a confidence interval, or a general budget transition.
 
-The class-wise requirement is substantive. Lv et al. report a NEU-DET case where an uncertainty arm raises overall mAP while the weakest class declines; their paper also separates category-level sampling from the global score. This supports the mentor's request to inspect worst-class and class-wise AP, but it does not predict the outcome of the current protocol. The PMLR paper *Active Learning on a Budget* likewise motivates budget-dependent behavior: typical samples can be preferable at low budgets while unrepresentative/uncertain samples can become preferable at larger budgets. These are literature motivations, not evidence from the current a00.
+The class-wise requirement is substantive. Lv et al. report a NEU-DET case where an uncertainty arm raises overall mAP while the weakest class declines; their paper also separates category-level sampling from the global score. This supports the research's request to inspect worst-class and class-wise AP, but it does not predict the outcome of the current protocol. The PMLR paper *Active Learning on a Budget* likewise motivates budget-dependent behavior: typical samples can be preferable at low budgets while unrepresentative/uncertain samples can become preferable at larger budgets. These are literature motivations, not evidence from the current a00.
 
 ## 7. Strongest thesis contribution
 
@@ -102,4 +102,4 @@ The class-wise requirement is substantive. Lv et al. report a NEU-DET case where
 
 **THESIS DIRECTION COHERENT**
 
-The mentor's proposed direction matches the strongest existing repository evidence: positive overall learning utility with a measurable vulnerable-class boundary. The direction needs careful post-hoc labeling and completion of the frozen Entropy tranche, but it does not require changing the title's central DINOv2 representation-based selection question.
+The research's proposed direction matches the strongest existing repository evidence: positive overall learning utility with a measurable vulnerable-class boundary. The direction needs careful post-hoc labeling and completion of the frozen Entropy tranche, but it does not require changing the title's central DINOv2 representation-based selection question.

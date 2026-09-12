@@ -1,119 +1,104 @@
-# 제한된 라벨 환경의 산업 결함 객체 탐지: 사전학습 DINOv2와 Entropy 비교
+# 소량 라벨 환경에서 특징 기반 능동학습을 활용한 금속 표면 결함 객체 탐지
 
-**최근 업데이트: 2026-09-09 · 연구 결과 및 보완 사항 공유용**
+라벨을 붙일 수 있는 이미지 수가 제한될 때, 어떤 이미지를 고르면 금속 표면 결함을 더 잘 탐지할 수 있을까요? GC10-DET와 NEU-DET에서 표본 선택 신호를 달리하고 같은 YOLOv8n 학습 조건을 적용해, Random보다 label efficiency를 높일 수 있는지 확인합니다.
 
-이 연구는 GC10-DET와 NEU-DET에서 제한된 라벨 예산으로 탐지기를 학습할 때, 표본 선택 방법의 평균 학습 효용과 취약 클래스 성능을 함께 평가합니다. **사전학습 DINOv2(Pretrained DINOv2)는 이미지 특징 추출에 사용하고, 실제 선택은 farthest-first가 수행합니다.** 본 실험에서 DINOv2 가중치를 추가 학습하지 않았습니다.
+비교 방법은 **Random**, **Frozen DINOv2 feature + farthest-first**, **Detection-confidence Entropy**입니다. 전체 training pool을 쓴 **full-label reference**는 별도의 기준입니다. 이 저장소는 seed-level 원표 → budget 집계 → 선택 진단 → 그림 → 계산 코드까지 연결되는 연구 기록입니다.
 
-최근에는 **탐지기 uncertainty 기반 Entropy 비교군**, **실제 클래스 분포를 반영한 1-NN chance baseline**, **클래스 특징 공간의 compactness와 선택 편차를 연결하는 사후 진단**을 추가했습니다. Entropy 공식 실험은 200개 학습 셀 중 20개 완료 상태입니다.
+## 현재 상태 — 2026-09-13
 
-## 무엇이 달라졌나
-
-| 항목 | 기존 상태 | 현재 보완 |
+|실험|완료 상태|근거|
 |---|---|---|
-| 선택 방법 비교 | Random / 사전학습 DINOv2 + farthest-first | **Basic Detection Entropy 추가**. 구현·단위검증·GPU integration 완료, official a00 실행 완료 |
-| DINOv2 표현 타당성 | 전체 및 클래스별 kNN 보존율 | 전체 label set을 보존한 **10,000회 permutation chance baseline** 추가 |
-| 선택 구성의 설명 | NEU 클래스별 선택 수와 AP 변화의 대응 | **compactness 4개 지표 × R1–R5 선택 편차**를 두 데이터셋에서 분석 |
-| 연구 해석 | 평균 성능과 클래스별 결과 | NEU에서 geometry와 선택 편차의 일관된 연관성, GC10에서 예외까지 함께 보고 |
-| 전체 라벨 기준선 | 없음 | **100% labeled-data reference 4-run 계획 준비**. 아직 실행 전이며 selector가 아닌 reference |
-| 공개 설명 용어 | 이전 기록의 명칭 사용 | 설명과 신규 figure에 **사전학습 DINOv2 / Pretrained DINOv2** 사용 |
+|Historical Random / Frozen DINO controlled experiment|440 physical training COMPLETE|기존 historical locked-final 유지|
+|Entropy extension|200/200 training, 100/100 acquisition COMPLETE|Development validation|
+|Full-label reference|4/4 COMPLETE: GC10 A/B, NEU A/B|Development validation, dataset별 learner 2개|
+|전체 physical training index|644 = 440 + 200 + 4|공통 R0 재사용; 새 학습으로 중복 계산하지 않음|
+|New locked-final extension|**NOT EXECUTED / PENDING SEPARATE FREEZE**|신규 204 checkpoint의 평가·통계계획·승인은 별도 단계|
 
-기존 protocol의 식별자·파일명·결과 표는 provenance와 hash 보존을 위해 그대로 둡니다. 표현 변경은 모델이나 선택 규칙의 변경이 아닙니다.
+**추가 AL training을 닫는 것과 최종평가가 완료된 것은 별개입니다.** 이번 공개는 이미 완료된 development 분석과 실험 기록입니다.
 
-## 현재 비교 방법과 완료 상태
+## 핵심 development 결과
 
-| 방법 | 선택 신호 | 학습 상태 | 해석 범위 |
-|---|---|---|---|
-| Random | 고정 seed의 무작위 선택 | 기존 공식 실험 완료 | 역사적 440-cell 결과에 포함 |
-| 사전학습 DINOv2 + farthest-first | 사전학습 특징 공간에서 기존 선택 집합과의 거리 | 기존 공식 실험 완료 | 역사적 440-cell 결과에 포함 |
-| Basic Detection Entropy | 탐지기의 post-NMS box confidence에 대한 binary entropy 합 | **20/200 cells**, 10/100 acquisition jobs 완료 | **INTERIM DESCRIPTIVE ONLY — NOT FINAL, 1/10 acquisition trajectories per dataset** |
-| 100% labeled-data reference | 표본 선택 없이 acquisition pool 전부 사용 | **0/4 runs**, 계획 준비 | 추후 별도 성능 기준선 |
+> Evidence: Development validation  
+> Statistical unit: acquisition seed, n=10  
+> Learner A/B averaged within acquisition seed/round  
+> Locked-final: not used
 
-사전학습 DINOv2 + farthest-first는 **탐지 모델의 예측을 선택 점수에 사용하지 않음**. Entropy는 탐지기의 예측을 사용하는 다른 계열의 비교군입니다. 새로운 희소 클래스 보호 selector나 추가 VLM 실험을 실행한 상태는 아닙니다.
+두 데이터셋 모두 DINO와 Entropy의 평균 development nAULC가 Random보다 높았습니다. DINO−Entropy의 직접 차이는 두 데이터셋 모두 95% interval이 0을 포함합니다. **Consistent superiority is not established.** 통계적 동등성도 확인하지 않았습니다.
 
-## 새로 확인한 결과: 클래스 geometry 사후 진단
+![Three-way development curves](results/development_20260913/figures/figure_2_development_curves.png)
 
-**POST-HOC DIAGNOSTIC · CPU-only · 추가 모델 학습 없음**
+전 라벨 예산의 곡선을 함께 보면 평균 이득과 budget별 역전을 구분할 수 있습니다. 선은 10개 seed의 A/B 평균을 다시 평균한 값이며 음영은 seed SD입니다. SD는 평균의 신뢰구간이 아닙니다.
 
-### 1-NN의 우연 수준
+|Dataset|Random nAULC (%)|DINO nAULC (%)|Entropy nAULC (%)|
+|---|---:|---:|---:|
+|GC10-DET|27.002|27.393|27.649|
+|NEU-DET|35.189|35.981|35.902|
 
-기존 graph를 고정하고 이미지별 전체 annotation label set을 통째로 permutation했습니다. 클래스 빈도와 multi-label co-occurrence를 보존하며, 두 이미지의 라벨이 하나라도 겹치면 match입니다.
+![Paired seed effects](results/development_20260913/figures/figure_3_paired_nAULC.png)
 
-| Dataset | 기존 observed 1-NN | Permutation mean | Null 2.5–97.5 percentile | Observed − chance |
-|---|---:|---:|---:|---:|
-| GC10-DET | 81.25% | 21.07% | [18.82%, 23.30%] | +60.17 pp |
-| NEU-DET | 99.21% | 18.96% | [16.44%, 21.53%] | +80.25 pp |
+회색 점은 10개 paired seed effect, 마름모는 평균, 막대는 100,000회 paired bootstrap 구간입니다. DINO−Random은 GC10 +0.391pp, NEU +0.792pp이고 Entropy−Random은 +0.647pp, +0.714pp입니다. 직접 비교 DINO−Entropy는 −0.256pp/+0.079pp로 방향이 다르며, 구간이 0을 포함하는 것을 동등성으로 해석하지 않습니다.
 
-구간은 **null distribution 범위**이며 관측값의 신뢰구간이 아닙니다. 전체 일치율의 높음을 클래스 빈도와 동시 출현만으로 설명하기 어렵다는 결과입니다.
+전체 평균·중앙값·구간·승패 수: [paired nAULC](results/development_20260913/tables/paired_nAULC_comparison.md) · [seedwise nAULC CSV](results/development_20260913/tables/seedwise_nAULC.csv) · [budget별 paired 차이](results/development_20260913/tables/budget_paired_summary.md).
 
-### 왜 어떤 클래스는 덜 선택됐는가
+## 약 35%의 이미지 라벨과 full-label reference
 
-Primary 지표는 **클래스 내 서로 다른 이미지 쌍의 cosine distance 중앙값**입니다. 작을수록 compact합니다. 선택 편차는 R5에서 사전학습 DINOv2 + farthest-first와 historical Random의 클래스별 평균 선택 이미지 수 차이입니다.
+![R5 and full-label reference](results/development_20260913/figures/figure_4_full_label_reference.png)
 
-| Dataset | R5 primary Spearman | 관찰 및 한계 |
-|---|---:|---|
-| NEU-DET, 6 classes | **1.000** | compact한 crazing / rolled-in_scale은 덜, spread가 큰 pitted_surface / scratches는 더 선택됨 |
-| GC10-DET, 10 classes | **0.661** | 같은 방향의 연관성이 있으나 punching_hole, rolled_pit, silk_spot 등의 예외 존재 |
+GC10은 561/1605장(34.95%), NEU는 441/1259장(35.03%)을 사용한 R5입니다. DINO·Entropy는 full-label reference의 약 **87.4–90.9%** development 성능에 도달했습니다. Full 평균은 GC10 34.717%, NEU 42.8955%이며 learner A/B 두 개의 기술적 기준입니다. 이미지 수 비율은 annotation 비용 절감률을 의미하지 않습니다.
 
-전체 판정은 **PARTIAL SUPPORT**입니다. NEU의 primary 관계는 매우 일관되지만, GC10의 예외와 secondary metric 차이가 있어 compactness가 모든 선택 차이를 설명한다고 단정하지 않습니다. 인과 분석이 아니며 p-value는 제시하지 않습니다.
+[Full A/B 원값](results/development_20260913/tables/full_data_reference_summary.md) · [절대 차이와 상대 비율](results/development_20260913/tables/r5_vs_full_data.md)
 
-![POST-HOC DIAGNOSTIC: NEU geometry and selection](docs/reviews/dino_class_geometry_posthoc_20260909/results/figure_4_neu_ranked_geometry.png)
+## 무엇을 고정해 비교했나
 
-숫자를 먼저 제시한 뒤 결과를 시각화했습니다. 이 그림은 **선택에는 사용하지 않은 사후 확인용**입니다. 클래스별 전체 수치·R1–R5 상관·예외·source/output hash는 [geometry 감사 보고서](docs/reviews/dino_class_geometry_posthoc_20260909/README.md)에 있습니다.
+![Study workflow](results/development_20260913/figures/figure_1_research_workflow.png)
 
-## Entropy에서 구현하고 검증한 것
+두 dataset의 동일 train pool·validation ID, a00–a09, A/B seed와 R0를 공유합니다. 매 cell은 sealed YOLOv8n에서 cold start해 100 epochs, imgsz 640, batch 8, SGD, resume false로 학습했습니다. Entropy acquisition은 직전 learner A best를 사용하고, NMS confidence binary entropy SUM(conf=.25, IoU=.70, max_det=300, empty=0)을 유지했습니다.
 
-- 정책 learner는 모든 trajectory에서 **A**로 고정. A의 validation-best checkpoint만 다음 acquisition에 사용합니다.
-- 선택된 누적 manifest는 A/B가 공유하고, 두 learner 모두 사전 지정 seed와 sealed YOLOv8n pretrained weight에서 cold-start합니다.
-- 점수는 post-NMS `boxes.conf`의 `−p ln(p) − (1−p) ln(1−p)`를 이미지의 box 전체에 **SUM**한 값입니다.
-- no-detection = 0, conf=0.25, iou=0.70, max_det=300, canonical ID tie-break를 고정했습니다.
-- 100 epochs, batch 8, imgsz 640, SGD 등 기존 학습 설정을 유지했습니다.
-- integration 2셀은 official 결과로 재사용하지 않았습니다.
-- 독립 Windows runner가 cell·acquisition·round gate를 기록하며 dependency 실패 시 중단합니다.
+모든 cell에서 100-epoch CSV의 최대 validation mAP50–95를 같은 규칙으로 추출했습니다. A/B를 먼저 평균하고 기존 six-point normalized trapezoidal nAULC를 적용했습니다. R0–R5 가중치는 [0.1,0.2,0.2,0.2,0.2,0.1]이며 644회를 독립 표본 수로 쓰지 않습니다.
 
-a00 post-run 결과는 **20/20 cells COMPLETE, 10/10 acquisitions COMPLETE, 10/10 gates PASS**, A/B 동일 manifest, B policy edge 0입니다. 현재 registry에서도 남은 180 training cells와 90 acquisition jobs는 미실행 상태입니다. Entropy class-wise/worst-class 비교는 아직 완료되지 않았습니다. smoke에서 관측한 entropy–detection-count 높은 상관(GC10 0.9466, NEU 0.9738)은 limitation으로 보존했으며 threshold나 aggregation을 조정하지 않았습니다.
+**자료구조 endpoint 정합성 A, 전체 비교는 조건부 B**입니다. GPU/OS 차이를 분리하지 못했고 일부 historical feasibility package field가 누락되어 있습니다. Validation은 checkpoint 및 Entropy 경로 선택에 관여하므로 독립 test를 대신하지 못합니다. 새 confirmatory family나 p-value 주장은 만들지 않았습니다.
 
-[공식 protocol](entropy_extension_v1/official_release_v1/protocol.json) · [공식 freeze](entropy_extension_v1/official_release_v1/freeze.json) · [a00 post-run 보고서](reports/entropy_postrun_a00_20260908/POST_RUN_REPORT.md) · [중간 곡선 원자료](reports/entropy_postrun_a00_20260908/interim_descriptive_results.json)
+## 선택 신호와 표본구성
 
-## 기존 공식 440-cell 결과와의 관계
+> Evidence: Exploratory selection diagnostics. Frozen acquisition records only; 10 trajectories per dataset, 5 dependent rounds each. Locked-final not used.
 
-기존 결과는 **40 shared R0 + Random R1–R5 200 + 사전학습 DINOv2 R1–R5 200**입니다. 통계 단위는 데이터셋별 acquisition index 10개이며, A/B learner는 각 trajectory 안에서 평균합니다. 440개 셀이 독립 표본 440개라는 뜻은 아닙니다.
+![Selection behavior](results/development_20260913/figures/figure_5_selection_behavior.png)
 
-기존 약 10–35% 라벨 예산의 mAP50–95 nAULC에서 사전학습 DINOv2 방식의 Random 대비 차이는 GC10 **+0.581 pp**, NEU **+0.578 pp**였습니다. 동시에 NEU worst-class nAULC는 **−1.488 pp**, R5 worst-class AP는 **−3.118 pp**였습니다. 평균 성능과 취약 클래스 성능이 함께 좋아진다는 보장은 없다는 것이 논문의 핵심 경계입니다.
+DINO와 Entropy는 서로 다른 클래스 구성을 만듭니다. Entropy SUM과 retained detection count의 query 내부 Spearman 중앙값은 GC10 .918, NEU .945입니다. 이는 합산 점수와 검출 수의 강한 연관성을 보여주며 Entropy 정보의 무효성을 뜻하지 않습니다. DINO geometry는 기존 frozen post-hoc 진단을 재사용했고, 구성과 AP의 관계를 인과효과로 주장하지 않습니다.
 
-위 수치는 과거 승인·완료된 최종 분석의 기록입니다. 이번 geometry 분석에 test metric을 입력하지 않았고, 새로운 locked-test 접근·평가도 하지 않았습니다. Entropy의 a00 development 결과를 이 historical final 결과와 합쳐 순위를 내리지 않습니다.
+[100-query 진단](results/development_20260913/tables/entropy_query_diagnostics.csv) · [선택 구성 원표](results/development_20260913/tables/selection_composition_per_query.csv) · [클래스명 연결 감사](results/development_20260913/tables/class_name_mapping_audit.md) · [그림 설명](results/development_20260913/FIGURE_CAPTIONS.md)
 
-[기존 최종 보고서](confirmatory_v1_1/final_analysis/CONFIRMATORY_FINAL_ANALYSIS_REPORT.md) · [기존 primary 결과 표](results/thesis_final/tables/locked_final_primary.csv)
+## Historical locked-final은 별도 근거
 
-## 멘토·협업자를 위한 읽는 순서
+> **Evidence: Historical locked-final.** 아래 수치는 기존 평가이며 새 development 결과와 합쳐 final 3-way 비교를 만들지 않습니다.
 
-1. **이 README** — 최근 도입·보완과 완료/미완료 상태.
-2. **[Geometry 사후 진단](docs/reviews/dino_class_geometry_posthoc_20260909/README.md)** — 이번에 새로 계산한 chance, compactness, selection 관계.
-3. **[Entropy a00 post-run](reports/entropy_postrun_a00_20260908/POST_RUN_REPORT.md)** — 통합 실행 후 공식 20셀의 검증과 development 참고 곡선.
-4. **[다음 세션 handoff](docs/reviews/END_OF_DAY_HANDOFF_20260909.md)** — 남은 작업과 고정 protocol.
-5. **[기존 DINOv2 kNN 감사](docs/reviews/dinov2_representation_validity_audit_20260907.md)** — 기존 전체·클래스별 수치의 출처. 당시 보고서 명칭은 보존.
-6. **[기존 440-cell 최종 분석](confirmatory_v1_1/final_analysis/CONFIRMATORY_FINAL_ANALYSIS_REPORT.md)** — 완료된 역사적 결과.
+기존 DINO−Random nAULC는 GC10 약 +0.581pp, NEU 약 +0.578pp입니다. 기존 확정 분석과 취약 클래스 결과는 그대로 보존합니다. Entropy/Full-data의 신규 locked-final은 실행하지 않았으며 기존 final 공개 후 추가한 확장임을 명시합니다.
 
-9월 8일 [멘토 의견 교차 감사](docs/reviews/mentor_repository_audit_20260908.md)는 **이번 geometry 계산 전의 상태 기록**입니다. 그 문서에서 미완료로 적었던 chance baseline·geometry 사후 진단은 이번 업데이트에서 보완됐습니다.
+[원래 locked-final 결과](results/thesis_final/README.md) · [기존 primary 표](results/thesis_final/tables/locked_final_primary.csv) · [기존 상세 보고서](confirmatory_v1_1/final_analysis/CONFIRMATORY_FINAL_ANALYSIS_REPORT.md)
 
-## 코드와 재현 자료
+## 연구 결과 읽는 순서
 
-| 위치 | 역할 |
-|---|---|
-| [Entropy scorer](src/defect_al/entropy.py) | binary entropy, SUM, tie-break |
-| [Official orchestration](src/defect_al/entropy_official.py) | policy A, manifest 공유, round dependency |
-| [Detached runner](scripts/entropy_extension/detached_tranche.py) | 독립 Windows 실행과 상태 기록 |
-| [사전학습 DINOv2 구현](confirmatory_v1/src/confirmatory_v1/frozen_dino_ff_v1.py) | 기존 hash로 고정된 특징 추출 구현 |
-| [Geometry 분석 코드](docs/reviews/dino_class_geometry_posthoc_20260909/analyze.py) | CPU 분석, source hash 검증, 기존 파일 overwrite 차단 |
-| [Geometry config](docs/reviews/dino_class_geometry_posthoc_20260909/analysis_config.json) | 결과 전 고정한 지표 순서·정의·permutation seed |
-| [Geometry 출력 hash](docs/reviews/dino_class_geometry_posthoc_20260909/OUTPUT_SHA256.json) | 새 결과·그림·report 무결성 |
-| [100% reference 계획](docs/design/full_data_reference_runplan_20260908.md) | GC10 A/B, NEU A/B의 별도 4-run 계획 |
+1. [실험 결과 기록](results/development_20260913/EXPERIMENT_RESULT_BRIEF.md)
+2. [질문별 해석과 실험 종료 판단](results/development_20260913/FINAL_DEVELOPMENT_INTERPRETATION.md)
+3. [전체 CSV·Markdown 표](results/development_20260913/tables/)와 [대표 그림 5종](results/development_20260913/figures/)
+4. [분석 검증](results/development_20260913/ANALYSIS_VALIDATION_REPORT.md)과 [public release 감사](results/development_20260913/audit/PUBLIC_RELEASE_AUDIT.md)
+5. [644-cell 원표](results/development_20260913/tables/complete_development_runs.csv), [완료 증거](results/development_20260913/evidence/README.md), [재현 코드](scripts/analysis/development_20260913/README.md)
 
-Entropy 코드의 기존 unit/contract 검증은 **115 passed**, 이번 geometry 계산의 수치·경계 단위검증은 **7 passed**입니다. 신규 figure는 PNG/SVG로 제공하며 PPT나 대표 이미지 패널은 만들지 않았습니다.
+## 공개 자료 검증
 
-공개 자료의 범위·배포 조건은 [DATASETS.md](DATASETS.md), 전체 재현 절차는 [REPRODUCIBILITY.md](docs/collaboration/REPRODUCIBILITY.md), 기존 코드 분류는 [CODE_INDEX.md](docs/collaboration/CODE_INDEX.md)를 확인하세요. 원본 이미지·라벨·특징 cache·가중치·실행 SQLite는 로컬에서 보호합니다. source manifest에 원래 절대경로와 SHA-256이 남아 있어, 새 clone만으로 공식 학습을 재개할 수 있는 패키지는 아닙니다.
+```sh
+python scripts/verify_public_results.py
+python scripts/verify_development_20260913.py
+# NumPy가 있을 때 100,000회 paired bootstrap CI도 재검산
+python scripts/verify_development_20260913.py --bootstrap
+```
 
-## 다음 단계와 주장 범위
+첫 verifier는 기존 historical locked-final 표를 확인합니다. 새 verifier는 공개 CSV의 행 수·seed·A/B 평균·nAULC·paired 차이·Full 산술·파일 hash·figure source mapping을 확인합니다. 모델이나 private checkpoint, raw dataset은 필요하지 않습니다. 그림 재생성 wrapper와 원래 실행 source는 별도로 표시했습니다.
 
-다음 순서는 고정 protocol을 유지한 Entropy 잔여 공식 실행, 완료 후 integrity audit, 별도 평가 승인에 따른 class-wise/worst-class 분석, 그리고 별도 full-data reference입니다. **오늘 업데이트에서 새 GPU 실행을 시작하지 않았습니다.**
+## 기록과 범위
 
-현재 결과만으로 새로운 selector의 효능, 모든 클래스 보호, 인과 메커니즘, annotation 시간·비용 절감, 산업 현장 일반화, Entropy 최종 우위를 주장하지 않습니다. 사전학습 DINOv2를 사용하는 연구 방향은 유지하며, 이번 결과는 방법별 평균 효용과 클래스별 한계를 더 구체적으로 설명합니다.
+현재 좁은 연구질문에서는 추가 AL training을 종료하는 판단이 합리적입니다. 두 방법의 일관된 우월성·동등성, 모든 seed/budget/class에서의 향상, 구성 변화의 인과효과는 결론내리지 않습니다. 남은 단계는 신규 204 checkpoint에 대해 동일 locked-final endpoint와 통계계획을 별도 고정하고 승인된 평가를 수행하는 일입니다.
+
+[전체 파일 안내](THESIS_FILE_INDEX.md) · [Controlled 440 protocol](docs/collaboration/CONTROLLED_440_PROTOCOL.md) · [Entropy protocol](entropy_extension_v1/official_release_v1/protocol.json) · [데이터/배포 범위](DATASETS.md) · [재현성 문서](docs/collaboration/REPRODUCIBILITY.md)
+
+Historical 및 previous-stage 기록은 원래 날짜·범위대로 보존합니다. 기존 branch는 변경하지 않으며, 이번 branch는 development 결과와 실험 기록 공개입니다.
