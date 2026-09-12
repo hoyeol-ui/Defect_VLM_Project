@@ -1,0 +1,7 @@
+﻿dataset,comparison,n,mean_difference_pp,median_difference_pp,ci95_low_pp,ci95_high_pp,positive_seeds,negative_seeds,zero_seeds,bootstrap_draws,bootstrap_seed,inference
+GC10-DET,DINO - Random,10,0.39067000000000357,0.25235000000000396,0.034420750000004614,0.795889500000003,8,2,0,100000,421397045,descriptive development; no confirmatory p-value or equivalence test
+GC10-DET,Entropy - Random,10,0.6470450000000022,0.6844000000000017,0.12963812500000202,1.1641758750000004,7,3,0,100000,421397045,descriptive development; no confirmatory p-value or equivalence test
+GC10-DET,DINO - Entropy,10,-0.2563749999999987,-0.16379999999999728,-0.8084599999999992,0.2697500000000008,5,5,0,100000,421397045,descriptive development; no confirmatory p-value or equivalence test
+NEU-DET,DINO - Random,10,0.7924199999999998,0.7017250000000003,0.34401500000000085,1.2352449999999997,9,1,0,100000,1672358496,descriptive development; no confirmatory p-value or equivalence test
+NEU-DET,Entropy - Random,10,0.7135000000000008,0.7101249999999976,0.41045500000000124,1.0379350000000014,9,1,0,100000,1672358496,descriptive development; no confirmatory p-value or equivalence test
+NEU-DET,DINO - Entropy,10,0.07891999999999899,0.037924999999999764,-0.28315575000000104,0.44747124999999843,5,5,0,100000,1672358496,descriptive development; no confirmatory p-value or equivalence test

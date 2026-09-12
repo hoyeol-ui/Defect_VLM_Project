@@ -1,0 +1,11 @@
+# evidence_level_matrix
+
+Evidence levels are intentionally segregated by endpoint and analysis role.
+
+| analysis | endpoint | unit | grade | limitation |
+|---|---|---|---|---|
+| three-way curves/nAULC | development validation CSV maximum across 100 epochs | 10 acquisition seeds; A/B first averaged | B overall / A endpoint | hardware/OS differs; adaptively reused validation; descriptive CIs |
+| historical DINO-Random primary | historical locked-final | 10 acquisition seeds | historical confirmatory | separate published endpoint; not pooled with new development |
+| full-label reference | development validation | 2 learners per dataset | descriptive reference | not statistical upper bound or n=10 |
+| selection diagnostics | acquisition-only scores and labels | 10 seeds; 5 dependent rounds each | exploratory descriptive | not classwise validation AP; association not causation |
+| new 3-way final comparison | not executed | not yet evaluable | NOT YET EVALUABLE | needs separately frozen scope/statistics and authorization |

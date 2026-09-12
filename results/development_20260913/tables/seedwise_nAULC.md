@@ -1,0 +1,66 @@
+# seedwise_nAULC
+
+Evidence: Development validation; Statistical unit: acquisition seed, n=10; A/B averaged within seed; Locked-final: not used
+
+| dataset | method | seed | nAULC | nAULC_pct |
+|---|---|---|---|---|
+| GC10-DET | DINO | a00 | 0.263024 | 26.3024 |
+| GC10-DET | DINO | a01 | 0.282576 | 28.2576 |
+| GC10-DET | DINO | a02 | 0.301172 | 30.1172 |
+| GC10-DET | DINO | a03 | 0.267978 | 26.7978 |
+| GC10-DET | DINO | a04 | 0.265927 | 26.5927 |
+| GC10-DET | DINO | a05 | 0.270661 | 27.0661 |
+| GC10-DET | DINO | a06 | 0.269379 | 26.9379 |
+| GC10-DET | DINO | a07 | 0.276024 | 27.6024 |
+| GC10-DET | DINO | a08 | 0.268292 | 26.8292 |
+| GC10-DET | DINO | a09 | 0.274259 | 27.4259 |
+| GC10-DET | Entropy | a00 | 0.260513 | 26.0513 |
+| GC10-DET | Entropy | a01 | 0.290128 | 29.0128 |
+| GC10-DET | Entropy | a02 | 0.294569 | 29.4569 |
+| GC10-DET | Entropy | a03 | 0.279932 | 27.9932 |
+| GC10-DET | Entropy | a04 | 0.271713 | 27.1714 |
+| GC10-DET | Entropy | a05 | 0.279622 | 27.9622 |
+| GC10-DET | Entropy | a06 | 0.265772 | 26.5772 |
+| GC10-DET | Entropy | a07 | 0.294736 | 29.4736 |
+| GC10-DET | Entropy | a08 | 0.261836 | 26.1836 |
+| GC10-DET | Entropy | a09 | 0.266106 | 26.6106 |
+| GC10-DET | Random | a00 | 0.268255 | 26.8255 |
+| GC10-DET | Random | a01 | 0.282483 | 28.2483 |
+| GC10-DET | Random | a02 | 0.285047 | 28.5047 |
+| GC10-DET | Random | a03 | 0.263961 | 26.3961 |
+| GC10-DET | Random | a04 | 0.266639 | 26.6639 |
+| GC10-DET | Random | a05 | 0.268416 | 26.8416 |
+| GC10-DET | Random | a06 | 0.26695 | 26.695 |
+| GC10-DET | Random | a07 | 0.273406 | 27.3406 |
+| GC10-DET | Random | a08 | 0.265002 | 26.5002 |
+| GC10-DET | Random | a09 | 0.260063 | 26.0063 |
+| NEU-DET | DINO | a00 | 0.35848 | 35.848 |
+| NEU-DET | DINO | a01 | 0.362272 | 36.2272 |
+| NEU-DET | DINO | a02 | 0.363164 | 36.3164 |
+| NEU-DET | DINO | a03 | 0.356282 | 35.6282 |
+| NEU-DET | DINO | a04 | 0.360087 | 36.0087 |
+| NEU-DET | DINO | a05 | 0.35882 | 35.882 |
+| NEU-DET | DINO | a06 | 0.362741 | 36.2741 |
+| NEU-DET | DINO | a07 | 0.360525 | 36.0525 |
+| NEU-DET | DINO | a08 | 0.353179 | 35.3179 |
+| NEU-DET | DINO | a09 | 0.362585 | 36.2585 |
+| NEU-DET | Entropy | a00 | 0.360201 | 36.0201 |
+| NEU-DET | Entropy | a01 | 0.356181 | 35.6181 |
+| NEU-DET | Entropy | a02 | 0.356167 | 35.6167 |
+| NEU-DET | Entropy | a03 | 0.361142 | 36.1142 |
+| NEU-DET | Entropy | a04 | 0.356666 | 35.6666 |
+| NEU-DET | Entropy | a05 | 0.363433 | 36.3433 |
+| NEU-DET | Entropy | a06 | 0.360261 | 36.0261 |
+| NEU-DET | Entropy | a07 | 0.349456 | 34.9456 |
+| NEU-DET | Entropy | a08 | 0.361996 | 36.1996 |
+| NEU-DET | Entropy | a09 | 0.36474 | 36.474 |
+| NEU-DET | Random | a00 | 0.350507 | 35.0507 |
+| NEU-DET | Random | a01 | 0.356211 | 35.6211 |
+| NEU-DET | Random | a02 | 0.348885 | 34.8885 |
+| NEU-DET | Random | a03 | 0.352246 | 35.2246 |
+| NEU-DET | Random | a04 | 0.344777 | 34.4777 |
+| NEU-DET | Random | a05 | 0.356513 | 35.6514 |
+| NEU-DET | Random | a06 | 0.342551 | 34.2551 |
+| NEU-DET | Random | a07 | 0.34897 | 34.897 |
+| NEU-DET | Random | a08 | 0.358775 | 35.8775 |
+| NEU-DET | Random | a09 | 0.359458 | 35.9458 |

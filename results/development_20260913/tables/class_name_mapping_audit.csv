@@ -1,0 +1,17 @@
+﻿dataset,class_name,historical_geometry_class_index,YOLO_class_id,join_key,support_match
+GC10-DET,punching_hole,0,0,dataset + class_name,True
+GC10-DET,welding_line,1,1,dataset + class_name,True
+GC10-DET,crescent_gap,2,2,dataset + class_name,True
+GC10-DET,water_spot,3,3,dataset + class_name,True
+GC10-DET,oil_spot,4,4,dataset + class_name,True
+GC10-DET,silk_spot,5,5,dataset + class_name,True
+GC10-DET,inclusion,6,6,dataset + class_name,True
+GC10-DET,rolled_pit,7,7,dataset + class_name,True
+GC10-DET,crease,8,8,dataset + class_name,True
+GC10-DET,waist_folding,9,9,dataset + class_name,True
+NEU-DET,crazing,0,0,dataset + class_name,True
+NEU-DET,inclusion,1,1,dataset + class_name,True
+NEU-DET,patches,2,2,dataset + class_name,True
+NEU-DET,pitted_surface,3,3,dataset + class_name,True
+NEU-DET,rolled-in_scale,4,4,dataset + class_name,True
+NEU-DET,scratches,5,5,dataset + class_name,True

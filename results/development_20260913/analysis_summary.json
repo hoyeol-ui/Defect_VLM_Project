@@ -1,0 +1,275 @@
+{
+  "audit": {
+    "status": "PASS",
+    "endpoint_grade": "A: same development membership and metric extraction",
+    "overall_grade": "B: comparable development analysis conditional on cross-hardware/OS execution; not bitwise equivalence or randomized hardware contrast",
+    "physical_cells": 644,
+    "historical": 440,
+    "entropy": 200,
+    "full": 4,
+    "queries": 100,
+    "gates": 100,
+    "common_R0_references": 40,
+    "nonpath_arg_differences": 0,
+    "train_pool_counts": {
+      "GC10-DET": 1605,
+      "NEU-DET": 1259
+    },
+    "validation_counts": {
+      "GC10-DET": 229,
+      "NEU-DET": 180
+    },
+    "acquisition_seeds": "a00-a09",
+    "learner_seeds": "matched to frozen historical numeric mapping",
+    "locked_final_metrics_used": false,
+    "metric_calculation_started": false
+  },
+  "paired_effects": [
+    {
+      "dataset": "GC10-DET",
+      "comparison": "DINO - Random",
+      "n": 10,
+      "mean_difference_pp": 0.39067000000000357,
+      "median_difference_pp": 0.25235000000000396,
+      "ci95_low_pp": 0.034420750000004614,
+      "ci95_high_pp": 0.795889500000003,
+      "positive_seeds": 8,
+      "negative_seeds": 2,
+      "zero_seeds": 0,
+      "bootstrap_draws": 100000,
+      "bootstrap_seed": 421397045,
+      "inference": "descriptive development; no confirmatory p-value or equivalence test"
+    },
+    {
+      "dataset": "GC10-DET",
+      "comparison": "Entropy - Random",
+      "n": 10,
+      "mean_difference_pp": 0.6470450000000022,
+      "median_difference_pp": 0.6844000000000017,
+      "ci95_low_pp": 0.12963812500000202,
+      "ci95_high_pp": 1.1641758750000004,
+      "positive_seeds": 7,
+      "negative_seeds": 3,
+      "zero_seeds": 0,
+      "bootstrap_draws": 100000,
+      "bootstrap_seed": 421397045,
+      "inference": "descriptive development; no confirmatory p-value or equivalence test"
+    },
+    {
+      "dataset": "GC10-DET",
+      "comparison": "DINO - Entropy",
+      "n": 10,
+      "mean_difference_pp": -0.2563749999999987,
+      "median_difference_pp": -0.16379999999999728,
+      "ci95_low_pp": -0.8084599999999992,
+      "ci95_high_pp": 0.2697500000000008,
+      "positive_seeds": 5,
+      "negative_seeds": 5,
+      "zero_seeds": 0,
+      "bootstrap_draws": 100000,
+      "bootstrap_seed": 421397045,
+      "inference": "descriptive development; no confirmatory p-value or equivalence test"
+    },
+    {
+      "dataset": "NEU-DET",
+      "comparison": "DINO - Random",
+      "n": 10,
+      "mean_difference_pp": 0.7924199999999998,
+      "median_difference_pp": 0.7017250000000003,
+      "ci95_low_pp": 0.34401500000000085,
+      "ci95_high_pp": 1.2352449999999997,
+      "positive_seeds": 9,
+      "negative_seeds": 1,
+      "zero_seeds": 0,
+      "bootstrap_draws": 100000,
+      "bootstrap_seed": 1672358496,
+      "inference": "descriptive development; no confirmatory p-value or equivalence test"
+    },
+    {
+      "dataset": "NEU-DET",
+      "comparison": "Entropy - Random",
+      "n": 10,
+      "mean_difference_pp": 0.7135000000000008,
+      "median_difference_pp": 0.7101249999999976,
+      "ci95_low_pp": 0.41045500000000124,
+      "ci95_high_pp": 1.0379350000000014,
+      "positive_seeds": 9,
+      "negative_seeds": 1,
+      "zero_seeds": 0,
+      "bootstrap_draws": 100000,
+      "bootstrap_seed": 1672358496,
+      "inference": "descriptive development; no confirmatory p-value or equivalence test"
+    },
+    {
+      "dataset": "NEU-DET",
+      "comparison": "DINO - Entropy",
+      "n": 10,
+      "mean_difference_pp": 0.07891999999999899,
+      "median_difference_pp": 0.037924999999999764,
+      "ci95_low_pp": -0.28315575000000104,
+      "ci95_high_pp": 0.44747124999999843,
+      "positive_seeds": 5,
+      "negative_seeds": 5,
+      "zero_seeds": 0,
+      "bootstrap_draws": 100000,
+      "bootstrap_seed": 1672358496,
+      "inference": "descriptive development; no confirmatory p-value or equivalence test"
+    }
+  ],
+  "nAULC_mean_pct": [
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO",
+      "nAULC_pct": 27.392895
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "nAULC_pct": 27.64927
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "nAULC_pct": 27.002225
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO",
+      "nAULC_pct": 35.98136999999999
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "nAULC_pct": 35.90245
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "nAULC_pct": 35.18894999999999
+    }
+  ],
+  "full_data": [
+    {
+      "dataset": "GC10-DET",
+      "learner_count": 2,
+      "A_map50_95": 0.34922,
+      "B_map50_95": 0.34512,
+      "mean_map50_95": 0.34717,
+      "full_train_images": 1605,
+      "role": "full-label reference; not statistical upper bound"
+    },
+    {
+      "dataset": "NEU-DET",
+      "learner_count": 2,
+      "A_map50_95": 0.42912,
+      "B_map50_95": 0.42879,
+      "mean_map50_95": 0.428955,
+      "full_train_images": 1259,
+      "role": "full-label reference; not statistical upper bound"
+    }
+  ],
+  "r5_full": [
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "al_seeds": 10,
+      "full_learners": 2,
+      "R5_map50_95_pct": 29.756499999999996,
+      "full_map50_95_pct": 34.717,
+      "R5_minus_full_pp": -4.9605000000000015,
+      "percent_of_full_reference": 85.71161102629834,
+      "R5_images": 561,
+      "full_images": 1605,
+      "label_fraction_pct": 34.953271028037385
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO",
+      "al_seeds": 10,
+      "full_learners": 2,
+      "R5_map50_95_pct": 30.332199999999997,
+      "full_map50_95_pct": 34.717,
+      "R5_minus_full_pp": -4.3848,
+      "percent_of_full_reference": 87.36987642941499,
+      "R5_images": 561,
+      "full_images": 1605,
+      "label_fraction_pct": 34.953271028037385
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "al_seeds": 10,
+      "full_learners": 2,
+      "R5_map50_95_pct": 30.340049999999998,
+      "full_map50_95_pct": 34.717,
+      "R5_minus_full_pp": -4.376950000000002,
+      "percent_of_full_reference": 87.39248783016966,
+      "R5_images": 561,
+      "full_images": 1605,
+      "label_fraction_pct": 34.953271028037385
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "al_seeds": 10,
+      "full_learners": 2,
+      "R5_map50_95_pct": 38.507999999999996,
+      "full_map50_95_pct": 42.8955,
+      "R5_minus_full_pp": -4.387499999999999,
+      "percent_of_full_reference": 89.77165436933943,
+      "R5_images": 441,
+      "full_images": 1259,
+      "label_fraction_pct": 35.02779984114377
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO",
+      "al_seeds": 10,
+      "full_learners": 2,
+      "R5_map50_95_pct": 38.8113,
+      "full_map50_95_pct": 42.8955,
+      "R5_minus_full_pp": -4.084199999999994,
+      "percent_of_full_reference": 90.47872154421793,
+      "R5_images": 441,
+      "full_images": 1259,
+      "label_fraction_pct": 35.02779984114377
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "al_seeds": 10,
+      "full_learners": 2,
+      "R5_map50_95_pct": 39.0,
+      "full_map50_95_pct": 42.8955,
+      "R5_minus_full_pp": -3.895499999999996,
+      "percent_of_full_reference": 90.91862782809386,
+      "R5_images": 441,
+      "full_images": 1259,
+      "label_fraction_pct": 35.02779984114377
+    }
+  ],
+  "entropy_score_count": [
+    {
+      "dataset": "GC10-DET",
+      "median": 0.9178564597322318,
+      "min": 0.8779205600931832,
+      "max": 0.9577023286457274
+    },
+    {
+      "dataset": "NEU-DET",
+      "median": 0.9445602387823606,
+      "min": 0.8822121898801875,
+      "max": 0.9765711534789139
+    }
+  ],
+  "physical_rows": 644,
+  "conceptual_rows": 720,
+  "seed_budget_rows": 360,
+  "seed_nAULC_rows": 60,
+  "queries": 100,
+  "training_calls": 0,
+  "acquisition_calls": 0,
+  "inference_calls": 0,
+  "locked_test_accesses": 0,
+  "runpod_accesses": 0
+}

@@ -1,0 +1,42 @@
+{
+  "branch": "research/entropy-a00-audit-20260908",
+  "commit": "9d83770376e05fe0e325573b1771941285bdd9e4",
+  "files": [
+    {
+      "path": "docs/reviews/dino_class_geometry_posthoc_20260909/results/class_compactness.csv",
+      "file": "class_compactness.csv",
+      "sha256": "20a5412d570bcdbe7bf178d4ba323b8e74992964c5b418f99ed88f3275a3e6ed",
+      "git_blob": "7ed9d01498448bf24a2a000d2f3972fccd9a59c3",
+      "public_sha256": "20a5412d570bcdbe7bf178d4ba323b8e74992964c5b418f99ed88f3275a3e6ed"
+    },
+    {
+      "path": "docs/reviews/dino_class_geometry_posthoc_20260909/results/selection_vs_geometry.csv",
+      "file": "selection_vs_geometry.csv",
+      "sha256": "5eaef2d2ec26ae93f1a381b7b93defff89e69051c414a1ef99bdff3302a0311b",
+      "git_blob": "5e355fa652ccbfb208a6c5d2182609843117eebd",
+      "public_sha256": "5eaef2d2ec26ae93f1a381b7b93defff89e69051c414a1ef99bdff3302a0311b"
+    },
+    {
+      "path": "docs/reviews/dino_class_geometry_posthoc_20260909/results/spearman_by_round.csv",
+      "file": "spearman_by_round.csv",
+      "sha256": "908a264fc360229a98ebeeb3519e56be5bd4040c3c7a8cd247da41ca692a6b1d",
+      "git_blob": "96bf95de181cb41ecc29f8ff80674f560f40984b",
+      "public_sha256": "908a264fc360229a98ebeeb3519e56be5bd4040c3c7a8cd247da41ca692a6b1d"
+    },
+    {
+      "path": "docs/reviews/dino_class_geometry_posthoc_20260909/results/analysis_integrity.json",
+      "file": "analysis_integrity.json",
+      "sha256": "7eb91bd67677eef1b4b715c673de2cda871ecf5bc363ab42d0793b7de95a092e",
+      "git_blob": "9ad5e4a9c469638a8af6824e346ddd3dca119f44",
+      "public_sha256": "7eb91bd67677eef1b4b715c673de2cda871ecf5bc363ab42d0793b7de95a092e"
+    },
+    {
+      "path": "docs/reviews/dino_class_geometry_posthoc_20260909/analysis_config.json",
+      "file": "analysis_config.json",
+      "sha256": "f52d491815387bc19bf981bc2e8eb7f9549ca192a61ffb964f86b2f1a545447b",
+      "git_blob": "ce75697a9736ab1b04a4868aad29801841a4b84d",
+      "public_sha256": "fc8ef92c331c8f9c582435777da2228c6daeda23f4d0b835c40792010cda3392"
+    }
+  ],
+  "hash_semantics": "sha256 and git_blob identify original historical source; public_sha256 identifies the current path-sanitized derivative"
+}
