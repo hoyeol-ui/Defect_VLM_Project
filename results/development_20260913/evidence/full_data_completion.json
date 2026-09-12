@@ -1,0 +1,53 @@
+{
+  "acquisition_calls": 0,
+  "dino_extractions": 0,
+  "jobs": [
+    {
+      "args_sha256": "8aa2c74c955a5658fc691ad4a60e9c7574392999b5421c49a71b08ad03a0378e",
+      "best_sha256": "aab65f9bc86e8ca30b356380208641a6439f363fcf4555ba0cb405c6f4157de6",
+      "epochs_completed": 100,
+      "job": "GC10-DET_Full_A",
+      "last_sha256": "69e3d863421539a516b574533ae5870b96d7669f5b23759700883a1fd7b01334",
+      "research_result": true,
+      "seconds": 1786.235210597515,
+      "status": "COMPLETE",
+      "validation_completed": true
+    },
+    {
+      "args_sha256": "4192bb7686c665564740ca24caa11ee110ce8b7a6992ad86d0e6eeedfe375e14",
+      "best_sha256": "8cfa398d56aa5d738416fa95e92f2c6de5c6202d3944c2940baf23f01b1a3916",
+      "epochs_completed": 100,
+      "job": "GC10-DET_Full_B",
+      "last_sha256": "962a3635fa210b2d8a3b3bde392800d4dbdc5867df231a2f44b5e8f7caa496e2",
+      "research_result": true,
+      "seconds": 1765.557320881635,
+      "status": "COMPLETE",
+      "validation_completed": true
+    },
+    {
+      "args_sha256": "70d1d654f5f264113070ab70d0ad52fc92c688e35cec4b70c3484be8a434ecb8",
+      "best_sha256": "c9844d7b317f2e314c5042bbdd3a8a9066d2ec0161b106ce046c918f73541022",
+      "epochs_completed": 100,
+      "job": "NEU-DET_Full_A",
+      "last_sha256": "a366cd1b51a361a7df3cac58a9dd5f2916bfc50a09df847351f89730cb33a173",
+      "research_result": true,
+      "seconds": 1429.6571774184704,
+      "status": "COMPLETE",
+      "validation_completed": true
+    },
+    {
+      "args_sha256": "3e73135d4c5406a77dc508bb5696681877bd36c58cc6d10498de06d04629c060",
+      "best_sha256": "f3ce66c8c4dd88c26785943e9845a855abb25ec2023984b20cff1232696a1b41",
+      "epochs_completed": 100,
+      "job": "NEU-DET_Full_B",
+      "last_sha256": "cde15611ef3bcd53d71aed937117d87125cb5a54fe3d513c6a8f050985443725",
+      "research_result": true,
+      "seconds": 1454.2326280772686,
+      "status": "COMPLETE",
+      "validation_completed": true
+    }
+  ],
+  "locked_test_accesses": 0,
+  "status": "PASS",
+  "training_calls": 4
+}

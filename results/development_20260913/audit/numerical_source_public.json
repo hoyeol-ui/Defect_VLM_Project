@@ -1,0 +1,14 @@
+{
+  "source": "<AGENT_UPLOAD_ROOT>/historical_440_sources/confirmatory_v1_1/final_analysis/src/analyze_final_results.py",
+  "sha256": "ac3099ec34a9eb4b661c10759201a7cf3ff00e83bd450e689959d40647bb9f3b",
+  "functions": [
+    "trapezoid_aulc",
+    "percentile_ci"
+  ],
+  "extraction": "AST-only pure numerical functions; historical evaluator never imported",
+  "CI": "PCG64 percentile bootstrap 100000 paired seed draws",
+  "bootstrap_seeds": {
+    "GC10-DET": 421397045,
+    "NEU-DET": 1672358496
+  }
+}

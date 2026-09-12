@@ -1,0 +1,128 @@
+[
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/continuation_12h_20260912/continuation_final_summary.json",
+    "source_sha256": "045698a6a938e38f6925d93c7fd7809871364e290f4c1d45ad5763ac8484d024",
+    "published_path": "results/development_20260913/evidence/continuation_completion.json",
+    "published_sha256": "045698a6a938e38f6925d93c7fd7809871364e290f4c1d45ad5763ac8484d024",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_full_data/outputs/summary.json",
+    "source_sha256": "59eca5ecf01f25825f4fa068bb61c9307ccb14509182174a05a7a6127d9c1aed",
+    "published_path": "results/development_20260913/evidence/full_data_completion.json",
+    "published_sha256": "59eca5ecf01f25825f4fa068bb61c9307ccb14509182174a05a7a6127d9c1aed",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_full_data/config/queue.json",
+    "source_sha256": "e9a6770c942f1c2f1772c99b5c9f529a71686331d66427b5ba7ce8ff5f7808ed",
+    "published_path": "results/development_20260913/evidence/full_data_config.json",
+    "published_sha256": "e9a6770c942f1c2f1772c99b5c9f529a71686331d66427b5ba7ce8ff5f7808ed",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/local_a00/protocol.json",
+    "source_sha256": "9c9b3ccfc3f962c133e47083f73c594ee3b916d3c4f1f09f85144f01639dd6f5",
+    "published_path": "results/development_20260913/evidence/entropy_protocol_public.json",
+    "published_sha256": "f3c8cd6f36eb7d49278126fe33f2cb4a9a4f9d4ae1999a348e2cea4a2642c362",
+    "transformation": "path-only sanitization"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/local_a00/training_config.json",
+    "source_sha256": "c95126df53289c804f2df9c016b65442c833983dd77158a14dc5d9fb6033d223",
+    "published_path": "results/development_20260913/evidence/entropy_training_config_public.json",
+    "published_sha256": "bdb938a83851fd0cb6778f45a3e18e3c3dc222a5b1d1b365a8e5de586bffb1ca",
+    "transformation": "path-only sanitization"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/__init__.py",
+    "source_sha256": "5bb74d9250e4a3a9bd45e53793a1142ca54ea77f895c55514fab0b374534197c",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/__init__.py",
+    "published_sha256": "5bb74d9250e4a3a9bd45e53793a1142ca54ea77f895c55514fab0b374534197c",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/config.py",
+    "source_sha256": "b8c9c2dc77e6399ca0c92d4e80496b76b2d6011d20b67c46d733242aad523e34",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/config.py",
+    "published_sha256": "b8c9c2dc77e6399ca0c92d4e80496b76b2d6011d20b67c46d733242aad523e34",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/entropy.py",
+    "source_sha256": "de13fa437fab83471a0a936dc4c657c1801b1dc75b5a554e7e96131f9bfbc243",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/entropy.py",
+    "published_sha256": "de13fa437fab83471a0a936dc4c657c1801b1dc75b5a554e7e96131f9bfbc243",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/entropy_extension.py",
+    "source_sha256": "4caffed554483ceaaaddee734516e7280726e3f9172d1d3cdd68508b65521f33",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/entropy_extension.py",
+    "published_sha256": "4caffed554483ceaaaddee734516e7280726e3f9172d1d3cdd68508b65521f33",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/entropy_official.py",
+    "source_sha256": "2337d8ace0ac7fdb29e9dbca15035ecd1ae2b604379f82a837cbe92b6ba670f2",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/entropy_official.py",
+    "published_sha256": "2337d8ace0ac7fdb29e9dbca15035ecd1ae2b604379f82a837cbe92b6ba670f2",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/entropy_official_training.py",
+    "source_sha256": "64ae7a0ecf9c762ad7b11aa0f9e35cbbfb5a283e22cc6a48d9a7e20ce65cfeba",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/entropy_official_training.py",
+    "published_sha256": "64ae7a0ecf9c762ad7b11aa0f9e35cbbfb5a283e22cc6a48d9a7e20ce65cfeba",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/portability/__init__.py",
+    "source_sha256": "823ef8567ad46fcdb874708b1fc67cb1c13f35d08b353ee4375465c0147c46fa",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/portability/__init__.py",
+    "published_sha256": "823ef8567ad46fcdb874708b1fc67cb1c13f35d08b353ee4375465c0147c46fa",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/portability/adapter.py",
+    "source_sha256": "b22f7be9f65e3d49d34666f7e61a690d2d598c216631335848355b7434d9a4f6",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/portability/adapter.py",
+    "published_sha256": "b22f7be9f65e3d49d34666f7e61a690d2d598c216631335848355b7434d9a4f6",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/portability/execution.py",
+    "source_sha256": "a8c908e335e51b2002041c81b6668cacef5939e0c9969902c8cacaf5c4d09d3b",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/portability/execution.py",
+    "published_sha256": "a8c908e335e51b2002041c81b6668cacef5939e0c9969902c8cacaf5c4d09d3b",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/portability/host.py",
+    "source_sha256": "ba8fa24f8f645bef2c8052a055250747c91bcdac82c957cf5a4f73df39317ab1",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/portability/host.py",
+    "published_sha256": "ba8fa24f8f645bef2c8052a055250747c91bcdac82c957cf5a4f73df39317ab1",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/portability/paths.py",
+    "source_sha256": "3dea146e4407e519956632295cf8532065b4ce47671016aa5e76869a985393ad",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/portability/paths.py",
+    "published_sha256": "3dea146e4407e519956632295cf8532065b4ce47671016aa5e76869a985393ad",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/portability/protocol.py",
+    "source_sha256": "40168f080028a173765247c4f83d3b3270cb1309f7ceab93b8f54891d463089d",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/portability/protocol.py",
+    "published_sha256": "40168f080028a173765247c4f83d3b3270cb1309f7ceab93b8f54891d463089d",
+    "transformation": "byte-identical"
+  },
+  {
+    "source": "<AGENT_UPLOAD_ROOT>/remote/defect_al_entropy_recovery/source_continuation/src/defect_al/portability/storage.py",
+    "source_sha256": "4d24468a871a4e15078b04bdb4149fac54d0a6cd4b253a8ff1d9a12cc8a3cdea",
+    "published_path": "results/development_20260913/evidence/execution_source_snapshot/defect_al/portability/storage.py",
+    "published_sha256": "4d24468a871a4e15078b04bdb4149fac54d0a6cd4b253a8ff1d9a12cc8a3cdea",
+    "transformation": "byte-identical"
+  }
+]

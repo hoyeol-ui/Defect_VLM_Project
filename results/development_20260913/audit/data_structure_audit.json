@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "endpoint_grade": "A: same development membership and metric extraction",
+  "overall_grade": "B: comparable development analysis conditional on cross-hardware/OS execution; not bitwise equivalence or randomized hardware contrast",
+  "physical_cells": 644,
+  "historical": 440,
+  "entropy": 200,
+  "full": 4,
+  "queries": 100,
+  "gates": 100,
+  "common_R0_references": 40,
+  "nonpath_arg_differences": 0,
+  "train_pool_counts": {
+    "GC10-DET": 1605,
+    "NEU-DET": 1259
+  },
+  "validation_counts": {
+    "GC10-DET": 229,
+    "NEU-DET": 180
+  },
+  "acquisition_seeds": "a00-a09",
+  "learner_seeds": "matched to frozen historical numeric mapping",
+  "locked_final_metrics_used": false,
+  "metric_calculation_started": false
+}
