@@ -1,0 +1,21 @@
+{
+  "scope": "ORIGINAL_SPLIT_EXPLORATORY_COMPLETION",
+  "primary_thesis_evidence": false,
+  "sha256": {
+    "results/original_split_exploratory_completion_20260913/three_way_original_final_summary.csv": "688912b10c174e3b046cc66375f154f9f353682d88bfffb915536441885d3b65",
+    "results/original_split_exploratory_completion_20260913/original_final_naulc.csv": "a7e90b34c3e0b32376f26bb71208a0258f536cdf1b8d0a601a517c14ded826b0",
+    "results/original_split_exploratory_completion_20260913/full_data_original_final_results.csv": "11cc7c5413c437d58bb4aa36a8f105ae4603c97c40f8463e4daeb125346bd9b7",
+    "results/original_split_exploratory_completion_20260913/original_final_budget_curves.csv": "c3a1c0baa311642baa1d829ac9f7afec83f93a7d4651b5b921bbeb0dcb26bc7f",
+    "results/original_split_exploratory_completion_20260913/R5_vs_Full_descriptive_ratios.csv": "b56a69e40f8383bcd2476041e84d7640e3246c25f8fafc41291d4709c24ad221",
+    "results/original_split_exploratory_completion_20260913/original_final_statistics.csv": "f54c27bc21612d387e5d4601e5db60a873e4d873de3eeac54e6b109c7d5c97c9",
+    "results/original_split_exploratory_completion_20260913/original_final_round_AB_means_360.csv": "c9ab725acb38b1217ce32ff2efa38da0a04fe215b27c300a04fcbde102f69262",
+    "results/original_split_exploratory_completion_20260913/original_final_paired_deltas.csv": "8fec8fa0859460b435228e10bbb973232d481566314f177c3ede3d4318dde7d0",
+    "results/original_split_exploratory_completion_20260913/entropy_original_final_results.csv": "873df06b394abc9688a40871b1a4717c5951d44b37dd55bd9b69f0d50b3aae92",
+    "results/original_split_exploratory_completion_20260913/per_class_original_final_results.csv": "a9692a4b32cd8196f43fb851a6974360ad573640f0f00c1dd54fe398afe6b01f",
+    "results/original_split_exploratory_completion_20260913/figures/GC10-DET_original_final_budget_curve.png": "58c5d05e6589754a74bf3122c9c30e7c7eee2aa9a95a91f858205316c8183a9c",
+    "results/original_split_exploratory_completion_20260913/figures/NEU-DET_original_final_budget_curve.png": "62b833e3791bd6a20faa170db43b74a858dd2ad66388ce7b2ca8b3fdcb240b2f",
+    "results/original_split_exploratory_completion_20260913/figures/three_way_original_final_budget_curves.pdf": "96d76c8d93a5bd8385b7e0ab85c7e5f5f455612f851739e49dc4c2e898797be0",
+    "results/original_split_exploratory_completion_20260913/figures/three_way_original_final_budget_curves.png": "a5f5966d2e693e44e389084f751a515cd222f1d87d51f2d8dedb4a9b03654d6f",
+    "results/original_split_exploratory_completion_20260913/figures/three_way_original_final_budget_curves.svg": "1528202a63305178c31480c40e878eee3fbac8b0ec5184399c56d1265bde09dd"
+  }
+}

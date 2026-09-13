@@ -1,6 +1,6 @@
 """Verify public development CSVs without private data, models or network."""
 from pathlib import Path
-import csv,json,math,statistics,hashlib,sys,itertools
+import csv,json,math,statistics,hashlib,sys,itertools,subprocess
 ROOT=Path(__file__).resolve().parents[1];R=ROOT/'results/development_20260913';T=R/'tables'
 def read(name):
     with (T/(name+'.csv')).open(encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
@@ -59,9 +59,20 @@ completion=json.loads((R/'evidence/continuation_completion.json').read_text())
 assert completion['entropy_complete']==completion['entropy_expected']==200 and completion['full_data_completed']==4 and completion['acquisitions_completed']==100
 assert completion['locked_test_accesses']==completion['duplicate_executions']==0
 manifest=json.loads((R/'audit/PUBLIC_FILE_MANIFEST.json').read_text())
+# This dated release manifest also sealed the then-current navigation/verifier.
+# Validate their original Git blobs instead of replacing the historical manifest
+# or comparing its hashes against deliberately updated current documentation.
+SNAPSHOT='077503ca6f68fb7c92420cddb4bf739439165b8a'
+CURRENT_FILES={'README.md','THESIS_FILE_INDEX.md','scripts/verify_development_20260913.py'}
 for r in manifest['files']:
     p=(ROOT/r['path']).resolve();assert ROOT in p.parents
-    b=p.read_bytes();assert len(b)==r['size'] and hashlib.sha256(b).hexdigest()==r['sha256'],r['path']
+    b=p.read_bytes()
+    if r['path'] in CURRENT_FILES and hashlib.sha256(b).hexdigest()!=r['sha256']:
+        try:
+            b=subprocess.check_output(['git','show',f"{SNAPSHOT}:{r['path']}"],cwd=ROOT,stderr=subprocess.PIPE)
+        except (OSError,subprocess.CalledProcessError) as exc:
+            raise RuntimeError('Historical navigation hash verification needs a Git clone containing '+SNAPSHOT) from exc
+    assert len(b)==r['size'] and hashlib.sha256(b).hexdigest()==r['sha256'],r['path']
 for mapping in manifest['figure_sources']:
     assert all((R/p).is_file() for p in mapping['sources'])
     assert all((R/f"figures/{mapping['stem']}.{ext}").is_file() for ext in ['png','svg','pdf'])

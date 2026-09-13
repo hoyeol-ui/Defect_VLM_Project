@@ -25,3 +25,6 @@
 # Development evidence carries explicit byte hashes.
 /results/development_20260913/** -text
 /scripts/analysis/development_20260913/original/** -text
+
+# Preserve the bytes of published original-final CSVs and figures.
+/results/original_split_exploratory_completion_20260913/** -text

@@ -1,17 +1,16 @@
 # 연구 결과 파일 안내
 
-## Start Here — completed development analysis, 2026-09-13
+## Start Here — original-final completion, 2026-09-13
 
-1. [README](README.md) — 현재 질문·완료 상태·대표 결과.
-2. [실험 결과 기록](results/development_20260913/EXPERIMENT_RESULT_BRIEF.md).
-3. [그림 5종 PNG/SVG/PDF](results/development_20260913/figures/).
-4. [Seed/budget/selection 원표](results/development_20260913/tables/).
-5. [분석 검증 보고](results/development_20260913/ANALYSIS_VALIDATION_REPORT.md).
-6. [Historical locked-final](results/thesis_final/README.md) — 신규 development와 별도 근거.
-7. [Controlled protocol](docs/collaboration/CONTROLLED_440_PROTOCOL.md) / [Entropy protocol](entropy_extension_v1/official_release_v1/protocol.json).
-8. [Public reproduction](scripts/analysis/development_20260913/README.md) / [Public release audit](results/development_20260913/audit/PUBLIC_RELEASE_AUDIT.md).
+1. [README](README.md) — 총 644회 학습과 신규 original-final 204/204 평가 완료, 대표 결과.
+2. [최신 실험 결과](docs/CURRENT_EXPERIMENT_RESULT_20260913.md) — 3-way nAULC, R5, Full-data.
+3. [Original-final 공개 표 안내](docs/ORIGINAL_FINAL_PUBLIC_RESULTS_20260913.md) / [그림](results/original_split_exploratory_completion_20260913/figures/).
+4. [Development validation 분석](results/development_20260913/EXPERIMENT_RESULT_BRIEF.md) / [표](results/development_20260913/tables/).
+5. [Historical Random/DINO 결과](results/thesis_final/README.md) — 당시 분석 별도 보존.
+6. [Controlled protocol](docs/collaboration/CONTROLLED_440_PROTOCOL.md) / [Entropy protocol](entropy_extension_v1/official_release_v1/protocol.json).
+7. [Original-final 재검산](scripts/verify_original_final_20260913.py) / [Development 재현](scripts/analysis/development_20260913/README.md) / [재현성 안내](docs/collaboration/REPRODUCIBILITY.md).
 
-새 locked-final: NOT EXECUTED / PENDING SEPARATE FREEZE. 추가 AL training 종료와 최종평가 완료를 구분한다.
+현재 original-final은 exploratory completion 결과이며 독립적인 논문 주결과로 취급하지 않습니다. Development validation과 historical 분석을 구분합니다.
 
 ## Historical / Previous-stage navigation
 
