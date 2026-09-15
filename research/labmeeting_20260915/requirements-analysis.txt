@@ -1,0 +1,8 @@
+# Tables and plotting only. Standard-library summary/verify need no installation.
+numpy==2.4.6
+pandas==3.0.3
+matplotlib==3.11.0
+Pillow==12.3.0
+scipy==1.17.1
+# Raw-image rendering uses torchvision. See checks/software_and_sources.json
+# for the original torch/torchvision/transformers versions and CUDA environment.

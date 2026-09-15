@@ -1,0 +1,7 @@
+{
+  "checked_at": "2026-09-16T00:09:37.130016+09:00",
+  "secret_pattern_findings": [],
+  "largest_file_bytes": 4833490,
+  "portable_metrics_reaggregation_matches_original": true,
+  "public_scope": "Reports, figures, numerical tables, opaque feature/selection IDs, original metric JSONs and code. No transcript, original image/XML files, model weights or local credential files."
+}

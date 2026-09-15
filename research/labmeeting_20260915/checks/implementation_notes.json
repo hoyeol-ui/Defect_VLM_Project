@@ -1,0 +1,10 @@
+{
+  "resolved_before_alternative_extraction": [
+    "GC10 nonnumeric class name uses the frozen folder-number fallback, logged explicitly",
+    "Manual PIL resizing differed slightly; changed to installed BitImageProcessor TorchvisionBackend uint8 bicubic+antialias. C224 pixel and feature parity then both exact"
+  ],
+  "geometry_clarification": "Original XML continuous coordinates used in geometric diagnostics; legacy YOLO boundary clamp is separately counted. Original frozen plan preserved, not silently rewritten.",
+  "random_order_clarification": "Frozen Random API returns sorted membership; raw RNG draw order supplied separately without modifying selection seals.",
+  "figure_QA": "Checked absolute and paired plots, distance plots, fixed examples, input images and selection plots. Corrected mean-label placement, minus glyph fallback and histogram full-range coverage.",
+  "executed_scope": "Existing metrics, frozen-cache analysis, C224 subset reproduction, F224/F518 feature extraction and R1 selection. No detector training."
+}

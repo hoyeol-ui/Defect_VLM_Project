@@ -1,0 +1,12 @@
+{
+  "completed_at_local": "2026-09-16T00:00:52.649762+09:00",
+  "meeting_date": "2026-09-15",
+  "markdown_links_checked": 28,
+  "broken_links": [],
+  "png_figures": 19,
+  "svg_figures": 19,
+  "csv_tables": 33,
+  "selection_json": 50,
+  "original_caches_preserved": true,
+  "base_git_status": "?? docs/CHECKPOINT_RECOVERY_20260913.md\n?? docs/FINAL_INTEGRITY_AND_FREEZE_20260913.md\n?? docs/FINAL_SPLIT_LEAKAGE_IMPACT_DECISION_20260913.md\n?? docs/LOCAL_CHECKPOINT_DISCOVERY_20260913.md\n?? docs/NEU_LEAKAGE_ROOT_CAUSE_AND_RETRAIN_DECISION_20260913.md\n?? docs/ORIGINAL_SPLIT_EXPLORATORY_COMPLETION_20260913.md\n?? docs/PRE_FINAL_AUDIT_20260913.md\n?? docs/THESIS_DEFENSE_QA_20260913.md\n?? docs/THESIS_REMAINING_WORK_DECISION_20260913.md\n?? results/pre_final_audit_20260913/\n?? scripts/analysis/pre_final_20260913/\n"
+}

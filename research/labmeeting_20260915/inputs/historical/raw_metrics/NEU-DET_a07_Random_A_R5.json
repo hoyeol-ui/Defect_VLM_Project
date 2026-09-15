@@ -1,0 +1,50 @@
+{
+  "acquisition_index": 7,
+  "acquisition_seed": 1644540782,
+  "best_pt_sha256": "9a4348527e41b539d2ef897d09ed4129c778e412f9f8fddb1da74ce2012819e7",
+  "cell_id": "NEU-DET_a07_Random_A_R5",
+  "class_names": [
+    "crazing",
+    "inclusion",
+    "patches",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "dataset": "NEU-DET",
+  "evaluated_at_utc": "2026-08-28T07:27:06.584018+00:00",
+  "evaluation_attempt": 1,
+  "evaluation_runtime_seconds": 9.317617177963257,
+  "final_data_yaml_sha256": "27030c998b35e1f0f459cf2a00da4d03b58e2070926655fd0c96edfa6fe2e763",
+  "final_manifest_sha256": "7e649a5f3eee8d422b4bc0ddd8dacb96f4382256fe5ab834296db0153dfb48a0",
+  "labeled_count": 441,
+  "manifest_sha256": "519aeb51251eacb07cdf0f15f6899dbc14a59dbf7993e21b86d3479588d90473",
+  "map50": 0.7074377567511013,
+  "map50_95": 0.37096368497768173,
+  "metric_source": "locked_final",
+  "per_class_map50_95": [
+    0.12833303834318227,
+    0.38764131333900037,
+    0.5489169854641657,
+    0.49773684860197126,
+    0.22919719214070483,
+    0.433956731977066
+  ],
+  "post_final_retraining_or_retuning": false,
+  "precision": 0.6915253664991697,
+  "recall": 0.6672822284221249,
+  "results_dict": {
+    "fitness": 0.37096368497768173,
+    "metrics/mAP50(B)": 0.7074377567511013,
+    "metrics/mAP50-95(B)": 0.37096368497768173,
+    "metrics/precision(B)": 0.6915253664991697,
+    "metrics/recall(B)": 0.6672822284221249
+  },
+  "round": 5,
+  "status": "COMPLETE",
+  "strategy": "Random-PCG64-v1",
+  "strategy_token": "Random",
+  "training_seed": 95705870,
+  "training_seed_slot": "A",
+  "ultralytics_version": "8.4.90"
+}

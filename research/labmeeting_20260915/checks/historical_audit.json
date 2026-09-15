@@ -1,0 +1,17 @@
+{
+  "unique_training_cells_represented": 644,
+  "shared_R0": 40,
+  "Random_R1_R5": 200,
+  "DINO_R1_R5": 200,
+  "Entropy_R1_R5": 200,
+  "Full_data": 4,
+  "historical_raw_json_hashes_checked": 440,
+  "AB360_max_reaggregation_error": 1.1102230246251565e-16,
+  "source_files": {
+    "results\\original_split_exploratory_completion_20260913\\historical_original_final_reuse_440.csv": "6025a9f95a6119ef63d4d048d989207306bf4884acb52033d6e06b0ff6848772",
+    "results\\original_split_exploratory_completion_20260913\\entropy_original_final_results.csv": "873df06b394abc9688a40871b1a4717c5951d44b37dd55bd9b69f0d50b3aae92",
+    "results\\original_split_exploratory_completion_20260913\\full_data_original_final_results.csv": "11cc7c5413c437d58bb4aa36a8f105ae4603c97c40f8463e4daeb125346bd9b7",
+    "results\\original_split_exploratory_completion_20260913\\original_final_round_AB_means_360.csv": "c9ab725acb38b1217ce32ff2efa38da0a04fe215b27c300a04fcbde102f69262"
+  },
+  "completed_epochs_note": "644 existing metric cells verified; no claim to have independently audited every epoch log in this run."
+}

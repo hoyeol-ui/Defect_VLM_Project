@@ -1,0 +1,8 @@
+{
+  "all_30_farthest_first_orders_independently_reproduced": true,
+  "old_caches_preserved": true,
+  "materialized_label_files_verified": 1002,
+  "pool_label_files_not_materialized": 1862,
+  "output_csv_files": 31,
+  "all_png_images_readable": true
+}

@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "all_acquisition_images_included": true,
+  "summary": [
+    {
+      "dataset": "GC10-DET",
+      "n_images": 1605,
+      "n_unordered_pairs": 1287210,
+      "nearest_share_percent": 81.24610591900311,
+      "random_one_partner_share_percent": 21.059190031152646,
+      "all_nonself_pairs_share_percent": 21.091663364952108,
+      "nearest_median_distance": 0.08704564031190942,
+      "random_median_distance": 0.44323719165961883,
+      "shared_allpairs_median_distance": 0.39048413222456835,
+      "nonshared_allpairs_median_distance": 0.4589326358907233,
+      "exact_labelset_allpairs_percent": 12.510313002540377
+    },
+    {
+      "dataset": "NEU-DET",
+      "n_images": 1259,
+      "n_unordered_pairs": 791911,
+      "nearest_share_percent": 99.20571882446386,
+      "random_one_partner_share_percent": 20.095313741064334,
+      "all_nonself_pairs_share_percent": 18.927000635172387,
+      "nearest_median_distance": 0.08502633885938793,
+      "random_median_distance": 0.4721937523569709,
+      "shared_allpairs_median_distance": 0.28190838635003046,
+      "nonshared_allpairs_median_distance": 0.5083266992676193,
+      "exact_labelset_allpairs_percent": 14.67475511768368
+    }
+  ],
+  "GT_use": "posthoc relationships and boxes only; not passed to R1 selector",
+  "random_label_shuffle_vs_random_partner": "random partner is a new fixed draw; do not call it the historical label-shuffle baseline"
+}

@@ -1,0 +1,21 @@
+{
+  "software": {
+    "torch": "2.12.1+cu126",
+    "torchvision": "0.27.1+cu126",
+    "transformers": "5.13.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "matplotlib": "3.11.0",
+    "Pillow": "12.3.0"
+  },
+  "base_commit": "bec9d65dc73ae28216b3009134b4f3b1f86f299b",
+  "source_sha256": {
+    "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project_development_release\\confirmatory_v1\\src\\confirmatory_v1\\protocol_core.py": "af80f0566b6e051c76d4096d53e0db4d4a379acb34fa1f35748aceecdb10df22",
+    "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project_development_release\\confirmatory_v1\\src\\confirmatory_v1\\frozen_dino_ff_v1.py": "cb98419adc5df72e798b22f9b4cace3e1e0fb026bb415d62ff9dd37c515a63cc",
+    "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project_development_release\\src\\defect_al\\entropy.py": "de13fa437fab83471a0a936dc4c657c1801b1dc75b5a554e7e96131f9bfbc243",
+    "C:\\Users\\user\\Desktop\\vlm\\Defect_VLM_Project_development_release\\src\\defect_al\\entropy_extension.py": "4caffed554483ceaaaddee734516e7280726e3f9172d1d3cdd68508b65521f33",
+    "C:\\Users\\user\\Desktop\\vlm\\confirmatory_random_dino_v1\\confirmatory_v1\\data_freeze\\private_source_registry.csv": "688fe8bee640b8a8e3fbadc9d3efdb4d08638be59cff8eb372ae7d62d5768f3c",
+    "C:\\Users\\user\\Desktop\\vlm\\output\\랩미팅_후속계획_20260915\\랩미팅_반영_로컬_작업계획.md": "7282cf048ed34d1f0e36617a833613aec80ac4b041da7a06f20ffbcc9aa4348f",
+    "C:\\Users\\user\\.codex\\attachments\\6990f0d9-9828-4bf9-b5f9-9c67ae0cefbb\\pasted-text.txt": "a4500139df10104fdf79a851d340c0b432392d24b09c15f199941d8898760b8b"
+  }
+}

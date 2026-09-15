@@ -1,0 +1,24 @@
+{
+  "images_checked": 2864,
+  "all_raw_pixel_annotation_hashes_match": true,
+  "all_xml_dimensions_and_box_bounds_match": true,
+  "annotation_notes": [
+    {
+      "sample_id": "b69ecbcfc63da8d1a361638cbe7b36b55c277e17e81181083c5e7b43223f700a",
+      "class_name_fallback": "d",
+      "mapped_to": "welding_line",
+      "rule": "existing frozen adapter: image parent directory number"
+    },
+    {
+      "sample_id": "1ab2b9a292618aa9a0b2338769cadbfe5ecfe3e84517397a0731f6b2cfeb78bb",
+      "duplicate_boxes_removed_for_summary": 1
+    },
+    {
+      "sample_id": "94ccff84aa3b20a94001114dc1322b117fd4974db410b6fd9c3ca9051d5e7000",
+      "duplicate_boxes_removed_for_summary": 1
+    }
+  ],
+  "box_count_unique": 5414,
+  "legacy_yolo_clamped_box_count": 787,
+  "coordinate_clarification": "Original XML continuous edges are used for geometry; legacy YOLO clamps to width-1/height-1. Both use xmax-xmin (no +1). This clarifies the original plan, and does not change IDs, sample rules or feature extraction."
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "dataset": "GC10-DET",
+    "mode": "F224",
+    "n_images": 1605,
+    "batch_size": 32,
+    "seconds": 25.557878399999936,
+    "peak_gpu_allocated_bytes": 317897216,
+    "peak_gpu_reserved_bytes": 404750336,
+    "file_sha256": "59b5d69053efc6c6f1195140f43f0bbfd904f1d315d626122f7837e43984dad8",
+    "max_norm_error": 1.1920928955078125e-07
+  },
+  {
+    "dataset": "GC10-DET",
+    "mode": "F518",
+    "n_images": 1605,
+    "batch_size": 32,
+    "seconds": 45.93382669999983,
+    "peak_gpu_allocated_bytes": 1167552512,
+    "peak_gpu_reserved_bytes": 1736441856,
+    "file_sha256": "7b75e7f7de95c68dfc9c7403557d0ab7f9ce0e05fbac333b8af0d4a08b72937d",
+    "max_norm_error": 1.1920928955078125e-07
+  },
+  {
+    "dataset": "NEU-DET",
+    "mode": "F224",
+    "n_images": 1259,
+    "batch_size": 32,
+    "seconds": 3.5294214999998985,
+    "peak_gpu_allocated_bytes": 317897216,
+    "peak_gpu_reserved_bytes": 1736441856,
+    "file_sha256": "8bca484293926eaea29b9309acfc3a231e586e19b8efd26100480c4fc805d311",
+    "max_norm_error": 1.1920928955078125e-07
+  },
+  {
+    "dataset": "NEU-DET",
+    "mode": "F518",
+    "n_images": 1259,
+    "batch_size": 32,
+    "seconds": 21.61497270000018,
+    "peak_gpu_allocated_bytes": 1167552512,
+    "peak_gpu_reserved_bytes": 1736441856,
+    "file_sha256": "20ab097e059b75d7e698291932c8be38f204c084ab156836fb5d49c919b4c422",
+    "max_norm_error": 1.1920928955078125e-07
+  }
+]

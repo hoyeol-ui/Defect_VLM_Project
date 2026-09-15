@@ -1,0 +1,50 @@
+{
+  "acquisition_index": 8,
+  "acquisition_seed": 1157893727,
+  "best_pt_sha256": "a86a8c754e4bead33f7d86779cca3ed253f4962a9398bfd4fff60558bfc1258d",
+  "cell_id": "NEU-DET_a08_DINO_B_R2",
+  "class_names": [
+    "crazing",
+    "inclusion",
+    "patches",
+    "pitted_surface",
+    "rolled-in_scale",
+    "scratches"
+  ],
+  "dataset": "NEU-DET",
+  "evaluated_at_utc": "2026-08-28T07:32:41.051688+00:00",
+  "evaluation_attempt": 1,
+  "evaluation_runtime_seconds": 9.550060510635376,
+  "final_data_yaml_sha256": "27030c998b35e1f0f459cf2a00da4d03b58e2070926655fd0c96edfa6fe2e763",
+  "final_manifest_sha256": "7e649a5f3eee8d422b4bc0ddd8dacb96f4382256fe5ab834296db0153dfb48a0",
+  "labeled_count": 252,
+  "manifest_sha256": "b26f23adb6a09734e17577c26a473c68868cf54eae9d683674181e2d372c3bfc",
+  "map50": 0.6712652668648911,
+  "map50_95": 0.3541350796033778,
+  "metric_source": "locked_final",
+  "per_class_map50_95": [
+    0.11792328035292018,
+    0.3471309984041513,
+    0.5093959411094819,
+    0.501594839991029,
+    0.1683764583177736,
+    0.480388959444911
+  ],
+  "post_final_retraining_or_retuning": false,
+  "precision": 0.6777799691772063,
+  "recall": 0.6309663132901225,
+  "results_dict": {
+    "fitness": 0.3541350796033778,
+    "metrics/mAP50(B)": 0.6712652668648911,
+    "metrics/mAP50-95(B)": 0.3541350796033778,
+    "metrics/precision(B)": 0.6777799691772063,
+    "metrics/recall(B)": 0.6309663132901225
+  },
+  "round": 2,
+  "status": "COMPLETE",
+  "strategy": "FrozenDINO-FF-v1",
+  "strategy_token": "DINO",
+  "training_seed": 1703931780,
+  "training_seed_slot": "B",
+  "ultralytics_version": "8.4.90"
+}

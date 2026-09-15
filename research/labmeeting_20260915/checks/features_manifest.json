@@ -1,0 +1,10 @@
+{
+  "features\\GC10-DET\\C224.npy": "74de0defc4615c3ffa9a6ab25bf235613373f09ab01f5d742bc654adb9db9ee8",
+  "features\\GC10-DET\\F224.npy": "59b5d69053efc6c6f1195140f43f0bbfd904f1d315d626122f7837e43984dad8",
+  "features\\GC10-DET\\F518.npy": "7b75e7f7de95c68dfc9c7403557d0ab7f9ce0e05fbac333b8af0d4a08b72937d",
+  "features\\GC10-DET\\sample_ids.npy": "7a063a87bfbdbbc115abb1e3708397edf0a56f9ec7160b75f5f0386021ff06ba",
+  "features\\NEU-DET\\C224.npy": "25b02c11d6881bd11c5f48efd94f0f103fcb8d4c200f38b08e32947e9050a342",
+  "features\\NEU-DET\\F224.npy": "8bca484293926eaea29b9309acfc3a231e586e19b8efd26100480c4fc805d311",
+  "features\\NEU-DET\\F518.npy": "20ab097e059b75d7e698291932c8be38f204c084ab156836fb5d49c919b4c422",
+  "features\\NEU-DET\\sample_ids.npy": "90530a70ef28eba2c4b4a06a309ee4a29bd6241a5d28e58f4e91cbc2d9277b9a"
+}

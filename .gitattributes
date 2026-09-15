@@ -28,3 +28,6 @@
 
 # Preserve the bytes of published original-final CSVs and figures.
 /results/original_split_exploratory_completion_20260913/** -text
+
+# Byte-preserved 2026-09-15 lab-meeting diagnostic package.
+/research/labmeeting_20260915/** -text
