@@ -1,0 +1,219 @@
+{
+  "design_id": "metal_al_final_v2_20260919",
+  "datasets": {
+    "GC10-DET": {
+      "n": 2291,
+      "train": 1604,
+      "dev": 343,
+      "test": 344,
+      "counts": [
+        160,
+        241,
+        321,
+        401,
+        481,
+        561
+      ],
+      "split_sha": "453ab6eaf22a1439236125364492f4b7ef8d3e8e65c4daa96386b40cb93a243a",
+      "code": 1
+    },
+    "NEU-DET": {
+      "n": 1798,
+      "train": 1258,
+      "dev": 270,
+      "test": 270,
+      "counts": [
+        126,
+        189,
+        252,
+        315,
+        377,
+        440
+      ],
+      "split_sha": "a6027b62d12cfe426caaf7d9c178c4dd38354bcb915925069f1dc391c4951403",
+      "code": 2
+    }
+  },
+  "seeds": [
+    2026091901,
+    2026091902,
+    2026091903,
+    2026091904,
+    2026091905
+  ],
+  "learner_seed": 2026091900,
+  "selector": {
+    "rng_namespace": 1179473458,
+    "PCG64_SeedSequence": [
+      "namespace",
+      "dataset_code",
+      "acquisition_seed",
+      "round",
+      "purpose"
+    ],
+    "R0_purpose": 0,
+    "Random_purpose": 1,
+    "DINO": "greedy_farthest_first",
+    "comparison_dtype": "float64",
+    "tie_tolerance": 1e-12,
+    "tie": "opaque_id_ascending",
+    "entropy": "ENTROPY_NCS_MEAN_V2",
+    "entropy_tie": "exact_score_then_ID"
+  },
+  "features": {
+    "model": "facebook/dinov2-small",
+    "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+    "weight_sha": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+    "max_side": 518,
+    "padding_rgb": [
+      124,
+      116,
+      104
+    ],
+    "resize": "torchvision_uint8_bicubic_antialias",
+    "rounding": "half_up",
+    "crop": false,
+    "processor_resize": false,
+    "processor_crop": false,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "dimension": 384,
+    "dtype": "float32",
+    "norm_tolerance": 1e-06,
+    "repeat_component_tolerance": 0.0001,
+    "repeat_cosine_tolerance": 1e-05,
+    "batch": 1
+  },
+  "yolo": {
+    "design_id": "metal_al_final_v2_20260919",
+    "status": "DESIGN_ONLY_NOT_READY",
+    "model": "YOLOv8n",
+    "initial_weights_sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+    "initialization": "SAME_PUBLIC_PRETRAINED_COLD_START_EVERY_SCIENTIFIC_CELL",
+    "ultralytics_version": "8.4.90",
+    "learner_seed": 2026091900,
+    "kwargs": {
+      "epochs": 100,
+      "patience": 100,
+      "imgsz": 640,
+      "batch": 8,
+      "device": 0,
+      "workers": 4,
+      "cache": false,
+      "amp": true,
+      "deterministic": true,
+      "optimizer": "SGD",
+      "lr0": 0.01,
+      "lrf": 0.01,
+      "cos_lr": false,
+      "momentum": 0.937,
+      "weight_decay": 0.0005,
+      "nbs": 64,
+      "warmup_epochs": 3.0,
+      "warmup_momentum": 0.8,
+      "warmup_bias_lr": 0.1,
+      "close_mosaic": 10,
+      "rect": false,
+      "single_cls": false,
+      "fraction": 1.0,
+      "hsv_h": 0.015,
+      "hsv_s": 0.7,
+      "hsv_v": 0.4,
+      "degrees": 0.0,
+      "translate": 0.1,
+      "scale": 0.5,
+      "shear": 0.0,
+      "perspective": 0.0,
+      "flipud": 0.0,
+      "fliplr": 0.5,
+      "bgr": 0.0,
+      "mosaic": 1.0,
+      "mixup": 0.0,
+      "cutmix": 0.0,
+      "copy_paste": 0.0,
+      "multi_scale": 0.0,
+      "box": 7.5,
+      "cls": 0.5,
+      "dfl": 1.5,
+      "resume": false,
+      "val": true,
+      "exist_ok": false,
+      "save": true,
+      "save_period": -1,
+      "plots": false,
+      "verbose": false
+    },
+    "best_rule": {
+      "metric": "development_mAP50_95",
+      "weights": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "tie": "LATEST_EPOCH_AT_MAXIMUM_FITNESS",
+      "in_training_validation_batch": 16
+    },
+    "sealed_dev_and_test_eval": {
+      "imgsz": 640,
+      "batch": 8,
+      "conf": 0.001,
+      "iou": 0.7,
+      "max_det": 300
+    },
+    "required_runner_changes_NOT_IMPLEMENTED": [
+      "FAIL_FAST_ON_INTERNAL_OOM_BATCH_REDUCTION",
+      "DISABLE_INTERNAL_NAN_RECOVERY_AND_FAIL",
+      "RECORD_ACTUAL_EPOCH_AND_LOADER_BATCH",
+      "NO_VAL_TO_TEST_FALLBACK",
+      "ATOMIC_CELL_LOCK_AND_EXCLUSIVE_OUTPUT",
+      "PRESERVE_RESUMABLE_STATE_WITH_RNG"
+    ],
+    "environment_and_resolved_arguments_freeze": "PENDING_ACTUAL_RUNTIME_PREFLIGHT"
+  },
+  "classes": {
+    "GC10-DET": [
+      "punching_hole",
+      "welding_line",
+      "crescent_gap",
+      "water_spot",
+      "oil_spot",
+      "silk_spot",
+      "inclusion",
+      "rolled_pit",
+      "crease",
+      "waist_folding"
+    ],
+    "NEU-DET": [
+      "crazing",
+      "inclusion",
+      "patches",
+      "pitted_surface",
+      "rolled-in_scale",
+      "scratches"
+    ]
+  },
+  "runtime": {
+    "python_minor": "3.11",
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128",
+    "cuda": "12.8",
+    "ultralytics": "8.4.90",
+    "transformers": "5.13.0",
+    "numpy": "2.4.6",
+    "Pillow": "12.3.0",
+    "safetensors": "0.8.0",
+    "min_free_workspace_gib": 50
+  },
+  "test_release": "ABSENT_FROM_RUNNER_PACKAGE; SEPARATE_FUTURE_APPROVAL",
+  "scientific_cells": 162,
+  "technical_smokes": 2
+}

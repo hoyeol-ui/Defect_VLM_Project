@@ -1,0 +1,9 @@
+{
+  "metric": "development_mAP50-95",
+  "epoch": 84,
+  "fitness": 0.29458,
+  "best_sha": "5d7f59767c500b33960023a108f804fc7dba26a55de391631aeb72f075eac201",
+  "last_sha": "ca0949ef6cd3e58ae32305c8167507600d76dee1f0ce500dac55415647de6f39",
+  "all_epochs": 100,
+  "serialization": "FP32 EMA and full optimizer/scheduler/scaler/RNG; no nan_to_num or strip_optimizer"
+}

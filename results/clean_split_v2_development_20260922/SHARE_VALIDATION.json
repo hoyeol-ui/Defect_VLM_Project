@@ -1,0 +1,8 @@
+{
+  "numeric_and_original_figure_files_unchanged": 38,
+  "scientific_runs_with_sealed_metric_and_best_selection": 162,
+  "statistics_recomputed_during_redesign": false,
+  "test_accessed": false,
+  "source_method_id": "DINO_F518",
+  "display_method_alias": "DINOv2-FF"
+}

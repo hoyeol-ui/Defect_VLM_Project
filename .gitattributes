@@ -31,3 +31,6 @@
 
 # Byte-preserved 2026-09-15 lab-meeting diagnostic package.
 /research/labmeeting_20260915/** -text
+
+# Preserve the SHA-256 sealed clean-split v2 sharing artifacts after checkout.
+/results/clean_split_v2_development_20260922/** -text

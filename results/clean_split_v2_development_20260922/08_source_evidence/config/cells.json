@@ -1,0 +1,1622 @@
+[
+  {
+    "run_id": "GC10_v2_a2026091901_SHARED_R0",
+    "dataset": "GC10-DET",
+    "method": "SHARED",
+    "seed": 2026091901,
+    "round": 0,
+    "labeled_count": 160,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Random_R1",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_DINO_F518_R1",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Entropy_R1",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": "GC10_v2_a2026091901_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Random_R2",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_DINO_F518_R2",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Entropy_R2",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": "GC10_v2_a2026091901_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Random_R3",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_DINO_F518_R3",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Entropy_R3",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": "GC10_v2_a2026091901_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Random_R4",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_DINO_F518_R4",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Entropy_R4",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": "GC10_v2_a2026091901_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Random_R5",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_DINO_F518_R5",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091901_Entropy_R5",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": "GC10_v2_a2026091901_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_SHARED_R0",
+    "dataset": "GC10-DET",
+    "method": "SHARED",
+    "seed": 2026091902,
+    "round": 0,
+    "labeled_count": 160,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Random_R1",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_DINO_F518_R1",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Entropy_R1",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": "GC10_v2_a2026091902_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Random_R2",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_DINO_F518_R2",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Entropy_R2",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": "GC10_v2_a2026091902_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Random_R3",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_DINO_F518_R3",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Entropy_R3",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": "GC10_v2_a2026091902_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Random_R4",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_DINO_F518_R4",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Entropy_R4",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": "GC10_v2_a2026091902_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Random_R5",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_DINO_F518_R5",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091902_Entropy_R5",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": "GC10_v2_a2026091902_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_SHARED_R0",
+    "dataset": "GC10-DET",
+    "method": "SHARED",
+    "seed": 2026091903,
+    "round": 0,
+    "labeled_count": 160,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Random_R1",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_DINO_F518_R1",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Entropy_R1",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": "GC10_v2_a2026091903_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Random_R2",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_DINO_F518_R2",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Entropy_R2",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": "GC10_v2_a2026091903_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Random_R3",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_DINO_F518_R3",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Entropy_R3",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": "GC10_v2_a2026091903_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Random_R4",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_DINO_F518_R4",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Entropy_R4",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": "GC10_v2_a2026091903_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Random_R5",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_DINO_F518_R5",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091903_Entropy_R5",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": "GC10_v2_a2026091903_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_SHARED_R0",
+    "dataset": "GC10-DET",
+    "method": "SHARED",
+    "seed": 2026091904,
+    "round": 0,
+    "labeled_count": 160,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Random_R1",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_DINO_F518_R1",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Entropy_R1",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": "GC10_v2_a2026091904_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Random_R2",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_DINO_F518_R2",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Entropy_R2",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": "GC10_v2_a2026091904_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Random_R3",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_DINO_F518_R3",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Entropy_R3",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": "GC10_v2_a2026091904_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Random_R4",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_DINO_F518_R4",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Entropy_R4",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": "GC10_v2_a2026091904_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Random_R5",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_DINO_F518_R5",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091904_Entropy_R5",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": "GC10_v2_a2026091904_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_SHARED_R0",
+    "dataset": "GC10-DET",
+    "method": "SHARED",
+    "seed": 2026091905,
+    "round": 0,
+    "labeled_count": 160,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Random_R1",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_DINO_F518_R1",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Entropy_R1",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 1,
+    "labeled_count": 241,
+    "parent": "GC10_v2_a2026091905_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Random_R2",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_DINO_F518_R2",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Entropy_R2",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 2,
+    "labeled_count": 321,
+    "parent": "GC10_v2_a2026091905_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Random_R3",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_DINO_F518_R3",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Entropy_R3",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 3,
+    "labeled_count": 401,
+    "parent": "GC10_v2_a2026091905_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Random_R4",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_DINO_F518_R4",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Entropy_R4",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 4,
+    "labeled_count": 481,
+    "parent": "GC10_v2_a2026091905_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Random_R5",
+    "dataset": "GC10-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_DINO_F518_R5",
+    "dataset": "GC10-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_a2026091905_Entropy_R5",
+    "dataset": "GC10-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 5,
+    "labeled_count": 561,
+    "parent": "GC10_v2_a2026091905_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "GC10_v2_FULL",
+    "dataset": "GC10-DET",
+    "method": "Full_data",
+    "seed": null,
+    "round": null,
+    "labeled_count": 1604,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_SHARED_R0",
+    "dataset": "NEU-DET",
+    "method": "SHARED",
+    "seed": 2026091901,
+    "round": 0,
+    "labeled_count": 126,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Random_R1",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_DINO_F518_R1",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Entropy_R1",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": "NEU_v2_a2026091901_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Random_R2",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_DINO_F518_R2",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Entropy_R2",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": "NEU_v2_a2026091901_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Random_R3",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_DINO_F518_R3",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Entropy_R3",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": "NEU_v2_a2026091901_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Random_R4",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_DINO_F518_R4",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Entropy_R4",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": "NEU_v2_a2026091901_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Random_R5",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091901,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_DINO_F518_R5",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091901,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091901_Entropy_R5",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091901,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": "NEU_v2_a2026091901_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_SHARED_R0",
+    "dataset": "NEU-DET",
+    "method": "SHARED",
+    "seed": 2026091902,
+    "round": 0,
+    "labeled_count": 126,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Random_R1",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_DINO_F518_R1",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Entropy_R1",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": "NEU_v2_a2026091902_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Random_R2",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_DINO_F518_R2",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Entropy_R2",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": "NEU_v2_a2026091902_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Random_R3",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_DINO_F518_R3",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Entropy_R3",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": "NEU_v2_a2026091902_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Random_R4",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_DINO_F518_R4",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Entropy_R4",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": "NEU_v2_a2026091902_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Random_R5",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091902,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_DINO_F518_R5",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091902,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091902_Entropy_R5",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091902,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": "NEU_v2_a2026091902_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_SHARED_R0",
+    "dataset": "NEU-DET",
+    "method": "SHARED",
+    "seed": 2026091903,
+    "round": 0,
+    "labeled_count": 126,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Random_R1",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_DINO_F518_R1",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Entropy_R1",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": "NEU_v2_a2026091903_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Random_R2",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_DINO_F518_R2",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Entropy_R2",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": "NEU_v2_a2026091903_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Random_R3",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_DINO_F518_R3",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Entropy_R3",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": "NEU_v2_a2026091903_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Random_R4",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_DINO_F518_R4",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Entropy_R4",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": "NEU_v2_a2026091903_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Random_R5",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091903,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_DINO_F518_R5",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091903,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091903_Entropy_R5",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091903,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": "NEU_v2_a2026091903_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_SHARED_R0",
+    "dataset": "NEU-DET",
+    "method": "SHARED",
+    "seed": 2026091904,
+    "round": 0,
+    "labeled_count": 126,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Random_R1",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_DINO_F518_R1",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Entropy_R1",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": "NEU_v2_a2026091904_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Random_R2",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_DINO_F518_R2",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Entropy_R2",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": "NEU_v2_a2026091904_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Random_R3",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_DINO_F518_R3",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Entropy_R3",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": "NEU_v2_a2026091904_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Random_R4",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_DINO_F518_R4",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Entropy_R4",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": "NEU_v2_a2026091904_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Random_R5",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091904,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_DINO_F518_R5",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091904,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091904_Entropy_R5",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091904,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": "NEU_v2_a2026091904_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_SHARED_R0",
+    "dataset": "NEU-DET",
+    "method": "SHARED",
+    "seed": 2026091905,
+    "round": 0,
+    "labeled_count": 126,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Random_R1",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_DINO_F518_R1",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Entropy_R1",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 1,
+    "labeled_count": 189,
+    "parent": "NEU_v2_a2026091905_SHARED_R0",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Random_R2",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_DINO_F518_R2",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Entropy_R2",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 2,
+    "labeled_count": 252,
+    "parent": "NEU_v2_a2026091905_Entropy_R1",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Random_R3",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_DINO_F518_R3",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Entropy_R3",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 3,
+    "labeled_count": 315,
+    "parent": "NEU_v2_a2026091905_Entropy_R2",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Random_R4",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_DINO_F518_R4",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Entropy_R4",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 4,
+    "labeled_count": 377,
+    "parent": "NEU_v2_a2026091905_Entropy_R3",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Random_R5",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "seed": 2026091905,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_DINO_F518_R5",
+    "dataset": "NEU-DET",
+    "method": "DINO_F518",
+    "seed": 2026091905,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": null,
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_a2026091905_Entropy_R5",
+    "dataset": "NEU-DET",
+    "method": "Entropy",
+    "seed": 2026091905,
+    "round": 5,
+    "labeled_count": 440,
+    "parent": "NEU_v2_a2026091905_Entropy_R4",
+    "epochs": 100
+  },
+  {
+    "run_id": "NEU_v2_FULL",
+    "dataset": "NEU-DET",
+    "method": "Full_data",
+    "seed": null,
+    "round": null,
+    "labeled_count": 1258,
+    "parent": null,
+    "epochs": 100
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "attempt": "ANNOTATION_PATCH_v2_0_2",
+  "scientific_runs": 162,
+  "methods": {
+    "SHARED": 10,
+    "Random": 50,
+    "DINO_F518": 50,
+    "Entropy": 50,
+    "Full_data": 2
+  },
+  "learner_seed": 2026091900,
+  "datasets": {
+    "GC10-DET": {
+      "corpus_n": 2291,
+      "acquisition_pool_n": 1604,
+      "split_counts": {
+        "dev": 343,
+        "train": 1604,
+        "test": 344
+      },
+      "counts": [
+        160,
+        241,
+        321,
+        401,
+        481,
+        561
+      ],
+      "percentages": [
+        9.975062344139651,
+        15.024937655860349,
+        20.012468827930174,
+        25.0,
+        29.987531172069826,
+        34.97506234413965
+      ],
+      "seeds": [
+        2026091901,
+        2026091902,
+        2026091903,
+        2026091904,
+        2026091905
+      ],
+      "full_reference_runs": [
+        "GC10_v2_FULL"
+      ]
+    },
+    "NEU-DET": {
+      "corpus_n": 1798,
+      "acquisition_pool_n": 1258,
+      "split_counts": {
+        "train": 1258,
+        "dev": 270,
+        "test": 270
+      },
+      "counts": [
+        126,
+        189,
+        252,
+        315,
+        377,
+        440
+      ],
+      "percentages": [
+        10.015898251192368,
+        15.023847376788554,
+        20.031796502384736,
+        25.03974562798092,
+        29.968203497615264,
+        34.97615262321145
+      ],
+      "seeds": [
+        2026091901,
+        2026091902,
+        2026091903,
+        2026091904,
+        2026091905
+      ],
+      "full_reference_runs": [
+        "NEU_v2_FULL"
+      ]
+    }
+  },
+  "metric_source": "state_attempts/ANNOTATION_PATCH_v2_0_2/runs/<run_id>/sealed_dev_metrics.json",
+  "final_integrity": "PASS",
+  "test_released": false
+}

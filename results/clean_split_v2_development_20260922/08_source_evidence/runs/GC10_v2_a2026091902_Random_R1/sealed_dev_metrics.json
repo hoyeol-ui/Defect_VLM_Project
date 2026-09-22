@@ -1,0 +1,23 @@
+{
+  "overall": {
+    "metrics/precision(B)": 0.4281525434606598,
+    "metrics/recall(B)": 0.454166832885967,
+    "metrics/mAP50(B)": 0.41751945437758814,
+    "metrics/mAP50-95(B)": 0.18608880328409327,
+    "fitness": 0.18608880328409327
+  },
+  "per_class_AP50_95": {
+    "punching_hole": 0.45575169465530924,
+    "welding_line": 0.29855193114550277,
+    "crescent_gap": 0.502574118098164,
+    "water_spot": 0.2909013712372885,
+    "oil_spot": 0.07599922311608351,
+    "silk_spot": 0.07760452543190502,
+    "inclusion": 0.015375430902299527,
+    "rolled_pit": 0.05737535070845541,
+    "crease": 0.005642169958006342,
+    "waist_folding": 0.08111221758791894
+  },
+  "missing_prediction_class_rule": "0 because fixed development has GT in all classes; do not use maps mean fallback",
+  "partition": "development"
+}
