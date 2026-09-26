@@ -1,0 +1,13 @@
+{
+  "original_docx_unchanged": true,
+  "raw_and_statistics_ledgers_unchanged": true,
+  "chapters_1_2_preserved": true,
+  "acquisition_training_and_statistical_design_preserved": true,
+  "selected_composition_tables_preserved": true,
+  "numeric_cells_verified": 254,
+  "stale_development_only_claims_absent": true,
+  "negative_results_and_inference_limits_present": true,
+  "contents_targets_verified": 59,
+  "rendered_pages": 31,
+  "output_sha256": "564f06f61a619feec62dcee7cd74430831e5c6fae1fa4125fabc0e7fa21d1b7c"
+}

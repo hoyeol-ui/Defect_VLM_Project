@@ -1,0 +1,20 @@
+{
+  "unit": "acquisition seed",
+  "n": 5,
+  "nAULC": "trapezoid over actual six image counts / (R5-R0)",
+  "bootstrap_draws": 100000,
+  "bootstrap_type": "paired percentile 95%",
+  "bootstrap_seeds": {
+    "GC10-DET": 2026091912,
+    "NEU-DET": 2026091913
+  },
+  "exact_sign_flip_enumerations": 32,
+  "exact_two_sided_rule": "abs(flipped_mean) >= abs(observed_mean) - 1e-15",
+  "holm_family": [
+    "GC10-DET: DINO_F518 - Random",
+    "GC10-DET: DINO_F518 - Entropy",
+    "NEU-DET: DINO_F518 - Random",
+    "NEU-DET: DINO_F518 - Entropy"
+  ],
+  "class_composition": "R5 cumulative selected image count by class; exact duplicate boxes collapsed"
+}

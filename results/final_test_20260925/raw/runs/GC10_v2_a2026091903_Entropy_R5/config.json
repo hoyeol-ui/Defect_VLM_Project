@@ -1,0 +1,31 @@
+{
+  "run_id": "GC10_v2_a2026091903_Entropy_R5",
+  "dataset": "GC10-DET",
+  "acquisition_seed": 2026091903,
+  "method": "Entropy",
+  "round": 5,
+  "cumulative_labeled_images": 561,
+  "cumulative_labeled_ratio": 0.3497506234413965,
+  "checkpoint_path": "C:\\Users\\user\\Desktop\\vlm\\final_test_recovery\\final_main_runpod_execution_v2_20260919\\state_attempts\\ANNOTATION_PATCH_v2_0_2\\runs\\GC10_v2_a2026091903_Entropy_R5\\train\\weights\\best.pt",
+  "checkpoint_sha256": "92d9a28e77f93d7b98628e68ee5bd7707492a2f50e974506640412a6025880e3",
+  "evaluation_dataset": "GC10-DET/test",
+  "dataset_yaml": "C:\\Users\\user\\Desktop\\vlm\\final_test_evaluation_20260925\\configs\\GC10-DET_test.yaml",
+  "dataset_yaml_sha256": "a7023e1e2f5b7f4561ad827bbb8ca2c6a5ddba3ceb3187ad46ad9f5d02af48c9",
+  "parameters": {
+    "split": "val",
+    "imgsz": 640,
+    "batch": 8,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": 0,
+    "workers": 4,
+    "quantize": 32,
+    "rect": false,
+    "seed": 2026091900,
+    "deterministic": true,
+    "plots": false,
+    "save_json": false
+  },
+  "ultralytics_source_version": "8.4.90"
+}

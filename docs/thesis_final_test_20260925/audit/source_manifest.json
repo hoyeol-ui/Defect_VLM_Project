@@ -1,0 +1,24 @@
+{
+  "source_docx": "C:\\Users\\user\\Desktop\\vlm\\심사용논문_수정본_20260924.docx",
+  "source_sha256": "b0f30586c211275f07a64294ca8b86712f7d39aa4dc916c1bcdd76545e80651f",
+  "output": "C:\\Users\\user\\Desktop\\vlm\\심사용논문_최종test반영본_20260925.docx",
+  "ledger_files": {
+    "statistics\\budget_summary.csv": "a3bbf360e1c693e0791b5eff4ca6cf0ca5183041b3d45d8e44e5d8bf266a247b",
+    "statistics\\curves.csv": "f821b771f3f0ac27db66585aa5fde7e8e401068bb76573e05abd6f0cbb0b2ebd",
+    "statistics\\development_vs_test.csv": "c1cb699a4a8b74bfd66f69cb65892b50d9cd94d14bc865a1287596250aea6d1a",
+    "statistics\\paired_comparisons.csv": "51248aed9b7b00032b5e939969407f9c5e6931ca4eed04766377ab26f0bc8a99",
+    "statistics\\R5_class_AP_by_seed.csv": "5f9f53502da5f0aa3397a74dd5cb47b14d46c781ede9b49c6dd9029803312dc4",
+    "statistics\\R5_class_AP_difference.csv": "d8440ad9af0ea2d560339ce657b1b5a26c5bcbced70b6bfde8ebfa28f018a99b",
+    "statistics\\R5_vs_full_data.csv": "4910f88cc915ac6a463f45151b7d3b6a97b4733b38d0b5144dc9217b64f25ba3",
+    "statistics\\seed_nAULC.csv": "ce506f3fad389585b26c317ed1de85642ab6c6598070be709e2b1671120d8a0f",
+    "statistics\\selected_class_composition_by_seed.csv": "5986b95da718f8ccd5870409f64370710cee6a68ea9f09ad0942edd5c28e5003",
+    "statistics\\selected_class_composition_summary.csv": "89ecd47236f7ffe2c5b172a99640a9c71db71983c50030e9673081df7d98b94d",
+    "statistics\\worst_class_comparisons.csv": "c0bb41fdb5e2edb829ef19c8c15a2f98f2ced80ed365f335608eb3fb216dd286",
+    "statistics\\worst_class_curves.csv": "a92876e96bc8c05001aeba32c63d6c0bbdd42a3b153352d5d715fbdf41baa5eb",
+    "statistics\\worst_class_nAULC.csv": "b68e4bf1b15edbcad5adca7755a09d29f9190d13b9f8cacd4d08950473717151",
+    "raw\\results.csv": "955d895052f7ff3594c1b18aaa9e0ad071631482cc8bb3534ef6deb700f80f53",
+    "raw\\results.json": "17bedc08d035d7153383816a8196020e3cc6d32bcc837f2a6bb1c721a88743a3",
+    "raw\\class_ap.csv": "e9414058f837be45cf4c5ab0ea47d8bad23cd7b3a74b19ebc21b49a5bb02b081"
+  },
+  "changed_source_paragraphs": 49
+}

@@ -108,3 +108,9 @@ results/original_split_exploratory_completion_20260913/figures/*
 !results/original_split_exploratory_completion_20260913/figures/*.png
 !results/original_split_exploratory_completion_20260913/figures/*.svg
 !results/original_split_exploratory_completion_20260913/figures/*.pdf
+
+# Curated final test run evidence and execution logs.
+!results/final_test_20260925/raw/runs/
+!results/final_test_20260925/raw/runs/**
+!results/final_test_20260925/**/*.log
+!results/final_test_20260925/overall.log

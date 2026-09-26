@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "expected": 162,
+  "successful": 162,
+  "missing": [],
+  "unexpected": [],
+  "duplicated_run_ids": [],
+  "invalid_results": [],
+  "technical_included": false
+}

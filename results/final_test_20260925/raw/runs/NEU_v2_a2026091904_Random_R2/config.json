@@ -1,0 +1,31 @@
+{
+  "run_id": "NEU_v2_a2026091904_Random_R2",
+  "dataset": "NEU-DET",
+  "acquisition_seed": 2026091904,
+  "method": "Random",
+  "round": 2,
+  "cumulative_labeled_images": 252,
+  "cumulative_labeled_ratio": 0.20031796502384738,
+  "checkpoint_path": "C:\\Users\\user\\Desktop\\vlm\\final_test_recovery\\final_main_runpod_execution_v2_20260919\\state_attempts\\ANNOTATION_PATCH_v2_0_2\\runs\\NEU_v2_a2026091904_Random_R2\\train\\weights\\best.pt",
+  "checkpoint_sha256": "c544b607363a12dbec42715d5373d462c2def23f83930bc5ed44ec880e06991b",
+  "evaluation_dataset": "NEU-DET/test",
+  "dataset_yaml": "C:\\Users\\user\\Desktop\\vlm\\final_test_evaluation_20260925\\configs\\NEU-DET_test.yaml",
+  "dataset_yaml_sha256": "8abafe14f53e9607225fd0c520b0e2b8b9dbfd9dfe602c086b028b715543a599",
+  "parameters": {
+    "split": "val",
+    "imgsz": 640,
+    "batch": 8,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": 0,
+    "workers": 4,
+    "quantize": 32,
+    "rect": false,
+    "seed": 2026091900,
+    "deterministic": true,
+    "plots": false,
+    "save_json": false
+  },
+  "ultralytics_source_version": "8.4.90"
+}

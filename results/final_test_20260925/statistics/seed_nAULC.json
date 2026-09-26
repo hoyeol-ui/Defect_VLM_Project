@@ -1,0 +1,242 @@
+[
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091901,
+    "method": "Random",
+    "nAULC": 0.1922970700131098,
+    "nAULC_percent": 19.22970700131098,
+    "development_nAULC": 0.21909408679038292
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091901,
+    "method": "DINO_F518",
+    "nAULC": 0.20789593485449331,
+    "nAULC_percent": 20.78959348544933,
+    "development_nAULC": 0.23640975472173942
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091901,
+    "method": "Entropy",
+    "nAULC": 0.18769213661656053,
+    "nAULC_percent": 18.769213661656053,
+    "development_nAULC": 0.2205949027009881
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091902,
+    "method": "Random",
+    "nAULC": 0.19220844718339689,
+    "nAULC_percent": 19.220844718339688,
+    "development_nAULC": 0.2146848879001347
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091902,
+    "method": "DINO_F518",
+    "nAULC": 0.2119283000316451,
+    "nAULC_percent": 21.19283000316451,
+    "development_nAULC": 0.23901506953649554
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091902,
+    "method": "Entropy",
+    "nAULC": 0.19372804568249352,
+    "nAULC_percent": 19.372804568249354,
+    "development_nAULC": 0.21425588622364272
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091903,
+    "method": "Random",
+    "nAULC": 0.19823752942022987,
+    "nAULC_percent": 19.82375294202299,
+    "development_nAULC": 0.22050332369492257
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091903,
+    "method": "DINO_F518",
+    "nAULC": 0.2195345189878014,
+    "nAULC_percent": 21.95345189878014,
+    "development_nAULC": 0.23251675061894345
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091903,
+    "method": "Entropy",
+    "nAULC": 0.19559709461198851,
+    "nAULC_percent": 19.559709461198853,
+    "development_nAULC": 0.21408018107734247
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091904,
+    "method": "Random",
+    "nAULC": 0.1960274269332689,
+    "nAULC_percent": 19.602742693326892,
+    "development_nAULC": 0.213808744900405
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091904,
+    "method": "DINO_F518",
+    "nAULC": 0.20120205402370128,
+    "nAULC_percent": 20.12020540237013,
+    "development_nAULC": 0.23539646482985438
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091904,
+    "method": "Entropy",
+    "nAULC": 0.19127686515303696,
+    "nAULC_percent": 19.127686515303697,
+    "development_nAULC": 0.21485434400199968
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091905,
+    "method": "Random",
+    "nAULC": 0.20838029798976107,
+    "nAULC_percent": 20.838029798976105,
+    "development_nAULC": 0.22461210158381395
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091905,
+    "method": "DINO_F518",
+    "nAULC": 0.22016945957635745,
+    "nAULC_percent": 22.016945957635745,
+    "development_nAULC": 0.2409663700239277
+  },
+  {
+    "dataset": "GC10-DET",
+    "seed": 2026091905,
+    "method": "Entropy",
+    "nAULC": 0.19628740666184238,
+    "nAULC_percent": 19.62874066618424,
+    "development_nAULC": 0.22292722709263563
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091901,
+    "method": "Random",
+    "nAULC": 0.29653696330755375,
+    "nAULC_percent": 29.653696330755373,
+    "development_nAULC": 0.31457376765377104
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091901,
+    "method": "DINO_F518",
+    "nAULC": 0.311965718266717,
+    "nAULC_percent": 31.196571826671697,
+    "development_nAULC": 0.31504767949861584
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091901,
+    "method": "Entropy",
+    "nAULC": 0.31105811107890385,
+    "nAULC_percent": 31.105811107890386,
+    "development_nAULC": 0.31449795357268856
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091902,
+    "method": "Random",
+    "nAULC": 0.3072771719429849,
+    "nAULC_percent": 30.72771719429849,
+    "development_nAULC": 0.3058234683563383
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091902,
+    "method": "DINO_F518",
+    "nAULC": 0.30187012231218446,
+    "nAULC_percent": 30.187012231218446,
+    "development_nAULC": 0.3135811114492767
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091902,
+    "method": "Entropy",
+    "nAULC": 0.3009089123295064,
+    "nAULC_percent": 30.09089123295064,
+    "development_nAULC": 0.3094428517992598
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091903,
+    "method": "Random",
+    "nAULC": 0.3041617743640711,
+    "nAULC_percent": 30.41617743640711,
+    "development_nAULC": 0.323816299266432
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091903,
+    "method": "DINO_F518",
+    "nAULC": 0.2997845941321331,
+    "nAULC_percent": 29.978459413213308,
+    "development_nAULC": 0.31900449355327326
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091903,
+    "method": "Entropy",
+    "nAULC": 0.29405896346434973,
+    "nAULC_percent": 29.40589634643497,
+    "development_nAULC": 0.31522315960625014
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091904,
+    "method": "Random",
+    "nAULC": 0.3051740936531641,
+    "nAULC_percent": 30.51740936531641,
+    "development_nAULC": 0.3231572909321844
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091904,
+    "method": "DINO_F518",
+    "nAULC": 0.3078469773079515,
+    "nAULC_percent": 30.784697730795152,
+    "development_nAULC": 0.3273096829158817
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091904,
+    "method": "Entropy",
+    "nAULC": 0.29620332540725386,
+    "nAULC_percent": 29.620332540725386,
+    "development_nAULC": 0.3194859079065792
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091905,
+    "method": "Random",
+    "nAULC": 0.3030814804943954,
+    "nAULC_percent": 30.30814804943954,
+    "development_nAULC": 0.32443122126587187
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091905,
+    "method": "DINO_F518",
+    "nAULC": 0.3095235755737735,
+    "nAULC_percent": 30.952357557377354,
+    "development_nAULC": 0.32114683399336225
+  },
+  {
+    "dataset": "NEU-DET",
+    "seed": 2026091905,
+    "method": "Entropy",
+    "nAULC": 0.3033700130447637,
+    "nAULC_percent": 30.33700130447637,
+    "development_nAULC": 0.32947799238019443
+  }
+]

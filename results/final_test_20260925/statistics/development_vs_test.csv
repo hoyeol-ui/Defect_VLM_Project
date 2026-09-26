@@ -1,0 +1,7 @@
+dataset,comparison,dev_paired_mean_difference_pp,test_paired_mean_difference_pp,direction_relation
+GC10-DET,DINOv2-FF - Random,1.8320252972260271,1.47158991868464,방향은 같으나 크기가 달라짐
+GC10-DET,DINOv2-FF - Entropy,1.9518373726870375,1.9229743749615325,방향은 같으나 크기가 달라짐
+GC10-DET,Entropy - Random,-0.11981207546101047,-0.45138445627689266,방향은 같으나 크기가 달라짐
+NEU-DET,DINOv2-FF - Random,0.085755078716242,0.2951900766118065,방향은 같으나 크기가 달라짐
+NEU-DET,DINOv2-FF - Entropy,0.15923872290875218,0.5078332453596412,방향은 같으나 크기가 달라짐
+NEU-DET,Entropy - Random,-0.07348364419251019,-0.21264316874783476,방향은 같으나 크기가 달라짐

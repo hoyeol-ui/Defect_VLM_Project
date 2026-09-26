@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "counts": {
+    "GC10-DET": 344,
+    "NEU-DET": 270
+  },
+  "class_image_counts": {
+    "GC10-DET/water_spot": 47,
+    "GC10-DET/inclusion": 30,
+    "GC10-DET/welding_line": 77,
+    "GC10-DET/crescent_gap": 39,
+    "GC10-DET/silk_spot": 110,
+    "GC10-DET/punching_hole": 49,
+    "GC10-DET/oil_spot": 38,
+    "GC10-DET/crease": 8,
+    "GC10-DET/rolled_pit": 7,
+    "GC10-DET/waist_folding": 21,
+    "NEU-DET/inclusion": 57,
+    "NEU-DET/rolled-in_scale": 45,
+    "NEU-DET/patches": 51,
+    "NEU-DET/crazing": 45,
+    "NEU-DET/pitted_surface": 45,
+    "NEU-DET/scratches": 45
+  },
+  "duplicate_float32_rows": 0,
+  "native_parser_warnings": 0
+}

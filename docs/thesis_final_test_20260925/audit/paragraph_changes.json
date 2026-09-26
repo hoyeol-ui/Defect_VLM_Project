@@ -1,0 +1,247 @@
+[
+  {
+    "source_paragraph": 1,
+    "before": "석사학위논문 심사용 초안",
+    "after": "석사학위논문 심사용 수정본"
+  },
+  {
+    "source_paragraph": 10,
+    "before": "실험에는 금속 표면 결함 데이터셋인 GC10-DET와 NEU-DET를 사용하였다. 사전학습된 DINOv2-small에서 추출한 이미지 특징의 코사인 거리를 이용하여 현재 라벨 집합에서 가장 먼 이미지를 순차적으로 추가하는 방식(DINOv2-FF)을 무작위 선택(Random) 및 탐지 결과의 클래스 점수 엔트로피를 이용한 선택(Entropy)과 비교하였다. 라벨 이미지는 학습셋의 약 10%에서 35%까지 다섯 단계에 걸쳐 늘렸으며, 각 단계에서 YOLOv8n을 동일한 사전학습 가중치에서 새로 학습하였다. 데이터셋별로 5개의 선택 시드를 사용하고 학습 시드는 고정하였으며, 학습한 탐지 모델은 모두 162개이다. 성능은 개발셋에서 측정한 mAP50-95 학습곡선과 정규화 학습곡선 아래 면적(nAULC)으로 비교하였고, 클래스별 AP와 선택된 이미지의 클래스 구성도 분석하였다.",
+    "after": "실험에는 금속 표면 결함 데이터셋인 GC10-DET와 NEU-DET를 사용하였다. 사전학습된 DINOv2-small의 이미지 특징과 코사인 거리를 이용하여 현재 라벨 집합에서 가장 먼 이미지를 순차적으로 추가하는 방법(DINOv2-FF)을 무작위 선택(Random) 및 탐지 결과의 클래스 점수 엔트로피를 이용한 선택(Entropy)과 비교하였다. 라벨 이미지는 학습셋의 약 10%에서 35%까지 다섯 단계에 걸쳐 늘렸으며, 각 단계에서 YOLOv8n을 동일한 사전학습 가중치에서 새로 학습하였다. 데이터셋별로 5개의 선택 시드와 하나의 고정 학습 시드를 사용하였다. 개발셋으로 선택한 총 162개 모델을 최종평가셋에서 평가하고, mAP50-95 학습곡선, 정규화 학습곡선 아래 면적(nAULC), 클래스별 AP 및 선택된 이미지의 클래스 구성을 분석하였다."
+  },
+  {
+    "source_paragraph": 11,
+    "before": "GC10-DET에서 DINOv2-FF의 평균 nAULC는 Random보다 1.83%p, Entropy보다 1.95%p 높았으며, 다섯 선택 시드 모두에서 같은 방향의 차이가 나타났다. 그러나 Holm 보정 후 통계적으로 유의한 차이는 확인되지 않았다. NEU-DET에서는 DINOv2-FF와 Random의 평균 nAULC 차이가 0.09%p였고, 라벨 예산에 따라 세 방법의 순서가 바뀌었다. 클래스별 결과에서는 증가와 감소가 함께 나타났다. R5에서 GC10-DET의 welding_line은 DINOv2-FF의 AP50-95가 Random보다 12.81%p 높았고 NEU-DET의 rolled-in_scale은 4.79%p 낮았으며, 두 클래스를 포함한 이미지의 선택 수도 같은 방향으로 달라졌다. NEU-DET에서 라운드별 최저 AP 클래스의 nAULC는 DINOv2-FF가 Random보다 1.92%p 낮았다.",
+    "after": "GC10-DET에서 DINOv2-FF의 평균 nAULC는 Random보다 1.47%p, Entropy보다 1.92%p 높았으며, 두 비교 모두 다섯 선택 시드에서 차이가 양수였다. NEU-DET에서는 Random 대비 평균 차이가 0.30%p로 작고 시드별 방향이 달랐으며, Entropy 대비 0.51%p의 양의 평균 차이는 다섯 시드에서 모두 관찰되었다. 네 주 비교 모두 Holm 보정 후 통계적 유의성은 확인되지 않았다. R5의 클래스별 AP 차이는 GC10-DET의 welding_line에서 +11.32%p, NEU-DET의 inclusion에서 -1.37%p였으며, NEU-DET의 최저 클래스 nAULC는 DINOv2-FF가 Random보다 1.64%p 낮았다."
+  },
+  {
+    "source_paragraph": 12,
+    "before": "DINOv2 특징 기반 다양성 선택의 평균 성능 향상은 데이터셋에 따라 달랐으며, 평균 성능의 향상이 모든 결함 클래스의 향상으로 이어지지도 않았다. 이 결과는 개발셋에서 측정한 것으로, 분리해 둔 최종평가셋에서의 확인은 이루어지지 않았다.",
+    "after": "개발셋에서 관찰된 네 주 비교의 평균 차이 방향은 최종평가셋에서도 유지되었다. 그러나 특징 기반 다양성 선택의 평균적 이점은 데이터셋에 따라 달랐고, 모든 결함 클래스와 최저 클래스 성능의 향상으로 이어지지는 않았다."
+  },
+  {
+    "source_paragraph": 140,
+    "before": "학습 과정에서 저장할 모델은 개발셋의 성능을 기준으로 결정하였다. 본 논문에서 제시하는 성능과 통계는 모두 개발셋에서 측정한 값이며, 개발셋을 저장 모델 선택에도 사용하였으므로 성능이 다소 낙관적으로 추정되었을 수 있다. 최종평가셋은 표본 선택, 학습, 모델 선택에 사용하지 않았다.",
+    "after": "학습 과정에서 저장할 모델은 개발셋의 성능을 기준으로 결정하였다. 최종평가에서는 이렇게 선택한 모델과 평가 조건 및 분석 방법을 고정한 뒤, 별도로 분리해 둔 최종평가셋(test)에서 성능을 측정하였다. 본 논문의 주 성능 결과와 통계 비교는 최종평가셋에 근거하며, 개발셋 결과는 관찰된 차이의 방향을 비교하는 보조 자료로 제시한다. 최종평가셋은 표본 선택, 학습 및 저장 모델 선택에 사용하지 않았다."
+  },
+  {
+    "source_paragraph": 147,
+    "before": "학습셋은 표본 선택과 탐지 모델 학습에, 개발셋은 저장 모델 선택과 성능 보고에 사용하였다.",
+    "after": "학습셋은 표본 선택과 탐지 모델 학습에, 개발셋은 저장 모델 선택과 개발 과정의 성능 확인에 사용하였다. 최종평가셋은 모델과 분석 절차를 고정한 뒤 최종 성능 평가에 사용하였다. 평가 전 이미지 식별자, 파일 및 RGB 해시와 연결요소를 기준으로 분할 간 중복이 없음을 다시 확인하였다."
+  },
+  {
+    "source_paragraph": 186,
+    "before": "학습 중에는 개발셋의 성능을 기준으로 저장 모델을 선택하였고, 선택된 모델을 표 3-3의 평가 조건으로 다시 평가한 값을 보고하였다. Entropy 선택용 추론의 점수 기준(0.25)은 성능 평가의 점수 기준(0.001)과 별도로 설정하였다.",
+    "after": "학습 중에는 개발셋의 성능을 기준으로 저장 모델을 선택하였다. 선택된 모델의 개발셋 재평가와 최종평가셋 평가는 표 3-3의 동일한 평가 조건으로 수행하였다. Entropy 선택용 추론의 점수 기준(0.25)은 성능 평가의 점수 기준(0.001)과 별도로 설정하였다. 최종평가 전에 기존 모델 한 개로 개발셋 평가값의 일치를 확인하였으며, 최종평가 환경과 검증 범위는 부록 A에 제시하였다."
+  },
+  {
+    "source_paragraph": 193,
+    "before": "라벨 예산에 따른 성능 변화는 학습곡선으로 나타내었다. 가로축은 각 단계에서 사용한 실제 누적 라벨 이미지 수이며 세로축은 mAP50-95이다. 같은 방법과 라운드에서 다섯 선택 시드의 평균을 사용하고 표본 표준편차를 함께 제시하였다.",
+    "after": "라벨 예산에 따른 성능 변화는 최종평가셋의 학습곡선으로 나타내었다. 가로축은 각 단계에서 사용한 실제 누적 라벨 이미지 수 또는 학습셋 대비 비율이며 세로축은 mAP50-95이다. 같은 방법과 라운드에서 다섯 선택 시드의 평균을 사용하고 표본 표준편차를 함께 제시하였다."
+  },
+  {
+    "source_paragraph": 210,
+    "before": "두 데이터셋에서 학습한 탐지 모델은 공통 R0 모델 10개, Random 50개, DINOv2-FF 50개, Entropy 50개, 전체 학습자료 참고 모델 2개로 총 162개이다.",
+    "after": "두 데이터셋에서 학습한 탐지 모델은 공통 R0 모델 10개, Random 50개, DINOv2-FF 50개, Entropy 50개, 전체 학습자료 참고 모델 2개로 총 162개이다. 최종평가에서는 기록된 SHA-256과 일치하는 162개 모델을 각각 한 번 평가하였다. 공통 R0는 세 방법이 같은 평가값을 공유하며, 기술 점검용 모델은 분석 대상에서 제외하였다."
+  },
+  {
+    "source_paragraph": 211,
+    "before": "본 장에서는 개발셋에서 측정한 결과를 제시한다. 세 표본 선택 방법은 같은 선택 시드에서 동일한 R0로 시작하였으며, 이후 R1부터 R5까지 각 방법에 따라 서로 다른 이미지를 추가하였다. 성능은 라벨 예산별 mAP50-95, 전체 학습곡선을 요약한 nAULC, 클래스별 AP와 선택된 이미지의 클래스 구성을 중심으로 비교하였다.",
+    "after": "본 장에서는 GC10-DET 344장과 NEU-DET 270장으로 구성된 최종평가셋의 결과를 제시한다. 세 표본 선택 방법은 같은 선택 시드에서 동일한 R0로 시작하였으며, 이후 R1부터 R5까지 서로 다른 이미지를 추가하였다. 성능은 라벨 예산별 mAP50-95, nAULC, 클래스별 AP와 선택된 이미지의 클래스 구성을 중심으로 비교하였다. 개발셋과의 비교는 4.7절에서 별도로 제시한다."
+  },
+  {
+    "source_paragraph": 213,
+    "before": "GC10-DET의 R0 평균 mAP50-95는 18.69%였다. 이후 R1부터 R5까지 DINOv2-FF의 평균 성능은 모든 라벨 예산에서 Random보다 높게 나타났다.",
+    "after": "GC10-DET의 R0 평균 mAP50-95는 16.91%였다. 이후 R1부터 R5까지 DINOv2-FF의 평균 성능은 모든 라벨 예산에서 Random과 Entropy보다 높게 나타났다."
+  },
+  {
+    "source_paragraph": 214,
+    "before": "R1에서 Random과 DINOv2-FF의 평균 성능은 각각 20.09%와 21.82%였으며, R2에서는 21.74%와 23.49%였다. R3 이후에도 같은 경향이 이어졌고, R5에서는 Random 24.41%, DINOv2-FF 26.72%, Entropy 24.32%로 나타났다. 최종 라벨 예산에서 DINOv2-FF와 Random의 평균 차이는 2.31%p였다.",
+    "after": "R1에서 Random과 DINOv2-FF의 평균 성능은 각각 17.93%와 19.06%였으며, R2에서는 18.63%와 20.34%였다. R5에서는 Random 21.71%, DINOv2-FF 23.28%, Entropy 21.78%로 나타났다. R5에서 DINOv2-FF와 Random의 평균 차이는 1.57%p였다."
+  },
+  {
+    "source_paragraph": 216,
+    "before": "그림 4-1. 라벨 이미지 비율에 따른 개발셋 학습곡선. 왼쪽은 GC10-DET, 오른쪽은 NEU-DET이다. 세로축은 mAP50-95(%), 가로축은 실제 누적 라벨 비율이며, 값은 선택 시드 5개의 평균 ± 표본 표준편차이다.",
+    "after": "그림 4-1. 라벨 이미지 비율에 따른 최종평가셋 학습곡선. 왼쪽은 GC10-DET, 오른쪽은 NEU-DET이다. 값은 선택 시드 5개의 평균 ± 표본 표준편차이며, 점선은 전체 학습자료 참고 모델 1개의 성능이다."
+  },
+  {
+    "source_paragraph": 218,
+    "before": "NEU-DET에서는 세 방법의 평균 성능 차이가 GC10-DET보다 작게 나타났다. R0의 평균 mAP50-95는 28.22%였으며, R1에서는 Random 30.77%, DINOv2-FF 30.23%, Entropy 29.72%였다.",
+    "after": "NEU-DET에서는 세 방법의 평균 성능 차이가 GC10-DET보다 작게 나타났다. R0의 평균 mAP50-95는 26.62%였으며, R1에서는 Random 28.40%, DINOv2-FF 29.52%, Entropy 27.91%였다."
+  },
+  {
+    "source_paragraph": 219,
+    "before": "DINOv2-FF는 R2와 R3에서 Random보다 높은 평균 성능을 보였다. R2에서는 Random 31.54%, DINOv2-FF 31.98%였으며, R3에서는 각각 32.27%와 33.37%였다. 이후 R4와 R5에서는 Random의 평균이 다시 높아졌다. R5의 성능은 Random 33.72%, DINOv2-FF 33.62%, Entropy 33.71%로 세 방법이 비슷하게 나타났다. ",
+    "after": "DINOv2-FF는 R1, R2, R3 및 R5에서 세 방법 중 가장 높은 평균 성능을 보였다. R4에서는 Random 32.51%, DINOv2-FF 31.61%로 Random의 평균이 높았다. R5의 성능은 Random 32.67%, DINOv2-FF 33.06%, Entropy 32.63%였다."
+  },
+  {
+    "source_paragraph": 220,
+    "before": "따라서 NEU-DET에서는 라벨 예산이 증가하는 과정에서 세 방법의 평균 성능 순서가 일정하게 유지되지 않았다.",
+    "after": "따라서 NEU-DET에서는 DINOv2-FF가 여러 라벨 예산에서 높은 평균값을 보였지만, 모든 예산에서 일관되게 가장 높지는 않았다. 시드별 차이와 전체 예산 구간의 결과는 nAULC의 대응 비교로 확인하였다."
+  },
+  {
+    "source_paragraph": 221,
+    "before": "표 4-1. 라벨 예산별 개발셋 mAP50-95",
+    "after": "표 4-1. 라벨 예산별 최종평가셋 mAP50-95"
+  },
+  {
+    "source_paragraph": 225,
+    "before": "GC10-DET에서 Random의 평균 nAULC는 21.85%, DINOv2-FF는 23.69%, Entropy는 21.73%였다. DINOv2-FF는 Random보다 평균 1.83%p, Entropy보다 1.95%p 높게 나타났다.",
+    "after": "GC10-DET에서 Random의 평균 nAULC는 19.74%, DINOv2-FF는 21.21%, Entropy는 19.29%였다. DINOv2-FF는 Random보다 평균 1.47%p, Entropy보다 1.92%p 높게 나타났다."
+  },
+  {
+    "source_paragraph": 226,
+    "before": "NEU-DET에서는 Random 31.84%, DINOv2-FF 31.92%, Entropy 31.76%로 세 방법의 차이가 작았다. DINOv2-FF와 Random의 평균 차이는 0.09%p였다.",
+    "after": "NEU-DET에서는 Random 30.32%, DINOv2-FF 30.62%, Entropy 30.11%였다. DINOv2-FF와 Random의 평균 차이는 0.30%p, Entropy와의 차이는 0.51%p였다."
+  },
+  {
+    "source_paragraph": 227,
+    "before": "표 4-2. 개발셋 nAULC",
+    "after": "표 4-2. 최종평가셋 nAULC"
+  },
+  {
+    "source_paragraph": 232,
+    "before": "NEU-DET에서는 DINOv2-FF와 Random의 차이가 다섯 시드 중 세 개에서 양수였으며, DINOv2-FF와 Entropy의 비교에서는 네 개가 양수였다. 두 비교의 95% 구간에는 0이 포함되었다. 보조 비교인 Entropy와 Random의 nAULC 차이는 GC10-DET에서 -0.12%p(95% 구간 -0.40~0.09, 양수 시드 2/5, 정확 p=0.5625), NEU-DET에서 -0.07%p(95% 구간 -0.52~0.35, 양수 시드 2/5, 정확 p=0.7500)였다.",
+    "after": "NEU-DET에서 DINOv2-FF와 Random의 차이는 다섯 시드 중 세 개에서 양수였으며, 95% 구간은 0을 포함하였다. Entropy 대비 차이는 다섯 시드 모두에서 양수였고 95% 구간은 0보다 높았으나, 정확 양측 p값은 0.0625, Holm 보정 후 p값은 0.25였다. 네 주 비교 모두 유의수준 0.05에서 통계적 유의성은 확인되지 않았다."
+  },
+  {
+    "source_paragraph": 234,
+    "before": "학습셋 전체를 사용한 참고 모델의 개발셋 mAP50-95는 GC10-DET 27.36%, NEU-DET 38.51%였다.",
+    "after": "학습셋 전체를 사용한 참고 모델의 최종평가셋 mAP50-95는 GC10-DET 24.59%, NEU-DET 37.17%였다."
+  },
+  {
+    "source_paragraph": 235,
+    "before": "약 35%의 라벨 이미지를 사용한 R5에서 GC10-DET의 평균 성능은 Random 24.41%, DINOv2-FF 26.72%, Entropy 24.32%였다. NEU-DET에서는 각각 33.72%, 33.62%, 33.71%로 나타났다.",
+    "after": "약 35%의 라벨 이미지를 사용한 R5에서 GC10-DET의 평균 성능은 Random 21.71%, DINOv2-FF 23.28%, Entropy 21.78%였다. NEU-DET에서는 각각 32.67%, 33.06%, 32.63%로 나타났다."
+  },
+  {
+    "source_paragraph": 237,
+    "before": "개발셋 mAP50-95 (%). R5는 다섯 선택 시드의 평균이며 전체 자료 모델은 데이터셋별 1회 결과이다. 본문의 절대 차이는 반올림 전 수치에 근거한다.",
+    "after": "최종평가셋 mAP50-95 (%). R5는 다섯 선택 시드의 평균이며 전체 자료 모델은 데이터셋별 1회 결과이다. 본문의 절대 차이는 반올림 전 수치에 근거한다."
+  },
+  {
+    "source_paragraph": 238,
+    "before": "GC10-DET에서 전체 학습자료 모델과 DINOv2-FF의 차이는 0.65%p였고 Random과의 차이는 2.95%p였다. NEU-DET에서는 전체 학습자료 모델과 DINOv2-FF의 차이가 4.89%p였다.",
+    "after": "GC10-DET에서 전체 학습자료 모델과 DINOv2-FF의 차이는 1.31%p였고 Random과의 차이는 2.88%p였다. NEU-DET에서 전체 학습자료 모델과 DINOv2-FF의 차이는 4.10%p였다. 전체 학습자료 결과는 단일 모델의 참고값이므로, 이를 성능의 상한이나 약 35% 라벨 사용의 동등성 근거로 해석하지 않았다."
+  },
+  {
+    "source_paragraph": 241,
+    "before": "그림 4-2. R5에서 DINOv2-FF와 Random의 클래스별 AP50-95 차이. GC10-DET 10개와 NEU-DET 6개 클래스를 모두 표시하였으며, 값은 선택 시드 5개의 평균 차이(%p)이다.",
+    "after": "그림 4-2. 최종평가셋 R5에서 DINOv2-FF와 Random의 클래스별 AP50-95 차이. GC10-DET 10개와 NEU-DET 6개 클래스에 대한 선택 시드 5개의 평균 차이(%p)이다."
+  },
+  {
+    "source_paragraph": 243,
+    "before": "GC10-DET에서는 클래스에 따라 차이의 크기와 방향이 달랐다. DINOv2-FF와 Random의 평균 차이는 welding_line에서 +12.81%p로 가장 크게 나타났으며, water_spot +3.13%p, rolled_pit +3.01%p, punching_hole +2.66%p 등이 양의 차이를 보였다. 반면 waist_folding에서는 -2.20%p, silk_spot에서는 -0.09%p였다(표 4-5). ",
+    "after": "GC10-DET에서는 클래스에 따라 차이의 크기와 방향이 달랐다. DINOv2-FF와 Random의 평균 차이는 welding_line에서 +11.32%p로 가장 컸으며, punching_hole +1.46%p, oil_spot +1.20%p, silk_spot +1.13%p 등이 양의 차이를 보였다. 반면 rolled_pit은 -0.96%p, waist_folding은 -0.22%p, inclusion은 -0.21%p였다(표 4-5)."
+  },
+  {
+    "source_paragraph": 245,
+    "before": "NEU-DET에서도 클래스별 차이는 일정하지 않았다. DINOv2-FF는 Random보다 scratches에서 +1.71%p, inclusion에서 +1.27%p, pitted_surface에서 +0.81%p 높았다. 반면 rolled-in_scale은 -4.79%p, crazing은 -0.22%p였다. ",
+    "after": "NEU-DET에서는 scratches +3.54%p, patches +1.93%p, pitted_surface +1.59%p로 DINOv2-FF의 평균 AP가 Random보다 높았다. 반면 crazing은 -1.94%p, inclusion은 -1.37%p, rolled-in_scale은 -1.38%p로 낮았다."
+  },
+  {
+    "source_paragraph": 252,
+    "before": "NEU-DET의 전체 클래스 결과와 선택 구성은 표 4-7, 표 4-8과 같다. 라운드별 최저 AP 클래스로 구성한 학습곡선의 nAULC는 NEU-DET에서 Random 9.61%, DINOv2-FF 7.70%, Entropy 9.97%였으며, DINOv2-FF와 Random의 대응 차이는 -1.92%p로 다섯 시드 모두에서 음수였다. GC10-DET에서는 각각 2.16%, 2.50%, 2.68%였고, DINOv2-FF와 Random의 차이는 0.34%p였다.",
+    "after": "NEU-DET의 전체 클래스 결과와 선택 구성은 표 4-7, 표 4-8과 같다. 라운드별 최저 AP 클래스로 구성한 학습곡선의 nAULC는 NEU-DET에서 Random 12.01%, DINOv2-FF 10.37%, Entropy 12.58%였다. DINOv2-FF와 Random의 대응 차이는 -1.64%p였으며 다섯 시드 중 네 개에서 음수였다. GC10-DET에서는 각각 1.56%, 1.67%, 1.89%였고, DINOv2-FF와 Random의 차이는 0.10%p였다. 이는 각 모델·라운드에서 가장 낮은 클래스 AP를 취한 보조 지표로, 특정 클래스 하나의 고정된 성능 곡선과는 구별된다."
+  },
+  {
+    "source_paragraph": 248,
+    "before": "AP50-95의 평균 ± 표본 표준편차(%), n=5. 마지막 열은 DINOv2-FF와 Random의 평균 차이(%p)이다. 차이는 반올림 전 값으로 계산하였다.",
+    "after": "최종평가셋 AP50-95의 평균 ± 표본 표준편차(%), n=5. 마지막 열은 DINOv2-FF와 Random의 평균 차이(%p)이다. 차이는 반올림 전 값으로 계산하였다."
+  },
+  {
+    "source_paragraph": 255,
+    "before": "AP50-95의 평균 ± 표본 표준편차(%), n=5. 마지막 열은 DINOv2-FF와 Random의 평균 차이(%p)이다. 차이는 반올림 전 값으로 계산하였다.",
+    "after": "최종평가셋 AP50-95의 평균 ± 표본 표준편차(%), n=5. 마지막 열은 DINOv2-FF와 Random의 평균 차이(%p)이다. 차이는 반올림 전 값으로 계산하였다."
+  },
+  {
+    "source_paragraph": 261,
+    "before": "같은 표본 선택 방법을 적용하였으나 DINOv2-FF의 효과는 데이터셋에 따라 달랐다. GC10-DET에서는 R1부터 R5까지 모든 라벨 예산에서 DINOv2-FF의 평균이 가장 높았던 반면, NEU-DET에서는 평균 nAULC 차이가 작고 예산에 따라 방법 간 순서가 바뀌었다.",
+    "after": "최종평가셋에서도 DINOv2-FF의 평균적 이점은 데이터셋에 따라 달랐다. GC10-DET에서는 R1부터 R5까지 모든 라벨 예산에서 DINOv2-FF의 평균이 가장 높았으며, 개발셋에서 관찰된 방향이 유지되었다. NEU-DET에서는 Random 대비 평균 nAULC 차이가 작고 시드별 방향이 달랐다."
+  },
+  {
+    "source_paragraph": 262,
+    "before": "이 차이는 사전학습 특징을 이용한 다양성 선택의 효과가 데이터셋의 특성과 관계될 수 있음을 보여준다. DINOv2-FF는 현재 선택된 이미지와 특징 공간에서 멀리 떨어진 표본을 추가하므로, 데이터셋 안에서 어떤 시각적 차이가 크게 나타나는지에 따라 선택되는 이미지도 달라진다. 결함의 형태와 크기, 배경, 같은 클래스 안의 시각적 변화 등이 서로 다르면 특징 공간에서의 거리 역시 다른 의미를 가질 수 있다.",
+    "after": "이러한 결과는 특징 기반 다양성 선택의 효과를 데이터셋의 특성과 함께 해석할 필요가 있음을 보여준다. DINOv2-FF는 현재 선택된 이미지와 특징 공간에서 멀리 떨어진 표본을 추가한다. 결함의 형태와 크기, 배경, 같은 클래스 안의 시각적 변화 등이 선택 결과에 영향을 줄 수 있으나, 본 실험은 이들 요인의 개별 효과를 분리하여 검증하지는 않았다."
+  },
+  {
+    "source_paragraph": 264,
+    "before": "NEU-DET에서는 R2와 R3에서 DINOv2-FF의 평균이 가장 높았으나 R1, R4, R5에서는 Random의 평균이 가장 높았다. R5의 성능만 비교하면 세 방법의 차이는 0.1%p 이내였으므로, 두 데이터셋의 차이는 라벨 예산 구간 전체를 비교하였을 때 드러났다.",
+    "after": "NEU-DET에서는 DINOv2-FF가 R1·R2·R3·R5에서 가장 높은 평균값을 보였지만 R4에서는 Random이 높았다. 전체 구간에서 Random 대비 평균 차이는 0.30%p이고 양수 시드는 3/5였으므로 일관된 우위를 주장하기 어렵다. Entropy 대비 평균 차이는 0.51%p이며 다섯 시드에서 모두 양수였다. 다만 이 비교 역시 Holm 보정 후 유의하지 않아, 차이의 크기와 방향을 중심으로 해석하였다."
+  },
+  {
+    "source_paragraph": 266,
+    "before": "전체 평균 성능의 차이는 모든 결함 클래스에서 같은 방향으로 나타나지 않았다. GC10-DET에서 DINOv2-FF는 Random보다 welding_line의 AP50-95가 12.81%p 높았지만 waist_folding에서는 2.20%p 낮았다. NEU-DET에서도 scratches는 1.71%p 높았던 반면 rolled-in_scale은 4.79%p 낮았다. ",
+    "after": "전체 평균 성능의 차이는 모든 결함 클래스에서 같은 방향으로 나타나지 않았다. GC10-DET에서 DINOv2-FF는 Random보다 welding_line의 AP50-95가 11.32%p 높았지만 rolled_pit은 0.96%p 낮았다. NEU-DET에서는 scratches가 3.54%p 높았던 반면 inclusion은 1.37%p, crazing은 1.94%p 낮았다."
+  },
+  {
+    "source_paragraph": 269,
+    "before": "일부 클래스에서는 선택된 이미지 수와 AP의 변화 방향이 일치하였다. welding_line과 scratches는 DINOv2-FF에서 선택 수와 AP가 모두 증가하였고, rolled-in_scale과 waist_folding은 모두 감소하였다. 반면 NEU-DET의 crazing은 선택 수가 70.8장에서 31.0장으로 줄었으나 AP 차이는 -0.22%p로 작았고, GC10-DET의 silk_spot도 선택 수가 180.2장에서 98.0장으로 줄었으나 AP 차이는 -0.09%p에 그쳤다. 따라서 선택 수만으로 클래스별 AP 변화를 설명하기는 어려우며, 선택된 이미지에 포함된 결함의 형태와 크기, 난이도가 함께 작용하였을 가능성이 있다.",
+    "after": "일부 클래스에서는 선택된 이미지 수와 AP의 변화 방향이 일치하였다. welding_line과 scratches는 DINOv2-FF에서 선택 수와 AP가 모두 증가하였고, rolled-in_scale과 waist_folding은 모두 감소하였다. 반면 NEU-DET의 inclusion은 선택 수가 92.8장에서 116.2장으로 증가했으나 AP는 1.37%p 낮았다. GC10-DET의 silk_spot은 선택 수가 180.2장에서 98.0장으로 감소했으나 AP는 1.13%p 높았다. 따라서 선택 수만으로 AP 변화를 설명하기 어렵다. 선택된 이미지의 형태와 난이도 등이 함께 작용했을 가능성은 있으나, 이를 인과적으로 확인한 결과는 아니다."
+  },
+  {
+    "source_paragraph": 271,
+    "before": "본 연구에서 사용한 Entropy 기반 선택은 두 데이터셋에서 Random과 비슷한 평균 nAULC를 보였다. GC10-DET에서는 Entropy의 평균 nAULC가 21.73%, Random이 21.85%였으며, NEU-DET에서는 각각 31.76%와 31.84%였다. 두 데이터셋 모두 평균 차이는 크지 않았다. ",
+    "after": "본 연구의 Entropy 선택은 두 데이터셋에서 Random보다 낮은 평균 nAULC를 보였다. GC10-DET에서 Entropy는 19.29%, Random은 19.74%였으며, NEU-DET에서는 각각 30.11%, 30.32%였다. 보조 비교의 정확 검정에서 두 차이는 유의하지 않았으므로, 이 결과만으로 Entropy 선택이 일반적으로 열등하다고 해석하기는 어렵다."
+  },
+  {
+    "source_paragraph": 278,
+    "before": "GC10-DET에서 나타난 평균 성능 향상은 이 특징 공간의 다양성이 해당 데이터셋에서 탐지 학습에 유용한 표본을 확보하는 데 일정 부분 도움이 되었음을 보여준다. 반면 NEU-DET에서 평균 차이가 작고 클래스별 선택 비중이 크게 달라진 결과를 보면, 특징 공간에서의 다양성이 항상 각 결함 클래스의 학습에 필요한 정보를 균등하게 확보하는 것은 아니었다.",
+    "after": "GC10-DET에서 관찰된 양의 평균 차이는 고정된 실험 조건에서 특징 기반 다양성 선택이 유용할 수 있음을 보여준다. 반면 NEU-DET의 Random 대비 차이는 작고 클래스별 이점과 감소가 함께 나타났다. 특징 공간에서 다양한 이미지를 확보하는 것이 각 결함 클래스에 필요한 학습 정보를 균등하게 확보하는 것과 같지는 않았다."
+  },
+  {
+    "source_paragraph": 284,
+    "before": "첫째, 본 연구의 결과는 개발셋에서 측정한 성능에 근거한다. 개발셋은 학습 과정에서 저장 모델을 선택하는 데에도 사용하였으며, 별도로 분리한 최종평가셋의 평가는 수행하지 않았다.",
+    "after": "첫째, 최종평가셋은 모델 선택과 분리하여 사용하였으나 같은 공개 데이터셋 안에서 구성한 분할이다. 이미지와 연결요소의 분할 간 중복은 제거했지만, 다른 생산 설비나 공정에서 수집한 외부 데이터에 대한 일반화까지 검증한 것은 아니다."
+  },
+  {
+    "source_paragraph": 289,
+    "before": "후속 연구에서는 우선 최종평가셋을 이용하여 현재 개발셋에서 관찰된 결과가 유지되는지를 확인할 필요가 있다. 이후 학습 시드를 확대하여 모델 학습 과정의 변동을 함께 측정하고, DINOv2 입력 방식과 특징 표현을 달리한 비교를 통해 특징 공간의 영향을 분석할 수 있다. 실제 산업 적용을 고려한다면 이미지 수뿐 아니라 경계 상자 작성 시간과 검수 시간까지 측정하여 라벨 비용과 탐지 성능의 관계를 평가하는 연구도 필요하다.",
+    "after": "후속 연구에서는 학습 시드를 확대하여 모델 학습 과정의 변동을 함께 측정하고, DINOv2 입력 방식과 특징 표현을 달리한 비교를 통해 특징 공간의 영향을 분석할 수 있다. 실제 산업 적용을 고려한다면 외부 생산 환경의 데이터와 이미지 수뿐 아니라 경계 상자 작성 시간 및 검수 시간까지 반영하여 라벨 비용과 탐지 성능의 관계를 평가할 필요가 있다."
+  },
+  {
+    "source_paragraph": 293,
+    "before": "개발셋에서 확인한 결과는 데이터셋에 따라 다르게 나타났다. GC10-DET에서 DINOv2-FF의 평균 nAULC는 Random보다 1.83%p 높았으며, 다섯 개의 선택 시드에서 모두 같은 방향의 차이가 나타났다. 반면 NEU-DET에서는 두 방법의 평균 nAULC 차이가 0.09%p였고, 라벨 예산에 따라 세 방법의 성능 순서가 달라졌다. ",
+    "after": "최종평가셋에서 GC10-DET의 DINOv2-FF 평균 nAULC는 Random보다 1.47%p, Entropy보다 1.92%p 높았으며 두 비교 모두 다섯 선택 시드에서 차이가 양수였다. NEU-DET에서는 Random 대비 평균 차이가 0.30%p로 작고 시드별 방향이 달랐으며, Entropy 대비 0.51%p의 양의 평균 차이는 다섯 시드에서 모두 관찰되었다. 네 주 비교의 평균 차이 방향은 개발셋에서도 같았으나, 최종평가의 네 주 비교 모두 Holm 보정 후 통계적 유의성은 확인되지 않았다."
+  },
+  {
+    "source_paragraph": 294,
+    "before": "클래스별 결과에서도 동일한 경향이 나타나지는 않았다. GC10-DET에서는 welding_line과 같이 DINOv2-FF에서 성능이 크게 증가한 클래스가 있는 반면 일부 클래스에서는 성능이 감소하였다. NEU-DET에서도 scratches와 inclusion은 Random보다 높은 성능을 보였지만 rolled-in_scale과 crazing은 낮게 나타났다. 선택된 이미지의 클래스 구성 역시 표본 선택 방법에 따라 달라졌다. ",
+    "after": "클래스별 결과에서는 이점과 감소가 함께 나타났다. GC10-DET의 welding_line과 NEU-DET의 scratches에서는 DINOv2-FF의 평균 AP가 Random보다 높았지만, GC10-DET의 rolled_pit과 NEU-DET의 inclusion·crazing·rolled-in_scale에서는 낮았다. 선택된 이미지의 클래스 구성도 방법에 따라 달랐으며, 선택 수의 변화와 AP 변화의 방향은 모든 클래스에서 일치하지 않았다."
+  },
+  {
+    "source_paragraph": 295,
+    "before": "연구 질문에 비추어 보면, RQ1에 대해 DINOv2-FF는 GC10-DET에서 학습곡선 전 구간에 걸쳐 Random과 Entropy보다 높은 평균 성능을 보였으나, NEU-DET에서는 세 방법 사이에 뚜렷한 차이를 보이지 않았다. RQ2에 대해서는 평균 성능의 차이가 결함 클래스에 따라 다른 방향으로 나타났으며, 일부 클래스에서는 선택된 이미지 수의 변화와 AP 변화의 방향이 일치하였으나 모든 클래스에서 그렇지는 않았다. NEU-DET에서는 최저 AP 클래스의 학습곡선이 DINOv2-FF에서 Random보다 낮았다.",
+    "after": "RQ1에 대해 DINOv2-FF는 GC10-DET에서 R1부터 R5까지 Random과 Entropy보다 높은 평균 성능을 보였다. NEU-DET에서는 Random 대비 이점이 작고 시드별 방향이 달랐으며, Entropy 대비로는 작은 양의 차이가 일관되게 관찰되었다. RQ2에 대해서는 평균 성능의 차이가 결함 클래스에 따라 다른 방향으로 나타났고, NEU-DET의 최저 클래스 nAULC는 DINOv2-FF가 두 비교 방법보다 낮았다. 따라서 특징 기반 다양성 선택의 평균적 이점을 모든 클래스와 최저 클래스 성능의 향상으로 일반화할 수 없다."
+  },
+  {
+    "source_paragraph": 296,
+    "before": "향후에는 분리해 둔 최종평가셋에서 이 결과를 확인하고, 학습 시드와 특징 표현을 달리한 반복 실험과 실제 주석 시간을 반영한 평가를 수행할 필요가 있다.",
+    "after": "이 결과는 고정된 학습 시드와 두 공개 데이터셋의 최종평가셋에서 얻은 것이다. 향후에는 학습 시드와 특징 표현을 달리한 반복실험, 외부 생산 환경에서의 평가, 실제 주석 시간을 반영한 비용 분석으로 적용 범위를 확인할 필요가 있다."
+  },
+  {
+    "source_paragraph": 320,
+    "before": "Metal surface defect detection is essential for quality control in manufacturing, yet acquiring defect data in industrial settings is difficult, and the bounding box annotation required for object detection is time-consuming and costly. Therefore, an effective method for training defect detection models with limited labeled data is needed.",
+    "after": "Training a metal surface defect detector requires annotations of defect categories and bounding boxes, which are costly to obtain in industrial settings. Active learning selects images for annotation to train models with limited labeled data. This study examined whether sample selection using pretrained DINOv2 image features improves metal surface defect detection under limited labeling."
+  },
+  {
+    "source_paragraph": 321,
+    "before": "Active learning reduces the annotation burden by selecting informative samples from unlabeled data. This study examines whether selecting visually diverse images in the feature space of a pretrained DINOv2 model improves metal surface defect object detection under limited labeling, compared with random and uncertainty-based selection.",
+    "after": "On GC10-DET and NEU-DET, greedy farthest-first selection using cosine distances between frozen DINOv2-small features (DINOv2-FF) was compared with random selection (Random) and detection-score entropy selection (Entropy). The labeled set increased from approximately 10% to 35% of the training set over five acquisition rounds. YOLOv8n was retrained from the same pretrained weights at each round. Five acquisition seeds and one fixed training seed were used per dataset. All 162 models selected using the development set were evaluated on the held-out test sets. Performance was analyzed using mAP50-95 learning curves, normalized area under the learning curve (nAULC), class-wise AP, and the class composition of selected images."
+  },
+  {
+    "source_paragraph": 322,
+    "before": "Greedy farthest-first selection in the frozen DINOv2-small feature space (DINOv2-FF) was compared with random selection (Random) and detection-score entropy selection (Entropy). On GC10-DET and NEU-DET, the labeled set was increased from approximately 10% to 35% of the training set in five rounds, and YOLOv8n was retrained from the same pretrained weights at each round. Five acquisition seeds were used per dataset, and 162 detection models were trained in total. Performance on the development set was analyzed using the normalized area under the learning curve (nAULC), class-wise AP, and the class composition of the selected images.",
+    "after": "On GC10-DET, DINOv2-FF had a mean nAULC 1.47 percentage points higher than Random and 1.92 points higher than Entropy; both differences were positive for all five acquisition seeds. On NEU-DET, the mean difference from Random was small (0.30 points), with mixed directions across seeds. The mean difference from Entropy was 0.51 points and was positive for all five seeds. None of the four primary comparisons was statistically significant after Holm correction."
+  },
+  {
+    "source_paragraph": 323,
+    "before": "On GC10-DET, DINOv2-FF showed a mean nAULC 1.83 percentage points higher than Random, with the same direction of difference across all five acquisition seeds, although the difference was not significant after Holm correction. On NEU-DET, the mean difference was 0.09 percentage points, and the ranking of the methods changed across budgets. Class-wise differences varied in size and direction, and the class composition of the selected images differed by selection method.",
+    "after": "At R5, the DINOv2-FF minus Random AP difference was +11.32 points for welding_line on GC10-DET and -1.37 points for inclusion on NEU-DET. On NEU-DET, the nAULC formed from the lowest class AP at each round was 1.64 points lower for DINOv2-FF than for Random."
+  },
+  {
+    "source_paragraph": 324,
+    "before": "The average benefit of pretrained-feature-based diversity selection depended on the dataset and did not extend uniformly to all defect classes. These results are based on the development set and have not yet been confirmed on the held-out test set.",
+    "after": "The direction of the mean difference in each of the four primary comparisons observed on the development sets was maintained on the held-out test sets. However, the average benefit of feature-based diversity selection depended on the dataset and did not translate into improvements for every defect class or for worst-class performance."
+  }
+]

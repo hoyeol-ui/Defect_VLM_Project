@@ -1,0 +1,14 @@
+path: C:\Users\user\Desktop\vlm\final_test_evaluation_20260925\datasets\GC10-DET
+train: C:\Users\user\Desktop\vlm\final_test_evaluation_20260925\datasets\GC10-DET\images\dev
+val: C:\Users\user\Desktop\vlm\final_test_evaluation_20260925\datasets\GC10-DET\images\test
+names:
+  0: punching_hole
+  1: welding_line
+  2: crescent_gap
+  3: water_spot
+  4: oil_spot
+  5: silk_spot
+  6: inclusion
+  7: rolled_pit
+  8: crease
+  9: waist_folding

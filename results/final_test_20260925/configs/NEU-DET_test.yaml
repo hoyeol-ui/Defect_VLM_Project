@@ -1,0 +1,10 @@
+path: C:\Users\user\Desktop\vlm\final_test_evaluation_20260925\datasets\NEU-DET
+train: C:\Users\user\Desktop\vlm\final_test_evaluation_20260925\datasets\NEU-DET\images\dev
+val: C:\Users\user\Desktop\vlm\final_test_evaluation_20260925\datasets\NEU-DET\images\test
+names:
+  0: crazing
+  1: inclusion
+  2: patches
+  3: pitted_surface
+  4: rolled-in_scale
+  5: scratches

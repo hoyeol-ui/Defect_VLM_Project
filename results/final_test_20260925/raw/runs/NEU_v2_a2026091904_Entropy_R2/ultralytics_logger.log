@@ -1,0 +1,5 @@
+2026-09-25 16:09:10,881 INFO Ultralytics 8.4.90 🚀 Python-3.11.9 torch-2.12.1+cu126 CUDA:0 (NVIDIA GeForce RTX 3070, 8192MiB)
+2026-09-25 16:09:10,936 INFO Model summary (fused): 73 layers, 3,006,818 parameters, 0 gradients, 8.1 GFLOPs
+2026-09-25 16:09:10,956 INFO [34m[1mval: [0mFast image access ✅ (ping: 0.1±0.0 ms, read: 132.2±25.2 MB/s, size: 19.0 KB)
+2026-09-25 16:09:19,920 INFO                    all        270        628      0.607      0.644      0.625      0.289
+2026-09-25 16:09:19,921 INFO Speed: 0.8ms preprocess, 2.4ms inference, 0.0ms loss, 1.0ms postprocess per image

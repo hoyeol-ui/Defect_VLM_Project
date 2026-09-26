@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "design": "metal_al_final_v2_20260919",
+  "attempt": "ANNOTATION_PATCH_v2_0_2",
+  "scientific_checkpoint_sha_verified": 162,
+  "technical_excluded": "TECHNICAL_NEU-DET",
+  "datasets": {
+    "GC10-DET": {
+      "train_ids": 1604,
+      "dev_ids": 343,
+      "test_ids": 344,
+      "actual_test_images": 344,
+      "actual_test_annotations": 344,
+      "cross_split_id_rgb_file_component_duplicates": 0,
+      "class_names": [
+        "punching_hole",
+        "welding_line",
+        "crescent_gap",
+        "water_spot",
+        "oil_spot",
+        "silk_spot",
+        "inclusion",
+        "rolled_pit",
+        "crease",
+        "waist_folding"
+      ],
+      "split_sha256": "453ab6eaf22a1439236125364492f4b7ef8d3e8e65c4daa96386b40cb93a243a"
+    },
+    "NEU-DET": {
+      "train_ids": 1258,
+      "dev_ids": 270,
+      "test_ids": 270,
+      "actual_test_images": 270,
+      "actual_test_annotations": 270,
+      "cross_split_id_rgb_file_component_duplicates": 0,
+      "class_names": [
+        "crazing",
+        "inclusion",
+        "patches",
+        "pitted_surface",
+        "rolled-in_scale",
+        "scratches"
+      ],
+      "split_sha256": "a6027b62d12cfe426caaf7d9c178c4dd38354bcb915925069f1dc391c4951403"
+    }
+  }
+}

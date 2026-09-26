@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "raw_results": 162,
+  "curve_rows": 180,
+  "seed_nAULC_rows": 30,
+  "primary_comparisons": 4,
+  "bootstrap_draws_each": 100000,
+  "figure_png": 4,
+  "report": "C:\\Users\\user\\Desktop\\vlm\\final_test_evaluation_20260925\\FINAL_TEST_REPORT_20260925.md"
+}

@@ -1,0 +1,774 @@
+{
+  "R5_class_AP_difference": [
+    {
+      "dataset": "GC10-DET",
+      "class_name": "punching_hole",
+      "random_mean_ap": 0.4577262544076257,
+      "dino_mean_ap": 0.47236876364630664,
+      "entropy_mean_ap": 0.4857458180197305,
+      "dino_minus_random_mean_ap_pp": 1.4642509238680912
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "welding_line",
+      "random_mean_ap": 0.3069470215340425,
+      "dino_mean_ap": 0.42014573379880593,
+      "entropy_mean_ap": 0.2832221437090625,
+      "dino_minus_random_mean_ap_pp": 11.31987122647634
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "crescent_gap",
+      "random_mean_ap": 0.5194257857510547,
+      "dino_mean_ap": 0.5309342029491518,
+      "entropy_mean_ap": 0.49290116168874076,
+      "dino_minus_random_mean_ap_pp": 1.150841719809721
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "water_spot",
+      "random_mean_ap": 0.30342506548594844,
+      "dino_mean_ap": 0.3115514799336654,
+      "entropy_mean_ap": 0.2938745083402127,
+      "dino_minus_random_mean_ap_pp": 0.8126414447716935
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "oil_spot",
+      "random_mean_ap": 0.22349162010957538,
+      "dino_mean_ap": 0.23550789396871355,
+      "entropy_mean_ap": 0.24662225859564652,
+      "dino_minus_random_mean_ap_pp": 1.201627385913816
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "silk_spot",
+      "random_mean_ap": 0.025343261312309507,
+      "dino_mean_ap": 0.03659799511755297,
+      "entropy_mean_ap": 0.039063131740497484,
+      "dino_minus_random_mean_ap_pp": 1.125473380524346
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "inclusion",
+      "random_mean_ap": 0.03031812131251915,
+      "dino_mean_ap": 0.02817646100741027,
+      "entropy_mean_ap": 0.03512414891374053,
+      "dino_minus_random_mean_ap_pp": -0.21416603051088778
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "rolled_pit",
+      "random_mean_ap": 0.06401223958103758,
+      "dino_mean_ap": 0.05443141152951029,
+      "entropy_mean_ap": 0.0693603459516467,
+      "dino_minus_random_mean_ap_pp": -0.9580828051527294
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "crease",
+      "random_mean_ap": 0.08075872965484603,
+      "dino_mean_ap": 0.08134955105935596,
+      "entropy_mean_ap": 0.11403182523580944,
+      "dino_minus_random_mean_ap_pp": 0.05908214045099349
+    },
+    {
+      "dataset": "GC10-DET",
+      "class_name": "waist_folding",
+      "random_mean_ap": 0.15918618226350428,
+      "dino_mean_ap": 0.15697061185743888,
+      "entropy_mean_ap": 0.11764359715384021,
+      "dino_minus_random_mean_ap_pp": -0.22155704060653952
+    },
+    {
+      "dataset": "NEU-DET",
+      "class_name": "crazing",
+      "random_mean_ap": 0.131304139530003,
+      "dino_mean_ap": 0.11187175425943961,
+      "entropy_mean_ap": 0.1402360229223446,
+      "dino_minus_random_mean_ap_pp": -1.943238527056339
+    },
+    {
+      "dataset": "NEU-DET",
+      "class_name": "inclusion",
+      "random_mean_ap": 0.3356125658633147,
+      "dino_mean_ap": 0.3218897999687478,
+      "entropy_mean_ap": 0.3425576991819736,
+      "dino_minus_random_mean_ap_pp": -1.3722765894566913
+    },
+    {
+      "dataset": "NEU-DET",
+      "class_name": "patches",
+      "random_mean_ap": 0.5025095106679034,
+      "dino_mean_ap": 0.5217974294961422,
+      "entropy_mean_ap": 0.5004655799645418,
+      "dino_minus_random_mean_ap_pp": 1.9287918828238781
+    },
+    {
+      "dataset": "NEU-DET",
+      "class_name": "pitted_surface",
+      "random_mean_ap": 0.3531046509948337,
+      "dino_mean_ap": 0.3690000864275787,
+      "entropy_mean_ap": 0.3619103480463715,
+      "dino_minus_random_mean_ap_pp": 1.5895435432745
+    },
+    {
+      "dataset": "NEU-DET",
+      "class_name": "rolled-in_scale",
+      "random_mean_ap": 0.2565560842438941,
+      "dino_mean_ap": 0.242731599053651,
+      "entropy_mean_ap": 0.25723416867524723,
+      "dino_minus_random_mean_ap_pp": -1.3824485190243125
+    },
+    {
+      "dataset": "NEU-DET",
+      "class_name": "scratches",
+      "random_mean_ap": 0.3811247318081324,
+      "dino_mean_ap": 0.416508307518923,
+      "entropy_mean_ap": 0.3552357940062735,
+      "dino_minus_random_mean_ap_pp": 3.538357571079056
+    }
+  ],
+  "selected_class_composition_summary": [
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "punching_hole",
+      "mean_selected_images": 78.4,
+      "mean_selected_unique_boxes": 78.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "punching_hole",
+      "mean_selected_images": 113.2,
+      "mean_selected_unique_boxes": 113.2,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "punching_hole",
+      "mean_selected_images": 66.8,
+      "mean_selected_unique_boxes": 66.8,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "welding_line",
+      "mean_selected_images": 122.4,
+      "mean_selected_unique_boxes": 122.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "welding_line",
+      "mean_selected_images": 205.4,
+      "mean_selected_unique_boxes": 205.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "welding_line",
+      "mean_selected_images": 90.6,
+      "mean_selected_unique_boxes": 90.6,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "crescent_gap",
+      "mean_selected_images": 61.6,
+      "mean_selected_unique_boxes": 61.6,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "crescent_gap",
+      "mean_selected_images": 101.4,
+      "mean_selected_unique_boxes": 101.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "crescent_gap",
+      "mean_selected_images": 49.4,
+      "mean_selected_unique_boxes": 49.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "water_spot",
+      "mean_selected_images": 73.6,
+      "mean_selected_unique_boxes": 83.8,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "water_spot",
+      "mean_selected_images": 86.4,
+      "mean_selected_unique_boxes": 107,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "water_spot",
+      "mean_selected_images": 120,
+      "mean_selected_unique_boxes": 139.2,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "oil_spot",
+      "mean_selected_images": 62.4,
+      "mean_selected_unique_boxes": 130,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "oil_spot",
+      "mean_selected_images": 67.6,
+      "mean_selected_unique_boxes": 127.2,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "oil_spot",
+      "mean_selected_images": 90.8,
+      "mean_selected_unique_boxes": 162.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "silk_spot",
+      "mean_selected_images": 180.2,
+      "mean_selected_unique_boxes": 216.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "silk_spot",
+      "mean_selected_images": 98,
+      "mean_selected_unique_boxes": 125.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "silk_spot",
+      "mean_selected_images": 102,
+      "mean_selected_unique_boxes": 124,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "inclusion",
+      "mean_selected_images": 52,
+      "mean_selected_unique_boxes": 93,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "inclusion",
+      "mean_selected_images": 34.2,
+      "mean_selected_unique_boxes": 63.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "inclusion",
+      "mean_selected_images": 99.8,
+      "mean_selected_unique_boxes": 168.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "rolled_pit",
+      "mean_selected_images": 12.8,
+      "mean_selected_unique_boxes": 25.6,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "rolled_pit",
+      "mean_selected_images": 20.4,
+      "mean_selected_unique_boxes": 42,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "rolled_pit",
+      "mean_selected_images": 23.2,
+      "mean_selected_unique_boxes": 45,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "crease",
+      "mean_selected_images": 13.6,
+      "mean_selected_unique_boxes": 20.2,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "crease",
+      "mean_selected_images": 26.6,
+      "mean_selected_unique_boxes": 40,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "crease",
+      "mean_selected_images": 25.2,
+      "mean_selected_unique_boxes": 37.6,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "class_name": "waist_folding",
+      "mean_selected_images": 36.4,
+      "mean_selected_unique_boxes": 37.2,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "class_name": "waist_folding",
+      "mean_selected_images": 17,
+      "mean_selected_unique_boxes": 17,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "class_name": "waist_folding",
+      "mean_selected_images": 12,
+      "mean_selected_unique_boxes": 12,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "class_name": "crazing",
+      "mean_selected_images": 70.8,
+      "mean_selected_unique_boxes": 163.6,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO_F518",
+      "class_name": "crazing",
+      "mean_selected_images": 31,
+      "mean_selected_unique_boxes": 68.8,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "class_name": "crazing",
+      "mean_selected_images": 102.4,
+      "mean_selected_unique_boxes": 227,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "class_name": "inclusion",
+      "mean_selected_images": 92.8,
+      "mean_selected_unique_boxes": 242,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO_F518",
+      "class_name": "inclusion",
+      "mean_selected_images": 116.2,
+      "mean_selected_unique_boxes": 269.6,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "class_name": "inclusion",
+      "mean_selected_images": 81.2,
+      "mean_selected_unique_boxes": 175,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "class_name": "patches",
+      "mean_selected_images": 80.8,
+      "mean_selected_unique_boxes": 208.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO_F518",
+      "class_name": "patches",
+      "mean_selected_images": 86.2,
+      "mean_selected_unique_boxes": 191.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "class_name": "patches",
+      "mean_selected_images": 92.6,
+      "mean_selected_unique_boxes": 209,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "class_name": "pitted_surface",
+      "mean_selected_images": 74.8,
+      "mean_selected_unique_boxes": 108.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO_F518",
+      "class_name": "pitted_surface",
+      "mean_selected_images": 106,
+      "mean_selected_unique_boxes": 156.4,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "class_name": "pitted_surface",
+      "mean_selected_images": 69.4,
+      "mean_selected_unique_boxes": 109.8,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "class_name": "rolled-in_scale",
+      "mean_selected_images": 74.4,
+      "mean_selected_unique_boxes": 156.2,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO_F518",
+      "class_name": "rolled-in_scale",
+      "mean_selected_images": 32.8,
+      "mean_selected_unique_boxes": 66.2,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "class_name": "rolled-in_scale",
+      "mean_selected_images": 76.6,
+      "mean_selected_unique_boxes": 157,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "class_name": "scratches",
+      "mean_selected_images": 74.6,
+      "mean_selected_unique_boxes": 135.6,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO_F518",
+      "class_name": "scratches",
+      "mean_selected_images": 121.2,
+      "mean_selected_unique_boxes": 218.6,
+      "n_seeds": 5
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "class_name": "scratches",
+      "mean_selected_images": 59.4,
+      "mean_selected_unique_boxes": 100.8,
+      "n_seeds": 5
+    }
+  ],
+  "worst_class_nAULC": [
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091901,
+      "method": "Random",
+      "worst_class_nAULC": 0.014128849916240409,
+      "worst_class_nAULC_percent": 1.412884991624041
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091901,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.014626456256887764,
+      "worst_class_nAULC_percent": 1.4626456256887763
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091901,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.01733385642934111,
+      "worst_class_nAULC_percent": 1.733385642934111
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091902,
+      "method": "Random",
+      "worst_class_nAULC": 0.01820869495034021,
+      "worst_class_nAULC_percent": 1.820869495034021
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091902,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.02527964357830981,
+      "worst_class_nAULC_percent": 2.527964357830981
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091902,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.029343462629355225,
+      "worst_class_nAULC_percent": 2.9343462629355224
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091903,
+      "method": "Random",
+      "worst_class_nAULC": 0.01085658472900218,
+      "worst_class_nAULC_percent": 1.085658472900218
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091903,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.01599973933213186,
+      "worst_class_nAULC_percent": 1.599973933213186
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091903,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.013098250040918798,
+      "worst_class_nAULC_percent": 1.3098250040918797
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091904,
+      "method": "Random",
+      "worst_class_nAULC": 0.02089944228043085,
+      "worst_class_nAULC_percent": 2.089944228043085
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091904,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.011820088089115671,
+      "worst_class_nAULC_percent": 1.182008808911567
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091904,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.02144626954062662,
+      "worst_class_nAULC_percent": 2.144626954062662
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091905,
+      "method": "Random",
+      "worst_class_nAULC": 0.014041382453457258,
+      "worst_class_nAULC_percent": 1.4041382453457258
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091905,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.01560505973193426,
+      "worst_class_nAULC_percent": 1.560505973193426
+    },
+    {
+      "dataset": "GC10-DET",
+      "seed": 2026091905,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.013478318505805166,
+      "worst_class_nAULC_percent": 1.3478318505805167
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091901,
+      "method": "Random",
+      "worst_class_nAULC": 0.12274609446196806,
+      "worst_class_nAULC_percent": 12.274609446196806
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091901,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.13353920842739067,
+      "worst_class_nAULC_percent": 13.353920842739067
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091901,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.14310868282494243,
+      "worst_class_nAULC_percent": 14.310868282494244
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091902,
+      "method": "Random",
+      "worst_class_nAULC": 0.12054043151802817,
+      "worst_class_nAULC_percent": 12.054043151802816
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091902,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.10585174934876067,
+      "worst_class_nAULC_percent": 10.585174934876067
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091902,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.13123106052347797,
+      "worst_class_nAULC_percent": 13.123106052347797
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091903,
+      "method": "Random",
+      "worst_class_nAULC": 0.12409339968230033,
+      "worst_class_nAULC_percent": 12.409339968230034
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091903,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.10104496610765598,
+      "worst_class_nAULC_percent": 10.104496610765597
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091903,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.11566339787908138,
+      "worst_class_nAULC_percent": 11.566339787908138
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091904,
+      "method": "Random",
+      "worst_class_nAULC": 0.12097708197846292,
+      "worst_class_nAULC_percent": 12.097708197846293
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091904,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.09462005812936723,
+      "worst_class_nAULC_percent": 9.462005812936724
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091904,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.1296739439963236,
+      "worst_class_nAULC_percent": 12.96739439963236
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091905,
+      "method": "Random",
+      "worst_class_nAULC": 0.1119971579203705,
+      "worst_class_nAULC_percent": 11.19971579203705
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091905,
+      "method": "DINO_F518",
+      "worst_class_nAULC": 0.08350716894041729,
+      "worst_class_nAULC_percent": 8.35071689404173
+    },
+    {
+      "dataset": "NEU-DET",
+      "seed": 2026091905,
+      "method": "Entropy",
+      "worst_class_nAULC": 0.10940990319210266,
+      "worst_class_nAULC_percent": 10.940990319210266
+    }
+  ],
+  "R5_vs_full_data": [
+    {
+      "dataset": "GC10-DET",
+      "method": "Random",
+      "r5_mean_mAP50_95": 0.21706342814124635,
+      "full_data_mAP50_95": 0.2458569604353206,
+      "r5_minus_full_pp": -2.8793532294074247
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "DINO_F518",
+      "r5_mean_mAP50_95": 0.23280341048679118,
+      "full_data_mAP50_95": 0.2458569604353206,
+      "r5_minus_full_pp": -1.305354994852942
+    },
+    {
+      "dataset": "GC10-DET",
+      "method": "Entropy",
+      "r5_mean_mAP50_95": 0.21775889393489276,
+      "full_data_mAP50_95": 0.2458569604353206,
+      "r5_minus_full_pp": -2.809806650042784
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Random",
+      "r5_mean_mAP50_95": 0.3267019471846802,
+      "full_data_mAP50_95": 0.3716655391667273,
+      "r5_minus_full_pp": -4.496359198204708
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "DINO_F518",
+      "r5_mean_mAP50_95": 0.3306331627874138,
+      "full_data_mAP50_95": 0.3716655391667273,
+      "r5_minus_full_pp": -4.10323763793135
+    },
+    {
+      "dataset": "NEU-DET",
+      "method": "Entropy",
+      "r5_mean_mAP50_95": 0.32627326879945867,
+      "full_data_mAP50_95": 0.3716655391667273,
+      "r5_minus_full_pp": -4.539227036726862
+    }
+  ]
+}

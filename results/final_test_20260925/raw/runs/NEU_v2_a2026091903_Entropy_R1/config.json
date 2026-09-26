@@ -1,0 +1,31 @@
+{
+  "run_id": "NEU_v2_a2026091903_Entropy_R1",
+  "dataset": "NEU-DET",
+  "acquisition_seed": 2026091903,
+  "method": "Entropy",
+  "round": 1,
+  "cumulative_labeled_images": 189,
+  "cumulative_labeled_ratio": 0.15023847376788554,
+  "checkpoint_path": "C:\\Users\\user\\Desktop\\vlm\\final_test_recovery\\final_main_runpod_execution_v2_20260919\\state_attempts\\ANNOTATION_PATCH_v2_0_2\\runs\\NEU_v2_a2026091903_Entropy_R1\\train\\weights\\best.pt",
+  "checkpoint_sha256": "908ab3556e2722df85946c3d5e21ca493f08ef6a8f229f22d95219b1e1dd94ac",
+  "evaluation_dataset": "NEU-DET/test",
+  "dataset_yaml": "C:\\Users\\user\\Desktop\\vlm\\final_test_evaluation_20260925\\configs\\NEU-DET_test.yaml",
+  "dataset_yaml_sha256": "8abafe14f53e9607225fd0c520b0e2b8b9dbfd9dfe602c086b028b715543a599",
+  "parameters": {
+    "split": "val",
+    "imgsz": 640,
+    "batch": 8,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": 0,
+    "workers": 4,
+    "quantize": 32,
+    "rect": false,
+    "seed": 2026091900,
+    "deterministic": true,
+    "plots": false,
+    "save_json": false
+  },
+  "ultralytics_source_version": "8.4.90"
+}

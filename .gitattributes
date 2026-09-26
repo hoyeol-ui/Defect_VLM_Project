@@ -34,3 +34,7 @@
 
 # Preserve the SHA-256 sealed clean-split v2 sharing artifacts after checkout.
 /results/clean_split_v2_development_20260922/** -text
+
+# Final test evidence and thesis preserve original bytes for SHA-256 verification.
+/results/final_test_20260925/** -text
+/docs/thesis_final_test_20260925/** -text
