@@ -1,0 +1,69 @@
+{
+  "date_kst": "2026-10-16",
+  "scope": "documentation and analysis only; no training or evaluation",
+  "base_git_commit": "a189a7252c5b35208d6da2ce16ccf13409c7073d",
+  "copied_artifacts": [
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/campaigns/remaining7_20261015_01/final_review/FULL_COMPARISON_REPORT.md",
+      "published_path": "docs/research_a_20261016/results/FULL_COMPARISON_REPORT.md",
+      "sha256": "6a2d0f5454e1ce6aea1916f35095ade512a1191872bbb7cf70a77d6f91297c7e",
+      "byte_identical_copy": true
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/campaigns/remaining7_20261015_01/final_review/MODEL_COMPARISON.csv",
+      "published_path": "docs/research_a_20261016/results/MODEL_COMPARISON.csv",
+      "sha256": "a84028d57803ae9d3d23e47c3feb654ec5f8ee6ad96a9a423f423d779ac0a55f",
+      "byte_identical_copy": true
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/campaigns/remaining7_20261015_01/final_review/CLASS_AP_COMPARISON.csv",
+      "published_path": "docs/research_a_20261016/results/CLASS_AP_COMPARISON.csv",
+      "sha256": "be20b8f2702300bb3de1adc28c72c07e50e0736f54768d8b169b1e37a55e1111",
+      "byte_identical_copy": true
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/campaigns/remaining7_20261015_01/final_review/HISTORICAL_VS_NEW_CONTROL.csv",
+      "published_path": "docs/research_a_20261016/results/HISTORICAL_VS_NEW_CONTROL.csv",
+      "sha256": "2148afff102580f1a3a582628704c3bfaf7a93706ff327857b085416d0f2479a",
+      "byte_identical_copy": true
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/campaigns/remaining7_20261015_01/final_review/FINAL_VERIFICATION.json",
+      "published_path": "docs/research_a_20261016/results/FINAL_VERIFICATION.json",
+      "sha256": "72d761131e9e442ec137aef4a3c0eef1cafde55399a1a9d0d72634b60e7616bf",
+      "byte_identical_copy": true
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/config/common_args.json",
+      "published_path": "docs/research_a_20261016/configs/common_args_100epoch.json",
+      "sha256": "e168d9e425c6541ad1c1c0c6d2c150de49a70dc73de9c8891e79769e7e4dbca4",
+      "byte_identical_copy": true
+    }
+  ],
+  "sealed_local_code_evidence": [
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/src/strict_loop.py",
+      "sha256": "a0eab384d5d4807c1033a6a4a45796235e361b0a984c60e13e06eabba15116ff"
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/src/trainer_adapter.py",
+      "sha256": "182a9f6352a95a738b48e2dd3096a5f6c510940a5b2010d3f90cd694f68d3c20"
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/src/modern_trainer.py",
+      "sha256": "32d40fcb5f4e79884813d2edd82da885ce5fde682f945b674abac974378b8572"
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/src/worker.py",
+      "sha256": "865b7eb0710bd5d1f039bf037e3836b0ef5f5b2537e0f9f6ed40bb41ab1dba40"
+    },
+    {
+      "source_artifact": "modern_yolo_A_20261015_01/evidence/EXECUTION_READY.json",
+      "sha256": "51201bd8f545e0cc186893e433a74f25befb0bd12656cb50f7290feb6bb6a440"
+    }
+  ],
+  "full_training_runs_already_completed": 8,
+  "new_training_runs_in_this_task": 0,
+  "published_raw_images_labels_weights": false,
+  "historical_readme_preserved": true
+}

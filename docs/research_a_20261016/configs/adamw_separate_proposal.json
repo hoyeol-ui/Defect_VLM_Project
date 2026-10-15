@@ -1,0 +1,18 @@
+{
+  "status": "SEPARATE_DESIGN_ONLY_REQUIRES_LATER_REVIEW_AND_APPROVAL",
+  "phase": "E2_optimizer_only_at_100_epochs",
+  "epochs": 100,
+  "optimizer": "AdamW",
+  "lr0_proposed": 0.01,
+  "lrf": 0.01,
+  "beta1_from_momentum": 0.937,
+  "beta2": 0.999,
+  "weight_decay": 0.0005,
+  "comparison": "existing SGD 100 epochs at same numerical LR and schedule",
+  "not_claimed_optimal": true,
+  "LR_tuning_requires_separate_design": true,
+  "cold_start": true,
+  "resume": false,
+  "K8": false,
+  "test": false
+}

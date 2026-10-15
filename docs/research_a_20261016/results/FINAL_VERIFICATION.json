@@ -1,0 +1,26 @@
+{
+  "time_kst": "2026-10-16T01:11:14.059642+09:00",
+  "training_status": "ALL_8_PASS",
+  "new_training_runs": 7,
+  "preserved_runs": 1,
+  "queue_reporting_status": "FAILED_AFTER_ALL_TRAINING_COMPLETED",
+  "reporting_failure": "'launcher_wall_seconds'",
+  "failure_preserved": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\modern_yolo_A_20261015_01\\campaigns\\remaining7_20261015_01\\CAMPAIGN_FAILURE.json",
+  "final_report_status": "COMPLETE_FROM_EXISTING_RESULTS",
+  "run_file_hash_checks": 13154,
+  "cells": [
+    "GC10_a2026091901_yolov8n_e100",
+    "GC10_a2026091901_yolo11n_e100",
+    "GC10_a2026091901_yolo12n_e100",
+    "GC10_a2026091901_yolo26n_e100",
+    "NEU_a2026091901_yolov8n_e100",
+    "NEU_a2026091901_yolo11n_e100",
+    "NEU_a2026091901_yolo12n_e100",
+    "NEU_a2026091901_yolo26n_e100"
+  ],
+  "test_evaluated": false,
+  "K8_trained": false,
+  "additional_training_or_evaluation_performed_by_report_script": false,
+  "all_environments_equal": true,
+  "all_overflow_skips_in_epoch_1": true
+}

@@ -1,0 +1,29 @@
+{
+  "status": "DESIGN_ONLY_NOT_IMPLEMENTED_NOT_APPROVED_FOR_TRAINING",
+  "phase": "E1_SGD_duration_only",
+  "acquisition_seed": 2026091901,
+  "learner_seed": 2026091900,
+  "base_recipe": "common_args_100epoch.json",
+  "overrides_proposed": {
+    "training_epochs": 200,
+    "schedule_horizon_epochs": 100,
+    "mosaic_off_from_display_epoch": 91,
+    "yolo26_loss_decay_horizon_epochs": 100,
+    "patience": 0
+  },
+  "cold_start": true,
+  "resume": false,
+  "prefix_100_equivalence_gate_required": true,
+  "epoch_dev": {
+    "rect": true,
+    "batch": 16,
+    "precision": "AMP"
+  },
+  "sealed_dev": {
+    "rect": false,
+    "batch": 8,
+    "quantize": 32
+  },
+  "K8": false,
+  "test": false
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "dataset": "GC10-DET",
+    "model": "yolo26n",
+    "observed_100epoch_total_seconds": 1988.5386715000004,
+    "median_epoch_seconds_after_mosaic_close": 18.68999999999994,
+    "estimated_200epoch_total_seconds": 3857.5386714999945,
+    "simple_double_seconds": 3977.077343000001,
+    "estimate_basis": "observed total100 + 100 * median elapsed-time increment of epochs 91-100; estimate, not measured200",
+    "planning_range_minutes": [
+      55,
+      75
+    ]
+  },
+  {
+    "dataset": "NEU-DET",
+    "model": "yolo11n",
+    "observed_100epoch_total_seconds": 1126.7665788000013,
+    "median_epoch_seconds_after_mosaic_close": 10.384999999999991,
+    "estimated_200epoch_total_seconds": 2165.2665788000004,
+    "simple_double_seconds": 2253.5331576000026,
+    "estimate_basis": "observed total100 + 100 * median elapsed-time increment of epochs 91-100; estimate, not measured200",
+    "planning_range_minutes": [
+      30,
+      45
+    ]
+  }
+]
