@@ -4,11 +4,12 @@
 
 ## 먼저 읽을 자료
 
+- **[맥북 Codex에서 바로 이어갈 인계 프롬프트](docs/research_a_20261016/MACBOOK_CODEX_HANDOFF_PROMPT_KO.md)** — 새 대화에 붙여넣기. 문서 검토·설계만 진행하며 학습은 미승인입니다.
 - [8개 실행 전체 결과·클래스 AP·SHA](docs/research_a_20261016/results/FULL_COMPARISON_REPORT.md)
 - [SGD 100↔200 epoch 및 별도 AdamW 계획](docs/research_a_20261016/EPOCH_AND_OPTIMIZER_PLAN_KO.md)
-- [Jupyter/Colab 분석용 노트북](docs/research_a_20261016/experiment_design.ipynb)
-- [NotebookLM 인계 문서](docs/research_a_20261016/NOTEBOOKLM_HANDOFF.md)
 - [계획 매트릭스](docs/research_a_20261016/PLANNED_EPOCH_MATRIX.csv) · [모델 CSV](docs/research_a_20261016/results/MODEL_COMPARISON.csv) · [클래스 AP CSV](docs/research_a_20261016/results/CLASS_AP_COMPARISON.csv)
+
+여기서 사용자의 '노트북'은 **맥북 기기**입니다. 앞서 만든 [Jupyter 자료](docs/research_a_20261016/experiment_design.ipynb)와 [NotebookLM 자료](docs/research_a_20261016/NOTEBOOKLM_HANDOFF.md)는 보조자료로 보존하며, 맥북 Codex 인계에는 위 전용 프롬프트를 사용하세요. GitHub에는 결과와 설계 문서가 있고, 원시 데이터·가중치·전체 실행 환경은 기존 Windows에 남아 있습니다.
 
 ## 완료 결과: 신규 동일 환경 비교
 
