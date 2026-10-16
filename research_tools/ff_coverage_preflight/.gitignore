@@ -2,3 +2,4 @@ config.local.json
 local_inputs/
 outputs/
 __pycache__/
+*.local.json
