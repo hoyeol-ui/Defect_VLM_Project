@@ -1,0 +1,67 @@
+{
+  "scope": {
+    "dataset": "GC10-DET",
+    "acquisition_seed": 2026091901,
+    "transition": "R4_to_R5"
+  },
+  "original_protocol_review": {
+    "confirmed": false,
+    "notes": "Compare the actual executed selector and canonical cache evidence before setting true."
+  },
+  "inputs": {
+    "features": {
+      "path": "FILL_WITH_VERIFIED_ORIGINAL_PATH",
+      "sha256": "FILL_WITH_VERIFIED_SHA256",
+      "hash_evidence": "FILL_WITH_ORIGINAL_MANIFEST_OR_EXPORT_PROVENANCE"
+    },
+    "cache_ids": {
+      "path": "FILL_WITH_VERIFIED_ORIGINAL_PATH",
+      "sha256": "FILL_WITH_VERIFIED_SHA256",
+      "hash_evidence": "FILL_WITH_ORIGINAL_MANIFEST_OR_EXPORT_PROVENANCE",
+      "format": "json",
+      "keys": []
+    },
+    "train_ids": {
+      "path": "FILL_WITH_VERIFIED_ORIGINAL_PATH",
+      "sha256": "FILL_WITH_VERIFIED_SHA256",
+      "hash_evidence": "FILL_WITH_ORIGINAL_MANIFEST_OR_EXPORT_PROVENANCE",
+      "format": "json",
+      "keys": []
+    },
+    "r4": {
+      "path": "FILL_WITH_VERIFIED_ORIGINAL_PATH",
+      "sha256": "FILL_WITH_VERIFIED_SHA256",
+      "hash_evidence": "FILL_WITH_ORIGINAL_MANIFEST_OR_EXPORT_PROVENANCE",
+      "format": "json",
+      "keys": [
+        "cumulative_ids"
+      ]
+    },
+    "r5": {
+      "path": "FILL_WITH_VERIFIED_ORIGINAL_PATH",
+      "sha256": "FILL_WITH_VERIFIED_SHA256",
+      "hash_evidence": "FILL_WITH_ORIGINAL_MANIFEST_OR_EXPORT_PROVENANCE",
+      "format": "json",
+      "keys": [
+        "cumulative_ids"
+      ]
+    },
+    "new_order": {
+      "path": "FILL_WITH_VERIFIED_ORIGINAL_PATH",
+      "sha256": "FILL_WITH_VERIFIED_SHA256",
+      "hash_evidence": "FILL_WITH_ORIGINAL_MANIFEST_OR_EXPORT_PROVENANCE",
+      "format": "json",
+      "keys": []
+    },
+    "selector_source": {
+      "path": "FILL_WITH_VERIFIED_ORIGINAL_PATH",
+      "sha256": "FILL_WITH_VERIFIED_SHA256",
+      "hash_evidence": "FILL_WITH_ORIGINAL_MANIFEST_OR_EXPORT_PROVENANCE"
+    },
+    "feature_manifest": {
+      "path": "FILL_WITH_VERIFIED_ORIGINAL_PATH",
+      "sha256": "FILL_WITH_VERIFIED_SHA256",
+      "hash_evidence": "FILL_WITH_ORIGINAL_MANIFEST_OR_EXPORT_PROVENANCE"
+    }
+  }
+}
