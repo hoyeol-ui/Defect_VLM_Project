@@ -236,3 +236,7 @@ python "$taskRoot/patch_posthoc.py" render-pairs --plan $planFile --plan-sha $pl
 2026-10-16, Python 3.12.14, NumPy 2.3.5에서 합성 입력 테스트15개 통과. 빠른 교체 판정과 독립적인 직접 전수 재계산의 일치, 동점/즉시 갱신, 행-ID 대응, 허용 반경 경계, 시간 상한, 실제 설정 schema 로딩, 해시 변조, 비정규화 cache, 순서 불일치 차단, 출력 덮어쓰기 방지를 검사했다. `git diff --check`도 통과했다. Windows와 원본 GC10 자료에 대한 검증은 귀가 후 남아 있다.
 
 추가 준비 검증: Patch 진단은 합성 배열·합성 이미지에서만 검사했다. 원본 특징 추출·prototype fitting·표본 선택·원본 GT 분석·학습은 실행하지 않았다. Python 3.12.14 / NumPy 2.3.5 / Pillow 12.3.0에서 기존15개와 새16개, 총31개 테스트가 통과했다. 기여 합과 목적함수 차이의 일치, padding 면적 가중, GT ID 차단, 좌표·box 합집합, 무작위 공간 대조 재현, hash 변경 차단, cache→점수→사후 평가 연결 및 합성 HTML 생성을 확인했다.
+
+## 별도 연구 의문 검토 — 기존 데이터 지원량 분석
+
+[CLASS_SUPPORT_REVIEW_KO.md](CLASS_SUPPORT_REVIEW_KO.md)에 전체 train/R5의 실제 클래스별 이미지·box 수, 기존 AP와의 관계, Full 비교 범위와 미확인 항목을 정리했다. 판단은 **일부 타당, AP 원인 확정은 근거 부족**이다. 기존 자료 점검을 구체화한 공통 D0(P1)만 계획에 추가했으며 실행 코드는 변경하지 않았다. 다중클래스/객체 비율과 bbox geometry는 원본 확보 시 CPU 사후 분석, K8/오류 분해는 기존 자료가 있을 때만 P2다. 자세한 순서는 [의사결정안 §7](DECISION_KO.md)을 참고한다.

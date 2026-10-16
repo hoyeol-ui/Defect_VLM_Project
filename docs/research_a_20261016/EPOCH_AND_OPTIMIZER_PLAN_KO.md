@@ -98,3 +98,7 @@ LR의 x와 scheduler.step 호출 순서는 기존 구현 그대로 보존한다.
 - Ultralytics `engine/trainer.py` `build_optimizer`: AdamW betas와 parameter group 처리.
 
 이 문서는 코드의 실제 동작을 근거로 작성한 제안이며, 기존 100 epoch 실행 조건을 사후 변경한 기록이 아니다.
+
+## 공통 자료 점검 연결 — 2026-10-16 추가 검토
+
+[클래스별 데이터 지원량 독립 검토](../../research_tools/ff_coverage_preflight/CLASS_SUPPORT_REVIEW_KO.md)를 연구 A·B 공통 사후 점검 D0(P1)로 연결한다. 기존 train/R5 이미지·box/AP 표는 재사용하고, 원본이 있을 때만 다중객체·bbox geometry의 누락 부분을 CPU로 보완한다. 낮은 AP를 표본 부족이나 학습 부족으로 단정하지 않는다. 이 연결은 위 모델·epoch·optimizer·스케줄 계획이나 완료 결과를 변경하거나 추가 학습을 승인하지 않는다.
