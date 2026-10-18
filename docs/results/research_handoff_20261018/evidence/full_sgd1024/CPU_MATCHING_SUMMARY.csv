@@ -1,0 +1,9 @@
+﻿resolution,confidence_threshold,matching_iou_threshold,size_bin_640,GT,correct,confusion,localization,missed_or_other,correct_conf_ge25,correct_conf_lt25,iou_ge75_subset_of_matching,inclusion_predictions_all_dev,nonmatched_inclusion_predictions_all_dev
+640,0.001,0.5,ALL,52,42,0,10,0,16,26,9,2130,2088
+640,0.001,0.75,ALL,52,20,0,32,0,4,16,20,2130,2110
+640,0.25,0.5,ALL,52,16,3,8,25,16,0,4,60,44
+640,0.25,0.75,ALL,52,4,2,20,26,4,0,4,60,56
+1024,0.001,0.5,ALL,52,40,1,11,0,8,32,8,3191,3151
+1024,0.001,0.75,ALL,52,15,0,36,1,1,14,15,3191,3176
+1024,0.25,0.5,ALL,52,8,1,13,30,8,0,1,39,31
+1024,0.25,0.75,ALL,52,1,1,20,30,1,0,1,39,38

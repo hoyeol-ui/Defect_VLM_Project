@@ -1,0 +1,45 @@
+{
+  "status": "COMPLETE",
+  "SGD_overall": {
+    "metrics/precision(B)": 0.6755007815253523,
+    "metrics/recall(B)": 0.5970907044077547,
+    "metrics/mAP50(B)": 0.6069217792200534,
+    "metrics/mAP50-95(B)": 0.3001360065562275,
+    "fitness": 0.3001360065562275
+  },
+  "AdamW_overall": {
+    "metrics/precision(B)": 0.664115857686517,
+    "metrics/recall(B)": 0.5407400519620791,
+    "metrics/mAP50(B)": 0.5691787693167087,
+    "metrics/mAP50-95(B)": 0.2979546205382286,
+    "fitness": 0.2979546205382286
+  },
+  "delta_mAP50_95_pp": -0.2181386017998943,
+  "inclusion": {
+    "class_name": "inclusion",
+    "SGD_AP50": 18.394845822471677,
+    "AdamW_AP50": 16.466927209164112,
+    "delta_AP50_pp": -1.9279186133075665,
+    "SGD_AP75": 1.7976436823290618,
+    "AdamW_AP75": 2.6431020691090272,
+    "delta_AP75_pp": 0.8454583867799653,
+    "SGD_AP50_95": 5.749071674448106,
+    "AdamW_AP50_95": 5.866559489017752,
+    "delta_AP50_95_pp": 0.11748781456964563
+  },
+  "inclusion_conf25": {
+    "class_name": "inclusion",
+    "confidence": 0.25,
+    "IoU": 0.5,
+    "GT": 52,
+    "TP": 10,
+    "FN": 42,
+    "FP": 21
+  },
+  "SGD_best_epoch": 61,
+  "AdamW_best_epoch": 87,
+  "test_used": false,
+  "additional_experiments": false,
+  "candidate": false,
+  "interpretation": "Single seed dev recipe bundle comparison; not isolated AdamW causality."
+}

@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE",
+  "comparisons": [
+    {
+      "condition": "DINO561",
+      "train_n": 561,
+      "mAP50_95_percent": 29.74868428010804,
+      "mAP50_percent": 58.627198315027265,
+      "best_epoch": 62
+    },
+    {
+      "condition": "Random561",
+      "train_n": 561,
+      "mAP50_95_percent": 26.476676626662087,
+      "mAP50_percent": 53.2240391647262,
+      "best_epoch": 87
+    },
+    {
+      "condition": "Full1604",
+      "train_n": 1604,
+      "mAP50_95_percent": 30.013600655622753,
+      "mAP50_percent": 60.69217792200534,
+      "best_epoch": 61
+    }
+  ],
+  "delta_Full_minus_DINO_pp": 0.26491637551471214,
+  "inclusion": {
+    "class_name": "inclusion",
+    "AP50_percent": 18.394845822471677,
+    "AP75_percent": 1.7976436823290618,
+    "AP50_95_percent": 5.749071674448106,
+    "DINO561_AP50_95_percent": 3.6523891390032746,
+    "delta_Full_minus_DINO_pp": 2.0966825354448315
+  },
+  "test_used": false,
+  "additional_experiments_started": false,
+  "fixed_conf_diagnostic": "conf>=.25 and class-correct IoU>=.5; saved rounded predictions; dev only, not field qualification.",
+  "inference_speed_context": "Ultralytics dev batch8 local timing; not production end-to-end throughput.",
+  "interpretation": "Single learner seed, full labels diagnostic at fixed100 epochs. More examples and more updates; not a dataset ceiling or active-learning budget result."
+}

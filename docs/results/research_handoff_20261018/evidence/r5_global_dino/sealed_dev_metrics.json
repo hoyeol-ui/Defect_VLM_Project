@@ -1,0 +1,24 @@
+{
+  "overall": {
+    "metrics/precision(B)": 0.6928057430247517,
+    "metrics/recall(B)": 0.5694011617496268,
+    "metrics/mAP50(B)": 0.5862719831502726,
+    "metrics/mAP50-95(B)": 0.2974868428010804,
+    "fitness": 0.2974868428010804
+  },
+  "per_class_AP50_95": {
+    "punching_hole": 0.5219869534516357,
+    "welding_line": 0.5289069673256025,
+    "crescent_gap": 0.583127732139146,
+    "water_spot": 0.3570743048131974,
+    "oil_spot": 0.19003596609009793,
+    "silk_spot": 0.1149445413228439,
+    "inclusion": 0.03652389139003274,
+    "rolled_pit": 0.148676155811668,
+    "crease": 0.16496469370140981,
+    "waist_folding": 0.3286272219651699
+  },
+  "partition": "development",
+  "technical_only": false,
+  "missing_prediction_class_rule": "zero; development GT contains every class"
+}

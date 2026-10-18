@@ -1,0 +1,37 @@
+{
+  "status": "READY",
+  "authorization": "Latest user request: same-recipe full1604 train and same dev343 diagnostic, exactly once.",
+  "train_n": 1604,
+  "dev_n": 343,
+  "learner_seed": 2026091900,
+  "acquisition_seed": null,
+  "not_active_learning_budget": true,
+  "source_train_index": "C:\\Users\\user\\Desktop\\vlm\\output\\final_main_results_retrieval_20260922\\metadata_verified\\final_main_v2_20260922\\inputs\\GC10-DET\\train_images.json",
+  "annotation_version": "ANNOTATION_PATCH_v2_0_2",
+  "existing_DINO561_and_dev343_image_label_hashes_match": true,
+  "common_args_bytes_identical": true,
+  "numerical_training_sources_identical": true,
+  "pretrained_sha": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+  "pretrained_matches_DINO": true,
+  "DINO_best_used_as_initial_weight": false,
+  "source_hashes": {
+    "amp_compat.py": "fe7bc586d5c4970d346c632108988d96d525535a0cc63ef96948b006a6273e88",
+    "amp_runtime.py": "292fe43a0f88aef7a07f3e4c9203086d9da2de21c31bffb38e333efc1c55a6c8",
+    "core.py": "27a90793c4e871599bce71f11447189c5373204432ac1610555b547042feeb9d",
+    "modern_trainer.py": "32d40fcb5f4e79884813d2edd82da885ce5fde682f945b674abac974378b8572",
+    "strict_loop.py": "a0eab384d5d4807c1033a6a4a45796235e361b0a984c60e13e06eabba15116ff",
+    "trainer_adapter.py": "182a9f6352a95a738b48e2dd3096a5f6c510940a5b2010d3f90cd694f68d3c20",
+    "worker.py": "6670ff2d417da2df37ff9f89b912a36b0a63e355716392329854278e5829295c"
+  },
+  "config_sha": "e168d9e425c6541ad1c1c0c6d2c150de49a70dc73de9c8891e79769e7e4dbca4",
+  "expected_train_batches_per_epoch": 201,
+  "baseline_train_batches_per_epoch": 71,
+  "epochs": 100,
+  "scope": "Fixed epoch full-train diagnostic, not dataset ceiling or a label-efficiency claim; extra examples also imply more optimizer updates.",
+  "estimated_minutes": [
+    90,
+    110
+  ],
+  "test_evaluation": false,
+  "additional_training_runs": 0
+}

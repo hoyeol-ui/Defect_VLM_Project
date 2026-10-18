@@ -1,0 +1,5 @@
+﻿method,confidence_threshold,GT,correct,confusion,localization,missed_or_other,inclusion_predictions_all_dev,nonmatched_inclusion_predictions_all_dev
+DINO,0.001,52,33,1,14,4,1245,1212
+DINO,0.25,52,7,5,2,38,18,11
+Full1604,0.001,52,42,0,10,0,2130,2088
+Full1604,0.25,52,16,3,8,25,60,44

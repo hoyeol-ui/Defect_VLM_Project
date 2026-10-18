@@ -1,0 +1,17 @@
+{
+  "status": "STARTED",
+  "first_batch_completed": true,
+  "same_initial_model_state": true,
+  "only_scientific_setting_changed": "cos_lr:False->True",
+  "optimizer": "SGD",
+  "lr0": 0.01,
+  "lrf": 0.01,
+  "cos_lr": true,
+  "epochs": 100,
+  "batch": 8,
+  "imgsz": 640,
+  "nbs": 64,
+  "output": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_SGD_Cosine_e100_b8_i640",
+  "periodic_agent_polling": false,
+  "additional_experiments": false
+}

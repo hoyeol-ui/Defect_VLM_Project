@@ -1,0 +1,69 @@
+{
+  "status": "COMPLETE",
+  "CM10_overall": {
+    "metrics/precision(B)": 0.7737103762091296,
+    "metrics/recall(B)": 0.573846276185177,
+    "metrics/mAP50(B)": 0.624661788052246,
+    "metrics/mAP50-95(B)": 0.31023827712085716,
+    "fitness": 0.31023827712085716
+  },
+  "CM20_overall": {
+    "metrics/precision(B)": 0.7290948391664489,
+    "metrics/recall(B)": 0.6180679274142358,
+    "metrics/mAP50(B)": 0.6270187738440071,
+    "metrics/mAP50-95(B)": 0.31063447421430873,
+    "fitness": 0.31063447421430873
+  },
+  "delta_mAP50_95_pp": 0.039619709345156684,
+  "inclusion": {
+    "class_name": "inclusion",
+    "CM10_AP50": 23.475224465224514,
+    "CM20_AP50": 23.48932093004645,
+    "delta_AP50_pp": 0.01409646482193605,
+    "CM10_AP75": 3.1084291197147147,
+    "CM20_AP75": 5.487195531893946,
+    "delta_AP75_pp": 2.3787664121792313,
+    "CM10_AP50_95": 8.71021172064102,
+    "CM20_AP50_95": 8.933867628754472,
+    "delta_AP50_95_pp": 0.2236559081134526
+  },
+  "silk_spot": {
+    "class_name": "silk_spot",
+    "CM10_AP50": 32.598296855343136,
+    "CM20_AP50": 30.60590793564305,
+    "delta_AP50_pp": -1.9923889197000832,
+    "CM10_AP75": 2.178063113294821,
+    "CM20_AP75": 2.562530564502113,
+    "delta_AP75_pp": 0.3844674512072918,
+    "CM10_AP50_95": 8.51436139729466,
+    "CM20_AP50_95": 9.031459585649282,
+    "delta_AP50_95_pp": 0.5170981883546222
+  },
+  "rolled_pit": {
+    "class_name": "rolled_pit",
+    "CM10_AP50": 35.63333333333334,
+    "CM20_AP50": 35.13865546218488,
+    "delta_AP50_pp": -0.4946778711484634,
+    "CM10_AP75": 15.76969696969697,
+    "CM20_AP75": 14.245098039215687,
+    "delta_AP75_pp": -1.5245989304812828,
+    "CM10_AP50_95": 17.40189217758985,
+    "CM20_AP50_95": 17.960224089635858,
+    "delta_AP50_95_pp": 0.5583319120460062
+  },
+  "inclusion_conf25": {
+    "class_name": "inclusion",
+    "confidence": 0.25,
+    "IoU": 0.5,
+    "GT": 52,
+    "TP": 19,
+    "FN": 33,
+    "FP": 35
+  },
+  "CM10_best_epoch": 85,
+  "CM20_best_epoch": 92,
+  "candidate": true,
+  "test_used": false,
+  "additional_experiments": false,
+  "interpretation": "Single seed dev comparison: close_mosaic10 to20 only; not a generalization guarantee."
+}

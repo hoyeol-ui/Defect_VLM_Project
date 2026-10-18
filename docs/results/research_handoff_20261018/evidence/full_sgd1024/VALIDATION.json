@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "evaluation_calls": 1,
+  "baseline_inputs_unchanged": true,
+  "checkpoint_sha": "7a96d578ee02dcee5d6da53b20ca3fde3ff39d68bb8aca4ac04c512b2a4884d4",
+  "dev_images": 343,
+  "test_used": false,
+  "training": false,
+  "automatic_retry": false,
+  "batch_changed": false,
+  "evaluation_seconds": 15.76022259999445,
+  "total_seconds": 23.480313300002308,
+  "peak_allocated_bytes": 977692672,
+  "peak_reserved_bytes": 1568669696
+}

@@ -1,0 +1,81 @@
+{
+  "status": "COMPLETE",
+  "CM20_overall": {
+    "metrics/precision(B)": 0.7290948391664489,
+    "metrics/recall(B)": 0.6180679274142358,
+    "metrics/mAP50(B)": 0.6270187738440071,
+    "metrics/mAP50-95(B)": 0.31063447421430873,
+    "fitness": 0.31063447421430873
+  },
+  "CM15_overall": {
+    "metrics/precision(B)": 0.7390347577598442,
+    "metrics/recall(B)": 0.602363456698717,
+    "metrics/mAP50(B)": 0.6216078195123118,
+    "metrics/mAP50-95(B)": 0.3126812407531156,
+    "fitness": 0.3126812407531156
+  },
+  "delta_mAP50_95_pp": 0.20467665388068657,
+  "inclusion": {
+    "class_name": "inclusion",
+    "CM20_AP50": 23.48932093004645,
+    "CM15_AP50": 19.506364826573876,
+    "delta_AP50_pp": -3.9829561034725733,
+    "CM20_AP75": 5.487195531893946,
+    "CM15_AP75": 3.033077439379253,
+    "delta_AP75_pp": -2.4541180925146926,
+    "CM20_AP50_95": 8.933867628754472,
+    "CM15_AP50_95": 7.117179203373674,
+    "delta_AP50_95_pp": -1.816688425380798
+  },
+  "water_spot": {
+    "class_name": "water_spot",
+    "CM20_AP50": 72.52826586646289,
+    "CM15_AP50": 69.4420446410119,
+    "delta_AP50_pp": -3.08622122545098,
+    "CM20_AP75": 26.541157569492412,
+    "CM15_AP75": 20.99781939845409,
+    "delta_AP75_pp": -5.5433381710383225,
+    "CM20_AP50_95": 34.878838100768405,
+    "CM15_AP50_95": 34.38826325384937,
+    "delta_AP50_95_pp": -0.4905748469190385
+  },
+  "silk_spot": {
+    "class_name": "silk_spot",
+    "CM20_AP50": 30.60590793564305,
+    "CM15_AP50": 34.1593739421586,
+    "delta_AP50_pp": 3.553466006515549,
+    "CM20_AP75": 2.562530564502113,
+    "CM15_AP75": 3.4738476876129067,
+    "delta_AP75_pp": 0.9113171231107942,
+    "CM20_AP50_95": 9.031459585649282,
+    "CM15_AP50_95": 10.289491723515749,
+    "delta_AP50_95_pp": 1.2580321378664672
+  },
+  "rolled_pit": {
+    "class_name": "rolled_pit",
+    "CM20_AP50": 35.13865546218488,
+    "CM15_AP50": 37.88461538461539,
+    "delta_AP50_pp": 2.7459599224305076,
+    "CM20_AP75": 14.245098039215687,
+    "CM15_AP75": 14.245098039215687,
+    "delta_AP75_pp": 0.0,
+    "CM20_AP50_95": 17.960224089635858,
+    "CM15_AP50_95": 19.995324283559576,
+    "delta_AP50_95_pp": 2.03510019392372
+  },
+  "inclusion_conf25": {
+    "class_name": "inclusion",
+    "confidence": 0.25,
+    "IoU": 0.5,
+    "GT": 52,
+    "TP": 14,
+    "FN": 38,
+    "FP": 37
+  },
+  "CM20_best_epoch": 92,
+  "CM15_best_epoch": 93,
+  "candidate": false,
+  "test_used": false,
+  "additional_experiments": false,
+  "interpretation": "Single seed dev comparison: close_mosaic20 to15 only; not a generalization guarantee."
+}

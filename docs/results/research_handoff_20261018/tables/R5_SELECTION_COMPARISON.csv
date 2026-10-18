@@ -1,0 +1,5 @@
+﻿method,train_n,dev_n,mAP50,mAP50_95,inclusion_AP50_95,metrics_source
+Random,561,343,53.2240391647262,26.476676626662087,2.709020160028334,evidence/r5_random/sealed_dev_metrics.json
+Global DINO,561,343,58.627198315027265,29.74868428010804,3.6523891390032737,evidence/r5_global_dino/sealed_dev_metrics.json
+Class-aware DINO,561,343,56.10460831525843,27.309846172832525,3.5094744915910936,evidence/r5_class_aware_dino/sealed_dev_metrics.json
+Global-Local DINO,561,343,57.50859299229841,28.19615796127348,4.465341597201242,evidence/r5_global_local_dino/sealed_dev_metrics.json

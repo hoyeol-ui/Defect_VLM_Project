@@ -1,0 +1,39 @@
+{
+  "status": "READY",
+  "authorization": "User authorized one Full1604 YOLO26s 640 100epoch batch8 AdamW lr0=.001 cosine run, then stop reporting after start.",
+  "baseline": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_640_20261017_01\\runs\\GC10_FULL1604_yolo26s_SGD_e100_b8_i640",
+  "changed_settings": {
+    "optimizer": [
+      "SGD",
+      "AdamW"
+    ],
+    "cos_lr": [
+      false,
+      true
+    ],
+    "lr0": [
+      0.01,
+      0.001
+    ]
+  },
+  "train_n": 1604,
+  "dev_n": 343,
+  "epochs": 100,
+  "seed": 2026091900,
+  "same_pretrained": true,
+  "pretrained_sha": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+  "same_data_bytes": true,
+  "baseline_best_used_for_initialization": false,
+  "test_used": false,
+  "additional_experiments": false,
+  "source_hashes": {
+    "amp_compat.py": "fe7bc586d5c4970d346c632108988d96d525535a0cc63ef96948b006a6273e88",
+    "amp_runtime.py": "292fe43a0f88aef7a07f3e4c9203086d9da2de21c31bffb38e333efc1c55a6c8",
+    "core.py": "27a90793c4e871599bce71f11447189c5373204432ac1610555b547042feeb9d",
+    "modern_trainer.py": "d282dadc1d0d98153813ede96b11234a56fce893ce820c1755e38411b85de527",
+    "strict_loop.py": "a0eab384d5d4807c1033a6a4a45796235e361b0a984c60e13e06eabba15116ff",
+    "trainer_adapter.py": "182a9f6352a95a738b48e2dd3096a5f6c510940a5b2010d3f90cd694f68d3c20",
+    "worker.py": "6670ff2d417da2df37ff9f89b912a36b0a63e355716392329854278e5829295c"
+  },
+  "config_sha": "ed92d0f8e5abc851e7612acd7383599e73c9a80e916df4c2c90748ed44ca1ffe"
+}

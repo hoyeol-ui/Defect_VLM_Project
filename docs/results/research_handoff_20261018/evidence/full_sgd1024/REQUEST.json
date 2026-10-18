@@ -1,0 +1,30 @@
+{
+  "checkpoint": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_640_20261017_01\\runs\\GC10_FULL1604_yolo26s_SGD_e100_b8_i640\\train\\weights\\best.pt",
+  "checkpoint_sha": "7a96d578ee02dcee5d6da53b20ca3fde3ff39d68bb8aca4ac04c512b2a4884d4",
+  "checkpoint_best_epoch": 61,
+  "validation_kwargs": {
+    "data": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_1024_sensitivity_20261018_01\\data.yaml",
+    "split": "val",
+    "imgsz": 1024,
+    "batch": 8,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "device": 0,
+    "workers": 4,
+    "quantize": 32,
+    "rect": false,
+    "seed": 2026091900,
+    "deterministic": true,
+    "plots": false,
+    "save_json": true,
+    "project": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_1024_sensitivity_20261018_01",
+    "name": "sealed_dev_1024",
+    "exist_ok": false
+  },
+  "changed_scientific_variable": "imgsz640_to1024_only",
+  "baseline": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_640_20261017_01\\runs\\GC10_FULL1604_yolo26s_SGD_e100_b8_i640\\sealed_dev_metrics.json",
+  "test_used": false,
+  "training": false,
+  "automatic_batch_change": false
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "date": "2026-10-18 KST",
+  "all_five_full_trainings_complete": true,
+  "all_full_data_memberships_identical": true,
+  "source_copies_byte_identical": true,
+  "source_files": 163,
+  "full_training_rows": 5,
+  "class_AP_rows": 60,
+  "r5_rows": 4,
+  "new_training": false,
+  "new_inference": false,
+  "test_access": false,
+  "previous_experiment_files_modified": false
+}

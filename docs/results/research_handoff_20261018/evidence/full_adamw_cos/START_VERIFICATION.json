@@ -1,0 +1,16 @@
+{
+  "status": "STARTED",
+  "controller_pid": 21176,
+  "first_batch_completed": true,
+  "same_initial_model_state": true,
+  "optimizer": "AdamW",
+  "lr0": 0.001,
+  "cos_lr": true,
+  "epochs": 100,
+  "batch": 8,
+  "imgsz": 640,
+  "nbs": 64,
+  "output": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_adamw_cosine_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_AdamW_Cosine_e100_b8_i640",
+  "periodic_agent_polling": false,
+  "additional_experiments": false
+}

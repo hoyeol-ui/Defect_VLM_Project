@@ -1,0 +1,45 @@
+{
+  "status": "COMPLETE",
+  "SGD_overall": {
+    "metrics/precision(B)": 0.6755007815253523,
+    "metrics/recall(B)": 0.5970907044077547,
+    "metrics/mAP50(B)": 0.6069217792200534,
+    "metrics/mAP50-95(B)": 0.3001360065562275,
+    "fitness": 0.3001360065562275
+  },
+  "SGD_Cosine_overall": {
+    "metrics/precision(B)": 0.7737103762091296,
+    "metrics/recall(B)": 0.573846276185177,
+    "metrics/mAP50(B)": 0.624661788052246,
+    "metrics/mAP50-95(B)": 0.31023827712085716,
+    "fitness": 0.31023827712085716
+  },
+  "delta_mAP50_95_pp": 1.0102270564629645,
+  "inclusion": {
+    "class_name": "inclusion",
+    "SGD_AP50": 18.394845822471677,
+    "SGD_Cosine_AP50": 23.475224465224514,
+    "delta_AP50_pp": 5.080378642752836,
+    "SGD_AP75": 1.7976436823290618,
+    "SGD_Cosine_AP75": 3.1084291197147147,
+    "delta_AP75_pp": 1.3107854373856527,
+    "SGD_AP50_95": 5.749071674448106,
+    "SGD_Cosine_AP50_95": 8.71021172064102,
+    "delta_AP50_95_pp": 2.961140046192913
+  },
+  "inclusion_conf25": {
+    "class_name": "inclusion",
+    "confidence": 0.25,
+    "IoU": 0.5,
+    "GT": 52,
+    "TP": 13,
+    "FN": 39,
+    "FP": 27
+  },
+  "SGD_best_epoch": 61,
+  "SGD_Cosine_best_epoch": 85,
+  "test_used": false,
+  "additional_experiments": false,
+  "candidate": true,
+  "interpretation": "Single seed dev comparison; only cosine schedule changed from the SGD100 baseline."
+}

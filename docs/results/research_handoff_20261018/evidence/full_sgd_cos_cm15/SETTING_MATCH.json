@@ -1,0 +1,26 @@
+{
+  "differences": {
+    "close_mosaic": [
+      20,
+      15
+    ],
+    "data": [
+      "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_cm20_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_SGD_Cosine_CM20_e100_b8_i640\\data.yaml",
+      "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_cm15_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_SGD_Cosine_CM15_e100_b8_i640\\data.yaml"
+    ],
+    "save_dir": [
+      "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_cm20_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_SGD_Cosine_CM20_e100_b8_i640\\train",
+      "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_cm15_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_SGD_Cosine_CM15_e100_b8_i640\\train"
+    ],
+    "project": [
+      "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_cm20_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_SGD_Cosine_CM20_e100_b8_i640",
+      "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_cm15_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_SGD_Cosine_CM15_e100_b8_i640"
+    ],
+    "model": [
+      "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_cm20_640_20261018_01\\assets\\yolo26s.pt",
+      "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_cm15_640_20261018_01\\assets\\yolo26s.pt"
+    ]
+  },
+  "same_initial_model_state": true,
+  "same_train_dev_ids": true
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "GC10-DET",
+  "model": "yolo26s",
+  "phase": "train",
+  "epochs": 100,
+  "weight_sha": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+  "acquisition_seed": null,
+  "diagnostic_full_train": true,
+  "not_active_learning_budget": true,
+  "learner_seed": 2026091900,
+  "selection_sha": "fd39283450cfd5e01527507549c63309f532fee6ed260c8cfc25673898e6e374",
+  "test_access": false,
+  "technical_scores_not_for_model_selection": false
+}

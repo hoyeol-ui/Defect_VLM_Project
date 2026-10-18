@@ -1,0 +1,11 @@
+﻿class_name,confidence,IoU,GT,TP,FN,FP
+punching_hole,0.25,0.5,50,48,2,9
+welding_line,0.25,0.5,77,76,1,10
+crescent_gap,0.25,0.5,40,40,0,6
+water_spot,0.25,0.5,53,34,19,9
+oil_spot,0.25,0.5,86,28,58,11
+silk_spot,0.25,0.5,132,41,91,61
+inclusion,0.25,0.5,52,10,42,21
+rolled_pit,0.25,0.5,13,2,11,0
+crease,0.25,0.5,11,3,8,4
+waist_folding,0.25,0.5,21,11,10,6
