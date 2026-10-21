@@ -1,0 +1,10 @@
+names:
+  0: crazing
+  1: inclusion
+  2: patches
+  3: pitted_surface
+  4: rolled-in_scale
+  5: scratches
+path: C:\Users\user\Desktop\vlm\research_extensions\final_label_efficiency_20261021_01\runs\NEU-DET_Random_pair1_R0\view
+train: C:\Users\user\Desktop\vlm\research_extensions\final_label_efficiency_20261021_01\runs\NEU-DET_Random_pair1_R0\view\images\train
+val: C:\Users\user\Desktop\vlm\research_extensions\final_label_efficiency_20261021_01\runs\NEU-DET_Random_pair1_R0\view\images\dev

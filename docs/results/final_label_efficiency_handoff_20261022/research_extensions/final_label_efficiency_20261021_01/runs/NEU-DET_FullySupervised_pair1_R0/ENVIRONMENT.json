@@ -1,0 +1,7 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "torch": "2.12.1+cu126",
+  "ultralytics": "8.4.90",
+  "gpu": "NVIDIA GeForce RTX 3070",
+  "torchvision": "0.27.1+cu126"
+}

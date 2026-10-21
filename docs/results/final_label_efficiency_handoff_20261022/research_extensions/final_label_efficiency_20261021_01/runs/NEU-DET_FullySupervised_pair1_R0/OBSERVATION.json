@@ -1,0 +1,16 @@
+{
+  "train_batches": 15800,
+  "peak_allocated_bytes": 2475556864,
+  "peak_reserved_bytes": 3307208704,
+  "amp_probe": "same original model probe; no unrelated model download",
+  "model_parameters": 9952508,
+  "head_class": "Detect",
+  "end2end": true,
+  "reg_max": 1,
+  "train_batch": 8,
+  "dev_batch": 16,
+  "train_rect": false,
+  "dev_rect": true,
+  "initial_accumulation": 8,
+  "criterion_class": "E2ELoss"
+}

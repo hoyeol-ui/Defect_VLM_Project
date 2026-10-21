@@ -1,0 +1,24 @@
+{
+  "final": "C:\\Users\\user\\Desktop\\vlm\\journal_manuscript_jkics\\manuscript\\JKICS-FrozenDINOv2-LabelEfficiency-20261021.docx",
+  "sha256": "24468aa4ebf9dc803acc89068d355908f979203f16d1327c618e7a920b8f9177",
+  "changed_parts": [
+    "[Content_Types].xml",
+    "word/document.xml",
+    "word/_rels/document.xml.rels",
+    "word/header1.xml",
+    "word/header2.xml",
+    "word/settings.xml",
+    "word/styles.xml",
+    "docProps/core.xml"
+  ],
+  "added_parts": [
+    "word/media/image1.png"
+  ],
+  "preserve_only_parts_passed": true,
+  "original_styles_preserved": true,
+  "sections_preserved": true,
+  "korean_abstract_characters": 374,
+  "english_abstract_words": 147,
+  "result_values_pending": true,
+  "source_reference_sha256": "7b4e37119d6ad9636b4efecc8ac9956e9504c272a49978b8f520472fbc078c97"
+}

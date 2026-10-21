@@ -1,0 +1,8 @@
+{
+  "epochs": 100,
+  "optimizer_updates": 208,
+  "training_seconds": 702.7972030000001,
+  "best_sha": "55efdcdca9640011803131a3a4c8136782871c88e5e6fa3eb0120c2e85469f4d",
+  "last_sha": "74be8b5288a3a9bb6614000af78ee0e834cfac7a13083f7d76a88effd3191852",
+  "technical_only": false
+}

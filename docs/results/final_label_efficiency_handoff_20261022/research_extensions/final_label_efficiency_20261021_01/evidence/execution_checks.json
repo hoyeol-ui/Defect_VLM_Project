@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": [
+    "fixed 101-cell order and six shared10% priority",
+    "empty prediction and exact-score tie rates",
+    "cutoff ID tie audit and all-tied fail-stop",
+    "new empirical ETA calibrates only the measured dataset"
+  ],
+  "synthetic_values_not_research_results": true
+}

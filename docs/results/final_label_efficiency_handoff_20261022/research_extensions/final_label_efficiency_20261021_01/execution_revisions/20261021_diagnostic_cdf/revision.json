@@ -1,0 +1,16 @@
+{
+  "changed": {
+    "entropy_diagnostics.py": {
+      "before": "0a122def9f9d9323e8b2d9c07f7c1f921514c5404a41433a4f5482d2aa0f9075",
+      "after": "b95931033197ea03a18a00b47ea6efcefad90fec317f128a0d0976ed4d3d9f9f"
+    },
+    "execution_checks.py": {
+      "before": "5119defbd2231b91cfbeecc24ccd6e1b37cf27ccc28f78ba3f8e40bacbc3e399",
+      "after": "b0a0021e46de27b74487fddeff3aa697316c1345f06cd04bc1f8b682a462b7be"
+    }
+  },
+  "new_freeze_sha": "3f0da9a5528d4c34022f55d9e9eef725e875b38dfcf76bcee46e1ee9be5cbd7c",
+  "scientific_settings_changed": false,
+  "ranking_or_selection_changed": false,
+  "existing_models_retrained": false
+}

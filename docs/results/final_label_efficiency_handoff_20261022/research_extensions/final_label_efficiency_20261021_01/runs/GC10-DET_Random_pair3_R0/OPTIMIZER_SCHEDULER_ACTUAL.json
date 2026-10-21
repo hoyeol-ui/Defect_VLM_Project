@@ -1,0 +1,39 @@
+{
+  "optimizer": "SGD",
+  "cos_lr": true,
+  "lr0": 0.01,
+  "lrf": 0.01,
+  "lr_multipliers": {
+    "0": 1.0,
+    "25": 0.855017856687341,
+    "50": 0.5050000000000001,
+    "75": 0.15498214331265903,
+    "100": 0.010000000000000009
+  },
+  "nbs": 64,
+  "warmup_epochs": 3.0,
+  "warmup_bias_lr": 0.1,
+  "parameter_groups": [
+    {
+      "lr": 0.01,
+      "momentum": 0.937,
+      "weight_decay": 0.0005,
+      "param_group": "weight",
+      "initial_lr": 0.01
+    },
+    {
+      "lr": 0.01,
+      "momentum": 0.937,
+      "weight_decay": 0.0,
+      "param_group": "bn",
+      "initial_lr": 0.01
+    },
+    {
+      "lr": 0.01,
+      "momentum": 0.937,
+      "param_group": "bias",
+      "weight_decay": 0,
+      "initial_lr": 0.01
+    }
+  ]
+}

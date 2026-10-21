@@ -1,0 +1,50 @@
+{
+  "model": "YOLO26",
+  "comparison": "anchor_aligned_raw_one2many_and_one2one",
+  "rtol": 0.1,
+  "atol": 0.5,
+  "max_relative_L2": 0.02,
+  "tensors": {
+    "one2many/boxes": {
+      "shape": [
+        1,
+        4,
+        8400
+      ],
+      "max_abs": 0.04704713821411133,
+      "relative_L2": 0.0014316648012027144
+    },
+    "one2many/scores": {
+      "shape": [
+        1,
+        10,
+        8400
+      ],
+      "max_abs": 0.025115013122558594,
+      "relative_L2": 0.0005070663755759597
+    },
+    "one2one/boxes": {
+      "shape": [
+        1,
+        4,
+        8400
+      ],
+      "max_abs": 0.040882110595703125,
+      "relative_L2": 0.0013037626631557941
+    },
+    "one2one/scores": {
+      "shape": [
+        1,
+        10,
+        8400
+      ],
+      "max_abs": 0.07719087600708008,
+      "relative_L2": 0.0005630017840303481
+    }
+  },
+  "postprocessed_direct_allclose": false,
+  "status": "PASS",
+  "RNG_restored": true,
+  "buffers_unchanged": true,
+  "mode_restored": true
+}

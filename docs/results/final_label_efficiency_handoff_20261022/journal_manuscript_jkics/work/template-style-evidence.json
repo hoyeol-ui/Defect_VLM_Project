@@ -1,0 +1,89 @@
+{
+  "input": "C:\\Users\\user\\Downloads\\\ub17c\ubb38\ud22c\uace0\uc591\uc2dd.docx",
+  "fonts_by_char_count": {
+    "Times New Roman": 2207,
+    "\uc0b0\ub3cc\uba85\uc870 L": 180,
+    "\uc0b0\ub3cc\uace0\ub515 M": 89,
+    "\uc0b0\ub3cc\uace0\ub515 L": 57,
+    "\uc0b0\ub3cc\uba85\uc870 M": 13,
+    "\uc0b0\ub3cc\uba85\uc870B": 9,
+    "\ud55c\uc591\uc2e0\uba85\uc870": 8,
+    "Univers": 2,
+    "Noto Serif CJK SC SemiBold": 1,
+    "MS Mincho": 1
+  },
+  "direct_run_formatting_runs": 553,
+  "direct_paragraph_formatting_paragraphs": 99,
+  "heading_like_paragraphs_not_heading_style": [
+    {
+      "para_index": 76,
+      "text": "\ud0a4\uc6cc\ub4dc : \ud55c\uae00 \ud0a4\uc6cc\ub4dc",
+      "style": "\ud0a4\uc6cc\ub4dc"
+    },
+    {
+      "para_index": 77,
+      "text": "Key Words : \uc601\ubb38 \ud0a4\uc6cc\ub4dc",
+      "style": "\ud0a4\uc6cc\ub4dc"
+    }
+  ],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 3,
+        "text": "\u2160. \uc11c  \ub860",
+        "style": "\ud0c0\uc774\ud2c0"
+      },
+      {
+        "para_index": 4,
+        "text": "\uc5ec\uae30\uc5d0 \uc11c\ub860\uc744 \uc785\ub825\ud558\uc138\uc694. ",
+        "style": "\ubc14\ud0d5\uae00"
+      },
+      {
+        "para_index": 5,
+        "text": "",
+        "style": "\ubc14\ud0d5\uae00"
+      },
+      {
+        "para_index": 6,
+        "text": "\u2161. \ubcf8  \ub860",
+        "style": "\ud0c0\uc774\ud2c0"
+      },
+      {
+        "para_index": 7,
+        "text": "\uc5ec\uae30\uc11c\ub294 \ub17c\ubb38\uc778\uc6a9\uc758 \uc608\ub97c \uc0b4\ud3b4\ubcf8\ub2e4[1]. \ub2e4\uc74c\uc758 \ubcf4\uae30\ub97c \ucc38\uc870\ud55c\ub2e4. \ud1b5\uc2e0\uacf5\ud559\uc740 \ub9e4\uc6b0 \uc911\uc694\ud55c \ud559\ubb38 \ubd84\uc57c\uc774\ub2e4[2]. (\u25c9 \ub17c\ubb38\uc758 \uc778\uc6a9\uc758 \uc608)",
+        "style": "\ubc14\ud0d5\uae00"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 3,
+        "run_text": "\u2160",
+        "style": "\ud0c0\uc774\ud2c0"
+      },
+      {
+        "para_index": 3,
+        "run_text": ".",
+        "style": "\ud0c0\uc774\ud2c0"
+      },
+      {
+        "para_index": 3,
+        "run_text": " ",
+        "style": "\ud0c0\uc774\ud2c0"
+      },
+      {
+        "para_index": 3,
+        "run_text": "\uc11c ",
+        "style": "\ud0c0\uc774\ud2c0"
+      },
+      {
+        "para_index": 3,
+        "run_text": " ",
+        "style": "\ud0c0\uc774\ud2c0"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

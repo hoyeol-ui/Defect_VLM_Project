@@ -1,0 +1,182 @@
+{
+  "recent_runs": 35,
+  "scientific_complete": [
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 561,
+      "map": 0.27309846172832525,
+      "hours": 0.594,
+      "run": "GC10_R5_ClassAwareDINO_a2026091901_yolo26s_SGD_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26n",
+      "n": 561,
+      "map": 0.2675082092356357,
+      "hours": 0.65,
+      "run": "GC10_R5_yolo26n_AdamW_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 561,
+      "map": 0.2658680487506108,
+      "hours": 0.637,
+      "run": "GC10_R5_yolo26s_AdamW_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 1604,
+      "map": 0.2979546205382286,
+      "hours": 1.562,
+      "run": "GC10_FULL1604_yolo26s_AdamW_Cosine_e100_b8_i640"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 1604,
+      "map": 0.3001360065562275,
+      "hours": 1.481,
+      "run": "GC10_FULL1604_yolo26s_SGD_e100_b8_i640"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 1604,
+      "map": 0.31023827712085716,
+      "hours": 1.543,
+      "run": "GC10_FULL1604_yolo26s_SGD_Cosine_e100_b8_i640"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 1604,
+      "map": 0.3126812407531156,
+      "hours": 1.4,
+      "run": "GC10_FULL1604_yolo26s_SGD_Cosine_CM15_e100_b8_i640"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 1604,
+      "map": 0.31063447421430873,
+      "hours": 1.476,
+      "run": "GC10_FULL1604_yolo26s_SGD_Cosine_CM20_e100_b8_i640"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolov8n",
+      "n": 561,
+      "map": 0.2293937216477616,
+      "hours": 0.32,
+      "run": "GC10_a2026091901_GlobalLocal43_yolov8n_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolov8n",
+      "n": 561,
+      "map": 0.2509335481799299,
+      "hours": 0.314,
+      "run": "GC10_a2026091901_WeaknessWeightedFF_yolov8n_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo11n",
+      "n": 561,
+      "map": 0.26042535538116884,
+      "hours": 0.4,
+      "run": "GC10_a2026091901_yolo11n_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo12n",
+      "n": 561,
+      "map": 0.2540497481512103,
+      "hours": 0.504,
+      "run": "GC10_a2026091901_yolo12n_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26n",
+      "n": 561,
+      "map": 0.27648493260814705,
+      "hours": 0.552,
+      "run": "GC10_a2026091901_yolo26n_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolov8n",
+      "n": 561,
+      "map": 0.2643811475608603,
+      "hours": 0.361,
+      "run": "GC10_a2026091901_yolov8n_e100"
+    },
+    {
+      "dataset": "NEU-DET",
+      "model": "yolo11n",
+      "n": 440,
+      "map": 0.3621924074382993,
+      "hours": 0.313,
+      "run": "NEU_a2026091901_yolo11n_e100"
+    },
+    {
+      "dataset": "NEU-DET",
+      "model": "yolo12n",
+      "n": 440,
+      "map": 0.34199270649663754,
+      "hours": 0.396,
+      "run": "NEU_a2026091901_yolo12n_e100"
+    },
+    {
+      "dataset": "NEU-DET",
+      "model": "yolo26n",
+      "n": 440,
+      "map": 0.34890651686967683,
+      "hours": 0.448,
+      "run": "NEU_a2026091901_yolo26n_e100"
+    },
+    {
+      "dataset": "NEU-DET",
+      "model": "yolov8n",
+      "n": 440,
+      "map": 0.34524672782050947,
+      "hours": 0.25,
+      "run": "NEU_a2026091901_yolov8n_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 561,
+      "map": 0.2819615796127348,
+      "hours": 0.591,
+      "run": "GC10_R5_GlobalLocalDINO_a2026091901_yolo26s_SGD_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 561,
+      "map": 0.2647667662666209,
+      "hours": 0.542,
+      "run": "GC10_R5_Random_a2026091901_yolo26s_SGD_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 561,
+      "map": 0.2974868428010804,
+      "hours": 0.583,
+      "run": "GC10_R5_yolo26s_SGD_e100"
+    },
+    {
+      "dataset": "GC10-DET",
+      "model": "yolo26s",
+      "n": 561,
+      "map": 0.2725638147516493,
+      "hours": 1.782,
+      "run": "GC10_R5_yolo26s_SGD_e300_b8"
+    }
+  ],
+  "output": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01"
+}

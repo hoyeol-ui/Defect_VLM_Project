@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "head": "one2one_before_topk",
+  "images": [
+    {
+      "id": "0005d724d53f3beddc09f48d35e85ee2feaed63b82ad3f72dd53048846c259b0",
+      "raw_sha": "1eb4a4e25aa21e33d50ccf6f7a5f98fdc7fec2fe4342f12e8276a6267a40517e",
+      "shape": [
+        10,
+        8400
+      ],
+      "detections": 1,
+      "uncertainty": 0.0018753594064724554,
+      "repeat_equal": true,
+      "score_lineage": true
+    },
+    {
+      "id": "000edcfeeaa82dd03bb9682aa20783a7803ff7118014e1b27576fbcb2d6e7fb6",
+      "raw_sha": "37b9d2a909fd08e795e17f335737ce53d69564f52b079b41c0761177b1212aaf",
+      "shape": [
+        10,
+        8400
+      ],
+      "detections": 1,
+      "uncertainty": 0.0007242108786193297,
+      "repeat_equal": true,
+      "score_lineage": true
+    }
+  ],
+  "no_GT_in_scoring": true
+}

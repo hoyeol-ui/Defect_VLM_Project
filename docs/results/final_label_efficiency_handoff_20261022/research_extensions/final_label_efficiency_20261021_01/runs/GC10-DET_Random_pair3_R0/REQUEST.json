@@ -1,0 +1,12 @@
+{
+  "dataset": "GC10-DET",
+  "method": "Random",
+  "pair": 3,
+  "acquisition_seed": 2026091903,
+  "learner_seed": 2026091909,
+  "train_n": 160,
+  "dev_n": 343,
+  "technical_only": false,
+  "smoke_overrides": {},
+  "test_access": false
+}

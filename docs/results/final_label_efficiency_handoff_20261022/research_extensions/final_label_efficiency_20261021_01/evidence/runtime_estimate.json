@@ -1,0 +1,14 @@
+{
+  "GC10_linear_fit_seconds": {
+    "intercept": 240.0468532600205,
+    "slope_per_image": 3.314152522531159
+  },
+  "NEU_estimation_factor_from_nano_per_image_timings": 1.033398184112206,
+  "training_hours_central": 44.273739838510025,
+  "training_hours_planning_range": [
+    33.205304878882515,
+    66.41060975776503
+  ],
+  "not_included": "Entropy acquisition, full final evaluation, transfer/setup, machine contention; NEU26s timing unmeasured",
+  "cost": "local GPU rental charge 0; electricity excluded; remote hourly rate not verified"
+}

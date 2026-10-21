@@ -1,0 +1,12 @@
+{
+  "dataset": "NEU-DET",
+  "method": "Random",
+  "pair": 1,
+  "acquisition_seed": 2026091901,
+  "learner_seed": 2026091900,
+  "train_n": 126,
+  "dev_n": 270,
+  "technical_only": false,
+  "smoke_overrides": {},
+  "test_access": false
+}

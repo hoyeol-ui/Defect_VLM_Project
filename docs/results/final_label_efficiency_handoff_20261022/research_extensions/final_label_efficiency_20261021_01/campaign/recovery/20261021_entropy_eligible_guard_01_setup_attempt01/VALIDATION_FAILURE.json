@@ -1,0 +1,5 @@
+{
+  "error": "Traceback (most recent call last):\n  File \"C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\execution_revisions\\20261021_entropy_eligible_guard_01\\validate_recovery.py\", line 182, in <module>\n    try:main()\n        ^^^^^^\n  File \"C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\execution_revisions\\20261021_entropy_eligible_guard_01\\validate_recovery.py\", line 169, in main\n    verify();oldsha=sha(P/'evidence/execution_freeze.json');science=sha(P/'config/protocol.json')\n    ^^^^^^^^\n  File \"C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\integrity.py\", line 11, in verify\n    for name,h in manifest['files'].items():assert sha(P/name)==h,'Prepared input/source changed: '+name\n                                                   ^^^^^^^^^^^^^^\nAssertionError: Prepared input/source changed: acquire.py\n",
+  "training_performed": false,
+  "test_inference": false
+}

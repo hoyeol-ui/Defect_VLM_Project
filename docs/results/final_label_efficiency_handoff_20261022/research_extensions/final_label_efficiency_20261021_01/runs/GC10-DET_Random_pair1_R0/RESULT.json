@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "technical_only": false,
+  "dataset": "GC10-DET",
+  "epochs": 100,
+  "optimizer_updates": 258,
+  "seconds": 857.2922401999999,
+  "training_seconds": 837.3999045999999,
+  "test_evaluated": false,
+  "best_sha": "54507df99a510f6e56dea40639bb12fae0e8bbbcb92e135614be88309da20bbd",
+  "last_sha": "76fccb4d13ae091562b15aa56e0b66539426f88db5526b7d5e4103243e4ccb3b",
+  "initial_state_sha": "62b9d8029f6db22ee0edadec97c6e766456820ebbc793b3381a0015b07c94ba9",
+  "recovered_postprocessing_only": true,
+  "training_execution_freeze_sha": "3f0da9a5528d4c34022f55d9e9eef725e875b38dfcf76bcee46e1ee9be5cbd7c",
+  "postprocessing_execution_freeze_sha": "384cef9941720da965d7252219aa45d4c014f5fdb2af37ec5fc1f7252572952d",
+  "recovery_seconds": 13.97437119999995
+}

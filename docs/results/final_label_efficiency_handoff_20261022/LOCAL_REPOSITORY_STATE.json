@@ -1,0 +1,6 @@
+{
+  "base_commit": "09805bbd9e6b288dbf6aea40d379fc6204e2422f",
+  "working_branch": "codex/gc10-research-handoff-20261018",
+  "tracked_changes_at_start": " M docs/README.md\n M docs/mini_paper_validity_gated_industrial_al_v2_20260718.docx\n M docs/mini_paper_validity_gated_industrial_al_v2_20260718.md\n M docs/mini_paper_validity_gated_industrial_al_v2_20260718.pdf\n M docs/research_evolution_and_evidence_freeze_v3_20260718.md\n M docs/thesis_claim_boundary_v3_20260718.md\n M scripts/04_dcal_xai/build_mini_paper_package.py\n M scripts/04_dcal_xai/test_mini_paper_package.py\n M scripts/05_deeppcb_prospective/test_evidence_freeze_v3.py\n",
+  "policy": "Original checkout, branch, index, and historical working changes remain untouched."
+}

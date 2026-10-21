@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "date_KST": "2026-10-21T23:02:17+09:00",
+  "postprocess_seconds": 13.97437119999995,
+  "training_repeated": false,
+  "test_inference": false,
+  "checkpoint_reused": true,
+  "best_sha": "54507df99a510f6e56dea40639bb12fae0e8bbbcb92e135614be88309da20bbd",
+  "last_sha": "76fccb4d13ae091562b15aa56e0b66539426f88db5526b7d5e4103243e4ccb3b",
+  "result_sha": "a2a9bb4f78ba5401ddbb2e81b789feeea522828ba4d4c61ed7cdad0a944280c8",
+  "execution_freeze_sha": "384cef9941720da965d7252219aa45d4c014f5fdb2af37ec5fc1f7252572952d",
+  "development_only": true
+}

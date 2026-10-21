@@ -1,0 +1,86 @@
+{
+  "eligible_n": 1444,
+  "query_n": 81,
+  "no_prediction_n": 331,
+  "no_prediction_fraction": 0.22922437673130194,
+  "zero_uncertainty_n": 331,
+  "unique_exact_scores": 1114,
+  "candidates_in_exact_ties_n": 331,
+  "candidates_in_exact_ties_fraction": 0.22922437673130194,
+  "largest_exact_tie_n": 331,
+  "cutoff_score": 0.05532016820054889,
+  "cutoff_tie_n": 1,
+  "cutoff_tie_selected_n": 1,
+  "cutoff_tie_truncated_by_ID": false,
+  "cutoff_tie_choice_matches_frozen_ID_rule": true,
+  "selected_by_cutoff_ID_tie_fraction": 0.0,
+  "eligible_ID_decile_counts": [
+    145,
+    144,
+    145,
+    144,
+    144,
+    145,
+    144,
+    145,
+    144,
+    144
+  ],
+  "selected_ID_decile_counts": [
+    10,
+    9,
+    9,
+    10,
+    9,
+    8,
+    9,
+    8,
+    3,
+    6
+  ],
+  "selected_mean_global_ID_percentile": 0.4448334530282822,
+  "ID_rank_descriptive_KS_D": 0.10668239800280427,
+  "semantic_bias_claim": "Opaque hash-ID ordering can favor low IDs within a boundary tie. ID ranks do not establish class/source bias; no candidate labels were read.",
+  "algorithm_modified": false,
+  "gate": "PASS",
+  "dataset": "GC10-DET",
+  "acquisition_seed": 2026091901,
+  "learner_seed": 2026091900,
+  "round": 1,
+  "parent_best_sha": "54507df99a510f6e56dea40639bb12fae0e8bbbcb92e135614be88309da20bbd",
+  "repeat_checks": [
+    {
+      "id": "087f109b6fca504fb748fd8d7bb6d8267a2b45dea9a9943e5001d4ef01c13ca0",
+      "raw_sha": "f0c87b126a7776da1c781a0556dd830bd19e3a416535240479eb05c0b11c1073",
+      "repeat_equal": true
+    },
+    {
+      "id": "8373e0aa34bb770f927c1937d5a5f8ee7b81f26033612a2394d5547588014a8b",
+      "raw_sha": "84001a53f5acfac1c99803dddda1bcda601e303e3800f0bdcb5cca3f35010191",
+      "repeat_equal": true
+    },
+    {
+      "id": "ffeb02d0595d5af9b5a925d3490468d13950042809e9cfd1a65686a14c43f6b7",
+      "raw_sha": "b761d307e202cb2b37def1a1ef8b1d2b81224353ce870124dfa33f53a12492f6",
+      "repeat_equal": true
+    }
+  ],
+  "seconds": 69.61149689999911,
+  "no_candidate_GT_opened": true,
+  "ranking_validated": true,
+  "selection_within_remaining_pool": true,
+  "retained_rule": "confidence>0.25; normalized class-score entropy; class NMS IoU0.7; max300; no predictions=0; exact score then ID",
+  "geometry_validation": {
+    "images": 1444,
+    "invalid_raw_images": 812,
+    "invalid_raw_image_fraction": 0.5623268698060941,
+    "invalid_raw_boxes": 5535,
+    "invalid_eligible_boxes": 0,
+    "guard": "Existing nonnegative size guard on confidence>0.25 candidates only",
+    "raw_coordinates_clamped": false,
+    "anchor_indices_preserved": true,
+    "details": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\acquisition_diagnostics\\GC10-DET\\2026091901\\R1_geometry.jsonl",
+    "details_sha": "d953c3790bb3a6e23bbd90af3f2c8d9d69ffcb8317273dc68429acdb2a8a8ea7"
+  },
+  "execution_freeze_sha": "384cef9941720da965d7252219aa45d4c014f5fdb2af37ec5fc1f7252572952d"
+}

@@ -1,0 +1,12 @@
+{
+  "dataset": "NEU-DET",
+  "method": "FullySupervised",
+  "pair": 1,
+  "acquisition_seed": null,
+  "learner_seed": 2026091900,
+  "train_n": 1258,
+  "dev_n": 270,
+  "technical_only": false,
+  "smoke_overrides": {},
+  "test_access": false
+}

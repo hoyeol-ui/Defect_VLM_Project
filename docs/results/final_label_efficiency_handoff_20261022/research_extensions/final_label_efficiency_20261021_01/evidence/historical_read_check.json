@@ -1,0 +1,11 @@
+{
+  "raw_results_count": 162,
+  "curve_rows": 180,
+  "tables_sha": {
+    "curves.csv": "f821b771f3f0ac27db66585aa5fde7e8e401068bb76573e05abd6f0cbb0b2ebd",
+    "R5_vs_full_data.csv": "4910f88cc915ac6a463f45151b7d3b6a97b4733b38d0b5144dc9217b64f25ba3",
+    "paired_comparisons.csv": "51248aed9b7b00032b5e939969407f9c5e6931ca4eed04766377ab26f0bc8a99"
+  },
+  "raw_results_readable": true,
+  "scope": "Recomputed ratios from saved table; historical 20261017 full 162-result audit is cited separately, not rerun here."
+}

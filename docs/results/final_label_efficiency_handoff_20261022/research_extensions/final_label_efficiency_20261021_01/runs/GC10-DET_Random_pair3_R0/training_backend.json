@@ -1,0 +1,11 @@
+{
+  "amp": true,
+  "matmul_TF32": false,
+  "cudnn_TF32": true,
+  "cudnn_benchmark": false,
+  "deterministic_algorithms": true,
+  "train_loader_batch": 8,
+  "development_loader_batch": 16,
+  "initial_model_state_sha": "d86b70c503986ae20e54be5e9e8f117709de64a0d90adb38282b25e8f12cded6",
+  "unrelated_AMP_probe_model_downloaded": false
+}

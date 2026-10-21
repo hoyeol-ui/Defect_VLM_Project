@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "technical_only": true,
+  "checkpoint": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\modern_yolo_A_20261015_01\\runs\\NEU_a2026091901_yolo26n_e100\\train\\weights\\best.pt",
+  "checkpoint_sha": "4d38f679b73118c79494a2a72868d02fd6c5851470d528bf0cb3f6bc39bac74d",
+  "model": "saved trained YOLO26n, same nc6 one2one head format; final model size remains s",
+  "no_GT_read": true,
+  "images": [
+    {
+      "id": "0005d724d53f3beddc09f48d35e85ee2feaed63b82ad3f72dd53048846c259b0",
+      "detections": 2,
+      "uncertainty": 0.007552360994233393,
+      "raw_sha": "dd7e0883429597599275c5700fb634efaaf9561533a21e5ca1d27135130ad162",
+      "repeat_equal": true
+    },
+    {
+      "id": "000edcfeeaa82dd03bb9682aa20783a7803ff7118014e1b27576fbcb2d6e7fb6",
+      "detections": 1,
+      "uncertainty": 0.005461240086556824,
+      "raw_sha": "ece5e5e16bc7e25a98970c32c08260bdfb8764f15c946fddd491c445a19117c5",
+      "repeat_equal": true
+    },
+    {
+      "id": "001a84b5f4f9b291ff91f92caf91180f7178eea8e714b83b139b93e3ab36b947",
+      "detections": 0,
+      "uncertainty": 0.0,
+      "raw_sha": "8e0701df84b588a1f685a76f950781285e12075158bc1b16e49c0230b6695429",
+      "repeat_equal": true
+    },
+    {
+      "id": "004e9b16ad06cfdcde05e03cf960b0d1cf8273b9742a45400a841bc45961ae52",
+      "detections": 3,
+      "uncertainty": 0.003977583320233104,
+      "raw_sha": "fee504cae2227edb5e4ebf510232ad964d21b3bf5dad1730ec918dbaedceefda",
+      "repeat_equal": true
+    }
+  ]
+}

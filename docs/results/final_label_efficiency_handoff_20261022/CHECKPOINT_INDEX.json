@@ -1,0 +1,119 @@
+[
+  {
+    "cell_id": "GC10-DET_Random_pair1_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\GC10-DET_Random_pair1_R0\\train\\weights\\best.pt",
+    "bytes": 80260441,
+    "sha256": "54507df99a510f6e56dea40639bb12fae0e8bbbcb92e135614be88309da20bbd",
+    "included_in_bundle": false,
+    "role": "best.pt"
+  },
+  {
+    "cell_id": "GC10-DET_Random_pair1_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\GC10-DET_Random_pair1_R0\\train\\weights\\last.pt",
+    "bytes": 80261209,
+    "sha256": "76fccb4d13ae091562b15aa56e0b66539426f88db5526b7d5e4103243e4ccb3b",
+    "included_in_bundle": false,
+    "role": "last.pt"
+  },
+  {
+    "cell_id": "GC10-DET_Random_pair2_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\GC10-DET_Random_pair2_R0\\train\\weights\\best.pt",
+    "bytes": 80258713,
+    "sha256": "22c942e7830b15b901f07006cd7539ab584da6d7d26231fa780badd2b52dd5dc",
+    "included_in_bundle": false,
+    "role": "best.pt"
+  },
+  {
+    "cell_id": "GC10-DET_Random_pair2_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\GC10-DET_Random_pair2_R0\\train\\weights\\last.pt",
+    "bytes": 80261273,
+    "sha256": "be452e64e6e1424981fbc474a5f59b75dcbd8c95b33428d59672ffc8ad0005ec",
+    "included_in_bundle": false,
+    "role": "last.pt"
+  },
+  {
+    "cell_id": "GC10-DET_Random_pair3_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\GC10-DET_Random_pair3_R0\\train\\weights\\best.pt",
+    "bytes": 80259353,
+    "sha256": "ef01b27c7c290b2fcbd025255b896aa91141e329a3e32263649abc28b84934ea",
+    "included_in_bundle": false,
+    "role": "best.pt"
+  },
+  {
+    "cell_id": "GC10-DET_Random_pair3_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\GC10-DET_Random_pair3_R0\\train\\weights\\last.pt",
+    "bytes": 80261145,
+    "sha256": "6328bd1564acf491b66ed40ea2117307752397b519d03967375f7c5599709e17",
+    "included_in_bundle": false,
+    "role": "last.pt"
+  },
+  {
+    "cell_id": "NEU-DET_Random_pair1_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\NEU-DET_Random_pair1_R0\\train\\weights\\best.pt",
+    "bytes": 80289177,
+    "sha256": "439495b255c7aba88ce4d5c2afc3142750f452b5f7ae65483a831466f9bc5b4d",
+    "included_in_bundle": false,
+    "role": "best.pt"
+  },
+  {
+    "cell_id": "NEU-DET_Random_pair1_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\NEU-DET_Random_pair1_R0\\train\\weights\\last.pt",
+    "bytes": 80289433,
+    "sha256": "18a517ef903de7068db49c6317d7dff9e859f5a3fd9a9304b0f9267a77d98a55",
+    "included_in_bundle": false,
+    "role": "last.pt"
+  },
+  {
+    "cell_id": "NEU-DET_FullySupervised_pair1_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\NEU-DET_FullySupervised_pair1_R0\\train\\weights\\best.pt",
+    "bytes": 80287385,
+    "sha256": "8370f580444dfc2bcad22801b2edbb59a42d50817204bd733c451f2e3d4c742f",
+    "included_in_bundle": false,
+    "role": "best.pt"
+  },
+  {
+    "cell_id": "NEU-DET_FullySupervised_pair1_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\NEU-DET_FullySupervised_pair1_R0\\train\\weights\\last.pt",
+    "bytes": 80289433,
+    "sha256": "3e782801642f426e4ea907e3e18fc62e8d6ff4e523ccb5838ac745309bfddbdb",
+    "included_in_bundle": false,
+    "role": "last.pt"
+  },
+  {
+    "cell_id": "NEU-DET_Random_pair2_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\NEU-DET_Random_pair2_R0\\train\\weights\\best.pt",
+    "bytes": 80287257,
+    "sha256": "55efdcdca9640011803131a3a4c8136782871c88e5e6fa3eb0120c2e85469f4d",
+    "included_in_bundle": false,
+    "role": "best.pt"
+  },
+  {
+    "cell_id": "NEU-DET_Random_pair2_R0",
+    "state": "SUCCEEDED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\NEU-DET_Random_pair2_R0\\train\\weights\\last.pt",
+    "bytes": 80289433,
+    "sha256": "74be8b5288a3a9bb6614000af78ee0e834cfac7a13083f7d76a88effd3191852",
+    "included_in_bundle": false,
+    "role": "last.pt"
+  },
+  {
+    "cell_id": "GC10-DET_FullySupervised_pair1_R0",
+    "state": "REUSED",
+    "source": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\full_data_26s_sgd_cosine_640_20261018_01\\runs\\GC10_FULL1604_yolo26s_SGD_Cosine_e100_b8_i640\\train\\weights\\best.pt",
+    "bytes": 80259417,
+    "sha256": "010bd498c13ed92c7552264c221784d227a3dabbc09ca5c6bf3fdb39312f5ff5",
+    "included_in_bundle": false,
+    "role": "reused best checkpoint"
+  }
+]

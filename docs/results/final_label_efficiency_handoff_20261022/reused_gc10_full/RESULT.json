@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "phase": "train",
+  "dataset": "GC10-DET",
+  "model": "yolo26s",
+  "epochs": 100,
+  "train_batches": 20100,
+  "train_n": 1604,
+  "dev_n": 343,
+  "train_batch": 8,
+  "epoch_dev_batch": 16,
+  "sealed_dev_batch": 8,
+  "AMP": true,
+  "train_peak_allocated_bytes": 2488493568,
+  "train_peak_reserved_bytes": 2768240640,
+  "sealed_dev_peak_bytes": {
+    "allocated": 626509312,
+    "reserved": 954204160
+  },
+  "setup_train_epochdev_seconds": 5542.1977248,
+  "total_seconds": 5555.9474994,
+  "best_sha": "010bd498c13ed92c7552264c221784d227a3dabbc09ca5c6bf3fdb39312f5ff5",
+  "last_sha": "33872bf189295e5d9144abc127446de48da9fe83d088c3b81b11c5c6a8ec1d70",
+  "test_evaluated": false,
+  "automatic_batch_change": false,
+  "numeric_recipe": "original strict_loop+guarded_step",
+  "source_hashes": {
+    "amp_compat.py": "fe7bc586d5c4970d346c632108988d96d525535a0cc63ef96948b006a6273e88",
+    "amp_runtime.py": "292fe43a0f88aef7a07f3e4c9203086d9da2de21c31bffb38e333efc1c55a6c8",
+    "core.py": "27a90793c4e871599bce71f11447189c5373204432ac1610555b547042feeb9d",
+    "modern_trainer.py": "aa0e6f225e5020031f07f7c9b14302e4f2a0797b22937628d3e5589ba8940710",
+    "strict_loop.py": "a0eab384d5d4807c1033a6a4a45796235e361b0a984c60e13e06eabba15116ff",
+    "trainer_adapter.py": "182a9f6352a95a738b48e2dd3096a5f6c510940a5b2010d3f90cd694f68d3c20",
+    "worker.py": "6670ff2d417da2df37ff9f89b912a36b0a63e355716392329854278e5829295c"
+  },
+  "common_args_sha": "3b4ba4fa62a71a49112eef637f63e5b82913179139e4384db5ba67bef439a9d3"
+}

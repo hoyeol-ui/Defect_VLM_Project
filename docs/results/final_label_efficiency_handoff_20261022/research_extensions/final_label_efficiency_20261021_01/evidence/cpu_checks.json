@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checks": [
+    "nc6: geometry preserves all class scores; uniform/onehot/empty/exact-threshold entropy",
+    "nc10: geometry preserves all class scores; uniform/onehot/empty/exact-threshold entropy",
+    "stable confidence tie, same-class suppression, different-class retention",
+    "actual-count nAULC, paired n=3, ratio denominator, missing/duplicate/dev/zero-reference rejection"
+  ],
+  "synthetic_values_not_research_results": true
+}

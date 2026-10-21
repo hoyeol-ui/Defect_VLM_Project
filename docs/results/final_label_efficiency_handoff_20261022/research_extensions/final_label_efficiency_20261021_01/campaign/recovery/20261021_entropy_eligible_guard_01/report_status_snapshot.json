@@ -1,0 +1,35 @@
+{
+  "state": "RUNNING",
+  "updated_UTC": "2026-10-21T14:09:11.066428+00:00",
+  "updated_KST": "2026-10-21T23:09:11+09:00",
+  "controller_pid": 20228,
+  "new_training_target": 101,
+  "new_succeeded": 2,
+  "reused_models": 1,
+  "failed": 0,
+  "pending": 98,
+  "running": 1,
+  "current_cell": "NEU-DET_Random_pair1_R0",
+  "action": "TRAIN",
+  "current_epoch": 22,
+  "current_training_elapsed_seconds": 175.60648894309998,
+  "remaining_training_estimate": {
+    "remaining_training_hours": 43.02889037104676,
+    "dataset_measured_multipliers": {
+      "GC10-DET": 1.087092908401767,
+      "NEU-DET": 0.9094577424664031
+    },
+    "measured_complete_cells": 2,
+    "basis": "Completed-cell training seconds / prior model, median by dataset; active cell uses elapsed training per epoch after epoch5. Acquisitions and final test are separate."
+  },
+  "acquisitions_passed": 1,
+  "acquisition_target": 30,
+  "remaining_acquisition_hours_estimate": 0.5607592805833261,
+  "remaining_training_plus_acquisition_hours": 43.58964965163008,
+  "estimated_models_complete_KST": "2026-10-23T18:44:33+09:00",
+  "estimate_excludes": "Final test evaluation, interruptions and user stop; early ETA provisional until complete cells are measured.",
+  "free_disk_GiB": 51.61478042602539,
+  "test_inference_performed": false,
+  "protocol_sha": "85f373041df3777ce35b1d91f8b704b5a714f35bccfc956aa91f2bc19c1f479b",
+  "execution_freeze_sha": "384cef9941720da965d7252219aa45d4c014f5fdb2af37ec5fc1f7252572952d"
+}

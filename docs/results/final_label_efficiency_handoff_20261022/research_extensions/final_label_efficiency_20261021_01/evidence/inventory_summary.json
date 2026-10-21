@@ -1,0 +1,8 @@
+{
+  "rows": 35,
+  "status": {
+    "train:PASS": 22,
+    "failed_or_incomplete:FAILED": 4,
+    "smoke:PASS": 9
+  }
+}

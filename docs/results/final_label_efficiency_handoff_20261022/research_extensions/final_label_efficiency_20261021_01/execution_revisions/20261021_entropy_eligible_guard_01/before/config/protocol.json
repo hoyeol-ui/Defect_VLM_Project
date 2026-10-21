@@ -1,0 +1,65 @@
+{
+  "date_KST": "2026-10-21",
+  "status": "PROTOCOL_FIXED_EXECUTION_GATES_SEPARATE",
+  "model": "yolo26s",
+  "pretrained_sha": "646f8bc3fe0a656803d95c294f7852321748cb29d13466a1af8862e2db384a1b",
+  "budgets_percent": [
+    10,
+    15,
+    20,
+    25,
+    30,
+    35
+  ],
+  "counts": {
+    "GC10-DET": [
+      160,
+      241,
+      321,
+      401,
+      481,
+      561
+    ],
+    "NEU-DET": [
+      126,
+      189,
+      252,
+      315,
+      377,
+      440
+    ]
+  },
+  "seed_pairs": [
+    {
+      "acquisition": 2026091901,
+      "learner": 2026091900
+    },
+    {
+      "acquisition": 2026091902,
+      "learner": 2026091908
+    },
+    {
+      "acquisition": 2026091903,
+      "learner": 2026091909
+    }
+  ],
+  "repeat_unit": "paired acquisition+learner seed configuration; effects cannot be separated",
+  "full_learner_seeds": [
+    2026091900,
+    2026091908,
+    2026091909
+  ],
+  "physical_scientific_cells": 102,
+  "new_trainings": 101,
+  "runtime": {
+    "python": "3.11.9",
+    "torch": "2.12.1+cu126",
+    "torchvision": "0.27.1+cu126",
+    "ultralytics": "8.4.90",
+    "gpu": "RTX 3070"
+  },
+  "selection": "reuse verified detector-independent Random and DINO manifests; recompute all Entropy using preceding YOLO26 checkpoint",
+  "evaluation_head": "one2one/end2end=True in installed 8.4.90; no current-docs default substitution",
+  "entropy_head": "one2one raw class scores before top-k; xyxy converted to xywh for unchanged ENTROPY_NCS_MEAN_V2 stable-NMS score function",
+  "test_access": "No test inference during preparation; final settings frozen before fixed evaluation; historical test exposure disclosed"
+}

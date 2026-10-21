@@ -1,0 +1,23 @@
+{
+  "decision": "REUSE_TRAINED_GC10_FULL_SEED_2026091900",
+  "checks": {
+    "full_train_membership": true,
+    "development_membership": true,
+    "no_test_ids_in_train_or_dev": true,
+    "all_100_epochs": true,
+    "best_sha": true,
+    "last_sha": true,
+    "pretrained_sha": true,
+    "fixed_settings": true,
+    "test_not_evaluated_in_this_run": true,
+    "input_seal_bytes": true,
+    "actual_loader_view_bytes": true,
+    "source_hashes": true,
+    "config_sha": true
+  },
+  "input_files_checked": 3897,
+  "source": "research_extensions/full_data_26s_sgd_cosine_640_20261018_01/runs/GC10_FULL1604_yolo26s_SGD_Cosine_e100_b8_i640",
+  "best_sha": "010bd498c13ed92c7552264c221784d227a3dabbc09ca5c6bf3fdb39312f5ff5",
+  "remaining_required": "same frozen final evaluation as AL, after all model/settings are locked",
+  "interpretation": "Saved dev result is not the final test score. Reuse valid only with identical local runtime/numerical recipe/head."
+}

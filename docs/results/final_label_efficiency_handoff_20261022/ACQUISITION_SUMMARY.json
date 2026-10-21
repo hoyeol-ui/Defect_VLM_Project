@@ -1,0 +1,67 @@
+[
+  {
+    "dataset": "GC10-DET",
+    "acquisition_seed": 2026091901,
+    "round": 1,
+    "eligible_n": 1444,
+    "selected_n": 81,
+    "no_prediction_fraction": 0.22922437673130194,
+    "exact_tie_fraction": 0.22922437673130194,
+    "cutoff_ID_fraction": 0.0,
+    "invalid_eligible_boxes": 0,
+    "selected_mean_ID_percentile": 0.4448334530282822,
+    "ID_KS_D": 0.10668239800280427
+  },
+  {
+    "dataset": "GC10-DET",
+    "acquisition_seed": 2026091902,
+    "round": 1,
+    "eligible_n": 1444,
+    "selected_n": 81,
+    "no_prediction_fraction": 0.2056786703601108,
+    "exact_tie_fraction": 0.2056786703601108,
+    "cutoff_ID_fraction": 0.0,
+    "invalid_eligible_boxes": 0,
+    "selected_mean_ID_percentile": 0.5610572483841182,
+    "ID_KS_D": 0.12208884785062069
+  },
+  {
+    "dataset": "GC10-DET",
+    "acquisition_seed": 2026091903,
+    "round": 1,
+    "eligible_n": 1444,
+    "selected_n": 81,
+    "no_prediction_fraction": 0.18421052631578946,
+    "exact_tie_fraction": 0.18421052631578946,
+    "cutoff_ID_fraction": 0.0,
+    "invalid_eligible_boxes": 0,
+    "selected_mean_ID_percentile": 0.49810625491604255,
+    "ID_KS_D": 0.07820354981019795
+  },
+  {
+    "dataset": "NEU-DET",
+    "acquisition_seed": 2026091901,
+    "round": 1,
+    "eligible_n": 1132,
+    "selected_n": 63,
+    "no_prediction_fraction": 0.15106007067137808,
+    "exact_tie_fraction": 0.15106007067137808,
+    "cutoff_ID_fraction": 0.0,
+    "invalid_eligible_boxes": 0,
+    "selected_mean_ID_percentile": 0.5217552863312581,
+    "ID_KS_D": 0.0822816759212519
+  },
+  {
+    "dataset": "NEU-DET",
+    "acquisition_seed": 2026091902,
+    "round": 1,
+    "eligible_n": 1132,
+    "selected_n": 63,
+    "no_prediction_fraction": 0.20053003533568906,
+    "exact_tie_fraction": 0.20053003533568906,
+    "cutoff_ID_fraction": 0.0,
+    "invalid_eligible_boxes": 0,
+    "selected_mean_ID_percentile": 0.49310813842615964,
+    "ID_KS_D": 0.08688092433675465
+  }
+]

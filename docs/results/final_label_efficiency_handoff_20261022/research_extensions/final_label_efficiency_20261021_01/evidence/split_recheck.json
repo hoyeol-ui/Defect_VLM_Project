@@ -1,0 +1,46 @@
+{
+  "GC10-DET": {
+    "counts": {
+      "train": 1604,
+      "dev": 343,
+      "test": 344
+    },
+    "checks": {
+      "unique_ids": true,
+      "no_id_overlap": true,
+      "component_disjoint": true,
+      "membership_matches_lists": true
+    },
+    "split_sha": "453ab6eaf22a1439236125364492f4b7ef8d3e8e65c4daa96386b40cb93a243a",
+    "canonical_rows": 2291,
+    "eligibility_counts": {
+      "ELIGIBLE": 2291
+    },
+    "raw_alias_count": 2303,
+    "split_seed": [
+      "2026091906"
+    ]
+  },
+  "NEU-DET": {
+    "counts": {
+      "train": 1258,
+      "dev": 270,
+      "test": 270
+    },
+    "checks": {
+      "unique_ids": true,
+      "no_id_overlap": true,
+      "component_disjoint": true,
+      "membership_matches_lists": true
+    },
+    "split_sha": "a6027b62d12cfe426caaf7d9c178c4dd38354bcb915925069f1dc391c4951403",
+    "canonical_rows": 1798,
+    "eligibility_counts": {
+      "ELIGIBLE": 1798
+    },
+    "raw_alias_count": 1798,
+    "split_seed": [
+      "2026091907"
+    ]
+  }
+}

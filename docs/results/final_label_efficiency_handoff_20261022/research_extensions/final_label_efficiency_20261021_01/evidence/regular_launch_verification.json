@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checked_at_KST": "2026-10-21T21:10:14.705153+09:00",
+  "current_state": "RUNNING",
+  "current_cell": "NEU-DET_FullySupervised_pair1_R0",
+  "last_observed_completed_epoch": 15,
+  "actual_training_kwargs_equal_fixed_config": true,
+  "full_train_dev_membership_match": true,
+  "initial_model_state_matches_NEUsmoke": true,
+  "execution_freeze_verified": true,
+  "python_files_compile": 22,
+  "markdown_documents_checked": 6,
+  "broken_local_links": [],
+  "figure_png_svg_exist": true,
+  "figure_visually_inspected": true,
+  "heartbeat_automation_id": "al",
+  "test_inference_performed": false
+}

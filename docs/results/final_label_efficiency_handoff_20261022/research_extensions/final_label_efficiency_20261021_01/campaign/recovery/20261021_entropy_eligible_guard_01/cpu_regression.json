@@ -1,0 +1,320 @@
+{
+  "status": "PASS",
+  "normal_cases": [
+    {
+      "case": "nc6_n0",
+      "equal": true,
+      "output_sha": "3646c9a1154e4b5fa864a4710ec76c6e918cf22924b321eb0d11884939aa0715"
+    },
+    {
+      "case": "nc6_n1",
+      "equal": true,
+      "output_sha": "6d8ddd25af01df0956b4dd42261ab720044293ccaa714df91e716d0b67f9cc04"
+    },
+    {
+      "case": "nc6_n17",
+      "equal": true,
+      "output_sha": "23df22ede3fa5378db3686c97c109f5e7b9798d626f73043e024e3286992fcdd"
+    },
+    {
+      "case": "nc6_n360",
+      "equal": true,
+      "output_sha": "b2458ecaca65a787ad56ccb97822daf6cc247d78834611667886871115299556"
+    },
+    {
+      "case": "nc6_empty_predictions",
+      "equal": true,
+      "output_sha": "3646c9a1154e4b5fa864a4710ec76c6e918cf22924b321eb0d11884939aa0715"
+    },
+    {
+      "case": "nc6_threshold",
+      "equal": true,
+      "output_sha": "e5b124b0e50ae4eab0f855bbc4acfeb874cc5e58ca5c5b269f67e173fb84cdbf"
+    },
+    {
+      "case": "nc6_ties",
+      "equal": true,
+      "output_sha": "36162597c4c74a59b3e425db3a0cd042f7292c62dc2014a0f93c9cfd2df23fde"
+    },
+    {
+      "case": "nc6_max300",
+      "equal": true,
+      "output_sha": "9a63f445a041420ccddabd10b5d32145fcf9c1242c1dd4f9495ac3e721a7addd"
+    },
+    {
+      "case": "nc6_zero_width_legacy",
+      "equal": true,
+      "output_sha": "7038f1e87901fceee4fab66c348abcf051e341153fbc5f0d67c95e4e104691b9"
+    },
+    {
+      "case": "nc10_n0",
+      "equal": true,
+      "output_sha": "3646c9a1154e4b5fa864a4710ec76c6e918cf22924b321eb0d11884939aa0715"
+    },
+    {
+      "case": "nc10_n1",
+      "equal": true,
+      "output_sha": "5a52d357c73edffbdbe8f63d82b85b3f85b3f8943ecc45c3f0375baef42b5405"
+    },
+    {
+      "case": "nc10_n17",
+      "equal": true,
+      "output_sha": "74f634137165a4f3c9797e90e4bfe64c8fd411e8de9b049efe716b5ce5971cf4"
+    },
+    {
+      "case": "nc10_n360",
+      "equal": true,
+      "output_sha": "2f9f3e7f23905294828d97203b4db52610a0567973f3f1a011f465baf92cef2a"
+    },
+    {
+      "case": "nc10_empty_predictions",
+      "equal": true,
+      "output_sha": "3646c9a1154e4b5fa864a4710ec76c6e918cf22924b321eb0d11884939aa0715"
+    },
+    {
+      "case": "nc10_threshold",
+      "equal": true,
+      "output_sha": "08dfb0bd01499b1e97bfb6a90ffe40f233cde88f899b6a1f0f368d15d015d46c"
+    },
+    {
+      "case": "nc10_ties",
+      "equal": true,
+      "output_sha": "6cb42bc44beffe4fd9d62bf5d469e97ac97f4042a29d193ae0d59bfc184478b1"
+    },
+    {
+      "case": "nc10_max300",
+      "equal": true,
+      "output_sha": "7504d1838402609842affffcb70acf4ff79c05cd8185d4aadf23b0ce5802b773"
+    },
+    {
+      "case": "nc10_zero_width_legacy",
+      "equal": true,
+      "output_sha": "f49355c18afec34879f1cf7bc7b3353a8c6bdb68c4f12eb449bdc164b94e0cc5"
+    }
+  ],
+  "adversarial_checks": [
+    {
+      "nc": 6,
+      "path": "score",
+      "confidence": 0.25,
+      "expected_failure": false,
+      "matched": true
+    },
+    {
+      "nc": 6,
+      "path": "adapter",
+      "confidence": 0.25,
+      "expected_failure": false,
+      "matched": true
+    },
+    {
+      "nc": 6,
+      "path": "score",
+      "confidence": 0.2500000298023224,
+      "expected_failure": true,
+      "matched": true
+    },
+    {
+      "nc": 6,
+      "path": "adapter",
+      "confidence": 0.2500000298023224,
+      "expected_failure": true,
+      "matched": true
+    },
+    {
+      "nc": 10,
+      "path": "score",
+      "confidence": 0.25,
+      "expected_failure": false,
+      "matched": true
+    },
+    {
+      "nc": 10,
+      "path": "adapter",
+      "confidence": 0.25,
+      "expected_failure": false,
+      "matched": true
+    },
+    {
+      "nc": 10,
+      "path": "score",
+      "confidence": 0.2500000298023224,
+      "expected_failure": true,
+      "matched": true
+    },
+    {
+      "nc": 10,
+      "path": "adapter",
+      "confidence": 0.2500000298023224,
+      "expected_failure": true,
+      "matched": true
+    }
+  ],
+  "saved_failure_checks": [
+    {
+      "raw_file": "C:\\Users\\user\\Desktop\\vlm\\journal_manuscript_jkics\\work\\failure_raw_01b71abb7ba25ee549f2c3048a97c69f1d260e24d7a92c61d037f6f231aab17a.npz",
+      "bad_anchors": [
+        8107,
+        8108,
+        8109,
+        8110,
+        8111
+      ],
+      "retained_anchors": [
+        6921,
+        8143
+      ],
+      "equal_to_eligible_old_oracle": true
+    },
+    {
+      "raw_file": "C:\\Users\\user\\Desktop\\vlm\\journal_manuscript_jkics\\work\\failure_raw_040bea04e1b9476f53bad78db3e91bf25e5308f3f0b6e092c57f2bb57bd9e2e5.npz",
+      "bad_anchors": [],
+      "retained_anchors": [
+        8188
+      ],
+      "equal_to_eligible_old_oracle": true
+    }
+  ],
+  "tie_selection_checks": [
+    {
+      "eligible_n": 12,
+      "query_n": 3,
+      "no_prediction_n": 12,
+      "no_prediction_fraction": 1.0,
+      "zero_uncertainty_n": 12,
+      "unique_exact_scores": 1,
+      "candidates_in_exact_ties_n": 12,
+      "candidates_in_exact_ties_fraction": 1.0,
+      "largest_exact_tie_n": 12,
+      "cutoff_score": 0,
+      "cutoff_tie_n": 12,
+      "cutoff_tie_selected_n": 3,
+      "cutoff_tie_truncated_by_ID": true,
+      "cutoff_tie_choice_matches_frozen_ID_rule": true,
+      "selected_by_cutoff_ID_tie_fraction": 1.0,
+      "eligible_ID_decile_counts": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "selected_ID_decile_counts": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "selected_mean_global_ID_percentile": 0.125,
+      "ID_rank_descriptive_KS_D": 0.75,
+      "semantic_bias_claim": "Opaque hash-ID ordering can favor low IDs within a boundary tie. ID ranks do not establish class/source bias; no candidate labels were read.",
+      "algorithm_modified": false,
+      "gate": "DEGENERATE_ALL_SCORES_TIED"
+    },
+    {
+      "eligible_n": 8,
+      "query_n": 3,
+      "no_prediction_n": 3,
+      "no_prediction_fraction": 0.375,
+      "zero_uncertainty_n": 3,
+      "unique_exact_scores": 3,
+      "candidates_in_exact_ties_n": 8,
+      "candidates_in_exact_ties_fraction": 1.0,
+      "largest_exact_tie_n": 3,
+      "cutoff_score": 0.4,
+      "cutoff_tie_n": 3,
+      "cutoff_tie_selected_n": 1,
+      "cutoff_tie_truncated_by_ID": true,
+      "cutoff_tie_choice_matches_frozen_ID_rule": true,
+      "selected_by_cutoff_ID_tie_fraction": 0.3333333333333333,
+      "eligible_ID_decile_counts": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "selected_ID_decile_counts": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "selected_mean_global_ID_percentile": 0.1875,
+      "ID_rank_descriptive_KS_D": 0.625,
+      "semantic_bias_claim": "Opaque hash-ID ordering can favor low IDs within a boundary tie. ID ranks do not establish class/source bias; no candidate labels were read.",
+      "algorithm_modified": false,
+      "gate": "PASS"
+    },
+    {
+      "eligible_n": 6,
+      "query_n": 3,
+      "no_prediction_n": 0,
+      "no_prediction_fraction": 0.0,
+      "zero_uncertainty_n": 0,
+      "unique_exact_scores": 6,
+      "candidates_in_exact_ties_n": 0,
+      "candidates_in_exact_ties_fraction": 0.0,
+      "largest_exact_tie_n": 1,
+      "cutoff_score": 0.7,
+      "cutoff_tie_n": 1,
+      "cutoff_tie_selected_n": 1,
+      "cutoff_tie_truncated_by_ID": false,
+      "cutoff_tie_choice_matches_frozen_ID_rule": true,
+      "selected_by_cutoff_ID_tie_fraction": 0.0,
+      "eligible_ID_decile_counts": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "selected_ID_decile_counts": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "selected_mean_global_ID_percentile": 0.25,
+      "ID_rank_descriptive_KS_D": 0.5,
+      "semantic_bias_claim": "Opaque hash-ID ordering can favor low IDs within a boundary tie. ID ranks do not establish class/source bias; no candidate labels were read.",
+      "algorithm_modified": false,
+      "gate": "PASS"
+    }
+  ],
+  "legacy_zero_width_condition_preserved": true,
+  "threshold_nms_entropy_and_anchor_rules_unchanged": true
+}

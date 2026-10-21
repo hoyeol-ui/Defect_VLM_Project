@@ -1,0 +1,183 @@
+{
+  "status": "PASS",
+  "protocol_sha": "85f373041df3777ce35b1d91f8b704b5a714f35bccfc956aa91f2bc19c1f479b",
+  "execution_freeze_sha": "384cef9941720da965d7252219aa45d4c014f5fdb2af37ec5fc1f7252572952d",
+  "normal_synthetic_cases": 18,
+  "adversarial_checks": 8,
+  "datasets": [
+    {
+      "status": "PASS",
+      "dataset": "GC10-DET",
+      "checkpoint": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\GC10-DET_Random_pair1_R0\\train\\weights\\best.pt",
+      "parent_best_sha": "54507df99a510f6e56dea40639bb12fae0e8bbbcb92e135614be88309da20bbd",
+      "checkpoint_role": "actual shared10 parent",
+      "diagnostic_only_selection": false,
+      "train_images_scanned": 1604,
+      "remaining_pool_images": 1444,
+      "invalid_raw_images": 895,
+      "invalid_raw_image_fraction": 0.5579800498753117,
+      "invalid_raw_boxes": 6159,
+      "invalid_raw_box_fraction": 0.0004571161382258639,
+      "invalid_eligible_boxes": 0,
+      "zero_size_eligible_boxes": 0,
+      "normal_direct_legacy_equal_images": 709,
+      "all_images_equal_to_eligible_legacy_oracle": true,
+      "wrapper_checks": [
+        {
+          "id": "005902451071ded334bc1059cd5427a94356084eba00bdfe83ee64d2a286156e",
+          "before_after_wrapper_identical": true,
+          "raw_sha": "d7dd855422dd44f6dbf4ad37e6bd5f2e5d931ea3021c780240c97ed75f02d67c"
+        },
+        {
+          "id": "01323dc77f30a13e1adf3784d170127bf8d31fbcfa54c8560ac8a3ee8aa98b35",
+          "before_after_wrapper_identical": true,
+          "raw_sha": "d8081549f5594ff2d282acfca0ee1bd4326c673e1908e5a418b6175816efd229"
+        },
+        {
+          "id": "013e03133b7708ceae9dc66ddcf3b4c1f65cdb9c5707e2814fff50e5e266d7d3",
+          "before_after_wrapper_identical": true,
+          "raw_sha": "730150d13d4dbf6b478901f37904a35cbc8e16c3e7c6d747deabdba0e2408307"
+        }
+      ],
+      "ranking_and_chosen_ids_equal": true,
+      "tie_diagnostics": {
+        "eligible_n": 1444,
+        "query_n": 81,
+        "no_prediction_n": 331,
+        "no_prediction_fraction": 0.22922437673130194,
+        "zero_uncertainty_n": 331,
+        "unique_exact_scores": 1114,
+        "candidates_in_exact_ties_n": 331,
+        "candidates_in_exact_ties_fraction": 0.22922437673130194,
+        "largest_exact_tie_n": 331,
+        "cutoff_score": 0.05532016820054889,
+        "cutoff_tie_n": 1,
+        "cutoff_tie_selected_n": 1,
+        "cutoff_tie_truncated_by_ID": false,
+        "cutoff_tie_choice_matches_frozen_ID_rule": true,
+        "selected_by_cutoff_ID_tie_fraction": 0.0,
+        "eligible_ID_decile_counts": [
+          145,
+          144,
+          145,
+          144,
+          144,
+          145,
+          144,
+          145,
+          144,
+          144
+        ],
+        "selected_ID_decile_counts": [
+          10,
+          9,
+          9,
+          10,
+          9,
+          8,
+          9,
+          8,
+          3,
+          6
+        ],
+        "selected_mean_global_ID_percentile": 0.4448334530282822,
+        "ID_rank_descriptive_KS_D": 0.10668239800280427,
+        "semantic_bias_claim": "Opaque hash-ID ordering can favor low IDs within a boundary tie. ID ranks do not establish class/source bias; no candidate labels were read.",
+        "algorithm_modified": false,
+        "gate": "PASS"
+      },
+      "seconds": 94.54962319999868,
+      "test_images_read": 0,
+      "labels_read_for_scoring": 0
+    },
+    {
+      "status": "PASS",
+      "dataset": "NEU-DET",
+      "checkpoint": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\runs\\NEU-DET_FullySupervised_pair1_R0\\train\\weights\\best.pt",
+      "parent_best_sha": "8370f580444dfc2bcad22801b2edbb59a42d50817204bd733c451f2e3d4c742f",
+      "checkpoint_role": "Full diagnostic only; not the future shared10 acquisition",
+      "diagnostic_only_selection": true,
+      "train_images_scanned": 1258,
+      "remaining_pool_images": 1132,
+      "invalid_raw_images": 9,
+      "invalid_raw_image_fraction": 0.007154213036565978,
+      "invalid_raw_boxes": 9,
+      "invalid_raw_box_fraction": 8.516920281626164e-07,
+      "invalid_eligible_boxes": 0,
+      "zero_size_eligible_boxes": 0,
+      "normal_direct_legacy_equal_images": 1249,
+      "all_images_equal_to_eligible_legacy_oracle": true,
+      "wrapper_checks": [
+        {
+          "id": "0005d724d53f3beddc09f48d35e85ee2feaed63b82ad3f72dd53048846c259b0",
+          "before_after_wrapper_identical": true,
+          "raw_sha": "beb2012b279a90e08e7875ed4fd62239db54541c328de8c9bee10731d7e2ff0f"
+        },
+        {
+          "id": "000edcfeeaa82dd03bb9682aa20783a7803ff7118014e1b27576fbcb2d6e7fb6",
+          "before_after_wrapper_identical": true,
+          "raw_sha": "4616d0501064de63ead44ac90571cdb764698baf88a5e9347ffb219c468a3bea"
+        },
+        {
+          "id": "004e9b16ad06cfdcde05e03cf960b0d1cf8273b9742a45400a841bc45961ae52",
+          "before_after_wrapper_identical": true,
+          "raw_sha": "18159c355cce47886f83c4c637a19c898eae88606aa726cbdaa45c027d2c7cb8"
+        }
+      ],
+      "ranking_and_chosen_ids_equal": true,
+      "tie_diagnostics": {
+        "eligible_n": 1132,
+        "query_n": 63,
+        "no_prediction_n": 32,
+        "no_prediction_fraction": 0.028268551236749116,
+        "zero_uncertainty_n": 32,
+        "unique_exact_scores": 1101,
+        "candidates_in_exact_ties_n": 32,
+        "candidates_in_exact_ties_fraction": 0.028268551236749116,
+        "largest_exact_tie_n": 32,
+        "cutoff_score": 0.010247738988756302,
+        "cutoff_tie_n": 1,
+        "cutoff_tie_selected_n": 1,
+        "cutoff_tie_truncated_by_ID": false,
+        "cutoff_tie_choice_matches_frozen_ID_rule": true,
+        "selected_by_cutoff_ID_tie_fraction": 0.0,
+        "eligible_ID_decile_counts": [
+          114,
+          113,
+          113,
+          113,
+          113,
+          114,
+          113,
+          113,
+          113,
+          113
+        ],
+        "selected_ID_decile_counts": [
+          5,
+          9,
+          13,
+          7,
+          3,
+          5,
+          5,
+          6,
+          6,
+          4
+        ],
+        "selected_mean_global_ID_percentile": 0.4468772785910595,
+        "ID_rank_descriptive_KS_D": 0.14657299904649723,
+        "semantic_bias_claim": "Opaque hash-ID ordering can favor low IDs within a boundary tie. ID ranks do not establish class/source bias; no candidate labels were read.",
+        "algorithm_modified": false,
+        "gate": "PASS"
+      },
+      "seconds": 55.11332199999924,
+      "test_images_read": 0,
+      "labels_read_for_scoring": 0
+    }
+  ],
+  "seconds": 152.82972840000002,
+  "training_performed": false,
+  "test_inference": false,
+  "all_required_regression_checks_passed": true
+}

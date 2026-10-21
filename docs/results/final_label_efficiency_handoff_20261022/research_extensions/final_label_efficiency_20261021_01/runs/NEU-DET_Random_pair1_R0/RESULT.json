@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "technical_only": false,
+  "dataset": "NEU-DET",
+  "epochs": 100,
+  "optimizer_updates": 210,
+  "seconds": 701.9447209999998,
+  "training_seconds": 691.0883133000007,
+  "test_evaluated": false,
+  "best_sha": "439495b255c7aba88ce4d5c2afc3142750f452b5f7ae65483a831466f9bc5b4d",
+  "last_sha": "18a517ef903de7068db49c6317d7dff9e859f5a3fd9a9304b0f9267a77d98a55",
+  "initial_state_sha": "f6134cbd0cab12f2358739b509c530a316217be144520a2b1b6efcd542ac8134"
+}

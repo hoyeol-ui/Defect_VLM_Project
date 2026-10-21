@@ -1,0 +1,36 @@
+{
+  "status": "READY_LOCAL_TRAIN_DEV",
+  "date_KST": "2026-10-21",
+  "smoke_checks": {
+    "GC10-DET": {
+      "result": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\smoke\\saved_checkpoint_check_20261021_203223\\RESULT.json",
+      "sha": "9153e1890b9e79e1384b4bb51aad0bf7a325e505b3afcc3fe325433fc3726064",
+      "updates": 3,
+      "initial_state_sha": "62b9d8029f6db22ee0edadec97c6e766456820ebbc793b3381a0015b07c94ba9"
+    },
+    "NEU-DET": {
+      "result": "C:\\Users\\user\\Desktop\\vlm\\research_extensions\\final_label_efficiency_20261021_01\\smoke\\NEU-DET_20261021_203237\\RESULT.json",
+      "sha": "a3e2644e78a3863c238c1bd174bdcda73e5bc6af8891c3f41f10f373a3d20903",
+      "updates": 3,
+      "initial_state_sha": "f6134cbd0cab12f2358739b509c530a316217be144520a2b1b6efcd542ac8134"
+    }
+  },
+  "GC10_initial_state_matches_reused_full": true,
+  "scientific_cells": 102,
+  "reused_training": 1,
+  "new_training_required": 101,
+  "new_scientific_trainings_started": 0,
+  "test_inference_this_task": 0,
+  "scope": "Local fixed-runtime per-cell train/dev runner and Entropy acquisition prepared; one-epoch technical checks passed. Entire 100-epoch campaign and final evaluation are pending.",
+  "additional_nc6_nonempty_entropy_check": "evidence/neu_trained_entropy_check.json; existing trained YOLO26n, same nc6 one2one format; final s model size unchanged",
+  "preserved_failures": [
+    "GC10 64-image one-epoch smoke: 0 optimizer updates; retained",
+    "GC10 128-image smoke trained/saved; initial post-training adapter geometry error corrected and checked without retraining"
+  ],
+  "limitations": [
+    "No remote environment validation",
+    "No new independent test split; historical exposure disclosed",
+    "No complete scientific 100-epoch run of the new campaign executed in this task",
+    "Final-size NEU26s smoke had no retained candidates on two scoring images; nc6 nonempty scoring separately passed on an existing trained YOLO26n. No full scientific NEU26s acquisition executed yet."
+  ]
+}

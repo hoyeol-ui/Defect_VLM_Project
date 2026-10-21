@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "checked_KST": "2026-10-21T20:57:46+09:00",
+  "datasets": {
+    "GC10-DET": {
+      "train": 1604,
+      "dev": 343,
+      "test": 344
+    },
+    "NEU-DET": {
+      "train": 1258,
+      "dev": 270,
+      "test": 270
+    }
+  },
+  "input_samples_checked": 3475,
+  "input_files_sha_checked": 6950,
+  "live_runtime_equals_reused_full_runtime": {
+    "python": "3.11.9",
+    "torch": "2.12.1+cu126",
+    "torchvision": "0.27.1+cu126",
+    "ultralytics": "8.4.90",
+    "numpy": "2.4.6",
+    "cuda": "12.6",
+    "gpu": "NVIDIA GeForce RTX 3070",
+    "driver": "560.94"
+  },
+  "backend_matches_full": {
+    "matmul_TF32": false,
+    "cudnn_TF32": true,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": true
+  },
+  "all_scientific_anchors_unchanged": true,
+  "GC10_full_reuse_best_sha": "010bd498c13ed92c7552264c221784d227a3dabbc09ca5c6bf3fdb39312f5ff5",
+  "GC10_full_reuse_checked": true,
+  "free_disk_GiB": 57.335182189941406,
+  "minimum_remaining_disk_GiB": 23.144236385822296,
+  "GPU_lock_absent": true,
+  "campaign_lock_absent": true,
+  "new_training_cells": 101,
+  "first_cells": [
+    "NEU-DET_FullySupervised_pair1_R0",
+    "GC10-DET_Random_pair1_R0",
+    "NEU-DET_Random_pair1_R0",
+    "GC10-DET_Random_pair2_R0",
+    "NEU-DET_Random_pair2_R0",
+    "GC10-DET_Random_pair3_R0",
+    "NEU-DET_Random_pair3_R0",
+    "GC10-DET_FullySupervised_pair2_R0",
+    "NEU-DET_FullySupervised_pair2_R0",
+    "GC10-DET_FullySupervised_pair3_R0",
+    "NEU-DET_FullySupervised_pair3_R0"
+  ],
+  "test_images_labels_or_inference_accessed": false,
+  "execution_code_changes": {
+    "acquire.py": {
+      "before": "b72bb196c2c2d3643dfde4bc93d738fca09b2986c50b22b834e33be65f6b9d6c",
+      "after": "102c2e9c828a1b539f422a4ef678830ba3deb935dba43086703e5b234e2f40d6"
+    },
+    "cell.py": {
+      "before": "268136306da11843ed6f96fe49ccc8f79b996d8d02c62ca0d67d08e3ff5e0f78",
+      "after": "33a6e94e7d7eff33fd406a3c5f70455f0c433c43d70a1633dec82f4a00f7bf57"
+    }
+  },
+  "new_execution_freeze_sha": "c7c05f050978478956c7feb327fd3e5e4c719d74c90bacd0fe40b00b832510cc"
+}

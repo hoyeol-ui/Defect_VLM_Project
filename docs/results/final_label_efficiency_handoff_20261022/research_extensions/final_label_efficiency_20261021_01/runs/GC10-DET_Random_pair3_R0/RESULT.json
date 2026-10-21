@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "technical_only": false,
+  "dataset": "GC10-DET",
+  "epochs": 100,
+  "optimizer_updates": 259,
+  "seconds": 820.8227514000009,
+  "training_seconds": 809.2193009000002,
+  "test_evaluated": false,
+  "best_sha": "ef01b27c7c290b2fcbd025255b896aa91141e329a3e32263649abc28b84934ea",
+  "last_sha": "6328bd1564acf491b66ed40ea2117307752397b519d03967375f7c5599709e17",
+  "initial_state_sha": "d86b70c503986ae20e54be5e9e8f117709de64a0d90adb38282b25e8f12cded6"
+}

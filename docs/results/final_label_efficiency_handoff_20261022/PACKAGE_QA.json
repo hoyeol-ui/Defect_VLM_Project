@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "stable_status_ledger_snapshot": true,
+  "source_and_runtime_hashes_verified": 330,
+  "completed_cells_copied": 6,
+  "acquisition_reports_passed": 5,
+  "original_checkout_tracked_changes_unchanged": true,
+  "credentials_scan": "PASS for selected text, no matched credential formats",
+  "datasets_weights_large_tensors_included": false,
+  "training_restarted": false,
+  "final_test_run": false,
+  "note": "Word and figures copied byte-for-byte; no new manuscript edits or numerical results.",
+  "journal_Word_sha256": "24468aa4ebf9dc803acc89068d355908f979203f16d1327c618e7a920b8f9177",
+  "reused_gc10_checkpoint_sha_verified": "010bd498c13ed92c7552264c221784d227a3dabbc09ca5c6bf3fdb39312f5ff5"
+}

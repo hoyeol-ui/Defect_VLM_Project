@@ -1,0 +1,11 @@
+{
+  "stage": "ALL_TRAIN_INPUT_GEOMETRY_REGRESSION",
+  "dataset": "NEU-DET",
+  "scored": 1258,
+  "total": 1258,
+  "seconds": 55.10641190000024,
+  "invalid_raw_images": 9,
+  "invalid_raw_boxes": 9,
+  "invalid_eligible_boxes": 0,
+  "legacy_direct_equal_images": 1249
+}
