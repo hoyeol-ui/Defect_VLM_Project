@@ -1,5 +1,10 @@
 # Expert Prompt Consistency-driven GT-free Active Learning for Industrial Defect Detection
 
+## Latest completed experiment · 2026-10-27
+
+The [170-model YOLO26s / DINOv2-FF / Entropy / Random results](docs/results/runpod_170_final_20261027/README_KO.md) include fixed-test metrics, class-wise scores, audit hashes, figures and the revised JKICS manuscript. All170 physical models passed final evaluation. GC10 and NEU effects differ; this is not evidence of universal selector superiority. The sections below retain the earlier VLM research line as historical context.
+
+
 This repository studies **GT-free active learning for industrial defect detection** driven by an **expert-designed VLM prompt family**.
 The central question is:
 

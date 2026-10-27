@@ -1,0 +1,1299 @@
+{
+  "campaign": "runpod_200e_5seed_blackwell_entropy04",
+  "export_date_kst": "2026-10-27",
+  "source_summary_sha256": "eb934b5d533ac9b63c47e4bcfa7bf30e6dd18e0d3a0141d004d9975a9c55d4e0",
+  "source_model_audit_sha256": "296674b7addde5153bfb8648cdd4aecac2f793a0ce4e34e3895426b1c017466d",
+  "original_download_manifest_sha256": "db2be2579c311ef4dc5bac12eb93b7d091a729785cf54795ff0b5b5341945ac6",
+  "manuscript_sha256": "b002804c794c9fd82998c5cf2ce6fb618669aadc44088b3b9f2ae01846cbbac4",
+  "physical_models": 170,
+  "logical_rows": 190,
+  "published_weights": false,
+  "published_dataset_bytes": false,
+  "new_inference_performed_for_export": false,
+  "sources": [
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/results/TEST_SUMMARY.json",
+      "source_sha256": "eb934b5d533ac9b63c47e4bcfa7bf30e6dd18e0d3a0141d004d9975a9c55d4e0",
+      "published_path": "results/TEST_SUMMARY.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/results/LOGICAL_190_ROWS.json",
+      "source_sha256": "ba0ca255c83ab9b7f82be1b65c43dffc8f2a9f750cab42c738b1c48d98ad6728",
+      "published_path": "results/LOGICAL_190_ROWS.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/results/PHYSICAL_MODEL_METRICS.json",
+      "source_sha256": "3e9e93624b9a7871e72f1db82322302e5eb7112fada457e1506975ad7204d09b",
+      "published_path": "results/PHYSICAL_MODEL_METRICS.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/results/TEST_RESULTS_KO.md",
+      "source_sha256": "ce1cd36e888d6e3c93079d48aa58f0154aba09663a8d80653aae1bf89ddf212a",
+      "published_path": "results/TEST_RESULTS_KO.md",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/analysis.json",
+      "source_sha256": "d10906c04b7320b06d810af7583f2fcb5577ffed0f6fe1adca1b8037d2d88da2",
+      "published_path": "results/POSTHOC_ANALYSIS.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/state/MODELS_COMPLETE.json",
+      "source_sha256": "8895db79daf544be61f4e81f386a2f59cbb5957e6586e55b4205ba253a38caf9",
+      "published_path": "evidence/MODELS_COMPLETE.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/state/MODEL_HASH_AUDIT.json",
+      "source_sha256": "296674b7addde5153bfb8648cdd4aecac2f793a0ce4e34e3895426b1c017466d",
+      "published_path": "evidence/MODEL_HASH_AUDIT.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/evidence/DOWNLOAD_COMPLETE.json",
+      "source_sha256": "8c5ee91698739dd1220f015cfb7ab33df32670feec8419b663ac5062ed3cb8d9",
+      "published_path": "evidence/DOWNLOAD_COMPLETE.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/evidence/LOCAL_BACKUP_READBACK_PASS.json",
+      "source_sha256": "de0a41b61331729467c3f838abafe63ff2838b2a3609c357b1210adf343332d0",
+      "published_path": "evidence/LOCAL_BACKUP_READBACK_PASS.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/evidence/LOCAL_PREFLIGHT_PASS.json",
+      "source_sha256": "95d8a04c15e4b5ecea530834789ad50094c873a005e833ea452bf3cff834915f",
+      "published_path": "evidence/LOCAL_PREFLIGHT_PASS.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/evidence/FINAL_TEST_COMPLETE.json",
+      "source_sha256": "4a63a5358a1fa8d9ce16ff6fa30bc5b26b864f4e36461187b3867c79c8bc9959",
+      "published_path": "evidence/FINAL_TEST_COMPLETE.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/evidence/TEST_PLAN.json",
+      "source_sha256": "dca10c106ac3ea6c90830d47c7dc80a48b4821fc7b30c2ccd553916b8f689152",
+      "published_path": "evidence/TEST_PLAN.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/evidence/READY_FOR_USER_SHUTDOWN_REVIEW.json",
+      "source_sha256": "65a8845560af7c7be2c4632d82331e1903318ffd40efb5444a9803d5d693911b",
+      "published_path": "evidence/COMPLETION_HANDOVER.json",
+      "transformation": "omit server-observation digest; per-model receipt evidence exported separately"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_SHARED_R0_pair1_R0/metrics.json",
+      "source_sha256": "992540adf999ab28e8a4e8edd96dc89169c74047a3ce3d46715470b29bdd1bdd",
+      "published_path": "test_records/GC10-DET_SHARED_R0_pair1_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair1_R1/metrics.json",
+      "source_sha256": "ee0eb3ae7b30012e6706572834057cbbb0026d3602152a519c0f234e6be0b119",
+      "published_path": "test_records/GC10-DET_Random_pair1_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair1_R1/metrics.json",
+      "source_sha256": "770097731f342fb632dd4b90b13722182b64c5fac7cabb425016086e9c93753f",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair1_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R1/metrics.json",
+      "source_sha256": "5562a5b9c68523bf961bce929b7d6563fad40150ae303f1ed5909aee8bff5e5d",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair1_R2/metrics.json",
+      "source_sha256": "376376344b471bc1c926d28121686c806b04de0938adaaecf3595a79d61c2825",
+      "published_path": "test_records/GC10-DET_Random_pair1_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair1_R2/metrics.json",
+      "source_sha256": "f613b1f0688caafb0b36f69465bf8c1d564aba69c3f8c1b72845d5ee47d5845f",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair1_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R2/metrics.json",
+      "source_sha256": "74632b194b04bc0b96ea6c78cf755123433beea59cdc185db874b9b31014a0af",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair1_R3/metrics.json",
+      "source_sha256": "a7d8daad2c42b2610c2fe4a6c8fdb4ee2367aec8513e75c4ca60a1ecee42a14d",
+      "published_path": "test_records/GC10-DET_Random_pair1_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair1_R3/metrics.json",
+      "source_sha256": "3d69d6ef5540685c464c277685de90f2f7069a452794005692589adba65e675e",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair1_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R3/metrics.json",
+      "source_sha256": "bb6bef01f3f73954ef2d7e16a127b70ca99e80f829aebd36d6e827279b2d5242",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair1_R4/metrics.json",
+      "source_sha256": "dde6cb3e7e2be94d488a504593a9b61a1a91a29036d69bcc1adb9df38de6fa86",
+      "published_path": "test_records/GC10-DET_Random_pair1_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair1_R4/metrics.json",
+      "source_sha256": "2c5b57bc01d5887b5330faca25b7aadb21b6bd7f07bd417441471e5c2325f45f",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair1_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R4/metrics.json",
+      "source_sha256": "ddde4873b6b8b60aecbf7a5b6f60bcc05b357dbf13a66deac80533f80cc19ccc",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair1_R5/metrics.json",
+      "source_sha256": "5282768b5e072425989cd60238db34e053e4a38df030a65c73c8d49f0816467d",
+      "published_path": "test_records/GC10-DET_Random_pair1_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair1_R5/metrics.json",
+      "source_sha256": "ddfe5ee6490657f1b979b65743ee4070b5cf9279b3c4242937fc624199939be0",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair1_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R5/metrics.json",
+      "source_sha256": "b4ed99978f3bb80c33f9faec4bb7483016aa98a714b982913663bffcf8b3912d",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair1_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Full_pair1_RNone/metrics.json",
+      "source_sha256": "8506922f73ef839d04a62a466ca36af9d01783a06d1dedca5fdca8a46a741b93",
+      "published_path": "test_records/GC10-DET_Full_pair1_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_SHARED_R0_pair2_R0/metrics.json",
+      "source_sha256": "3589afd8d07f10569c437a9d27498b2cbd40f006702b013dd9bab163d54afb95",
+      "published_path": "test_records/GC10-DET_SHARED_R0_pair2_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair2_R1/metrics.json",
+      "source_sha256": "c5cc78c38c93534be00e061a3b7d152bdbcc5be2cb83237c5e2959fe95240617",
+      "published_path": "test_records/GC10-DET_Random_pair2_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair2_R1/metrics.json",
+      "source_sha256": "6df118e28ecf91fc29262084638dc71506c5f0fa70681b4087652a12151fc3d5",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair2_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R1/metrics.json",
+      "source_sha256": "5a33fcb1e0308bb7249646196232a5ef674e76297e83e2ab74a3aa65003cca59",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair2_R2/metrics.json",
+      "source_sha256": "02535cd03a82ae3b85c6ca2b2bfcf8474674544d5b0205fb2fd6c2cf810aa863",
+      "published_path": "test_records/GC10-DET_Random_pair2_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair2_R2/metrics.json",
+      "source_sha256": "0f382579c147611420def0b030829684cb2b11aef144fe7ac7285e2c90f3814c",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair2_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R2/metrics.json",
+      "source_sha256": "573ec1d4690bec45997cbcf3a5046a5a6cc6e35f942046e75e6ba2ba7d5552e3",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair2_R3/metrics.json",
+      "source_sha256": "4c3aeefe171800d7d903d02c71cebcaf812a74fc8174332fac98bf49f3dde27d",
+      "published_path": "test_records/GC10-DET_Random_pair2_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair2_R3/metrics.json",
+      "source_sha256": "fa5245311a7216995ca9a427564c8d1476e7fb54371aae33e8c08b8feed9a399",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair2_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R3/metrics.json",
+      "source_sha256": "d0954e64aaf2ea522c79d88c280f213b81802c57d35ecbaec16d88d78a4bdd51",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair2_R4/metrics.json",
+      "source_sha256": "523c3b062d766c6817cdd75338ebc9e22a3bc8012f793cb8cf3329b7e16f61d9",
+      "published_path": "test_records/GC10-DET_Random_pair2_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair2_R4/metrics.json",
+      "source_sha256": "57c66f2902bb7a7b01dc2b4fd441b15b4a8dbb63ac2a56a9f195e6725c2ebe00",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair2_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R4/metrics.json",
+      "source_sha256": "435185f4da51fa18394f2eb8580cc76b51dfa840f15ff3b301ce96056a2d2f02",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair2_R5/metrics.json",
+      "source_sha256": "57136fc2d580bda6a4cea29733ea1d115d15011d1954ad4fc08d8dadcba235d0",
+      "published_path": "test_records/GC10-DET_Random_pair2_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair2_R5/metrics.json",
+      "source_sha256": "5635e9e77faa438ccbc081f0b35abbf7f74ef12bfc1598a9ff87b8e1780fb425",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair2_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R5/metrics.json",
+      "source_sha256": "2c272aa83dfb2550f37e1762e34c0fe9ce981c7fe3ca3e7cd10f59cfac5a80e1",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair2_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Full_pair2_RNone/metrics.json",
+      "source_sha256": "551849eb97df3f169f89bd6862022c6f7841e0bf1e6566d1142f18ed4b80466a",
+      "published_path": "test_records/GC10-DET_Full_pair2_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_SHARED_R0_pair3_R0/metrics.json",
+      "source_sha256": "0a3b6a090177c844eab6265e2436ccdbfca20da74798f5a4fba3fa7d1201ede9",
+      "published_path": "test_records/GC10-DET_SHARED_R0_pair3_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair3_R1/metrics.json",
+      "source_sha256": "c36a7eb604377a97b68012dca286c19cae4ea6e959bc688a55456537511cf5d7",
+      "published_path": "test_records/GC10-DET_Random_pair3_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair3_R1/metrics.json",
+      "source_sha256": "110502b33882612d88507253409cea7bcd0056bdf047e7be7a5ea690551da852",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair3_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R1/metrics.json",
+      "source_sha256": "9754418c8fa7825beb69bd76eb0f0d8ae861092a8dba78404d42bdfe8a5f2542",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair3_R2/metrics.json",
+      "source_sha256": "bd9958f3f33c4e5807c42ea936961eef08d0a7dceb20f31dd6253bd960126a9e",
+      "published_path": "test_records/GC10-DET_Random_pair3_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair3_R2/metrics.json",
+      "source_sha256": "8246a1c99e72f78006463c5204bc367ff86454ac018abcb8426fb7c9b90cf4c6",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair3_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R2/metrics.json",
+      "source_sha256": "a85b82b61e19a9ec091a82a92a5de4c1c6caf8e015aa43c4bf3ae903a8007016",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair3_R3/metrics.json",
+      "source_sha256": "e09e2fecbbeedff6e14451404c5ff255f15e8b02d750efa7e3e94f85963c3ef1",
+      "published_path": "test_records/GC10-DET_Random_pair3_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair3_R3/metrics.json",
+      "source_sha256": "5ace9b642cdafd3d262e47d463290f2e900cd10014ee5ad405f64e107ddf25a6",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair3_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R3/metrics.json",
+      "source_sha256": "2bfe0830942b1e5de8b2f90f3ed3d220fcc208f6dc73dab025d8633fa0e1d8b7",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair3_R4/metrics.json",
+      "source_sha256": "b14d641574933a121ed4f74e66b069f7f4e76559b0794986d790d29e34e4c10c",
+      "published_path": "test_records/GC10-DET_Random_pair3_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair3_R4/metrics.json",
+      "source_sha256": "4f399e7619e1cac71dc340937e82f5558a437675a7edea25db6b9a304060ed2f",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair3_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R4/metrics.json",
+      "source_sha256": "faf1704fb21d984768c91f4b2e6bd5742976c5fd3ee85ea39dad876eb8125e1c",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair3_R5/metrics.json",
+      "source_sha256": "ec4e858d874df4c676040b8d4f2d2ab10850b8cf18fc1ebe521693624eda20f5",
+      "published_path": "test_records/GC10-DET_Random_pair3_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair3_R5/metrics.json",
+      "source_sha256": "e6df5c15c0236c56b63a03d528e54ef484db9ab1897f960520ee8eaa242d5e49",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair3_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R5/metrics.json",
+      "source_sha256": "8aa991df5f7ca905b03b7b6d813342ab7f565a2d1ec0f096e4fb79f4c6047fae",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair3_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Full_pair3_RNone/metrics.json",
+      "source_sha256": "cc8f3114c44def28130bb333f5a903456876abf0cb3960d9d24d8aaeb6cf5c4c",
+      "published_path": "test_records/GC10-DET_Full_pair3_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_SHARED_R0_pair4_R0/metrics.json",
+      "source_sha256": "2ddc097ebbbb47a178304c43aa24504c88b78c547aa06411a15dba364b4e03df",
+      "published_path": "test_records/GC10-DET_SHARED_R0_pair4_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair4_R1/metrics.json",
+      "source_sha256": "92a1813ced457f422bf21a7b7720206c7906ce603715b651fcd40ce45add8471",
+      "published_path": "test_records/GC10-DET_Random_pair4_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair4_R1/metrics.json",
+      "source_sha256": "b539b6a5a865bc01a6a966dd224db390c9db254fd3a9b578e429341ad51155a2",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair4_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R1/metrics.json",
+      "source_sha256": "189884cdd0ff13e028d4676eaacd2175b0982757867f9910438293412aaaa04f",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair4_R2/metrics.json",
+      "source_sha256": "101c686dd2efda4e19cf497d8157b88394275d60b0db7113d59f7dd772ff20dc",
+      "published_path": "test_records/GC10-DET_Random_pair4_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair4_R2/metrics.json",
+      "source_sha256": "9d1e1fcc743e76490223b774d2d11584fa148c9e372411fb3234009405daadb2",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair4_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R2/metrics.json",
+      "source_sha256": "3e6920879ac60d753a4ee70dd791059f7a75144cf3673b2aa6caba09d2cb9676",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair4_R3/metrics.json",
+      "source_sha256": "7aca0aed3e6f3da33030aff90833874ce377df3c64ed7f6edb1340c2c0316734",
+      "published_path": "test_records/GC10-DET_Random_pair4_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair4_R3/metrics.json",
+      "source_sha256": "f907b0e7b98057e57c1d383f3e9a81923457e50e806a4a36062f28896516c1a2",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair4_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R3/metrics.json",
+      "source_sha256": "0e3fa0a13548cd6c90f174e46ebc13b9d4382f1e282b568ab9d38ab4dcdb55e3",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair4_R4/metrics.json",
+      "source_sha256": "d729db2f186b1b09cde7c91d8cbba2641270223c3fe2b1ddc87271619ede5d1b",
+      "published_path": "test_records/GC10-DET_Random_pair4_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair4_R4/metrics.json",
+      "source_sha256": "1496b26703e96ea68275aa3c41130b766441ebaa98e5484032d2a8c577767e40",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair4_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R4/metrics.json",
+      "source_sha256": "8ff624a599d7767c50647c932d368963b825d3a37163da1550537a4aa362ef96",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair4_R5/metrics.json",
+      "source_sha256": "afd28edffa73a50f82581642cc7a3e4aab43454e5cc1a5487adf0e3bf2dcfbc8",
+      "published_path": "test_records/GC10-DET_Random_pair4_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair4_R5/metrics.json",
+      "source_sha256": "8392863e766498642f61625e6f210752bc8c812e8e8c0156fa7a6431ab04f33c",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair4_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R5/metrics.json",
+      "source_sha256": "cea2cbb5e0603271e7fbc1e70118ef0595d5166e48c22973869372db7c88515c",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair4_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Full_pair4_RNone/metrics.json",
+      "source_sha256": "9351561c5345e34e12a1ea2c1c175974932775bf55f07e0fdc9cfa022db1049c",
+      "published_path": "test_records/GC10-DET_Full_pair4_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_SHARED_R0_pair5_R0/metrics.json",
+      "source_sha256": "3d83c31595f96a0c39d3b8159f4786fedae12d8005caa03bde02eb37a0ce67f9",
+      "published_path": "test_records/GC10-DET_SHARED_R0_pair5_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair5_R1/metrics.json",
+      "source_sha256": "31ab526d2defc2996c9c458e749939aa374e45a88a3e4db9e24989a215fc6334",
+      "published_path": "test_records/GC10-DET_Random_pair5_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair5_R1/metrics.json",
+      "source_sha256": "8f84ecb65e461d3b5ea85974a7ed0e1065d75f1dfea9c7ddb14c6e091f9c7bff",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair5_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R1/metrics.json",
+      "source_sha256": "baa82968e0e4cc28ffdbbccc76b6639e93fe8498859564725b8611bf6d2594bd",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair5_R2/metrics.json",
+      "source_sha256": "3d45b3718b5889d0858e2141c0bcfaf34a92e8492d29270f13303a1ebe58522c",
+      "published_path": "test_records/GC10-DET_Random_pair5_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair5_R2/metrics.json",
+      "source_sha256": "ba3ba198132245d40b90f02f368e529a4f45f6cc384fa75bb078ba26814d5adf",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair5_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R2/metrics.json",
+      "source_sha256": "2e5c4a6eee8d7a9184aadab954f5944a24883cd00a1676d1633f4904435c79d6",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair5_R3/metrics.json",
+      "source_sha256": "c85329353ef21216ffb59b567a161fe3efddccc28ddbcc5370e8102b80f2b61b",
+      "published_path": "test_records/GC10-DET_Random_pair5_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair5_R3/metrics.json",
+      "source_sha256": "29c4d0c611bc7cb1f4e93ba99bad078b977a0fe54e2c404393dad22695a12a92",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair5_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R3/metrics.json",
+      "source_sha256": "9f5a30587cb91a108d8661cc0aea78048c65069194ff9f15200e7bd9905cb910",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair5_R4/metrics.json",
+      "source_sha256": "eb9560bfae317ac1af697c164e18a37ee22d4c9f0ea4aeef92bbc3dd67320557",
+      "published_path": "test_records/GC10-DET_Random_pair5_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair5_R4/metrics.json",
+      "source_sha256": "df2c01c475efb13f989349a626214fbdb018ba78a9bf325b0a9bb69089f983b6",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair5_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R4/metrics.json",
+      "source_sha256": "8ed4285deb72d3d5ddd2eff83ad81e7b8d29084475083d52bffccbeb23dd63a9",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Random_pair5_R5/metrics.json",
+      "source_sha256": "fa09467bec84ea13161c9e5f0f62faea62af8b59e73ba10dd48f060fbeb9c5b4",
+      "published_path": "test_records/GC10-DET_Random_pair5_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_DINOv2_S14_F518_FF_pair5_R5/metrics.json",
+      "source_sha256": "198506071f2d4452f766b0b8aab80b0279db4dbe5cdc10cf10e64ae5290e7bad",
+      "published_path": "test_records/GC10-DET_DINOv2_S14_F518_FF_pair5_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R5/metrics.json",
+      "source_sha256": "c17b5ccc0ebc77a4a71ee6e873bdf29b0c2d5a8f9a4bd54890f50896cba71c78",
+      "published_path": "test_records/GC10-DET_Entropy_NCS_MEAN_V2_pair5_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/GC10-DET_Full_pair5_RNone/metrics.json",
+      "source_sha256": "d374288efa6bdd1c426aa34d86b1d721ccad9809c56ba9bfd66810a14f140b75",
+      "published_path": "test_records/GC10-DET_Full_pair5_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_SHARED_R0_pair1_R0/metrics.json",
+      "source_sha256": "d38f607b8a23782069038e11fbb9e995f64439b1caae39aa3140ea9f1508b442",
+      "published_path": "test_records/NEU-DET_SHARED_R0_pair1_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair1_R1/metrics.json",
+      "source_sha256": "f95e7dcf88819ed7a8b44be5c0b5fd96140be278ae79afa069769acbc1f72acb",
+      "published_path": "test_records/NEU-DET_Random_pair1_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair1_R1/metrics.json",
+      "source_sha256": "679bf3bdb75e1c90049dd642f296841d609966421afffed0a13bf0f8d70d50ca",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair1_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R1/metrics.json",
+      "source_sha256": "01a84d8d6ca3c2f980babf861dd28eb2f7d96d68a128e792d668a918d496c2fd",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair1_R2/metrics.json",
+      "source_sha256": "660e90dfc93bd4e5bc30f3a7a34232cd9f557af5fc382a43a9992264e20ad5a6",
+      "published_path": "test_records/NEU-DET_Random_pair1_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair1_R2/metrics.json",
+      "source_sha256": "23155c5aa093a54d5792add5fa6dd3d81d6a8ac799d7bb3c7ae9f22c8932230e",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair1_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R2/metrics.json",
+      "source_sha256": "7dae0c0e3b6776c2a6a8cda6252315618640479bad8f572cb24862a6c7618875",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair1_R3/metrics.json",
+      "source_sha256": "b7fb52d620cb8b8912c6f61a79d06c4f76782f726d0679f186beb6942dad74b8",
+      "published_path": "test_records/NEU-DET_Random_pair1_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair1_R3/metrics.json",
+      "source_sha256": "e9dc98c4217782d6f5538218bec4eb2935ac77555b1808b01ae9439d86b07463",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair1_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R3/metrics.json",
+      "source_sha256": "d6d5c14b096f9ea1437dbb868cdb09261f5a801f055367e7fdc6d5b02240efcb",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair1_R4/metrics.json",
+      "source_sha256": "904532eac90846f7ed1a23e1ffcae51502be3b591daf80a7cff0b1e0259a5330",
+      "published_path": "test_records/NEU-DET_Random_pair1_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair1_R4/metrics.json",
+      "source_sha256": "85cc6f3e60aaa063ac471fa099556a940f63dd279b5033145fb0c0ad9dd43e29",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair1_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R4/metrics.json",
+      "source_sha256": "0cf653c53c9a13ad2ecc7bfc7fe69f2fec77f444358a0154a5c98e6323889a38",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair1_R5/metrics.json",
+      "source_sha256": "96d04ef3af12047692c7ed90e1913f4b4e8d935692a73510721f82bafcddfbe5",
+      "published_path": "test_records/NEU-DET_Random_pair1_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair1_R5/metrics.json",
+      "source_sha256": "1c305f30bdc04e34ebd163f25994a1f4ee19d28de8a1ae1d34b573b2bde3f7a0",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair1_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R5/metrics.json",
+      "source_sha256": "f4573d51c54fb470a7dec05675a7f91827ddf76758fe3945cc21212df4f69b29",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair1_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Full_pair1_RNone/metrics.json",
+      "source_sha256": "957a0d787ce43f0e3bdd9d61a9f48e979340c4f47cd2a3ed172f56cb71629ff0",
+      "published_path": "test_records/NEU-DET_Full_pair1_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_SHARED_R0_pair2_R0/metrics.json",
+      "source_sha256": "dc7d84dacc5dc3992da3558c3fede76fa32a6030745987b8cca1e107c5e53790",
+      "published_path": "test_records/NEU-DET_SHARED_R0_pair2_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair2_R1/metrics.json",
+      "source_sha256": "81234119b4cd4ff7762c7f097eae0cec32e1fdd61afe3ba3b2a50b0d6b46e0bd",
+      "published_path": "test_records/NEU-DET_Random_pair2_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair2_R1/metrics.json",
+      "source_sha256": "93e4c4149ceab5aea9dc3362f820197ca7022776d1a5c5f62b52b3c154db6d0e",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair2_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R1/metrics.json",
+      "source_sha256": "898d0b43194f385b8dfad7789bf124b1018e74b41e9f9d26401a8eabe0bc080e",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair2_R2/metrics.json",
+      "source_sha256": "eaa228720023e69fdfda92fae900886ac7f5f86d7b445c2a3cd745c2ad2b2a1c",
+      "published_path": "test_records/NEU-DET_Random_pair2_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair2_R2/metrics.json",
+      "source_sha256": "da872aee92605bb43d8fe188f9a7177986a05d30c0342475321478e095c0a3c5",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair2_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R2/metrics.json",
+      "source_sha256": "2a03c1e13a1a14db0097d19347c23892a97db2f6240d1c9da428b045342dc783",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair2_R3/metrics.json",
+      "source_sha256": "cc3229f3f5c039a3d35cfe5e2f56a9b001c21cdc1a2c2d4c0ed1e4c0b4acf7c0",
+      "published_path": "test_records/NEU-DET_Random_pair2_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair2_R3/metrics.json",
+      "source_sha256": "e9eedf197e9ffe3f637510b90227521517f6b32b10d22a36e139734195e9cc34",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair2_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R3/metrics.json",
+      "source_sha256": "f9184d8085e6843fe84539806d8f33ef86222477aa82c2efdf94ec29cd79b64f",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair2_R4/metrics.json",
+      "source_sha256": "43304edf9cab2a45cd5c1d27c3f097ecea0986d59b5056d6ab3f87c319cfcd35",
+      "published_path": "test_records/NEU-DET_Random_pair2_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair2_R4/metrics.json",
+      "source_sha256": "ee8980d019dfc776800f31347e42f2039c253830d19eef8cf8cd3980a4e70175",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair2_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R4/metrics.json",
+      "source_sha256": "9b92861702e11bbc02d069f15e478b76bc034e5e0f56f40883b5e976927fd034",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair2_R5/metrics.json",
+      "source_sha256": "32fff71f43703d2e48f24333b8533c5fd8ab7c36360cb7931c2cc965f63bbb73",
+      "published_path": "test_records/NEU-DET_Random_pair2_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair2_R5/metrics.json",
+      "source_sha256": "1591d5af96b08c8f07d13222eeae47f36ae8db5bbb72c7d2ed4dcc2576f3ce28",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair2_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R5/metrics.json",
+      "source_sha256": "d3e855d36170208e4320d53a75eab6189f23586a75f4521ea4aa8e72f24d3159",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair2_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Full_pair2_RNone/metrics.json",
+      "source_sha256": "a51cf5882e449c565bc3970731d16fb799d7696dbf19f636d64a4628aab722bb",
+      "published_path": "test_records/NEU-DET_Full_pair2_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_SHARED_R0_pair3_R0/metrics.json",
+      "source_sha256": "91e3c78e314b4664652aee1b1b9002429233e7ecc698e87f2efe9a53a60c106c",
+      "published_path": "test_records/NEU-DET_SHARED_R0_pair3_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair3_R1/metrics.json",
+      "source_sha256": "20e5714e88c920a753fe342ba048763923ecbb812edeff33b02b365aa5259eed",
+      "published_path": "test_records/NEU-DET_Random_pair3_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair3_R1/metrics.json",
+      "source_sha256": "b45d1396688555bd22df785a57ced0061d502cc10027ceedd2ef4dcd00ae981c",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair3_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R1/metrics.json",
+      "source_sha256": "f46a78e48b8ab0b616c97e434c7ee2a480b4b38e0cbb0680324187731664d656",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair3_R2/metrics.json",
+      "source_sha256": "6fe3a7043690bb2fd34c6227615001aacb2fb83caef60970d809074b7840d115",
+      "published_path": "test_records/NEU-DET_Random_pair3_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair3_R2/metrics.json",
+      "source_sha256": "84844b15df1247776428d8977f0aedc875fa3ba062026946f174580efbf6ac69",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair3_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R2/metrics.json",
+      "source_sha256": "2974bc99afc3b21c4dae0cf8cbe10003a5fa123cadac86cbbb92a0f2e9a8bf37",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair3_R3/metrics.json",
+      "source_sha256": "2796b1101c6eac5e6f458528bb6077d1d15136eff671198825dbdca8d347ebfb",
+      "published_path": "test_records/NEU-DET_Random_pair3_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair3_R3/metrics.json",
+      "source_sha256": "465cf69ade8155ff91d5aac3641a6de20cd0c518ceb8a9ebb89d545cdda1b110",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair3_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R3/metrics.json",
+      "source_sha256": "9c3c9bf84dcb204a0c9aa4d4aed56776a31d23894340b0048360e2aa727187c9",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair3_R4/metrics.json",
+      "source_sha256": "a4714f857457a6f3cdb4e553ac395fd75033d1b1ded6b2d8a3cdfeda21e53ed1",
+      "published_path": "test_records/NEU-DET_Random_pair3_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair3_R4/metrics.json",
+      "source_sha256": "9d14d1ff0ba9ac9c94744132757c7dc3f06c8b87d324ba3156cd29eed09f7cdc",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair3_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R4/metrics.json",
+      "source_sha256": "69958ac34e89334b1d3f5c233cd5954ca47fc040ee692880fff983d7d4fdc134",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair3_R5/metrics.json",
+      "source_sha256": "22b5366b26d215204512746dfb270ba77261b354fb73f1880f3d09755b837bad",
+      "published_path": "test_records/NEU-DET_Random_pair3_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair3_R5/metrics.json",
+      "source_sha256": "5fdb0e6b506b510a32fcac26d2d91357e93ee368c166398574efbd7d8e8e4fba",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair3_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R5/metrics.json",
+      "source_sha256": "b37194e5e579871e349fa5d6e3b4d59db4bd2295e47e06b2cca08d85915edda1",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair3_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Full_pair3_RNone/metrics.json",
+      "source_sha256": "b7fb5fed6d1580be167e5762319d223823f58a88af32c10f25bffc777fa048ed",
+      "published_path": "test_records/NEU-DET_Full_pair3_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_SHARED_R0_pair4_R0/metrics.json",
+      "source_sha256": "28c293e7134550b10b7b8d691ed7687f86d275f5d64acf75722dd9be40071e16",
+      "published_path": "test_records/NEU-DET_SHARED_R0_pair4_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair4_R1/metrics.json",
+      "source_sha256": "6df6a36b930164e0947fa25123bcdd26d3cd5be789df9bec4dd341e997875140",
+      "published_path": "test_records/NEU-DET_Random_pair4_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair4_R1/metrics.json",
+      "source_sha256": "459ad2202abaf0ab98b69f329108c07e7503781575732f179b8e285967cbbac3",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair4_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R1/metrics.json",
+      "source_sha256": "feb942288fa797fdbbb3483247790b4e9ba22bd24ae8ce1433770bbca3701d78",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair4_R2/metrics.json",
+      "source_sha256": "9c1bd5bf1c0217fd4146cbb972ca58ee797cebdc8bb9625b595c867c2c95118d",
+      "published_path": "test_records/NEU-DET_Random_pair4_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair4_R2/metrics.json",
+      "source_sha256": "0a688ae38c87c72b56223f7d64594ad7ea4830bab3adf1b4a5b65fd0869266a4",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair4_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R2/metrics.json",
+      "source_sha256": "1e17d0ddef10030bb16a7a31d26642073175833541f967f69732954d2c30de97",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair4_R3/metrics.json",
+      "source_sha256": "4ae980e21c383188c60eda3a62b11d7efe55c71015708fa6fbd4c1da54527c69",
+      "published_path": "test_records/NEU-DET_Random_pair4_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair4_R3/metrics.json",
+      "source_sha256": "6ffa91fa71ca9f8ecd9a5830bb6aea9176ce917a3f7eb4481e279f8e34a97286",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair4_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R3/metrics.json",
+      "source_sha256": "3ed43adfad6ea5c78dbf40b0c909e30ffe15160491222112138c9f50dfad211a",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair4_R4/metrics.json",
+      "source_sha256": "b2c32699cbd1d79502e98caf31fd206fbe58a6495fce1a083e1e275e694cac43",
+      "published_path": "test_records/NEU-DET_Random_pair4_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair4_R4/metrics.json",
+      "source_sha256": "9e17ee1b477d048f2915cdee25a94b21cc7353ae5e38ddc7c07eeea3f77b5477",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair4_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R4/metrics.json",
+      "source_sha256": "dc1f57692cd21ce95a03298480c3697ca0f72073092a97a53ada83a37dfbf1fb",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair4_R5/metrics.json",
+      "source_sha256": "91ef289b9a60a5622ae7971c6eaeac3a2aee91325e464d81fa45bf36f94433b4",
+      "published_path": "test_records/NEU-DET_Random_pair4_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair4_R5/metrics.json",
+      "source_sha256": "5bb8fb2c522e392c48e474c81531d233c60c3432c4c743bad163bd10277b6068",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair4_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R5/metrics.json",
+      "source_sha256": "4a57b4b3e5a0872bcee725451c69b2f4b8f8630d47fbf62cf94685859b99efe9",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair4_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Full_pair4_RNone/metrics.json",
+      "source_sha256": "8f50f87913e550b52b0451b8b6018c6f8560d00a65893b70b9383f1171022ed4",
+      "published_path": "test_records/NEU-DET_Full_pair4_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_SHARED_R0_pair5_R0/metrics.json",
+      "source_sha256": "634d591ca5c882fa46d782dcda32d8dede02d5650bbe747955e1e30312c95a7f",
+      "published_path": "test_records/NEU-DET_SHARED_R0_pair5_R0.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair5_R1/metrics.json",
+      "source_sha256": "9e9db1f3e107394dddb4623d0425a74c3bcff1ab9af39c28590e5591b818939d",
+      "published_path": "test_records/NEU-DET_Random_pair5_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair5_R1/metrics.json",
+      "source_sha256": "7a0820bb968fb2a8da1edd3f1955f57f005c505b7424bd8133f676527baf087a",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair5_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R1/metrics.json",
+      "source_sha256": "0eafce90e1fa7048b60ff24cd80a516adc20bb0b53e3e933c5a738cf9fb9e0a4",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R1.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair5_R2/metrics.json",
+      "source_sha256": "005b1b437623c8c50eb5ca2ba69d7c28be8c5c8771c319f1be3a91daf7a11d23",
+      "published_path": "test_records/NEU-DET_Random_pair5_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair5_R2/metrics.json",
+      "source_sha256": "a8be8b8bfc7cf34f8fdeead17727516453936e13e3747edf8e2f843a77acc8cf",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair5_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R2/metrics.json",
+      "source_sha256": "8246e3e4da08972d78563c922a1bf08f94b9443de43a2260d15702e43a3a4285",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R2.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair5_R3/metrics.json",
+      "source_sha256": "18fb09ed04c2efc93ae9d345586f466d1aeddb0d8cc1e56e6209909b8b867650",
+      "published_path": "test_records/NEU-DET_Random_pair5_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair5_R3/metrics.json",
+      "source_sha256": "1b166060843c63f5b16e7929be24fe7fec72ec28d7cfd802fe8a29668eeaa73c",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair5_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R3/metrics.json",
+      "source_sha256": "b3155b498d1947535e6c13382f39a67746ce1cf0cfa21e719be560b7d3afe109",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R3.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair5_R4/metrics.json",
+      "source_sha256": "af071b7338eaa149c49108f70c038ca07063361c3d2a84d3a25a2d8545b9e43d",
+      "published_path": "test_records/NEU-DET_Random_pair5_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair5_R4/metrics.json",
+      "source_sha256": "160179ff8b0e2b40f0ffa334f7ea06be7177ed3608a9c1086f91933893b5efb1",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair5_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R4/metrics.json",
+      "source_sha256": "cc435fbfb9b62fba46aec5540f66c976cfeb95cd1bedd67f634c0f33c56847a9",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R4.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Random_pair5_R5/metrics.json",
+      "source_sha256": "3a6d58a7eb01a86f49dd193f0d17130a95b3250642a5d27662614ff20e84b1d3",
+      "published_path": "test_records/NEU-DET_Random_pair5_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_DINOv2_S14_F518_FF_pair5_R5/metrics.json",
+      "source_sha256": "064597cd629cea8a4984146a5c2fcb7747767cd1eb390e5d61de9529e4b14160",
+      "published_path": "test_records/NEU-DET_DINOv2_S14_F518_FF_pair5_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R5/metrics.json",
+      "source_sha256": "cc42e99260743eb20576cff8c71ebe52385dccf22799fceeaa83470cd459062b",
+      "published_path": "test_records/NEU-DET_Entropy_NCS_MEAN_V2_pair5_R5.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/test_execution/models/NEU-DET_Full_pair5_RNone/metrics.json",
+      "source_sha256": "43a760eddc16b19e021d906a24f61316a31b02e182d4e84f5d613a6bf307d46d",
+      "published_path": "test_records/NEU-DET_Full_pair5_RNone.json",
+      "transformation": "portable JSON paths only"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/config/FEATURE_SPEC.json",
+      "source_sha256": "3273536b22335cc8445f05e4b40701e21e0e7f8fb222141bda16d8b986cc25ac",
+      "published_path": "protocol/frozen/FEATURE_SPEC.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/config/REPORTING_PLAN.json",
+      "source_sha256": "9497300803ed63c9f762281110077eb6519155d4682695322f51257732a1fa67",
+      "published_path": "protocol/frozen/REPORTING_PLAN.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/config/NATIVE_CONTRACT.json",
+      "source_sha256": "4951490cd9d69e4d8da4f19826a8773b43d3c41e8325ac611cc3f98b005c303a",
+      "published_path": "protocol/frozen/NATIVE_CONTRACT.json",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/feature_functions.py",
+      "source_sha256": "473269c99ebdd3ddb51fbdf05ff860191aa0d527ba89d544d63bd49792f2899b",
+      "published_path": "code/training/feature_functions.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/selection_functions.py",
+      "source_sha256": "d72b6cdde0ffbbc3eded8b2bb5b914a7547e18f7f0ff22f5fc3743a3188c7ab9",
+      "published_path": "code/training/selection_functions.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/runtime.py",
+      "source_sha256": "688da245690514455bae1d3d7b0b5aa36647aed2f99efb706453ff3dafe812dc",
+      "published_path": "code/training/runtime.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/design.py",
+      "source_sha256": "0a6c35f4caa2b3e3b56e81a103606e724b5206b61b9402a0fb896d39629d7cca",
+      "published_path": "code/training/design.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/requirements.txt",
+      "source_sha256": "52f43bb4e350e284c0964f46713053c09dab517052a2bb70176fe9934d8b3877",
+      "published_path": "code/training/requirements.txt",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/src/campaign_trainer_portable.py",
+      "source_sha256": "e6422fe08c2e82fc62be8a2f6815c65fa97b28bfb37fc32764742ee22a4b6acc",
+      "published_path": "code/training/src/campaign_trainer_portable.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/src/core.py",
+      "source_sha256": "146e5c6ba342d4b5d9033dc66a047de1e85077fdcf644c0c576f6c3a0df3ff6c",
+      "published_path": "code/training/src/core.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/src/entropy.py",
+      "source_sha256": "f3017ef08e072451f7df1c7ed52bf15e16c201433651d4388dbb54569852c432",
+      "published_path": "code/training/src/entropy.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/src/entropy_adapter.py",
+      "source_sha256": "d496b5f33cd19a3174ed7c4b3bb5004a034288cbeb337df549b01bab7ad7a243",
+      "published_path": "code/training/src/entropy_adapter.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/src/entropy_diagnostics.py",
+      "source_sha256": "b95931033197ea03a18a00b47ea6efcefad90fec317f128a0d0976ed4d3d9f9f",
+      "published_path": "code/training/src/entropy_diagnostics.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/server_snapshot/runpod_200e_5seed_blackwell_entropy04/src/strict_loop.py",
+      "source_sha256": "5bd84616c6df93da91a5a88a0424c570541e95b7d7b24439571fadac19bc1b7e",
+      "published_path": "code/training/src/strict_loop.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/tools/aggregate.py",
+      "source_sha256": "788985376afea6504debed35bed2b30b233d6aedda898c3699b7edaedf2dc5b4",
+      "published_path": "code/final_test/aggregate.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/tools/common.py",
+      "source_sha256": "d2bd6dd1ce0ff572883d3cebf8dc404b4e46d1e30f2fee1c38c94abd298b517c",
+      "published_path": "code/final_test/common.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/tools/prepare_test.py",
+      "source_sha256": "a07d691341b12a60e3484578ff75c71481e3f2fd11c012507080435dae77cdbe",
+      "published_path": "code/final_test/prepare_test.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/tools/worker.py",
+      "source_sha256": "c096fbfeefc53fac745d440497abd2dcf5daec7d2ee42655bab90aa5334b783f",
+      "published_path": "code/final_test/worker.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/runpod_local_final_20261027_01/tools/run_final_test.py",
+      "source_sha256": "62537ee6d7ae947f7780d2f52da46292eecc087d92c8b5717eb95fe8d4ae8710",
+      "published_path": "code/final_test/run_final_test.py",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "03_JKICS_Revised_Manuscript_170models_20261027.docx",
+      "source_sha256": "b002804c794c9fd82998c5cf2ce6fb618669aadc44088b3b9f2ae01846cbbac4",
+      "published_path": "manuscript/03_JKICS_Revised_Manuscript_170models_20261027.docx",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig1.pdf",
+      "source_sha256": "6bba201a4de7f6eced9d6c110d20cdf50c5ba834daa6d41430bf79239eb27d10",
+      "published_path": "figures/Fig1.pdf",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig1.png",
+      "source_sha256": "934d93e2a116cdd21387e01b588507185733caa2fa63b18f4171eb29e6430f99",
+      "published_path": "figures/Fig1.png",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig2.pdf",
+      "source_sha256": "33c2154340533f8f086ffc8e56d03d75a4554b140e064a44d1c566dfa66bc334",
+      "published_path": "figures/Fig2.pdf",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig2.png",
+      "source_sha256": "1ca06a3b36b5832a053f6ff258dc0592c2d610e79508312d00ea1169aa286b38",
+      "published_path": "figures/Fig2.png",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig3.pdf",
+      "source_sha256": "086783c759579252a022769e9802f61d9944a36a105ef6e8a6c65bb58f6aa61d",
+      "published_path": "figures/Fig3.pdf",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig3.png",
+      "source_sha256": "befc1a5f6c92aa354d5cfd0df50c2154ea8f33e849672a4593ed44ad8f1fdc0e",
+      "published_path": "figures/Fig3.png",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig4.pdf",
+      "source_sha256": "5286fff1bbbf06cbeaa2cba722593782129159e0bfbee2c2fc476f38b6584ef5",
+      "published_path": "figures/Fig4.pdf",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig4.png",
+      "source_sha256": "513788de5b9c7f7ec2d1bbe9243c27503263c314055c17a08c7f360f9be05e31",
+      "published_path": "figures/Fig4.png",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig5.pdf",
+      "source_sha256": "daf7ef37fb892cd76ec4b55b6a992cbf2144bae93b855ec5226a9c8d1f1367bc",
+      "published_path": "figures/Fig5.pdf",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/figures/Fig5.png",
+      "source_sha256": "70275a7a2bf83fc93d2dc6b11182b5c6a0c08f1fc4d76e9a64f21d5600042a07",
+      "published_path": "figures/Fig5.png",
+      "transformation": "byte-identical"
+    },
+    {
+      "source": "research_extensions/manuscript_revision_20261027_01/FINAL_QA.json",
+      "source_sha256": "ea8e808c114a3fcc82ce767f3d29fc539626fda44b0421c763f4aaea62272069",
+      "published_path": "manuscript/FINAL_QA.json",
+      "transformation": "byte-identical"
+    }
+  ]
+}

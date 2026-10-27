@@ -1,0 +1,5 @@
+# Preserve the published hash catalogue and original source bytes on every OS.
+* -text whitespace=cr-at-eol
+*.docx binary
+*.png binary
+*.pdf binary

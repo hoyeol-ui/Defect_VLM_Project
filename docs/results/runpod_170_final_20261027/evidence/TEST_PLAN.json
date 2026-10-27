@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-10-27T10:12:12.925865+00:00",
+  "physical_models": 170,
+  "logical_score_rows": 190,
+  "checkpoint": "best.pt chosen on dev mAP50-95; no test-driven selection",
+  "evaluation": {
+    "imgsz": 640,
+    "batch": 8,
+    "rect": false,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "quantize": null,
+    "workers": 0,
+    "device": "0",
+    "augment": false,
+    "plots": false,
+    "save_json": false,
+    "deterministic": true
+  },
+  "backend": {
+    "matmul_TF32": false,
+    "cudnn_TF32": false,
+    "cudnn_benchmark": false
+  },
+  "runtime": {
+    "python": "3.11.9",
+    "torch": "2.12.1+cu126",
+    "torchvision": "0.27.1+cu126",
+    "ultralytics": "8.4.90",
+    "numpy": "2.4.6",
+    "Pillow": "12.3.0",
+    "gpu_contains": "RTX 3070"
+  },
+  "limitations": [
+    "Local Windows RTX3070 CUDA12.6 evaluation differs from Linux Blackwell CUDA12.9 training; no claim of bitwise device equivalence.",
+    "Canonical source has documented historical exposure; this test is held out from the new170 training, not a never-seen external dataset.",
+    "Five paired seeds cannot yield two-sided exact sign-flip p<.05; do not alter tests to pursue significance."
+  ],
+  "inference_batch_rationale": "Fixed batch8 before test for local8GB VRAM; no auto-batch or automatic fallback",
+  "retry_policy": "Stop on first failure; preserve all results, no automatic retest or checkpoint substitution",
+  "training": false,
+  "DINO_reextraction": false,
+  "RunPod_stop": false
+}
