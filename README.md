@@ -1,423 +1,119 @@
-# Expert Prompt Consistency-driven GT-free Active Learning for Industrial Defect Detection
+# 금속 표면 결함 탐지의 표본 선택과 라벨 효율
 
-## Latest completed experiment · 2026-10-27
+**DINOv2-FF · Random · Entropy | YOLO26s | 200 epochs | 획득·학습 시드 5쌍**
 
-The [170-model YOLO26s / DINOv2-FF / Entropy / Random results](docs/results/runpod_170_final_20261027/README_KO.md) include fixed-test metrics, class-wise scores, audit hashes, figures and the revised JKICS manuscript. All170 physical models passed final evaluation. GC10 and NEU effects differ; this is not evidence of universal selector superiority. The sections below retain the earlier VLM research line as historical context.
+같은 수의 라벨 이미지를 사용할 때 표본 선택 방법이 탐지 성능에 어떤 차이를 만드는지, 그 차이가 개별 결함 클래스에서도 같은 방향으로 나타나는지 분석한다. GC10-DET와 NEU-DET에서 세 전략을 동일한 검출기·학습 조건으로 비교한 실험이다.
 
+**2026년 10월 27일 기준: 170개 모델의 학습·최종 Test와 로컬 백업 검증을 완료했다.** 이번 결과에서는 GC10의 평균 이득과 NEU의 혼합된 결과가 구분된다. 수정 원고도 이 결과에 맞춰 갱신했다.
 
-This repository studies **GT-free active learning for industrial defect detection** driven by an **expert-designed VLM prompt family**.
-The central question is:
+## 결과와 원고 바로 보기
 
-> Can inconsistency among VLM explanations generated from an expert-designed industrial-defect prompt family identify informative unlabeled images for annotation before any ground-truth labels or boxes are used?
+|자료|내용|
+|---|---|
+|[최종 결과 안내](docs/results/runpod_170_final_20261027/README_KO.md)|실험 결과, 해석 범위, 공개 패키지의 구성|
+|[수정 원고 DOCX](docs/results/runpod_170_final_20261027/manuscript/03_JKICS_Revised_Manuscript_170models_20261027.docx) · [웹에서 읽는 원고](docs/results/runpod_170_final_20261027/manuscript/03_JKICS_Revised_Manuscript_170models_20261027.md)|방법·결과·표 9개·그림 5개·논의·결론|
+|[예산별 최종 점수표](docs/results/runpod_170_final_20261027/results/TEST_RESULTS_KO.md)|10%, 15%, 20%, 25%, 30%, 35% 누적 이미지 예산의 Test 성능|
+|[170모델 지표 CSV](docs/results/runpod_170_final_20261027/results/METRICS_170.csv) · [클래스별 지표 CSV](docs/results/runpod_170_final_20261027/results/CLASS_METRICS_170.csv)|반복별 전체·클래스별 AP, 정밀도, 재현율|
+|[통계 요약 JSON](docs/results/runpod_170_final_20261027/results/TEST_SUMMARY.json)|평균·표본 SD, 대응 nAULC 차이, exact 검정, Holm 보정, Full 도달률|
+|[실제 적용 설정](docs/results/runpod_170_final_20261027/protocol/EFFECTIVE_CONFIG.json) · [가중치 해시 감사](docs/results/runpod_170_final_20261027/evidence/MODEL_HASH_AUDIT.json)|학습·평가 조건과 170모델 best/last 검증 기록|
 
-The project does **not** use ground-truth annotations during acquisition scoring.
-Ground-truth XML annotations from benchmark datasets are used only **after sample selection** to simulate human annotation and to validate the selected samples through YOLOv8 detector training.
+## 핵심 결과
 
-Core novelty:
+아래는 **최종 Test 결과**이며, 평균 ± 표본 표준편차, n=5다. mAP50–95와 nAULC는 % 단위다. nAULC는 실제 10~35% 누적 이미지 수에 따른 학습곡선을 적분하고 관측 구간 길이로 나눈 값이다.
 
-- expert-designed prompt family for industrial defect description,
-- semantic consistency uncertainty from multi-prompt VLM responses,
-- GT-free active learning acquisition.
+|데이터셋|전략|nAULC (%)|35% 예산 mAP50–95 (%)|
+|---|---|---:|---:|
+|GC10-DET|Random|23.35 ± 0.58|24.74 ± 0.37|
+|GC10-DET|DINOv2-FF|24.62 ± 0.78|26.97 ± 1.22|
+|GC10-DET|Entropy|24.17 ± 0.89|26.21 ± 0.92|
+|NEU-DET|Random|29.82 ± 0.82|31.18 ± 1.72|
+|NEU-DET|DINOv2-FF|29.65 ± 1.19|31.11 ± 0.97|
+|NEU-DET|Entropy|29.41 ± 1.18|30.62 ± 1.10|
 
-Auxiliary extension:
+GC10에서는 DINOv2-FF의 평균 nAULC가 Random보다 **1.27%p 높았지만**, NEU에서는 **0.17%p 낮았다**. 35% 예산의 평균 AP만 보거나 한 데이터셋의 이득을 다른 데이터셋에 일반화하지 않는다.
 
-- pseudo groundedness from OWL-ViT weak visual evidence.
+<img src="docs/results/runpod_170_final_20261027/figures/Fig1.png" alt="GC10-DET와 NEU-DET의 누적 라벨 이미지 수에 따른 최종 Test 학습곡선" width="520">
 
-Failure analysis:
+그림의 선은 반복 평균, 띠는 표본 SD다. 같은 반복의 초기 10% 모델 R0는 세 전략이 공유한다.
 
-- `no_pseudo_box` direction/calibration issue,
-- `LowPrioritySoft` reverse-direction control,
-- `CombinedSuppressNoPseudo` calibration.
+### 대응 비교와 통계적 해석
 
-## Overview
+|데이터셋|nAULC 비교|평균 차이 (%p)|양측 exact p|Holm 보정 p|
+|---|---|---:|---:|---:|
+|GC10-DET|DINOv2-FF − Random|+1.27|0.1250|0.5000|
+|GC10-DET|DINOv2-FF − Entropy|+0.45|0.4375|1.0000|
+|NEU-DET|DINOv2-FF − Random|−0.17|0.6875|1.0000|
+|NEU-DET|DINOv2-FF − Entropy|+0.25|0.5625|1.0000|
 
-![VLM-based GT-free active learning workflow](docs/assets/vlm_gt_free_al_workflow.png)
+검정 단위는 같은 획득·학습 시드 쌍의 대응 차이다. 양측 exact sign-flip의 32개 부호 조합을 열거하고, 사전 지정한 네 비교에 Holm 보정을 적용했다. n=5에서 가능한 최소 양측 p값은 0.0625다. 따라서 이 실험은 지정한 검정으로 통계적 우위를 확립하지 못했으며, 방법 간 동등성을 입증한 결과도 아니다.
 
-Figure. Overall workflow of the VLM-based GT-free active learning pipeline. Ground-truth annotations are not used during acquisition scoring; benchmark XML labels are used only after sample selection to simulate human annotation and validate YOLO detector performance. The editable HTML source for this figure is available at [`docs/vlm_gt_free_al_workflow.html`](docs/vlm_gt_free_al_workflow.html).
+### 평균과 클래스별 결과를 함께 보는 이유
 
-## Research Motivation
+GC10에서 DINOv2-FF의 35% 평균 AP가 높아졌어도 inclusion은 Random보다 **1.30%p**, silk spot은 **1.07%p** 낮았다. NEU에서는 scratches가 **4.33%p** 높고 rolled-in scale이 **4.07%p** 낮아 클래스별 방향이 갈렸다. NEU의 최저 클래스 nAULC도 DINOv2-FF가 **0.94%p 낮았다**.
 
-Industrial defect detection often requires bounding-box annotation, which is expensive and slow. Conventional active learning methods typically depend on a detector model that has already been trained with some labeled data. This project explores a different setting:
+[전체 클래스별 차이 그림](docs/results/runpod_170_final_20261027/figures/Fig4.png)과 [최저 클래스 학습곡선](docs/results/runpod_170_final_20261027/figures/Fig5.png)을 함께 제공한다. 클래스별 변화와 선택 이미지 구성의 관계는 사후 기술적 분석이며, 성능 변화의 원인을 분리한 대조 실험은 아니다.
 
-- the image pool is initially treated as unlabeled,
-- VLM explanations are used as a semantic uncertainty signal,
-- OWL-ViT pseudo boxes are used as weak visual evidence,
-- acquisition scores are computed without GT labels or GT boxes,
-- selected samples are then treated as annotated and evaluated by detector training.
+## 실험 설계
 
-The goal is not to prove that the current scoring rule is already optimal. The current conclusion is:
+|항목|설정|
+|---|---|
+|데이터셋|GC10-DET 10클래스, NEU-DET 6클래스|
+|고정 Train / Dev / Test|GC10: 1,604 / 344 / 343장 · NEU: 1,258 / 270 / 270장|
+|누적 라벨 이미지 예산|약 10%, 15%, 20%, 25%, 30%, 35%|
+|GC10 실제 누적 이미지 수|160, 241, 321, 401, 481, 561장|
+|NEU 실제 누적 이미지 수|126, 189, 252, 315, 377, 440장|
+|학습|YOLO26s, 200 epochs, batch 32, FP32, AMP·TF32 off, SGD, cosine schedule|
+|반복|사전 지정한 획득 시드 5개와 학습 시드 5개를 일대일로 대응|
+|초기화|모든 예산에서 동일한 공개 사전학습 가중치로 새로 학습|
+|모델 선택|Dev mAP50–95로 선택한 best checkpoint|
+|최종 평가|고정 Test, 640, FP32, batch 8, Ultralytics 8.4.90|
+|모델 수|170개 물리 모델, 공통 R0를 전략별로 연결한 190개 논리 결과 행|
 
-> The framework is promising but not closed. Useful acquisition signals exist, but score direction and pseudo-groundedness calibration remain open issues.
+Random은 미선택 이미지에서 비복원 무작위 추출한다. DINOv2-FF는 고정된 DINOv2 ViT-S/14의 정규화 CLS 특징으로 farthest-first 선택을 수행한다. Entropy는 직전 모델의 원래 클래스 점수 벡터를 이용해 정규화한 박스 엔트로피를 이미지별로 평균한다. 특징 전처리, 동점 처리와 획득용 NMS는 [실제 적용 설정](docs/results/runpod_170_final_20261027/protocol/EFFECTIVE_CONFIG.json)에 명시했다.
 
-## End-to-End Workflow
+데이터셋당 공통 R0 5개, 세 전략의 추가 다섯 예산 모델 75개, 전체 Train을 사용하는 Full 참조 5개를 합쳐 85개다. 두 데이터셋의 합이 170개이며, 공유 R0를 중복 추론하지 않았다.
 
-### 1. Unlabeled Industrial Defect Pool
+## 해석의 범위
 
-The input pool consists of industrial defect images, currently from benchmark datasets such as **GC10-DET** and **NEU-DET**. During acquisition, the code treats these images as unlabeled.
+- **반복과 일반화:** 획득·학습 시드를 함께 바꾼 다섯 쌍의 결과다. 두 무작위성의 분산을 따로 추정하지 않으며, 두 공개 자료의 한 고정 분할과 한 검출기에 대한 관측이다.
+- **Test의 지위:** 이번 학습·획득에서는 Test를 사용하지 않았다. 원천 자료의 과거 평가·이전 분할 사용 이력은 남아 있어, 연구 전 과정에서 미관찰인 외부 데이터로 부르지 않는다.
+- **Full 참조:** 같은 학습 시드의 Full 모델로 반복별 비율을 먼저 계산했다. DINOv2-FF의 35% 도달률 평균은 GC10 **94.58 ± 7.02%**, NEU **89.65 ± 3.26%**다. 이미지 예산만으로 실제 주석 비용 절감률을 산출하지 않는다.
+- **P/R와 평가 경로:** P/R는 모델별 평활 평균 F1 최대점의 값이다. 공통 confidence에서의 산업 운영 지표가 아니며, 획득용 클래스별 NMS와 최종 YOLO26 one-to-one NMS-free 평가도 구분한다.
+- **실행 환경:** Linux Blackwell/cu129에서 학습하고 Windows RTX3070/cu126에서 평가했다. 장치 간 비트 단위 동일성을 주장하지 않는다.
 
-Important distinction:
+## 저장된 결과 검증
 
-- **Acquisition scoring:** no GT labels, no GT boxes.
-- **Post-selection simulation:** benchmark GT XML files simulate human annotation.
-- **Evaluation:** YOLOv8 is trained and evaluated using the selected labeled subset and a fixed validation split.
-
-### 2. VLM Multi-prompt Description
-
-For each image, a VLM generates multiple descriptions using an expert-inspired prompt family for industrial defect inspection. The current version is `expert_defect_v1`, with location, scale, and appearance prompts.
-
-Main code lineage:
-
-- `scripts/01_score_generation/prompt_families.py`
-- `EXPERT_DEFECT_PROMPT_FAMILY`
-- `get_prompt_family()`
-- `compute_prompt_family_hash()`
-- `scripts/old/260511_VLM_ActiveLearning_FullExperiment.py`
-- `generate_response()`
-- `run_prompt_group_experiment()`
-- `scripts/grounded_prompt_experiment.py`
-
-Although this code currently lives under `scripts/old/`, it is the source of the VLM multi-prompt consistency experiments used by the current pipeline.
-The compatibility script `scripts/grounded_prompt_experiment.py` is treated as prompt-family pilot validation; it may use benchmark GT for audit, but GT is not used in downstream active learning acquisition.
-
-### 3. Semantic Consistency
-
-The generated VLM responses are embedded using SBERT. Pairwise cosine similarities between response embeddings are averaged to estimate semantic consistency.
-
-```text
-C(x) = [2 / (K * (K - 1))] * sum_{i<j} cos(e_i, e_j)
-```
-
-```text
-U_C(x) = 1 - C(x)
-```
-
-Interpretation:
-
-- high `C(x)`: VLM descriptions are semantically stable,
-- low `C(x)`: VLM descriptions are inconsistent,
-- high `U_C(x)`: high semantic uncertainty and potentially informative acquisition candidate.
-
-Main code:
-
-- `compute_sbert_consistency()`
-- `cosine_similarity()`
-
-### 4. OWL-ViT Pseudo Visual Evidence
-
-In parallel with VLM description generation, OWL-ViT predicts open-vocabulary pseudo boxes. These boxes are not treated as ground truth. They are only weak GT-free visual evidence.
-
-Main code:
-
-- `scripts/01_score_generation/run_ovd_pseudo_boxes.py`
-- `collect_candidate_images()`
-- `load_ovd_model()`
-- `predict_pseudo_boxes()`
-
-### 5. Pseudo Groundedness
-
-Pseudo groundedness compares VLM-extracted location/scale terms with OWL-ViT pseudo-box spatial zones and scale categories.
-
-```text
-G(x) = [1 / |D|] * sum_{d in D} s_d
-```
-
-```text
-U_G(x) = 1 - G(x)
-```
-
-Here, `D` denotes comparable dimensions such as location and scale, and `s_d` denotes the matching score for each dimension.
-
-Main code:
-
-- `scripts/01_score_generation/compute_pseudo_groundedness.py`
-- `choose_best_pseudo_box()`
-- `compute_groundedness_for_item()`
-- `determine_reason()`
-
-Groundedness reason categories include:
-
-- `matched`
-- `partial_match`
-- `location_mismatch`
-- `no_pseudo_box`
-
-Important note: `no_pseudo_box` does not necessarily mean background or non-defect. Post-hoc audits show that it can indicate OWL-ViT failure candidates where GT defects exist but the pseudo detector failed to produce a box.
-
-### 6. GT-free Acquisition Score
-
-The original combined score uses semantic uncertainty and pseudo-groundedness uncertainty:
-
-```text
-S_combined(x) = U_C(x) + U_G(x) + lambda * I(no_pseudo_box)
-```
-
-The current diagnostic variant suppresses excessive `no_pseudo_box` priority:
-
-```text
-S_suppress(x) = U_C(x) + U_G(x) - gamma * I(no_pseudo_box)
-```
-
-Main code:
-
-- `scripts/01_score_generation/make_priority_scores.py`
-- `compute_priority_score()`
-- `get_effective_groundedness()`
-- `make_row()`
-- `scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py`
-- `prepare_priority_dataframe()`
-
-Key implementation finding:
-
-> Because high-priority selection sorts scores in descending order, adding `+lambda` for `no_pseudo_box` can behave as a boost rather than a penalty.
-
-This is one of the main score-direction issues diagnosed in the current experiments.
-
-## Acquisition Strategies
-
-The current active learning experiments compare the following strategies:
-
-| Strategy ID | Research display name | Score used | Selection rule | Purpose |
-|---|---|---|---|---|
-| `Random` | Random | none | random sampling | baseline |
-| `RandomClassBalanced` | Class-balanced Random | none | random sampling within class_hint quota | diversity-controlled baseline |
-| `RandomClassDatasetBalanced` | Class/Dataset-balanced Random | none | random sampling within dataset_type and class_hint quota | stronger diversity-controlled baseline |
-| `ConsistencyOnly` | ExpertPromptConsistency | `U_C` | select high score | core hypothesis: expert prompt-family consistency |
-| `ConsistencyOnlyClassBalanced` | Class-balanced ExpertPromptConsistency | `U_C` | select high score within class_hint quota | tests whether consistency helps after class diversity is controlled |
-| `ConsistencyOnlyDatasetBalanced` | Dataset-balanced ExpertPromptConsistency | `U_C` | select high score within dataset_type quota | tests whether consistency helps after dataset composition is controlled |
-| `ConsistencyOnlyClassDatasetBalanced` | Class/Dataset-balanced ExpertPromptConsistency | `U_C` | select high score within dataset_type and class_hint quota | tests consistency under Random-like diversity control |
-| `GroundednessOnlySoft` | PseudoGroundingOnly | `U_G` with soft missing handling | select high score | auxiliary-only ablation |
-| `CombinedSoftPenalty` | Consistency + AuxGrounding | `S_combined` | select high score | naive auxiliary extension |
-| `LowPrioritySoft` | ReverseDirectionControl | `S_combined` | select low score | direction-control strategy |
-| `CombinedSuppressNoPseudo` | Calibrated Consistency + AuxGrounding | `S_suppress` | select high score | no-pseudo calibration diagnostic |
-| `CombinedSuppressNoPseudoClassBalanced` | Class-balanced Calibrated AuxGrounding | `S_suppress` with class-balanced selection | select high score within class quota | diagnostic class-balance variant |
-
-Main code:
-
-- `scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py`
-- `scripts/02_active_learning/strategy_metadata.py`
-- `select_samples()`
-- `sort_select()`
-- `class_balanced_select()`
-
-## Detector-level Validation
-
-After samples are selected, the benchmark GT XML annotations are used to simulate human labeling. YOLOv8 is trained on the selected labeled subset and evaluated on a fixed validation split.
-
-Main code:
-
-- `scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py`
-- `make_fixed_val_split()`
-- `build_yolo_dataset()`
-- `train_and_eval_yolo()`
-
-Evaluation metrics:
-
-- `mAP@50`
-- `mAP@50-95`
-- AULC over labeled budget
-
-```text
-AULC = sum_{t=1}^{T-1} 0.5 * (m_t + m_{t+1}) * (b_{t+1} - b_t)
-```
-
-Main summary code:
-
-- `compute_aulc()`
-- `make_seed_strategy_summary()`
-- `make_aggregate_strategy_summary()`
-
-## Post-hoc Diagnosis
-
-The current work includes post-hoc analysis scripts to diagnose whether the acquisition scores behave as intended.
-
-| Analysis | Main script | Purpose |
-|---|---|---|
-| Selection direction issue | `scripts/03_analysis/analyze_selection_direction_issue.py` | compare strategy distributions, overlap, quantiles, and mAP trends |
-| Selection enrichment | `scripts/03_analysis/analyze_selection_enrichment.py` | compare selected samples against the full priority pool |
-| No-pseudo GT audit | `scripts/03_analysis/audit_no_pseudo_box_gt_presence.py` | check whether `no_pseudo_box` selected samples contain GT defects |
-| Round pool state | `scripts/03_analysis/analyze_round_pool_state.py` | track selected vs remaining pool behavior by round |
-| Consistency hypothesis | `scripts/03_analysis/analyze_consistency_hypothesis.py` | reframe results around the core prompt-family consistency hypothesis |
-| Recovered result summaries | `scripts/03_analysis/recover_v3_minimal_results.py` | recover and summarize runs if training completed but final aggregation failed |
-
-Important diagnostic findings so far:
-
-- `CombinedSoftPenalty` can outperform `Random` in some budget ranges or AULC settings, suggesting that the acquisition signal is not meaningless.
-- `LowPrioritySoft` performing strongly in some runs indicates that the high-priority direction is not yet fully validated.
-- `no_pseudo_box` can reflect OWL-ViT pseudo-box failure candidates rather than background-only images.
-- The sign and calibration of `no_pseudo_box` handling materially affect selected sample composition.
-- `CombinedSuppressNoPseudo` reduces `no_pseudo_box` selection compared with `CombinedSoftPenalty`, but later rounds can still become dominated by `no_pseudo_box` due to remaining-pool composition.
-
-## Current 8-seed Result Snapshot
-
-The following table summarizes the latest lightweight result sets used for lab-meeting discussion.
-Raw training folders remain ignored; curated result summaries can be stored under `docs/results/`.
-
-| Result set | Strategy | Research role | Final mAP@50 | Final mAP@50-95 | AULC@50 | AULC@50-95 |
-|---|---|---|---:|---:|---:|---:|
-| 20260706 auxiliary calibration | `Random` | detector-level reference baseline | 0.348 | 0.172 | 6.264 | 2.857 |
-| 20260706 auxiliary calibration | `CombinedSoftPenalty` | naive consistency + auxiliary groundedness | 0.295 | 0.139 | 5.618 | 2.627 |
-| 20260706 auxiliary calibration | `CombinedSuppressNoPseudo` | calibrated no-pseudo diagnostic variant | 0.264 | 0.131 | 5.855 | 2.850 |
-| 20260707 consistency core | `ConsistencyOnly` | core expert-prompt consistency hypothesis | 0.294 | 0.148 | 5.901 | 2.822 |
-| 20260707 consistency core | `GroundednessOnlySoft` | auxiliary pseudo-groundedness-only ablation | 0.155 | 0.076 | 5.340 | 2.415 |
-| 20260707 consistency core | `LowPrioritySoft` | reverse-direction control | 0.315 | 0.144 | 7.339 | 3.325 |
-
-Current interpretation:
-
-- `Random` remains a strong detector-level reference and should not be presented as defeated.
-- `ConsistencyOnly` is much stronger than `GroundednessOnlySoft`, supporting the claim that expert prompt-family consistency is the more meaningful core signal.
-- `CombinedSoftPenalty` and `CombinedSuppressNoPseudo` do not clearly improve over `ConsistencyOnly`, so pseudo groundedness should be framed as weak auxiliary evidence rather than the main contribution.
-- `LowPrioritySoft` still performs strongly in AULC, which means score direction and calibration remain open.
-- The defensible conclusion is: promising but not closed.
-
-## Main Repository Structure
-
-```text
-scripts/
-  01_score_generation/
-    prompt_families.py
-    run_ovd_pseudo_boxes.py
-    compute_pseudo_groundedness.py
-    make_priority_scores.py
-    make_priority_scores_sensitivity.py
-
-  02_active_learning/
-    strategy_metadata.py
-    run_al_yolo_ablation_v3_minimal.py
-    run_al_yolo_ablation_v4_direction_fix.py
-    run_yolo_full_supervised_baseline.py
-
-  03_analysis/
-    analyze_consistency_hypothesis.py
-    analyze_selection_direction_issue.py
-    analyze_selection_enrichment.py
-    analyze_round_pool_state.py
-    audit_no_pseudo_box_gt_presence.py
-    recover_v3_minimal_results.py
-
-  00_prompt_validation/
-    validate_expert_prompt_family_with_gt.py
-
-  old/
-    260511_VLM_ActiveLearning_FullExperiment.py
-```
-
-## Typical Commands
-
-Generate priority-score sensitivity variants:
+저장소 루트에서 다음 명령으로 공개 파일 해시와 저장된 지표를 확인할 수 있다. Python 표준 라이브러리만 사용하며 모델을 불러오지 않는다.
 
 ```bash
-.venv/bin/python scripts/01_score_generation/make_priority_scores_sensitivity.py \
-  --priority-csv outputs/pseudo_boxes_20260622_191121/priority_scores_pseudo.csv \
-  --penalties 0,0.1,0.2,0.5 \
-  --groundedness-weights 0,0.25,0.5,1.0
+python docs/results/runpod_170_final_20261027/scripts/verify_export.py
 ```
 
-Run a dry-run selection check without YOLO training:
+검증 항목은 파일 SHA-256, 170개 모델과 Test 기록, best/last 340개 해시의 기록 간 일치, 190개 논리 행의 연결, 평균·표본 SD, 실제 이미지 수 기반 nAULC, exact p값·Holm 보정, 대응 Full 비율이다. 가중치 바이트 자체의 재검증은 전체 로컬 백업에서 완료한 별도 절차이며, 이 공개 명령의 범위에는 포함되지 않는다.
 
-```bash
-AL_DRY_RUN_ONLY=1 \
-AL_PRIORITY_CSV=outputs/priority_sensitivity_20260706_152020/penalty_0/priority_scores_pseudo.csv \
-AL_STRATEGIES=Random,CombinedSoftPenalty,CombinedSuppressNoPseudo \
-AL_SEEDS=42,43,44 \
-AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
-.venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
+[공개 내보내기 출처와 변환 기록](docs/results/runpod_170_final_20261027/PROVENANCE.json), [파일 해시 목록](docs/results/runpod_170_final_20261027/SHA256SUMS), [최종 Test 완료 기록](docs/results/runpod_170_final_20261027/evidence/FINAL_TEST_COMPLETE.json)을 함께 보존한다. 컴퓨터의 절대 경로를 상대 경로로 바꾼 파일은 원본 해시와 공개 파일 해시를 구분했다.
+
+## 공개 자료 구성
+
+```text
+docs/results/runpod_170_final_20261027/
+├─ README_KO.md          # 최종 결과와 해석 안내
+├─ manuscript/          # 수정 DOCX, Markdown, 원고 검증 기록
+├─ results/             # 전체·클래스별 지표, 대응 통계, 사후 분석
+├─ figures/             # 원고 그림 5개와 PDF 원본
+├─ protocol/            # 실제 적용 조건과 고정된 설정 자료
+├─ evidence/            # 학습·Test 완료, 백업, 해시 감사 기록
+├─ test_records/        # 170모델의 개별 Test 지표
+├─ code/                # 실행 당시 학습·평가 소스 참조
+├─ scripts/verify_export.py
+├─ PROVENANCE.json
+└─ SHA256SUMS
 ```
 
-Run detector-level validation:
+데이터 원본과 모델 가중치, 전체 서버 백업은 로컬에 보관한다. 공개된 `code/`는 실행 당시 소스 참조이며, 데이터·가중치·봉인된 입력과 실행 환경을 포함한 독립 재실행 키트는 아니다.
 
-```bash
-AL_PRIORITY_CSV=outputs/priority_sensitivity_20260706_152020/penalty_0/priority_scores_pseudo.csv \
-AL_STRATEGIES=Random,CombinedSoftPenalty,CombinedSuppressNoPseudo \
-AL_SEEDS=42,43,44 \
-AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
-.venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
-```
+## 이전 연구 이력
 
-Run the next consistency-centered diversity-control experiment:
+저장소 이름과 기존 코드에는 초기 VLM 설명 일관성·OWL-ViT 실험의 이력이 남아 있다. 해당 방법·점수·실행 명령은 [이전 VLM 연구 README](https://github.com/hoyeol-ui/Defect_VLM_Project/blob/a189a7252c5b35208d6da2ce16ccf13409c7073d/README.md)에서 확인할 수 있다. 이번 DINOv2-FF·Random·Entropy의 170모델 결과는 위의 날짜별 패키지로 관리한다.
 
-```bash
-AL_PRIORITY_CSV=outputs/priority_sensitivity_20260706_152020/penalty_0/priority_scores_pseudo.csv \
-AL_STRATEGIES=Random,RandomClassBalanced,RandomClassDatasetBalanced,ConsistencyOnly,ConsistencyOnlyClassBalanced,ConsistencyOnlyClassDatasetBalanced \
-AL_SEEDS=42,43,44,45,46,47,48,49 \
-AL_SUPPRESS_NO_PSEUDO_GAMMA=0.1 \
-.venv/bin/python scripts/02_active_learning/run_al_yolo_ablation_v3_minimal.py
-```
-
-### Windows CUDA Desktop Run
-
-For a Windows desktop with an NVIDIA GPU, use the Windows/CUDA entrypoint. It preserves the same active-learning logic as the macOS script, but reads `AL_PROJECT_ROOT`, forces CUDA by default, and exposes batch/workers through environment variables.
-
-Recommended PowerShell dry-run first:
-
-```powershell
-.\scripts\02_active_learning\run_windows_cuda_consistency_experiment.ps1 -DryRun
-```
-
-Then run YOLO training:
-
-```powershell
-.\scripts\02_active_learning\run_windows_cuda_consistency_experiment.ps1
-```
-
-For an RTX 3070 8GB GPU, start conservatively with `-BatchSize 8`. If CUDA out-of-memory occurs, rerun with `-BatchSize 4`.
-
-Equivalent explicit PowerShell command:
-
-```powershell
-$env:AL_PROJECT_ROOT="C:\path\to\Defect_VLM_Project"
-$env:AL_PRIORITY_CSV="outputs\priority_sensitivity_20260706_152020\penalty_0\priority_scores_pseudo.csv"
-$env:AL_YOLO_DEVICE="0"
-$env:AL_BATCH_SIZE="8"
-$env:AL_WORKERS="4"
-$env:AL_STRATEGIES="Random,RandomClassDatasetBalanced,ConsistencyOnly,ConsistencyOnlyClassDatasetBalanced"
-$env:AL_SEEDS="42,43,44,45,46,47,48,49"
-.\.venv\Scripts\python.exe scripts\02_active_learning\run_al_yolo_ablation_v3_windows_cuda.py
-```
-
-Run direction-issue analysis:
-
-```bash
-.venv/bin/python scripts/03_analysis/analyze_selection_direction_issue.py \
-  --run-dir runs/active_learning_ablation_v3_minimal/<RUN_DIR> \
-  --priority-dir outputs/pseudo_boxes_20260622_191121
-```
-
-Run consistency-hypothesis analysis:
-
-```bash
-.venv/bin/python scripts/03_analysis/analyze_consistency_hypothesis.py \
-  --run-dir runs/active_learning_ablation_v3_minimal/<RUN_DIR>
-```
-
-## Current Status
-
-Implemented:
-
-- expert prompt family versioning for VLM industrial defect descriptions
-- VLM explanation consistency scoring
-- OWL-ViT pseudo-box generation
-- pseudo groundedness computation
-- GT-free priority score generation
-- multiple active learning acquisition strategies
-- YOLOv8 detector-level validation
-- mAP/AULC aggregation
-- direction-issue and no-pseudo diagnostics
-
-Open research issues:
-
-- score-direction calibration,
-- pseudo-groundedness reliability,
-- `no_pseudo_box` handling,
-- class and dataset distribution shifts,
-- seed and validation split sensitivity,
-- stronger evidence before claiming superiority over random selection.
-
-## Research Position
-
-This repository should be read as an experimental research framework, not as a closed final method. The current evidence supports the following careful claim:
-
-> VLM consistency and pseudo-groundedness provide useful GT-free acquisition signals, but the acquisition direction and weak visual evidence calibration require further validation before claiming robust superiority.
-
-More precisely, the core hypothesis is:
-
-> Expert-designed VLM prompt-family inconsistency can serve as a GT-free active learning acquisition signal. Pseudo groundedness is weak auxiliary visual evidence, not the core method or ground-truth localization.
+현재 결과 브랜치는 `codex/runpod-170-final-results-20261027`이며, `main` 반영은 [PR #5](https://github.com/hoyeol-ui/Defect_VLM_Project/pull/5)에서 관리한다.
