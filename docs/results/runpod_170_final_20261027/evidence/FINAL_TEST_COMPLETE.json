@@ -1,0 +1,14 @@
+{
+  "status": "170_FIXED_MODELS_TESTED",
+  "time_utc": "2026-10-27T12:49:02.119523+00:00",
+  "physical_models": 170,
+  "logical_rows": 190,
+  "test_images_per_dataset": {
+    "GC10-DET": 343,
+    "NEU-DET": 270
+  },
+  "summary_sha": "eb934b5d533ac9b63c47e4bcfa7bf30e6dd18e0d3a0141d004d9975a9c55d4e0",
+  "package_lock_sha": "120e1d931b8f4ee6f2de026ff6c63d73e5c53b07889472d82b5e55d8de24324e",
+  "Pod_stopped": false,
+  "automatic_retry": false
+}

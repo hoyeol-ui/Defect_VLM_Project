@@ -1,0 +1,182 @@
+{
+  "status": "PASS",
+  "cell_id": "NEU-DET_Random_pair2_R3",
+  "partition": "test",
+  "technical_only": false,
+  "model_sha": "611f1db2f47fa2b059cccebe596f9ffd785e57d0124acd615f3b56d0ef983889",
+  "input_manifest_sha": "798357c17f97e25c7549b7773a79eebf4e6b66196820c14be89b27c5fd4179fb",
+  "images_seen": 270,
+  "model": {
+    "cell_id": "NEU-DET_Random_pair2_R3",
+    "dataset": "NEU-DET",
+    "method": "Random",
+    "pair": 2,
+    "budget_percent": 25,
+    "round": 3,
+    "train_images": 315,
+    "learner_seed": 2026102502,
+    "acquisition_seed": 2026102402,
+    "best_epoch": 161,
+    "best_path": "server_snapshot/runpod_200e_5seed_blackwell_entropy04/runs/models/NEU-DET_Random_pair2_R3/train/weights/best.pt",
+    "best_sha": "611f1db2f47fa2b059cccebe596f9ffd785e57d0124acd615f3b56d0ef983889",
+    "last_path": "server_snapshot/runpod_200e_5seed_blackwell_entropy04/runs/models/NEU-DET_Random_pair2_R3/train/weights/last.pt",
+    "last_sha": "57d2c043475cf53dc905b6233f0c308f533bee96b17d14bed3b1067d6df5435a",
+    "complete_path": "server_snapshot/runpod_200e_5seed_blackwell_entropy04/runs/models/NEU-DET_Random_pair2_R3/COMPLETE.json",
+    "complete_sha": "f8e30c8b2c27071d43d0ae121ac2d9311e8cf798928ac1f7f7c885651d46b1a8",
+    "loader_path": "server_snapshot/runpod_200e_5seed_blackwell_entropy04/runs/models/NEU-DET_Random_pair2_R3/loader_ids.json",
+    "loader_sha": "d287776338c70c29b46991ba20f81145d8b513ac457640a30ab9e2fa9c8ce442"
+  },
+  "overall": {
+    "metrics/precision(B)": 0.5925150247931573,
+    "metrics/recall(B)": 0.5683249365037023,
+    "metrics/mAP50(B)": 0.574759321858446,
+    "metrics/mAP50-95(B)": 0.30317473733080885,
+    "fitness": 0.30317473733080885
+  },
+  "class_metrics": [
+    {
+      "class_id": 0,
+      "name": "crazing",
+      "AP50": 0.17789191992652548,
+      "AP50_95": 0.050054228257617316,
+      "AP_by_IoU": [
+        0.17789191992652548,
+        0.14012530328746314,
+        0.07377961156210797,
+        0.05203723966638693,
+        0.03399689981426298,
+        0.020212462901015617,
+        0.0018014673680918493,
+        0.0003438627703333586,
+        0.0003438627703333586,
+        9.652509652509653e-06
+      ],
+      "precision": 0.3532813494136982,
+      "recall": 0.23300970873786409
+    },
+    {
+      "class_id": 1,
+      "name": "inclusion",
+      "AP50": 0.6265158737795635,
+      "AP50_95": 0.29082306479671277,
+      "AP_by_IoU": [
+        0.6265158737795635,
+        0.5731802565766566,
+        0.5102831117094443,
+        0.48666577420603996,
+        0.36148737946283127,
+        0.24216198936111594,
+        0.08311815345786587,
+        0.022009982786897992,
+        0.0028081266267123476,
+        0.0
+      ],
+      "precision": 0.5967867071684505,
+      "recall": 0.6291390728476821
+    },
+    {
+      "class_id": 2,
+      "name": "patches",
+      "AP50": 0.801788722974798,
+      "AP50_95": 0.5265248612548207,
+      "AP_by_IoU": [
+        0.801788722974798,
+        0.7919658610205891,
+        0.7903223932459739,
+        0.7555720883003376,
+        0.6888719089508439,
+        0.561688121636622,
+        0.47274037170769145,
+        0.2800954822983054,
+        0.11807837280903205,
+        0.004125289604013008
+      ],
+      "precision": 0.6639193740530472,
+      "recall": 0.7786259541984732
+    },
+    {
+      "class_id": 3,
+      "name": "pitted_surface",
+      "AP50": 0.5917420895453587,
+      "AP50_95": 0.31445750619882484,
+      "AP_by_IoU": [
+        0.5917420895453587,
+        0.5676442571548724,
+        0.49620190896399136,
+        0.4483862295603975,
+        0.30172868663374297,
+        0.26284016879188943,
+        0.18817137254891037,
+        0.1255002182313895,
+        0.08890867924737823,
+        0.07345145131031758
+      ],
+      "precision": 0.6325587034154925,
+      "recall": 0.6
+    },
+    {
+      "class_id": 4,
+      "name": "rolled-in_scale",
+      "AP50": 0.4821788613588639,
+      "AP50_95": 0.21610825079720958,
+      "AP_by_IoU": [
+        0.4821788613588639,
+        0.4602331109738823,
+        0.4083263212216788,
+        0.33412542084852503,
+        0.23986719458071837,
+        0.13441413720181494,
+        0.07830581433215705,
+        0.020000303469493046,
+        0.003499765037593985,
+        0.00013157894736842105
+      ],
+      "precision": 0.5738024687473351,
+      "recall": 0.5106382978723404
+    },
+    {
+      "class_id": 5,
+      "name": "scratches",
+      "AP50": 0.7684384635655664,
+      "AP50_95": 0.42108051267966806,
+      "AP_by_IoU": [
+        0.7684384635655664,
+        0.7475396181066523,
+        0.7282567017247771,
+        0.6262541763713557,
+        0.5433585664053784,
+        0.36458945513023544,
+        0.23372602456753175,
+        0.14795521177844978,
+        0.05038690914673314,
+        0.00030000000000000003
+      ],
+      "precision": 0.7347415459609205,
+      "recall": 0.6585365853658537
+    }
+  ],
+  "IoU_thresholds": [
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.8500000000000001,
+    0.9,
+    0.95
+  ],
+  "precision_recall_interpretation": "Native maximum smoothed mean F1 summary; not a fixed conf0.25 operating point",
+  "seconds": 3.8283508000004076,
+  "speed_ms_per_image": {
+    "preprocess": 0.20035925925320178,
+    "inference": 4.8089914814597625,
+    "loss": 0.0007903703725012882,
+    "postprocess": 0.20370740738952817
+  },
+  "peak_GPU_bytes": 427164160,
+  "training_performed": false,
+  "DINO_reextraction_performed": false,
+  "time_utc": "2026-10-27T12:39:14.143434+00:00"
+}

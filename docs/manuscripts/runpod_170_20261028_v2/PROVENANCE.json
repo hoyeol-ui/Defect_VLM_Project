@@ -1,0 +1,33 @@
+{
+  "revision_date_kst": "2026-10-28",
+  "manuscript": "03_JKICS_Revised_Manuscript_170models_20261028_v2.docx",
+  "manuscript_sha256": "b870aa82289019b6f702ff44976558e8332e88600a2402615064182fb2c28fd4",
+  "previous_manuscript": "../../results/runpod_170_final_20261027/manuscript/03_JKICS_Revised_Manuscript_170models_20261027.docx",
+  "previous_manuscript_sha256": "b002804c794c9fd82998c5cf2ce6fb618669aadc44088b3b9f2ae01846cbbac4",
+  "source_test_summary": "../../results/runpod_170_final_20261027/results/TEST_SUMMARY.json",
+  "source_test_summary_sha256": "eb934b5d533ac9b63c47e4bcfa7bf30e6dd18e0d3a0141d004d9975a9c55d4e0",
+  "source_posthoc_analysis": "../../results/runpod_170_final_20261027/results/POSTHOC_ANALYSIS.json",
+  "source_posthoc_analysis_sha256": "d10906c04b7320b06d810af7583f2fcb5577ffed0f6fe1adca1b8037d2d88da2",
+  "sealed_result_manifest_sha256": "8e8b92ab747488c79f3cad686b35f3bf6d9f72ca8ac91880fd59692a2a57684b",
+  "changes": [
+    "Experimental architecture added as Figure 1; existing result figures renumbered 2–6",
+    "Research questions and empirical contribution clarified",
+    "Table 7 expanded to all 16 classes with paired uncertainty",
+    "Table 4 includes minimum-class nAULC",
+    "Table 9 includes observed Full ratios and post-hoc 95% attainment counts",
+    "Discussion links aggregate effects and class-specific contributions"
+  ],
+  "web_transcription": {
+    "source": "byte-identical DOCX",
+    "figures": 6,
+    "tables": 9,
+    "equations": 4,
+    "equation_format": "GitHub LaTeX transcription of the four unchanged native Word equations",
+    "original_result_images": "byte-identical references to the sealed result package"
+  },
+  "new_training_or_inference": false,
+  "svg_publication": {
+    "transformation": "Remove generated end-of-line spaces only; whitespace-normalized content is identical",
+    "source_sha256": "016ec8d10e43aa186dcdc3f01f68145cbc60ff3b1203abc6b05745225b1940f9"
+  }
+}

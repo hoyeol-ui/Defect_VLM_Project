@@ -1,0 +1,24 @@
+{
+  "status": "READY_FOR_USER_RUNPOD_SHUTDOWN_REVIEW",
+  "time_utc": "2026-10-27T12:51:53.997244+00:00",
+  "backup_files": 21745,
+  "backup_unique_bytes": 47916387837,
+  "local_disk_readback_pass_sha": "de0a41b61331729467c3f838abafe63ff2838b2a3609c357b1210adf343332d0",
+  "model_artifacts_verified": 340,
+  "physical_models_tested": 170,
+  "logical_result_rows": 190,
+  "final_test_complete_sha": "4a63a5358a1fa8d9ce16ff6fa30bc5b26b864f4e36461187b3867c79c8bc9959",
+  "summary_sha": "eb934b5d533ac9b63c47e4bcfa7bf30e6dd18e0d3a0141d004d9975a9c55d4e0",
+  "source_model_audit_sha": "296674b7addde5153bfb8648cdd4aecac2f793a0ce4e34e3895426b1c017466d",
+  "local_test_locks_released": true,
+  "scientific_retry_performed": false,
+  "additional_DINO_or_training_performed": false,
+  "Pod_stop_or_terminate_performed": false,
+  "Pod_left_running": true,
+  "shutdown_action_left_to_user": true,
+  "runtime_limitations": [
+    "Local Windows RTX3070 CUDA12.6 evaluation differs from Linux Blackwell CUDA12.9 training; no claim of bitwise device equivalence.",
+    "Canonical source has documented historical exposure; this test is held out from the new170 training, not a never-seen external dataset.",
+    "Five paired seeds cannot yield two-sided exact sign-flip p<.05; do not alter tests to pursue significance."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "paired_seed_count": 5,
+  "logical_rows": 190,
+  "metrics": [
+    "mAP50",
+    "mAP50-95"
+  ],
+  "sample_std_ddof": 1,
+  "Full_attainment": "For each dataset/strategy/budget and paired seed:100*score/paired_Full_score; report mean and sample std of five ratios; zero Full denominator is undefined and must be reported, never imputed",
+  "primary_metric": "test mAP50-95 nAULC integrated over actual10-35% training image counts",
+  "comparisons": {
+    "paired_comparisons": [
+      "GC10:DINO-Random",
+      "GC10:DINO-Entropy",
+      "NEU:DINO-Random",
+      "NEU:DINO-Entropy"
+    ],
+    "multiplicity": "two-sided exact sign-flip plus Holm over4 comparisons; descriptive effect sizes and all paired values; no promised significance",
+    "unit": "paired acquisition+learner combination; not separate estimates of both variance sources"
+  },
+  "two_sided_exact_sign_flip_assignments": 32,
+  "two_sided_exact_sign_flip_min_p": 0.0625,
+  "limitation": "Existing two-sided exact sign-flip mean test cannot reach p<.05 with five paired differences before Holm. Do not change tests to chase significance.",
+  "test_inferences_executed": 0,
+  "final_test_requires_separate_execution_authorization": true
+}

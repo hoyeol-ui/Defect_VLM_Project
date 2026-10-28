@@ -1,0 +1,302 @@
+{
+  "design": "FRESH_OFFICIAL_200E_5PAIRS_20261023",
+  "datasets": [
+    "GC10-DET",
+    "NEU-DET"
+  ],
+  "methods": [
+    "Random",
+    "DINOv2_S14_F518_FF",
+    "Entropy_NCS_MEAN_V2"
+  ],
+  "seed_pairs": [
+    {
+      "pair": 1,
+      "acquisition": 2026102401,
+      "learner": 2026102501
+    },
+    {
+      "pair": 2,
+      "acquisition": 2026102402,
+      "learner": 2026102502
+    },
+    {
+      "pair": 3,
+      "acquisition": 2026102403,
+      "learner": 2026102503
+    },
+    {
+      "pair": 4,
+      "acquisition": 2026102404,
+      "learner": 2026102504
+    },
+    {
+      "pair": 5,
+      "acquisition": 2026102405,
+      "learner": 2026102505
+    }
+  ],
+  "counts": {
+    "GC10-DET": [
+      160,
+      241,
+      321,
+      401,
+      481,
+      561
+    ],
+    "NEU-DET": [
+      126,
+      189,
+      252,
+      315,
+      377,
+      440
+    ]
+  },
+  "budgets_percent": [
+    10,
+    15,
+    20,
+    25,
+    30,
+    35
+  ],
+  "physical_models": 170,
+  "logical_metric_rows": 190,
+  "training_args": {
+    "task": "detect",
+    "mode": "train",
+    "epochs": 200,
+    "time": null,
+    "patience": 200,
+    "batch": 32,
+    "imgsz": 640,
+    "save": true,
+    "save_period": -1,
+    "cache": false,
+    "device": "0",
+    "workers": 4,
+    "name": "train",
+    "exist_ok": false,
+    "pretrained": true,
+    "optimizer": "SGD",
+    "verbose": false,
+    "seed": "learner_seed of the paired cell",
+    "deterministic": true,
+    "single_cls": false,
+    "rect": false,
+    "cos_lr": true,
+    "close_mosaic": 10,
+    "resume": false,
+    "amp": false,
+    "fraction": 1.0,
+    "profile": false,
+    "freeze": null,
+    "multi_scale": 0.0,
+    "compile": false,
+    "overlap_mask": true,
+    "mask_ratio": 4,
+    "dropout": 0.0,
+    "val": true,
+    "split": "val",
+    "save_json": false,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300,
+    "quantize": 32,
+    "dnn": false,
+    "plots": false,
+    "end2end": true,
+    "source": null,
+    "vid_stride": 1,
+    "stream_buffer": false,
+    "visualize": false,
+    "augment": false,
+    "agnostic_nms": false,
+    "classes": null,
+    "retina_masks": false,
+    "embed": null,
+    "show": false,
+    "save_frames": false,
+    "save_txt": false,
+    "save_conf": false,
+    "save_crop": false,
+    "show_labels": true,
+    "show_conf": true,
+    "show_boxes": true,
+    "line_width": null,
+    "format": "torchscript",
+    "keras": false,
+    "optimize": false,
+    "dynamic": false,
+    "simplify": true,
+    "opset": null,
+    "workspace": null,
+    "nms": false,
+    "lr0": 0.01,
+    "lrf": 0.01,
+    "momentum": 0.937,
+    "weight_decay": 0.0005,
+    "warmup_epochs": 3.0,
+    "warmup_momentum": 0.8,
+    "warmup_bias_lr": 0.1,
+    "distill_model": null,
+    "dis": 6.0,
+    "box": 7.5,
+    "cls": 0.5,
+    "cls_pw": 0.0,
+    "dfl": 1.5,
+    "pose": 12.0,
+    "kobj": 1.0,
+    "rle": 1.0,
+    "angle": 1.0,
+    "nbs": 64,
+    "hsv_h": 0.015,
+    "hsv_s": 0.7,
+    "hsv_v": 0.4,
+    "degrees": 0.0,
+    "translate": 0.1,
+    "scale": 0.5,
+    "shear": 0.0,
+    "perspective": 0.0,
+    "flipud": 0.0,
+    "fliplr": 0.5,
+    "bgr": 0.0,
+    "mosaic": 1.0,
+    "mixup": 0.0,
+    "cutmix": 0.0,
+    "copy_paste": 0.0,
+    "copy_paste_mode": "flip",
+    "auto_augment": "randaugment",
+    "erasing": 0.4,
+    "cfg": null,
+    "tracker": "tracktrack.yaml",
+    "data": "verified cell-specific loader view",
+    "model": "same original yolo26s.pt; cold start at each budget"
+  },
+  "training_environment": {
+    "python": "3.11.9 (main, Aug 14 2024, 05:07:28) [Clang 18.1.8 ]",
+    "versions": {
+      "torch": "2.12.1+cu129",
+      "torchvision": "0.27.1+cu129",
+      "ultralytics": "8.4.90",
+      "transformers": "5.13.0",
+      "numpy": "2.4.6",
+      "Pillow": "12.3.0",
+      "opencv": "5.0.0"
+    },
+    "GPU": "NVIDIA RTX PRO 4500 Blackwell",
+    "VRAM_bytes": 33687470080,
+    "capability": [
+      12,
+      0
+    ],
+    "driver": "595.91.07",
+    "TF32": false,
+    "AMP": false
+  },
+  "evaluation": {
+    "created_utc": "2026-10-27T10:12:12.925865+00:00",
+    "physical_models": 170,
+    "logical_score_rows": 190,
+    "checkpoint": "best.pt chosen on dev mAP50-95; no test-driven selection",
+    "evaluation": {
+      "imgsz": 640,
+      "batch": 8,
+      "rect": false,
+      "conf": 0.001,
+      "iou": 0.7,
+      "max_det": 300,
+      "quantize": null,
+      "workers": 0,
+      "device": "0",
+      "augment": false,
+      "plots": false,
+      "save_json": false,
+      "deterministic": true
+    },
+    "backend": {
+      "matmul_TF32": false,
+      "cudnn_TF32": false,
+      "cudnn_benchmark": false
+    },
+    "runtime": {
+      "python": "3.11.9",
+      "torch": "2.12.1+cu126",
+      "torchvision": "0.27.1+cu126",
+      "ultralytics": "8.4.90",
+      "numpy": "2.4.6",
+      "Pillow": "12.3.0",
+      "gpu_contains": "RTX 3070"
+    },
+    "limitations": [
+      "Local Windows RTX3070 CUDA12.6 evaluation differs from Linux Blackwell CUDA12.9 training; no claim of bitwise device equivalence.",
+      "Canonical source has documented historical exposure; this test is held out from the new170 training, not a never-seen external dataset.",
+      "Five paired seeds cannot yield two-sided exact sign-flip p<.05; do not alter tests to pursue significance."
+    ],
+    "inference_batch_rationale": "Fixed batch8 before test for local8GB VRAM; no auto-batch or automatic fallback",
+    "retry_policy": "Stop on first failure; preserve all results, no automatic retest or checkpoint substitution",
+    "training": false,
+    "DINO_reextraction": false,
+    "RunPod_stop": false
+  },
+  "selection": {
+    "namespace": 1179473458,
+    "dataset_codes": {
+      "GC10-DET": 1,
+      "NEU-DET": 2
+    },
+    "R0_purpose": 0,
+    "Random_purpose": 1,
+    "DINO": "frozen L2-normalized CLS FP32; CPU FP64 farthest first;1e-12 ID tie rule",
+    "Entropy": "raw one2one normalized class-score mean entropy; conf>.25 class NMS IoU.7 max300; no detections=0; exact score then ID; all-tied ranking stops"
+  },
+  "feature_specification": {
+    "model": "facebook/dinov2-small",
+    "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+    "weight_sha": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1",
+    "max_side": 518,
+    "padding_rgb": [
+      124,
+      116,
+      104
+    ],
+    "resize": "torchvision_uint8_bicubic_antialias",
+    "rounding": "half_up",
+    "crop": false,
+    "processor_resize": false,
+    "processor_crop": false,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "dimension": 384,
+    "dtype": "float32",
+    "norm_tolerance": 1e-06,
+    "repeat_component_tolerance": 0.0001,
+    "repeat_cosine_tolerance": 1e-05,
+    "batch": 1
+  },
+  "test_split_images": {
+    "GC10-DET": 343,
+    "NEU-DET": 270
+  },
+  "split_seeds": {
+    "GC10-DET": 2026102306,
+    "NEU-DET": 2026102307
+  },
+  "provenance_notes": [
+    "Base common_args originally contains technical batch4 and an obsolete default seed; effective values above are overridden by FROZEN_PLAN and each of the170 completed cell records.",
+    "MODELS_COMPLETE describes server training and explicitly records no test. Local FINAL_TEST_COMPLETE is the later distinct authorization and completion event.",
+    "Some early artifacts were preserved through recovery/admin03 references; completion is based on the170 actual best/last artifact hashes, not on folder-name counts.",
+    "The iou=.7 argument is recorded, but final YOLO26 one-to-one end-to-end evaluation is NMS-free. Acquisition-specific class NMS is separate.",
+    "Historical data exposure remains. This is held out from this campaign, not an unseen external dataset."
+  ]
+}

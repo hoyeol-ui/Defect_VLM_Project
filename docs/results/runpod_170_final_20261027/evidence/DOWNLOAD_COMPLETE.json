@@ -1,0 +1,10 @@
+{
+  "status": "ALL_SELECTED_FILES_SHA256_VERIFIED",
+  "files": 21745,
+  "unique_bytes": 47916387837,
+  "manifest_sha256": "db2be2579c311ef4dc5bac12eb93b7d091a729785cf54795ff0b5b5341945ac6",
+  "seconds": 7392.828,
+  "server_mutations": false,
+  "retry": false,
+  "completion_utc": "2026-10-27T12:11:53.851693+00:00"
+}
