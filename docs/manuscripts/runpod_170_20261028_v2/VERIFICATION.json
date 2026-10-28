@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "output_sha256": "b870aa82289019b6f702ff44976558e8332e88600a2402615064182fb2c28fd4",
+  "source_sha256": "b002804c794c9fd82998c5cf2ce6fb618669aadc44088b3b9f2ae01846cbbac4",
+  "test_summary_sha256": "eb934b5d533ac9b63c47e4bcfa7bf30e6dd18e0d3a0141d004d9975a9c55d4e0",
+  "physical_models": 170,
+  "recomputed_from_raw_records": true,
+  "figures": 6,
+  "numeric_tables": 9,
+  "all_classes_in_table7": 16,
+  "native_equations_identical": 4,
+  "original_images_byte_identical": 5,
+  "native_comments_valid": 3,
+  "references_unchanged": 10,
+  "pages": 9,
+  "scientific_checks": {
+    "GC10-DET": {
+      "class_delta_mean_pp": 2.2343467876114516,
+      "class_contributions_pp": {
+        "punching_hole": 0.0024143966134170117,
+        "welding_line": 0.40217956664827836,
+        "crescent_gap": 0.13243158258523197,
+        "water_spot": 0.1701102482626179,
+        "oil_spot": 0.04993962580841362,
+        "silk_spot": -0.106676066989316,
+        "inclusion": -0.13017293182778877,
+        "rolled_pit": 0.17648017496830284,
+        "crease": 0.9367282928974182,
+        "waist_folding": 0.6009118986448768
+      },
+      "overall_D_minus_E_pp": 0.45088386502671085,
+      "minimum_class_D_minus_E_pp": -0.14841504768679714,
+      "DINO_Full_ratio_min_max": [
+        89.60853405426138,
+        105.5184817400826
+      ],
+      "DINO_Full95_n": 2
+    },
+    "NEU-DET": {
+      "class_delta_mean_pp": -0.0748000944997429,
+      "class_contributions_pp": {
+        "crazing": -0.4029399984726776,
+        "inclusion": 0.038584784995247645,
+        "patches": 0.04118439104807194,
+        "pitted_surface": 0.20457220839055276,
+        "rolled-in_scale": -0.6780571631032002,
+        "scratches": 0.721855682642263
+      },
+      "overall_D_minus_E_pp": 0.24557426893799672,
+      "minimum_class_D_minus_E_pp": -0.994417480786745,
+      "DINO_Full_ratio_min_max": [
+        86.02166006341554,
+        94.03327982179445
+      ],
+      "DINO_Full95_n": 0
+    }
+  },
+  "new_training_or_inference": false,
+  "all_pages_visually_checked": true,
+  "public_result_package_unchanged": true,
+  "local_paths_omitted": true
+}

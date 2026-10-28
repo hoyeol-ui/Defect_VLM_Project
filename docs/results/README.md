@@ -1,5 +1,11 @@
 # Curated Experiment Results
 
+## Latest completed study · 2026-10-28 manuscript revision
+
+The [170-model final results](runpod_170_final_20261027/README_KO.md) cover GC10-DET and NEU-DET with Random, DINOv2-FF and Entropy. The [latest revised manuscript](../manuscripts/runpod_170_20261028_v2/README_KO.md) adds the experimental architecture, all 16 class results, aggregate versus minimum-class nAULC, and paired Full attainment ranges. The original 2026-10-27 result package remains unchanged.
+
+The older VLM result sets below are retained as research history.
+
 This directory is intended for lightweight, GitHub-trackable experiment summaries.
 
 Raw YOLO training folders under `runs/` and generated score folders under `outputs/`
